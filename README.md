@@ -16,5 +16,5 @@
 1. Add the fonts to the this repo, in the `src/fonts` folder
 1. Make sure the paths to the fonts are generated, by publishing the fonts (`gulp fonts:clean && gulp fonts:rev && gulp fonts:release`)
 1. Adjust the font-settings in the theme specific `_settings.scss` file
-1. Make sure the @font-face rule is generated: check if the @webfont mixin is used for this font
+1. Make sure the `@font-face` rule is generated: check if the `@webfont mixin` is used for this font
 1. Now you're ready for testing the new font
