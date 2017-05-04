@@ -1,0 +1,52 @@
+// Object.Pagination
+
+
+.Pagination {
+    margin-left: 0;
+    text-align: center;
+    line-height: 1;
+}
+
+.Pagination__Description {
+    display: inline-block;
+    padding: 0 0.75em;
+
+    @include breakpoint(x-small) {
+        display: none;
+    }
+}
+
+.Pagination__Link {
+    display: inline-block;
+    margin-right: 0.125em;
+    margin-left: 0.125em;
+    border-radius: 3px;
+    padding: 0.5em;
+    min-width: 2em;
+    background-color: color(gray-lighter);
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        background-color: color(gray-light);
+    }
+
+    // Only show next and previous links on small screens
+    &:not(.Pagination__Link--IsNext):not(.Pagination__Link--IsPrev) {
+        display: none;
+
+        @include breakpoint(x-small) {
+            display: inline-block;
+        }
+    }
+}
+
+.Pagination__Link--IsCurrent {
+
+    &,
+    &:hover,
+    &:focus {
+        background-color: color(orange);
+        color: color(white);
+    }
+}

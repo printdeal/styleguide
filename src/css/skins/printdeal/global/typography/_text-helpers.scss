@@ -1,0 +1,25 @@
+// UI.Global.TextHelpers
+
+// Text colors
+.text-orange { color: color(orange); }
+.text-green  { color: color(green); }
+.text-red    { color: color(red); }
+.text-blue   { color: color(blue); }
+
+.text-dimmed {
+
+    &,
+    & a {
+        color: color(gray-dark);
+    }
+}
+
+// Text used as intro for sections
+.text-lead {
+    line-height: 1.2;
+    color: color(gray-darkest);
+    font-family: map-get($brand-face-alt, family);
+    font-size: font-size(lead);
+    font-weight: map-get($brand-face-alt, weightAlt);
+    font-style: map-get($brand-face-alt, style);
+}

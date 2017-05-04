@@ -1,0 +1,53 @@
+// UI.Object.BlockList
+
+.BlockList {
+
+    > li,
+    > a {
+        display: block;
+        padding: third($base-spacing-unit) 0;
+    }
+
+    > li:not(:last-child),
+    > a:not(:last-child) {
+        border-color: color(gray-light);
+    }
+
+    > a {
+        text-decoration: none;
+
+        &:hover {
+            color: color(blue-shade);
+        }
+    }
+}
+
+// 1. Manage white-space issues caused by inline-block
+.BlockList--Double {
+    text-align: justify;
+    font-size: 0; // [1]
+
+    > li,
+    > a {
+        display: inline-block;
+        width: 48.5%;
+        vertical-align: top;
+        font-size: font-size(base); // [1]
+
+        &:nth-child(odd) {
+            margin-right: 3%;
+        }
+    }
+}
+
+// Large list, for a list with lots of other content inside
+$blocklist-large-inner-spacing: $base-spacing-unit * 1.5;
+
+.BlockList--Large {
+
+    > li,
+    > a {
+        padding-top: $blocklist-large-inner-spacing;
+        padding-bottom: $blocklist-large-inner-spacing;
+    }
+}

@@ -1,0 +1,33 @@
+.PageHead {
+    position: relative;
+
+    @include breakpoint(small, $type: 'max-width') {
+        border-bottom: 1px solid color(gray-lighter);
+    }
+}
+
+// 1. Every Logo could have it's own ratio
+.SiteLogo {
+    @include svg-background('logo-drukwerkdeal');
+    display: block;
+    padding-bottom: 21.75%; // 1
+    width: 9em;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include breakpoint(small) {
+        width: 12em;
+    }
+
+    @include breakpoint(medium) {
+        width: 17em;
+    }
+
+    [lang='fr'] &      { @include svg-background('logo-printdeal-be-fr'); }
+    [lang='nl'] &      { @include svg-background('logo-printdeal-be-nl'); }
+    [lang='fr'].beta & { @include svg-background('logo-printdeal-be-beta-fr'); }
+    [lang='nl'].beta & { @include svg-background('logo-printdeal-be-beta-nl'); }
+}
+
+// Import other component parts
+@import 'site-nav';

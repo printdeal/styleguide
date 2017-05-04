@@ -1,0 +1,47 @@
+// UI.UI-Object.Divider
+//
+// 1. Reset for <hr>;
+// 2. Address `overflow` set to `hidden` in IE 8/9/10/11.
+
+$divider-color: color(gray-light);
+$divider-arrow-size: halve($base-spacing-unit);
+
+%line {
+    margin: $base-spacing-unit 0;
+    border: none; // [1]
+    height: 1px; // [1]
+    overflow: visible; // [2]
+    background: $divider-color;
+
+    &.pull-up { // stylelint-disable-line selector-no-qualifying-type
+        margin-top: 0;
+    }
+}
+
+hr {
+    @extend %line;
+}
+
+.Divider {
+    @extend %line;
+    position: relative;
+    margin: double($base-spacing-unit) 0;
+
+    &::before,
+    &::after {
+        @extend %overlay;
+        @extend %overlay-center-x;
+        content: '';
+        border-width: $divider-arrow-size;
+        border-style: solid;
+    }
+
+    &::before {
+        border-color: $divider-color transparent transparent;
+    }
+
+    &::after {
+        margin-top: -1.5px;
+        border-color: color(white) transparent transparent;
+    }
+}

@@ -1,0 +1,43 @@
+// Printdeal-FR-Responsive
+
+$base-max-site-width: 79em;
+
+$product-nav-width: 18em;
+
+$z-indexes: (
+    chuck-norris:       2147483647,
+
+    loader:             13,
+    modal:              12,
+    modal-backdrop:     11,
+
+    review:             10,
+
+    sitenav-item-small: 9,
+    site-subnav-small:  8,
+
+    search-form:        7,
+    search-results:     6,
+    search-backdrop:    5,
+
+    sitenav-item-large: 4,
+    site-subnav-large:  3,
+
+    productnav:         3,
+
+    slider-nav:         2,
+    slider-action:      2,
+    slider-active:      2,
+    slider-preload:     1,
+
+    default:            1,
+    below:              -1
+) !default;
+
+$tweakpoints: (
+    'sitenav': 47.5em,
+    'productnav': 66em,
+    'pagewrap': $base-max-site-width + 1.5em,
+    'slider-nav': 70em,
+    'large-screen': 124em
+) !default;

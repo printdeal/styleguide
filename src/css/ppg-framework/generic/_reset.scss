@@ -1,0 +1,51 @@
+// Base.Generic.Reset
+
+// Reset margins from all elements in addition to normalize, for a
+// more pixel perfect design
+body,
+dd,
+form,
+legend,
+th,
+td,
+caption,
+figcaption,
+img,
+video {
+    margin: 0;
+    padding: 0;
+}
+
+// Elements that need a bit of breathing space by default
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hgroup,
+ul,
+ol,
+dl,
+blockquote,
+p,
+table,
+fieldset,
+figure,
+pre,
+hr {
+    margin: 0 0 $base-spacing-unit 0;
+    padding: 0;
+}
+
+// Remove the gap between audio, canvas, iframes,
+// images, videos and the bottom of their containers:
+// https://github.com/h5bp/html5-boilerplate/issues/440
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}

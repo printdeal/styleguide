@@ -1,0 +1,31 @@
+// UI.UI-Object.Progress
+//
+// 1. Overridden with inline style
+.Progress {
+    display: inline-block;
+    border-width: 1px;
+    width: 100%;
+    background-color: color(gray-lightest);
+    color: color(white);
+}
+
+.Progress,
+.Progress__Value {
+    @include rounded;
+    border-style: solid;
+    border-color: color(gray-medium);
+}
+
+.Progress__Value {
+    // width: inline-style value; // [1]
+    margin: -1px 0;
+    border-width: 0 1px 0 0;
+    padding: quarter($base-spacing-unit) third($base-spacing-unit);
+    background-color: color(green);
+
+    &:empty {
+        border-right-width: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}

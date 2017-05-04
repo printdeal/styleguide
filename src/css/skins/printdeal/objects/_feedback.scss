@@ -1,0 +1,53 @@
+
+// UI.UI-Object.Feedback
+//
+// 1. Make sure headings and links inherit the right color, because their
+//    colors are defined explicitly elsewhere. Exception: Btn.
+
+.Feedback {
+    @include rounded;
+    background-color: color(yellow-light);
+    color: color(yellow-dark);
+
+    &:not(:empty) {
+        margin-bottom: $base-spacing-unit;
+        border: 1px solid;
+        padding: halve($base-spacing-unit);
+    }
+
+    *:not(.Btn) {
+        color: inherit; // [1]
+    }
+}
+
+// Success feedback
+
+.Feedback--Success {
+    background-color: color(green-light);
+    color: color(green-shade);
+}
+
+// Error feedback
+
+.Feedback--Error {
+    background-color: color(red-light);
+    color: color(red-shade);
+}
+
+// Info Feedback
+
+.Feedback--Info {
+    background-color: color(blue-light);
+    color: color(blue-shade);
+}
+
+// Modest Feedback
+
+.Feedback--Modest {
+    background-color: color(white);
+    color: color(gray-darker);
+
+    &:not(:empty) {
+        border-color: color(blue);
+    }
+}

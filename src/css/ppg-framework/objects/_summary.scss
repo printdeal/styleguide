@@ -1,0 +1,9 @@
+// Base.Object.Summary
+
+.Summary__Title {
+    font-weight: 700;
+
+    dd + & {
+        margin-top: halve($base-spacing-unit);
+    }
+}

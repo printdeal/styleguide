@@ -1,0 +1,35 @@
+// UI.UI-Object.Ribbon
+//
+// 1. Hide ribbon overflow;
+// 2. Use translate3d to ensure crisp text-rendering;
+// 3. Make sure the ribbon is on top of other positioned elements in the container;
+// 4. Prevent text from overflowing Ribbon container;
+
+// To change the size of the Ribbon, ONLY change this value!
+// Em-based, so it's not dependant of $base-spacing-unit;
+$ribbon-width: 12em;
+
+.HasRibbon {
+    position: relative;
+    overflow: hidden; // [1]
+}
+
+.Ribbon {
+    @extend %overlay;
+    @extend %overlay-top;
+    @extend %overlay-left;
+    @include text-nobreak;
+    transform: rotate(-45deg) translate3d(0, 0, 0); // [2]
+    transform-origin: 0 100%;
+    margin-top: halve($ribbon-width);
+    padding: 0.5em 0;
+    width: $ribbon-width;
+    overflow: hidden; // [4]
+    background-color: color(blue);
+    text-align: center;
+    color: color(white);
+
+    .no-csstransforms3d & {
+        transform: rotate(-45deg);
+    }
+}

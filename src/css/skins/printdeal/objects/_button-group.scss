@@ -1,0 +1,19 @@
+// Group buttons in a single line
+
+.BtnGroup {
+    @include clearfix;
+    border-radius: radius(small);
+
+    .Btn {
+        float: left;
+        border-radius: radius(none);
+
+        &:first-child {
+            @include rounded-left;
+        }
+
+        &:last-child {
+            @include rounded-right;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.PageFoot {
+    margin-top: quadruple($base-spacing-unit);
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: color(gray-lighter);
+    padding: $base-spacing-unit 0 double($base-spacing-unit);
+    background-color: color(gray-lightest);
+    color: color(gray-dark);
+}

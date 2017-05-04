@@ -1,0 +1,53 @@
+// Object.OptionsList
+
+// @extends .Matrix__Item
+.Options__Option {
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+        border-color: color(blue);
+    }
+}
+
+.Options__Option--IsSelected {
+
+    &,
+    &:hover {
+        border-color: color(green);
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+    }
+
+    &::before {
+        @include sprite;
+        @include icon('CheckCircle--Green');
+        font-size: font-size(xlarge);
+    }
+
+    &::after {
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        height: 3px;
+        background-color: color(green);
+    }
+}
+
+.Options__Option--IsInvalid::before {
+    @include icon('CrossCircle--Red');
+}
+
+.Options__Option--IsDisabled {
+    color: color(gray-light);
+    cursor: default;
+
+    &,
+    &:hover {
+        border-color: color(gray-light);
+    }
+}

@@ -1,0 +1,35 @@
+// Base.Object.Media
+//
+// @link The Media Object originally came from Nicole Sullivan. This is
+//       an adapted version (http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/)
+
+.Media {
+    @include clearfix;
+    display: block;
+    width: 100%;
+}
+
+.Media__Img {
+    float: left;
+    margin-right: halve($base-spacing-unit);
+
+    > img {
+        display: block;
+    }
+}
+
+.Media__Body {
+    @include trim;
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+// Reversed media object
+.Media--Rev {
+
+    > .Media__Img {
+        float: right;
+        margin-right: 0;
+        margin-left: halve($base-spacing-unit);
+    }
+}

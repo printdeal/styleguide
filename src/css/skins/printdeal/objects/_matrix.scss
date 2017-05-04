@@ -1,0 +1,24 @@
+// UI.Object.Matrix
+
+.Matrix {
+    margin-right: negative(halve($base-spacing-unit));
+    margin-left: negative(halve($base-spacing-unit));
+}
+
+.Matrix__Item {
+    margin-right: halve($base-spacing-unit);
+    margin-bottom: $base-spacing-unit;
+    margin-left: halve($base-spacing-unit);
+    border: 1px solid color(gray-light);
+    padding: halve($base-spacing-unit);
+    text-decoration: none;
+}
+
+a.Matrix__Item:hover { // stylelint-disable-line selector-no-qualifying-type
+    border-color: color(blue);
+}
+
+.Matrix__Img {
+    display: block;
+    margin: 0 auto halve($base-spacing-unit) auto;
+}

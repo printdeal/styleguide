@@ -1,0 +1,18 @@
+// Styleguide Typography
+
+// 1. Specificity hack
+.h--mega.h--mega { // [1]
+    line-height: 1;
+    font-size: 5em;
+}
+
+.color {
+    font-family: monospace;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+code,
+pre {
+    font-family: 'Source Code Pro', monospace, monospace;
+}

@@ -1,0 +1,15 @@
+.Table--Tiny {
+    border: none;
+
+    tr:last-of-type {
+        border-bottom-width: 1px;
+    }
+
+    td,
+    th {
+        @include breakpoint(small) {
+            padding-top: 0.3em;
+            padding-bottom: 0.3em;
+        }
+    }
+}

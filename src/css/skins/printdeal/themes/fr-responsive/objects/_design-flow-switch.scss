@@ -1,0 +1,89 @@
+// Object.DesignFlowSwitch
+
+// 1. Override styles for a:hover, a:focus
+// 2. Bottom border of DesignFlowSwitch object
+// 3. Bottom css triangle (arrow)
+
+.DesignFlowSwitch {
+    @include row($valign: stretch, $halign: justify);
+    @include breakpoint(medium, 'max-width') {
+        display: block;
+    }
+}
+
+.DesignFlowSwitch__Btn {
+    @include col;
+    @include trim;
+    position: relative;
+    margin: $base-spacing-unit 0;
+    border: 1px solid color(gray-light);
+    border-radius: radius(small);
+    padding: $base-spacing-unit;
+    width: 48.5%;
+    background-color: color(white);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        color: inherit; // [1]
+    }
+
+    &::before { // [2]
+        content: '';
+        position: absolute;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        height: 4px;
+        background-color: transparent;
+    }
+
+    &::after { // [3]
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        margin-left: -8px;
+        border-width: 8px 8px 0 8px;
+        border-style: solid;
+        border-color: transparent;
+        width: 0;
+        height: 0;
+    }
+
+    &.js-tabs-nav-item-selected {
+        @include rounded-top;
+        &::before {
+            background-color: color(green); // [2]
+        }
+        &::after {
+            border-top-color: color(green); // [3]
+        }
+    }
+
+    @include breakpoint(medium, 'max-width') {
+        width: 100%;
+        &::after,
+        .Btn {
+            display: none;
+        }
+    }
+}
+
+.DesignFlowSwitch__Btn--Alt {
+    &:hover,
+    &:focus {
+        @include rounded-top; // [1]
+        &::before {
+            background-color: color(green-light);
+        }
+        &::after {
+            border-top-color: color(green-light);
+        }
+    }
+}
+
+.DesignFlowSwitch__ByLine {
+    margin-bottom: $base-spacing-unit;
+}

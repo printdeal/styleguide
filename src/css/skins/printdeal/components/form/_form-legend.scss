@@ -1,0 +1,9 @@
+// UI.Form.Legend
+
+legend {
+    @include heading;
+    margin-bottom: halve($base-spacing-unit);
+    border-bottom: 1px solid color(gray-lighter);
+    padding-bottom: quarter($base-spacing-unit);
+    width: 100%;
+}

@@ -1,0 +1,59 @@
+// UI.Form.TextInput
+//
+// 1. Prevent browers applying a blue-ish outline on field focus;
+// 2. Make inputs at least fill their container to be consistent across browsers
+//    and with each other;
+// 3. Set explicit line-height to render elements at equal heights across
+//    browsers;
+// 4. Make select with height because in safari and google chrome
+//    it looks smaller than in another browsers
+
+$input-bg: color(white);
+$form-input-border: color(gray-light);
+$form-disabled-text: color(gray-medium);
+$input-disabled-bg: color(gray-lighter);
+$input-placeholder-color: color(gray-medium);
+
+%form-input {
+    @include rounded;
+    display: inline-block;
+    margin-bottom: halve($base-spacing-unit);
+    outline: none; // [1]
+    border: 1px solid $form-input-border;
+    padding: 0.45em 0.5em 0.5em 0.5em;
+    width: 100%; // [2]
+    height: 2.5em; // [4]
+    background-color: $input-bg;
+    vertical-align: top;
+    line-height: 1.2; // [3]
+    font-size: 1em;
+
+    &:disabled {
+        background-color: $input-disabled-bg;
+    }
+}
+
+#{$all-text-fields},
+.TextInput {
+    @extend %form-input;
+    appearance: none;
+
+    &:hover {
+        border-color: color(gray-medium);
+    }
+
+    &:focus,
+    &:focus:hover {
+        border-color: color(blue);
+    }
+}
+
+// 1. Remove the 'erase/clear' cross in IE >= 10
+::-ms-clear {
+    display: none; // [1]
+}
+
+// Styling the text which is availabe via the placeholder attribute
+::placeholder {
+    color: $input-placeholder-color;
+}

@@ -1,0 +1,28 @@
+// UI.UI-Object.Alert
+
+$alert-inner-spacing: halve($base-spacing-unit);
+
+.Alert {
+    @extend %flag;
+    @include rounded;
+    @include clip-rounded;
+    background-color: color(gray-lighter);
+}
+
+.Alert__Icon,
+.Alert__Body {
+    vertical-align: top;
+}
+
+.Alert__Icon {
+    @extend %flag-img;
+    @include rounded-left;
+    padding: halve($alert-inner-spacing) $alert-inner-spacing;
+    background-color: color(yellow-shade);
+}
+
+.Alert__Body {
+    @extend %flag-body;
+    @include trim;
+    padding: $alert-inner-spacing;
+}

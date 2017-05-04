@@ -1,0 +1,75 @@
+// Base.Object.Overlay
+
+.HasOverlay {
+    position: relative;
+}
+
+%overlay,
+.Overlay {
+    position: absolute;
+}
+
+// Covering overlays
+%overlay-cover {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+%overlay-cover-x {
+    left: 0;
+    width: 100%;
+}
+
+%overlay-cover-y {
+    top: 0;
+    height: 100%;
+}
+
+.Overlay--Cover { @extend %overlay-cover; }
+.Overlay--CoverX { @extend %overlay-cover-x; }
+.Overlay--CoverY { @extend %overlay-cover-y; }
+
+// Centering modifiers
+%overlay-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+%overlay-center-x {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+%overlay-center-y {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Overlay--Center { @extend %overlay-center; }
+.Overlay--CenterX { @extend %overlay-center-x; }
+.Overlay--CenterY { @extend %overlay-center-y; }
+
+// Vertical Modifiers
+%overlay-above   { bottom: 100%; }
+%overlay-top     { top: 0; }
+%overlay-bottom  { bottom: 0; }
+%overlay-beneath { top: 100%; }
+
+.Overlay--Above   { @extend %overlay-above; }
+.Overlay--Top     { @extend %overlay-top; }
+.Overlay--Bottom  { @extend %overlay-bottom; }
+.Overlay--Beneath { @extend %overlay-beneath; }
+
+// Horizontal Modifiers
+%overlay-before { right: 100%; }
+%overlay-left   { left: 0; }
+%overlay-right  { right: 0; }
+%overlay-after  { left: 100%; }
+
+.Overlay--Before { @extend %overlay-before; }
+.Overlay--Left   { @extend %overlay-left; }
+.Overlay--Right  { @extend %overlay-right; }
+.Overlay--After  { @extend %overlay-after; }

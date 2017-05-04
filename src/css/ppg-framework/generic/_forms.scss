@@ -1,0 +1,22 @@
+// Base.Generic.Forms
+
+form {
+    @include trim;
+}
+
+label,
+select {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.TextArea--IsLocked {
+    resize: none;
+}
+
+.Input--HasPlaceholder {
+    color: color(gray-medium);
+}

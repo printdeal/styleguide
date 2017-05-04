@@ -1,0 +1,111 @@
+.Notification {
+    z-index: z(modal-backdrop);
+    border: 1px solid color(gray-light);
+    padding: $base-spacing-unit;
+    max-width: $base-notification-width;
+    background-color: color(white);
+    box-shadow: $shadow-notification;
+}
+
+.Notification--Fixed {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    @include breakpoint(small) {
+        right: $base-spacing-unit;
+        bottom: $base-spacing-unit;
+    }
+}
+
+.Notification--AboveButton {
+    position: absolute;
+    bottom: calc(100% + #{$base-spacing-unit});
+    width: halve($base-notification-width);
+
+    @include breakpoint(small) {
+        width: $base-notification-width;
+    }
+}
+
+.Notification--WithArrowBottomLeft,
+.Notification--WithArrowBottomCenter,
+.Notification--WithArrowBottomRight {
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        border: solid transparent;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+    }
+
+    &::after {
+        margin-left: -11px;
+        border-width: 11px;
+        border-color: transparent;
+        border-top-color: color(white);
+    }
+
+    &::before {
+        margin-left: -12px;
+        border-width: 12px;
+        border-color: transparent;
+        border-top-color: color(gray-light);
+    }
+}
+
+.Notification--WithArrowBottomLeft {
+    left: 0;
+
+    &::before,
+    &::after {
+        left: 10%;
+    }
+}
+
+.Notification--WithArrowBottomCenter {
+    left: 50%;
+    margin-left: - quarter($base-notification-width);
+
+    @include breakpoint(small) {
+        margin-left: - halve($base-notification-width);
+    }
+
+    &::before,
+    &::after {
+        left: 50%;
+    }
+}
+
+.Notification--WithArrowBottomRight {
+    right: 0;
+    &::before,
+    &::after {
+        right: 10%;
+    }
+}
+
+.Notification__Title {
+    line-height: 1;
+    color: color(gray-darkest);
+    font-family: map-get($brand-face-alt, family);
+    font-size: font-size(h1);
+    font-weight: map-get($brand-face-alt, weight);
+    font-style: map-get($brand-face-alt, style);
+}
+
+.Notification__Action {
+    display: inline-block;
+    margin-bottom: $base-spacing-unit;
+
+    &:not(:last-child) {
+        margin-right: $base-spacing-unit;
+    }
+
+    @include breakpoint(small) {
+        margin-bottom: 0;
+    }
+}

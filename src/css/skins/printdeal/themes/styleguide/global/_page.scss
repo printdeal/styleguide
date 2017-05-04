@@ -1,0 +1,47 @@
+// Global.Page
+//
+// 1. Collapse borders
+
+$page-border-width: 1px;
+$page-border-color: color(gray-light);
+
+html {
+    // stylelint-disable function-url-quotes
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAICAYAAADeM14FAAAAHUlEQVQIW2N48eLFfwYoQGYTACClKMoxBPADdGsB5L0dufB1hg8AAAAASUVORK5CYII=) color(white);
+    // stylelint-enable function-url-quotes
+}
+
+body::before {
+    background-image: url('bg-stripe.png');
+}
+
+.Page,
+.PageSide,
+.PageContent {
+    border: 0 solid $page-border-color;
+}
+
+.Page {
+    border-width: $page-border-width;
+    background-color: color(white);
+}
+
+.PageContent {
+    padding: $base-spacing-unit halve($base-spacing-unit);
+}
+
+@include breakpoint(small) {
+    .PageSide,
+    .PageContent {
+        margin-left: negative($page-border-width); // [1]
+    }
+
+    .PageSide {
+        border-width: 0 $page-border-width 0 0;
+    }
+
+    .PageContent {
+        border-width: 0 0 0 $page-border-width;
+        padding: 0 $base-spacing-unit;
+    }
+}

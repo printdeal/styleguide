@@ -1,0 +1,40 @@
+// @link The Nav Object comes from InuitCSS (https://github.com/csswizardry/inuit.css/blob/master/objects/_nav.scss)
+%nav,
+.Nav {
+    margin-left: 0;
+    list-style: none;
+
+    > li,
+    a {
+        display: inline-block;
+    }
+}
+
+// Stacked nav
+.Nav--Stacked {
+
+    > li {
+        display: list-item;
+        margin-bottom: quarter($base-spacing-unit);
+    }
+}
+
+// Banner nav
+.Nav--Banner {
+    text-align: center;
+}
+
+// Full width fitting nav
+// In IE-9 it  just align items to each othe
+.Nav--Stretch {
+    display: flex;
+    justify-content: space-between;
+
+    > li {
+        display: inline-block;
+    }
+
+    a {
+        display: block;
+    }
+}

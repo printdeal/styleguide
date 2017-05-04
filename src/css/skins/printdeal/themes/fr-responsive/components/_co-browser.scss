@@ -1,0 +1,37 @@
+// stylelint-disable declaration-no-important, selector-max-specificity, selector-no-id
+
+.cb_net_avatar {
+    margin-left: -5px;
+}
+
+// Reset default CoBrowser styles
+.tf_container,
+.cb_net_theme_background,
+#cb_net_headrow1,
+#cb_net_headrow2 {
+    border: none !important;
+}
+
+// Hide some unused functions of CoBrowser
+.powered,
+.cb_net_add_smilies {
+    display: none !important;
+}
+
+#cb_net_chat_container {
+    // Re-color the top bar of the chat window
+    .cb_net_theme_background {
+        background-color: color(orange) !important;
+    }
+
+    // Actually force the link to break
+    a {
+        @include text-break;
+    }
+}
+
+// Fix to make long urls wrap on multiple lines
+.cb_message_agent,
+.cb_message_visitor {
+    max-width: 100%;
+}

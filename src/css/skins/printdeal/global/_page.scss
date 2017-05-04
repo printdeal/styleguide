@@ -1,0 +1,20 @@
+// UI.Global.Page
+
+html {
+    background-color: color(white);
+}
+
+// 1. Height of image is 5px
+body {
+    position: relative;
+    padding-top: $base-spacing-unit;
+
+    &::before {
+        @extend %overlay;
+        @extend %overlay-cover-x;
+        @extend %overlay-top;
+        content: '';
+        height: 5px; // [1]
+        background: url('bg-stripe.png');
+    }
+}

@@ -1,0 +1,137 @@
+// Spacing and sizes
+$base-spacing-unit: 24px !default;
+$base-grid-columns: 12 !default;
+$base-max-site-width: 64em !default; // 1200px
+$base-non-responsive-site-width: 62.1875em !default; // 995px
+$browser-root-font-size: 16px;
+
+$colors: (
+    base: #aaaaaa
+) !default;
+
+// Font-sizes
+$font-sizes: (
+    h1:         26px,
+    h2:         16px,
+    h3:         15px,
+    h4:         13px,
+    h5:         13px,
+    h6:         13px,
+    base:       13px,
+    milli:      10px,
+
+    smaller:    0.75em,
+    small:      0.875em,
+    default:    1em,
+    large:      1.5em,
+    xlarge:     2em,
+    xxlarge:    2.6em
+) !default;
+
+// Breakpoints
+//
+// Map of breakpoints used for grid and/or visibility helpers
+$breakpoints: (
+    x-small: (
+        width: 28em,
+        output: true
+    ),
+    small: (
+        width: 33em,
+        output: true
+    ),
+    medium: (
+        width: 55em,
+        output: true
+    ),
+    large: (
+        width: 66em,
+        output: true
+    ),
+    x-large: (
+        width: 80em,
+        output: false
+    ),
+    xx-large: (
+        width: 96em,
+        output: false
+    ),
+    xxx-large: (
+        width: 130em,
+        output: false
+    )
+) !default;
+
+// Breakpoints for non-grid/non-visibility releated items. These will be
+// become useful in themes where a component might have it's own breakpoints.
+$tweakpoints: (
+    pagewrap: 64em + 1.5em
+) !default;
+
+// Z-indexes
+//
+// Grouped to create a nice overview which elements stack on top of which.
+// 2147483647 is the maximum z-index allowed in most browsers and it is the
+// maximum positive value for a 32-bit signed binary integer.
+// If a z-index value happens to be higher, all browsers truncate it to this value.
+// This is meant to make sure messages will always be on top of everything else.
+// @link http://www.puidokas.com/max-z-index/
+// @link http://en.wikipedia.org/wiki/2147483647
+$z-indexes: (
+    chuck-norris:      2147483647,
+    modal:             3,
+    modal-backdrop:    2,
+    default:           1,
+    below:             -1
+) !default;
+
+// Font/typeface
+//
+// Map of base font settings
+$brand-face: (
+    family: (sans-serif),
+    weight: 400,
+    style: normal
+) !default;
+
+// Border radius
+//
+// Map of various border-radii
+$radii: (
+    small: 0.25em,
+    circle: 50%,
+    none: 0
+) !default;
+
+// Default input fields
+//
+// To be used when we want to give elements default styling
+@function to-selector-string($inputs) {
+    $list: ();
+
+    @each $input in $inputs {
+        $input: unquote($input);
+        $list: append($list, $input, comma);
+    }
+
+    @return $list;
+}
+
+$text-input-fields: '[type="color"]',
+    '[type="email"]',
+    '[type="number"]',
+    '[type="password"]',
+    '[type="search"]',
+    '[type="tel"]',
+    '[type="text"]',
+    '[type="url"]',
+    'textarea' !default;
+
+$all-text-fields: to-selector-string($text-input-fields) !default;
+
+$btn-input-fields: '[type="button"]',
+    '[type="submit"]',
+    '[type="reset"]',
+    'button' !default;
+
+$all-btn-fields: to-selector-string($btn-input-fields) !default;

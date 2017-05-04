@@ -1,0 +1,151 @@
+// UI.Object.RspTable
+//
+// 1. Remove dashed bottom border
+
+.RspTable {
+    border: 0;
+    table-layout: fixed;
+}
+
+.RspTable__Row {
+    @include dashed-border;
+}
+
+.RspTable__LabelContent {
+    padding: 0;
+}
+
+.RspTable__HeadCell {
+    border-bottom: 1px solid color(gray-light);
+    padding: 1em 0.6em;
+    background-color: color(white);
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.RspTable__HeadCell--Small {
+    width: 5%;
+}
+
+.RspTable__HeadCell--Medium {
+    width: 15%;
+}
+
+.RspTable__HeadCell--Large {
+    width: 35%;
+}
+
+.RspTable__Cell {
+    padding: 1.4em 0.6em;
+    vertical-align: middle;
+}
+
+.RspTable__RowIndicator {
+    transition: transform double($base-animation-duration);
+}
+
+.RspCollapse__Body {
+    display: none;
+}
+
+@include breakpoint(medium, $type: 'max-width') {
+    // Resets for mobile view of the responsive table
+
+    .RspTable {
+        border: 1px solid color(gray-light);
+    }
+
+    .RspTable__Head {
+        display: none;
+    }
+
+    .RspTable__Body {
+        display: block;
+        margin-bottom: halve($base-spacing-unit);
+
+        &:last-child {
+            margin-bottom: 0;
+            .RspTable__Row {
+                background: none; // 1
+            }
+        }
+    }
+
+    .RspTable__Row,
+    .RspTable__Cell {
+        display: block;
+    }
+
+    .RspTable__Label {
+        box-sizing: border-box;
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+
+        &::before {
+            content: attr(aria-label);
+            display: table-cell;
+            padding: 0.333em 0.666em;
+            width: 10em;
+            vertical-align: middle;
+        }
+    }
+
+    .RspTable__LabelContent {
+        padding: 0.333em 0.666em;
+    }
+
+    .RspTable__Row {
+        position: relative;
+    }
+
+    .RspTable__Cell--Status {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .RspCollapse__Handle,
+    .RspCollapse__Body {
+        display: none;
+    }
+}
+
+@include breakpoint(medium) {
+    .RspCollapse--Open {
+        .RspCollapse__Heading {
+            .RspTable__Cell {
+                border-bottom: 1px solid color(gray-light);
+                background-color: color(gray-lightest);
+            }
+        }
+
+        .RspCollapse__Body {
+            display: table-row;
+            border: 0;
+            height: auto;
+
+            .RspTable__Cell {
+                padding-top: 0.5em;
+                padding-bottom: 0.5em;
+            }
+        }
+
+        .RspCollapse__Body:last-child {
+            @include dashed-border;
+
+            .RspTable__Cell {
+                padding-bottom: 1.2em;
+            }
+        }
+
+        .RspTable__RowIndicator {
+            transform: rotate(90deg);
+        }
+
+        .RspTable__Row {
+            border: 0;
+            background-size: 0;
+        }
+    }
+}

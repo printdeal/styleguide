@@ -1,0 +1,30 @@
+// UI.UI-Object.Tabs
+//
+// 1. Override .TabsNav properties;
+// 2. Collapse border
+
+$tabs-border-width: 1px;
+
+.Tabs {
+
+    .TabsNav__Item.js-tabs-nav-item-selected {
+        border-color: color(gray-light); // [1]
+        background-color: color(white);
+        color: color(gray-darkest);
+
+        &::after {
+            content: none; // [1]
+        }
+    }
+}
+
+.Tabs__Nav {
+    @extend %tabs-nav;
+    margin-bottom: negative($tabs-border-width); // [2]
+}
+
+.Tabs__Tab {
+    @include trim;
+    margin-bottom: 0;
+    padding: $base-spacing-unit 0 0 0;
+}

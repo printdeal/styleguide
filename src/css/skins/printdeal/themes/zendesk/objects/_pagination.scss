@@ -1,0 +1,22 @@
+.pagination {
+
+    span,
+    a {
+        display: block;
+        border-radius: radius(small);
+        padding: third($base-spacing-unit) halve($base-spacing-unit) !important; // stylelint-disable-line
+        background-color: color(gray-lighter);
+        text-decoration: none;
+        line-height: 1;
+
+        &:hover {
+            background-color: color(gray-light);
+        }
+    }
+}
+
+.pagination-current span {
+    background-color: color(orange) !important; // stylelint-disable-line
+    color: color(white);
+    cursor: default;
+}

@@ -1,0 +1,70 @@
+// Object.Brick
+
+.Brick {
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+        border-color: color(blue);
+    }
+}
+
+// 1. Overlap borders
+.Brick--IsSelected {
+
+    &::before {
+        @include sprite;
+        @include icon('CheckCircle--Green');
+        content: '';
+        position: absolute;
+        top: 0.5em;
+        left: 0.5em;
+        font-size: font-size(xlarge);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        right: -1px; // [1]
+        bottom: -1px; // [1]
+        left: -1px; // [1]
+        height: 3px;
+        background-color: color(green);
+    }
+
+    &:hover {
+        border-color: color(green);
+    }
+}
+
+.Brick--IsInvalid {
+    &,
+    &:hover {
+        border-color: color(gray-lighter);
+    }
+
+    &:hover::after {
+        content: attr(data-invalid-message);
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        border: 1px solid;
+        padding: halve($base-spacing-unit);
+        background-color: color(white-opaque);
+        text-align: center;
+        color: color(red);
+    }
+
+    .text-dimmed {
+        color: color(gray-lighter);
+    }
+
+    .Matrix__Img {
+        opacity: 0.5;
+    }
+
+    .Ribbon {
+        display: none;
+    }
+}

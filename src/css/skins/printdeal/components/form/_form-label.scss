@@ -1,0 +1,12 @@
+// UI.Form.Label
+
+.Form__Label {
+    display: block;
+    margin-top: third($base-spacing-unit);
+    margin-bottom: quarter($base-spacing-unit);
+    text-align: left;
+
+    @include breakpoint(medium) {
+        text-align: right;
+    }
+}

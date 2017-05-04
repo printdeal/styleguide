@@ -1,0 +1,110 @@
+
+{
+  "settings": {
+    "autoprefixer": {
+      "browsers": [
+        "last 2 versions",
+        "ie >= 10",
+        "android >= 4"
+      ]
+    },
+    "imageminPngquant": {
+      "quality": "10-30",
+      "speed": 1
+    }
+  },
+
+  "styleguideAssetsDir": "<path to the assets-frontend dir in styleguide>",
+
+  "paths": {
+    "img": {
+      "src": "./src/img/",
+      "tmp": "./tmp/img/",
+      "dist": "./dist/img/"
+    },
+
+    "js": {
+      "src": "./src/js/",
+      "tmp": "./tmp/js/",
+      "dist": "./dist/js/"
+    },
+
+    "css": {
+      "src": "./src/css/",
+      "tmp": "./tmp/css/",
+      "dist": "./dist/css/",
+      "skins": [
+        {
+          "name": "printdeal",
+          "folder": "./src/css/skins/printdeal/",
+          "prefix": "printdeal-",
+          "themes": [
+            {
+              "name": "base",
+              "icons": "all"
+            },
+            {
+              "name": "icons",
+              "icons": "all"
+            },
+            {
+              "name": "styleguide",
+              "icons": "all"
+            },
+            {
+              "name": "zendesk",
+              "icons": "zendesk"
+            },
+            {
+              "name": "adyen-drukwerkdeal-nl",
+              "icons": "none"
+            },
+            {
+              "name": "adyen-printdeal-be",
+              "icons": "none"
+            },
+            {
+              "name": "fr-responsive",
+              "icons": "all"
+            }
+          ]
+        }
+      ]
+    },
+
+    "fonts": {
+      "src": "./src/fonts/",
+      "tmp": "./tmp/fonts/",
+      "dist": "./dist/fonts/"
+    },
+
+    "root": "./",
+    "dist": "./dist/",
+    "tmp": "./tmp/",
+    "tasks": "./tasks"
+  },
+
+  "file": {
+    "banner": "/*! Printdeal */\n"
+  },
+
+  "aws": {
+    "settings": {
+      "key": "*****",
+      "secret": "*****",
+      "bucket": "*****",
+      "region": "eu-west-1"
+    },
+    "url": "https://*****.s3.amazonaws.com",
+    "paths": {
+      "css": "css",
+      "js": "js",
+      "img": "/img/",
+      "fonts": "/fonts/"
+    },
+    "headers": {
+      "Cache-Control": "max-age=315360000, no-transform, public",
+      "Expires": "Sun, 01 Jan 2034 00:00:00 GMT"
+    }
+  }
+}

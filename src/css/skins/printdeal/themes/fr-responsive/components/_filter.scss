@@ -1,0 +1,112 @@
+// Component.Filter
+
+.Filter,
+.Filter__Form {
+    @include row($halign: justify);
+}
+
+// Some custom CSS to make 99% of the elements heights equal.
+.Filter {
+
+    // Default size is a little larger, so make it equal
+    .Btn {
+        font-size: $base-font-size;
+    }
+
+    // Force equal height
+    select,
+    .Btn--Transparent {
+        height: 32px;
+    }
+
+    // Todo: fix by adding a classname to the <h1/> in .Filter
+    > * {
+        @include col;
+    }
+}
+
+.Filter__Toggle {
+    @include breakpoint(medium) {
+        display: none;
+    }
+}
+
+.Filter__Content,
+.Filter__Content--IsShown {
+    @include breakpoint(medium) {
+        border: none;
+        padding: 0;
+    }
+}
+
+.Filter__Content {
+    display: none;
+
+    @include breakpoint(medium) {
+        display: inline-block;
+    }
+}
+
+.Filter__Content--IsShown {
+    display: inline-block;
+
+    @include breakpoint(medium) {
+        @include popup;
+        @include popup-arrow;
+        display: block; // toggled with js
+        position: absolute; // override +popup
+    }
+}
+
+.Filter__ToggleFilters {
+    display: none;
+
+    @include breakpoint(medium) {
+        display: block;
+    }
+}
+
+.Filter__Group {
+    @include col;
+    position: relative;
+    margin-bottom: 1em;
+    width: 100%;
+
+    @include breakpoint(medium) {
+        margin-bottom: 0;
+        padding-left: 1em;
+        width: auto;
+    }
+}
+
+.Filter__Title {
+    @include breakpoint(medium) {
+        display: none;
+    }
+}
+
+.Filter__Filter {
+    margin-bottom: 0;
+
+    @include breakpoint(medium) {
+        display: none; // toggled with js
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: z(default);
+        border: 1px solid color(gray-light);
+        padding: 9px;
+        width: 12em;
+        max-width: 12em;
+        background-color: color(white);
+    }
+}
+
+.Filter__Filter--IsShown {
+    @include breakpoint(medium) {
+        @include popup;
+        @include popup-arrow;
+        display: block; // toggled with js
+        position: absolute; // override +popup
+    }
+}

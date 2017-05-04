@@ -1,0 +1,19 @@
+// UI.Object.IconList
+//
+// 1. Precise alignment of icons to left outer side
+
+// Has green checkmarks
+.IconList--Check {
+
+    > li::before {
+        @include icon('Check--Green');
+    }
+}
+
+// Has blue chevrons
+.IconList--Arrow {
+
+    > li::before {
+        @include icon('ChevronRight--Blue');
+    }
+}

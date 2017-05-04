@@ -1,0 +1,14 @@
+// DEBUG.CSS
+//
+// To be included in dev-environments to spot common mistakes, like deprecated
+// elements and disallowed children of a certain elements.
+//
+
+@import '../settings';
+@import 'message';
+
+@import 'deprecated';
+@import 'allowed-childs';
+@import 'required-parent';
+@import 'required-attrs';
+@import 'misc';

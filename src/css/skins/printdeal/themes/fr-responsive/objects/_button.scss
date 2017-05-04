@@ -1,0 +1,12 @@
+.Btn--GhostWhite {
+    border-width: 2px;
+    border-color: color(white);
+    background: transparent;
+    color: color(white);
+
+    &:hover,
+    &:focus {
+        background-color: color(white);
+        color: color(gray-darkest);
+    }
+}

@@ -1,0 +1,25 @@
+// Base.Helpers.Rounded
+
+@mixin rounded($rad: small) {
+    border-radius: radius($rad);
+}
+
+@mixin rounded-top($rad: small) {
+    border-radius: radius($rad) radius($rad) 0 0;
+}
+
+@mixin rounded-bottom($rad: small) {
+    border-radius: 0 0 radius($rad) radius($rad);
+}
+
+@mixin rounded-right($rad: small) {
+    border-radius: 0 radius($rad) radius($rad) 0;
+}
+
+@mixin rounded-left($rad: small) {
+    border-radius: radius($rad) 0 0 radius($rad);
+}
+
+@mixin clip-rounded {
+    overflow: hidden;
+}

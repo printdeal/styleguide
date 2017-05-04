@@ -1,0 +1,31 @@
+// UI.Form.Select
+//
+// The select/dropdown element
+//
+// 1. Make room for background-image
+// 2. Make background-image stand off side a little, with fallback for
+//    browsers that do not support background-position offset syntax
+//    Link: http://caniuse.com/#feat=css-background-offsets
+
+select {
+    @extend %form-input;
+    padding: 0.45em 0.5em;
+    padding-right: 1.5em; // [1]
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAGCAQAAAC/O6xzAAAASElEQVQIW2P4zFu6PuI/Mkw4eE+DgYHhnmbCSSTh0ycdGCDgnmbEZZjgfl8GBNgfAJY4PbWRARWsyom43DWBAROsyvnMA2MDALHSLFx4d+kuAAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-position: right 0.25em center; // [2]
+    appearance: none;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    &:hover {
+        border-color: color(gray-medium);
+    }
+
+    &:focus {
+        border-color: color(blue);
+    }
+}

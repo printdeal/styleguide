@@ -1,0 +1,43 @@
+.BtnGroup {
+    display: flex;
+    flex-flow: row no-wrap;
+    align-items: flex-start;
+}
+
+.BtnGroup--Stretched {
+    align-items: stretch;
+
+    .BtnGroup__Btn {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+}
+
+.BtnGroup__Btn {
+    flex: 0 0 auto;
+    border-radius: 0;
+
+    &:not(:first-child) {
+        border-left: 0 none;
+    }
+
+    &:first-child {
+        @include rounded-left;
+    }
+
+    &:last-child {
+        @include rounded-right;
+    }
+}
+
+.BtnGroup__Btn--Selected {
+    border-width: 3px 1px 1px;
+    border-color: color(blue-dark);
+    cursor: default;
+
+    &,
+    &:hover {
+        background-color: color(blue);
+        color: color(white);
+    }
+}

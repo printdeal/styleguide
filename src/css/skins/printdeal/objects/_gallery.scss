@@ -1,0 +1,73 @@
+// UI.UI-Object.Gallery
+
+// 1. Leave room for the thumbs, 1em more than the width of the thumb itself
+//    to leave a gutter between the thumbs and the large image
+.Gallery {
+    display: inline-block;
+    position: relative;
+    padding-right: 5em; // [1]
+    width: 23em;
+    max-width: 100%;
+
+    @include breakpoint(small) {
+        width: 27em;
+    }
+}
+
+.Gallery--HasPreviews {
+    .Gallery__Featured,
+    .Gallery__Thumb {
+        cursor: pointer;
+    }
+
+    .Gallery__Featured {
+        position: relative;
+    }
+}
+
+.Gallery__PreviewTrigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    &::after {
+        @include svg-background('icon-enlarge-alt');
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden;
+        width: 1em;
+        height: 1em;
+        background-size: 1em 1em;
+        font-size: 7em;
+    }
+
+    &:hover::after {
+        visibility: visible;
+    }
+}
+
+.Gallery__Thumbs {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.Gallery__Thumb {
+    @include rounded;
+    margin-bottom: halve($base-spacing-unit);
+    border: 1px solid color(gray-light);
+    width: 4em;
+    overflow: hidden;
+}
+
+.Gallery__Thumb--IsActive {
+    border-color: color(orange);
+}

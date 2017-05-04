@@ -1,0 +1,20 @@
+// Base.Object.Island
+//
+// Makes content appear as a boxed-off standalone element.
+//
+// @link The Island object comes from InuitCSS (https://github.com/csswizardry/inuit.css/blob/master/objects/_island.scss)
+
+%island,
+.Island {
+    @include clearfix;
+    @include trim;
+    display: block;
+    margin-bottom: $base-spacing-unit;
+
+    // stylelint-disable selector-no-qualifying-type
+
+    &.col,
+    &.cols {
+        display: inline-block;
+    }
+}

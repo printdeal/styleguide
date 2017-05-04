@@ -1,0 +1,36 @@
+// Required parents
+//
+// Some elements *must* have a certain parent element to display correctly. One
+// common mistake is that .init-6.cols is used without a parent .row element.
+// This file will help debugging and finding those issues.
+
+// Format: ('child1', 'child2'), 'required-parent'
+$required-parents: (
+    ('.col', '.cols'): '.row'
+);
+
+%required-styles {
+    @include _message('error');
+}
+
+// stylelint-disable declaration-no-important
+
+@each $children, $parent in $required-parents {
+    @each $child in $children {
+        #{$child} {
+            @extend %required-styles;
+
+            &::after {
+                content: 'ERR: #{$child} must be a direct child of #{$parent}';
+            }
+        }
+
+        #{$parent} > #{$child} {
+            outline: none !important;
+
+            &::after {
+                content: none !important;
+            }
+        }
+    }
+}

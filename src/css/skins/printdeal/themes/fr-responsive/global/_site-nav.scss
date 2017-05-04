@@ -1,0 +1,182 @@
+.SiteHeader {
+    background-color: color(white);
+
+    &::before {
+        content: '';
+        display: block;
+        height: 3px;
+        background: url('bg-stripe-tricolore.png');
+    }
+}
+
+.SiteLogo {
+    display: block;
+    width: 9em;
+
+    @include breakpoint(small) {
+        width: 12em;
+    }
+
+    @include breakpoint(medium) {
+        width: 17em;
+    }
+}
+
+.SiteNav {
+    text-align: right;
+}
+
+// 1a. Prevent items from wrapping on new line
+// 1b. Undo step A
+// 2. Fix vertical align issues, like for other inline-block elements (img, video)
+.SiteNav__List {
+    margin: 0;
+    list-style: none;
+    white-space: nowrap; // [1a]
+}
+
+.SiteNav__ListItem {
+    display: inline-block;
+    position: relative;
+    margin-left: -0.26em; // undo inline-block whitespace
+    vertical-align: middle; // [2]
+    text-align: left;
+    white-space: normal; // [1b]
+}
+
+.SiteNav__Link {
+    display: inline-block;
+    position: relative;
+    z-index: z(sitenav-item-small);
+    border-left: 1px solid color(gray-light);
+    padding: 1em 0.33em 1em 0.75em;
+    vertical-align: top;
+    text-align: left;
+    text-decoration: none;
+
+    @include breakpoint(sitenav) { padding: 1em 0.25em 1em 0; }
+    @include breakpoint(large)   { padding: 1.5em 0.5em; }
+
+    @include breakpoint(medium) {
+        z-index: z(sitenav-item-large);
+        padding: 1em 0.33em;
+    }
+
+    .SiteNav__ListItem:last-child & {
+        border-right: 1px solid color(gray-light);
+    }
+}
+
+.SiteNav__Link--HasNoIcon {
+    @include breakpoint(sitenav) { padding-left: 1em; }
+    @include breakpoint(large)   { padding-left: 1.5em; }
+}
+
+.SiteNav__CartStatus {
+    margin-top: -0.75em;
+    margin-right: -0.75em;
+    font-size: font-size(smaller);
+}
+
+// Make it look like that the subnav is attached to the main nav
+.SiteNav__ListItem--HasSubNav:hover .SiteNav__Link::after,
+.SiteNav__Link--IsActive::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    border-top: 1px solid color(white);
+}
+
+.SiteNav__Title {
+    display: none;
+
+    @include breakpoint(sitenav) {
+        display: block;
+    }
+}
+
+// 1. Clip long user names
+// 2. At least take up one line to let SiteNav items align
+.SiteNav__Subtitle {
+    display: none;
+    max-width: 9em; // [1]
+    min-height: $base-line-height; // [2]
+    font-size: font-size(small);
+
+    @include breakpoint(sitenav) {
+        display: block;
+    }
+}
+
+.SiteNav__ToggleIcon {
+    display: none;
+
+    @include breakpoint(sitenav) {
+        display: block;
+    }
+}
+
+.SiteNav__LangAbbr {
+    font-size: font-size(button);
+
+    @include breakpoint(sitenav) {
+        display: none;
+    }
+}
+
+.SiteNav__Icon {
+    font-size: font-size(large);
+
+    @include breakpoint(sitenav) {
+        font-size: 1.25em;
+    }
+
+    @include breakpoint(medium) {
+        font-size: font-size(large);
+    }
+}
+
+.SiteSubNav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: z(site-subnav-small);
+    border: 1px solid color(gray-light);
+    padding: 1em;
+    min-width: 18em;
+    background: color(white);
+
+    @include breakpoint(medium) {
+        z-index: z(site-subnav-large);
+    }
+
+    @include breakpoint(sitenav) {
+        .SiteNav__ListItem:hover & {
+            display: block;
+        }
+    }
+
+    // Custom size for shopping cart popup
+    .SiteNav__ListItem:last-child & {
+        right: 0;
+        left: auto;
+        width: 28em;
+    }
+}
+
+
+.SiteMobileNav {
+    display: none;
+    margin-bottom: -1px;
+}
+
+.SiteMobileNav--IsOpen {
+    display: block;
+
+    @include breakpoint(sitenav) {
+        display: none;
+    }
+}

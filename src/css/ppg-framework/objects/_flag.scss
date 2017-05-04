@@ -1,0 +1,61 @@
+// Base.Object.Flag
+//
+// @link Idea and code come from Harry Roberts (http://csswizardry.com/2013/05/the-flag-object/)
+//
+// 1. Swap text-direction to change visual order without changing the markup;
+
+%flag,
+.Flag {
+    display: table;
+    width: 100%;
+}
+
+.Flag--Rev {
+    direction: rtl; // [1]
+
+    > .Flag__Img,
+    > .Flag__Body {
+        direction: ltr; // [1]
+    }
+
+    > .Flag__Img {
+        padding-right: 0;
+        padding-left: third($base-spacing-unit);
+    }
+}
+
+%flag-img,
+%flag-body,
+.Flag__Img,
+.Flag__Body {
+    @include trim;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.Flag__Img,
+.Flag__Body {
+
+    .Flag--Top > & {
+        vertical-align: top;
+    }
+
+    .Flag--Bottom > & {
+        vertical-align: bottom;
+    }
+}
+
+%flag-img,
+.Flag__Img {
+    padding-right: third($base-spacing-unit);
+
+    > img {
+        display: block;
+        max-width: none;
+    }
+}
+
+%flag-body,
+.Flag__Body {
+    width: 100%;
+}

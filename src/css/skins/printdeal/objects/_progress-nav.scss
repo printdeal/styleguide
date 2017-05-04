@@ -1,0 +1,172 @@
+// UI.UI-Object.ProgressNav
+//
+// 1. Reset list styles;
+
+.ProgressNav {
+    display: table; // [1]
+    margin-left: 0; // [1]
+    width: 100%; // [1]
+    background-color: color(white);
+    text-align: center;
+    color: color(gray-darker);
+
+    > li {
+        display: table-cell;
+    }
+}
+
+// 2. Magic numbers because they look good according to the designer.
+// 3. Mandatory z-index for stacking on top of parent
+.ProgressNav__Item {
+    display: block;
+    position: relative;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: color(gray-light);
+    padding: quarter($base-spacing-unit) ($base-spacing-unit / 6);
+    background-color: inherit;
+    text-decoration: none;
+
+    &::before,
+    &::after {
+        @extend %overlay;
+        @extend %overlay-after;
+        content: '';
+        top: -1px;
+        z-index: z(default); // [3]
+        border-width: 1.2em 0.875em; // [2]
+        border-style: solid;
+        border-color: transparent;
+    }
+
+    &::before {
+        border-left-color: color(gray-light);
+    }
+
+    &::after {
+        margin-left: -1px;
+        border-left-color: color(white);
+    }
+
+    .ProgressNav li:first-child & {
+        @include rounded-left;
+    }
+
+    .ProgressNav li:last-child & {
+        @include rounded-right;
+        border-right-width: 1px;
+
+        &::before,
+        &::after {
+            content: none;
+        }
+    }
+
+    // 4 .hide-for-medium-up.show-for-large-up does not seem to work here
+    // 5. Use `i` instead of `.Icon` to prevent adding of styles to that class:
+    //    They will get extended as well and generate a whole lot of unneeded
+    //    CSS in the end.
+    > i { // [5]
+
+        @include breakpoint(medium) {
+            display: none; // [4]
+        }
+
+        @include breakpoint(large) {
+            display: inline-block; // [4]
+        }
+    }
+
+    span {
+        display: none; // [4]
+
+        @include breakpoint(medium) {
+            display: inline-block;
+        }
+    }
+}
+
+.ProgressNav__Item--IsLink {
+
+    .ProgressNav-Item__Text {
+        text-decoration: underline;
+    }
+
+    &:hover .ProgressNav-Item__Text {
+        text-decoration: none;
+    }
+}
+
+.ProgressNav__Item--IsPast {
+    background-color: color(gray-lighter);
+
+    &::before { border-left-color: color(gray-light); }
+    &::after  { border-left-color: color(gray-lighter); }
+}
+
+.ProgressNav__Item--IsCurrent,
+.ProgressNav__Item--IsOnHold {
+    border-color: color(orange-shade);
+    background-color: color(orange);
+    color: color(white);
+
+    &::before { border-left-color: color(orange); }
+    &::after  { content: none; }
+}
+
+.ProgressNav__Item--IsCompleted {
+    border-color: color(green-shade);
+    background-color: color(green);
+    color: color(white);
+
+    &::before { border-left-color: color(green-shade); }
+    &::after  { border-left-color: color(green); }
+}
+
+.ProgressNav__Item--IsPending {
+    background-color: color(orange-light);
+
+    &::after { border-left-color: color(orange-light); }
+
+    &.ProgressNav__Item--IsLink:hover {
+        background-color: color(orange-medium);
+        &::after { border-left-color: color(orange-medium); }
+    }
+}
+
+.ProgressNav__Item--IsError {
+    border-color: color(red-shade);
+    background-color: color(red);
+    color: color(white);
+
+    &::before { border-left-color: color(red-shade); }
+    &::after  { border-left-color: color(red); }
+
+    &.ProgressNav__Item--IsLink:hover {
+        background-color: color(red-shade);
+        &::after { border-left-color: color(red-shade); }
+    }
+}
+
+// 1. Striped background pattern
+// 2. Create contrast between text and background
+.ProgressNav__Item--IsCancelled {
+    $stripe-width: $base-spacing-unit;
+    $base-color: color(gray-lighter);
+    $stripe-color: color(gray-light);
+
+    // stylelint-disable indentation
+    background-color: $base-color;
+    background-image: repeating-linear-gradient( // [1]
+        -45deg,
+        transparent,
+        transparent $stripe-width,
+        $stripe-color $stripe-width,
+        $stripe-color double($stripe-width)
+    );
+    text-shadow: 1px 1px 0 $base-color, // [2]
+                -1px -1px 0 $base-color,
+                -1px 1px 0 $base-color,
+                1px -1px 0 $base-color;
+    // stylelint-enable indentation
+}

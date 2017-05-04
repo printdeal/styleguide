@@ -1,0 +1,35 @@
+.example {
+    position: relative;
+}
+
+.Specimen {
+    line-height: 1.25;
+    color: color(black);
+    font-size: 36px;
+}
+
+.example-icons::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.example-icons {
+
+    .Swatch {
+        width: $base-spacing-unit * 4;
+    }
+
+    .Icon {
+        margin: quarter($base-spacing-unit) auto;
+    }
+}
+
+.example-icons-misc .Swatch {
+    width: auto;
+    min-width: $base-spacing-unit * 5;
+}
+
+.exampleWrapper {
+    position: relative;
+}

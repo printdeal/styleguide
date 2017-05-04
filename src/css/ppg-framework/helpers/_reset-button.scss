@@ -1,0 +1,34 @@
+// Base.Helpers.ResetButton
+//
+// Most styles are already reset by Normalize
+//
+// @link https://github.com/necolas/normalize.css/blob/master/normalize.css#L250
+// @link https://github.com/inuitcss/objects.buttons/blob/master/_objects.buttons.scss
+//
+// 1. Allow us to style box model properties.
+// 2. Line different sized buttons up a little nicer.
+// 3. Reset/normalize some styles.
+// 4. Force hand-pointer when using on non-btn-like elements like <span/>
+
+@mixin reset-button {
+    display: inline-block; // [1]
+    border: none; // [3]
+    border-radius: 0; // [3]
+    padding: 0; // [3]
+    appearance: none;
+    vertical-align: top; // [2]
+    text-align: inherit; // [3]
+    text-decoration: none; // [3]
+    line-height: 1; // [3]
+    color: inherit;
+    cursor: pointer; // [4]
+
+    &,
+    &:hover {
+        background: transparent;
+    }
+}
+
+%reset-button {
+    @include reset-button;
+}

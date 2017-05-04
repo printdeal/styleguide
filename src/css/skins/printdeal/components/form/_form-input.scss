@@ -1,0 +1,53 @@
+// Form.Input
+
+///
+/// Example html:
+///
+/// <div class="Input Input--Inline">
+///   <input class="Input__Field">
+///   <span class="Input__Postfix">cm</span>
+/// </div>
+///
+
+.Input--Inline {
+    display: table;
+    margin-bottom: halve($base-spacing-unit);
+    border: 1px solid color(gray-light);
+    border-radius: radius(small);
+    width: 100%;
+}
+
+.Input--HasError {
+    border-color: color(red);
+}
+
+.Input--HasSuccess {
+    border-color: color(green);
+}
+
+.Input__Field,
+.Input__Postfix,
+.Input__Prefix {
+    display: table-cell;
+    border: none;
+    vertical-align: middle;
+}
+
+.Input__Field {
+    margin-bottom: 0;
+}
+
+.Input__Postfix,
+.Input__Prefix {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    background-color: color(gray-lighter);
+    text-align: center;
+}
+
+.Input__Prefix {
+    border-right: 1px solid color(gray-light);
+    min-width: 4em;
+}
+
+.Input__Postfix { border-left: 1px solid color(gray-light); }

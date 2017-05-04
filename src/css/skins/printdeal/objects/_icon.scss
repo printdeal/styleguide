@@ -1,0 +1,38 @@
+// UI.Object.Icon
+
+.Icon {
+    vertical-align: -0.125em;
+}
+
+// Horizontal alignment
+.Icon--Before { margin-right: 0.25em; }
+.Icon--After  { margin-left: 0.25em; }
+
+// Size modifiers
+.Icon--Small {
+    font-size: font-size(small);
+}
+
+.Icon--Large {
+    vertical-align: -0.33em;
+    font-size: font-size(large);
+}
+
+.Icon--XLarge {
+    vertical-align: -0.33em;
+    font-size: font-size(xlarge);
+}
+
+.Icon--XXLarge {
+    vertical-align: -0.33em;
+    font-size: font-size(xxlarge);
+}
+
+.Icon--XXXLarge {
+    vertical-align: -0.33em;
+    font-size: font-size(xxxlarge);
+}
+
+.Icon--Jumbo {
+    font-size: font-size(jumbo);
+}

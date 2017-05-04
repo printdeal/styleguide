@@ -1,0 +1,42 @@
+.Swatch {
+    float: left;
+    margin: 0 ($base-spacing-unit - 1px) $base-spacing-unit 0;
+    border: 1px solid color(gray-light);
+    width: $base-spacing-unit * 6;
+    text-align: center;
+}
+
+.Swatch:hover .text-truncate {
+    overflow: visible;
+}
+
+.Swatch__Color {
+    padding: 60px halve($base-spacing-unit) halve($base-spacing-unit);
+    color: color(white);
+}
+
+.Swatch__Title {
+    border-top: 1px solid color(gray-light);
+    padding: 0 quarter($base-spacing-unit);
+}
+
+.Icon-Colors {
+    border-top: 1px solid color(gray-light);
+    padding: 0 quarter($base-spacing-unit);
+    background-color: color(gray-lightest);
+}
+
+.Icon-Colors__Color {
+    $icon-color-size: 0.5em;
+    @include rounded(circle);
+    padding-bottom: $icon-color-size;
+    width: $icon-color-size;
+    background-color: color(gray-darker);
+}
+
+.Icon-Colors__Color--Gray   { background-color: color(gray-medium); }
+.Icon-Colors__Color--Orange { background-color: color(orange); }
+.Icon-Colors__Color--Blue   { background-color: color(blue); }
+.Icon-Colors__Color--Green  { background-color: color(green); }
+.Icon-Colors__Color--White  { background-color: color(white); }
+.Icon-Colors__Color--Alt    { background-color: color(red); }

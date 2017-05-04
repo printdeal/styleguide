@@ -1,0 +1,5 @@
+// Base.Functions.Util
+
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}

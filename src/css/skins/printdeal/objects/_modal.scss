@@ -1,0 +1,153 @@
+// UI.Object.Modal
+
+$modal-bg: color(white);
+$modal-backdrop-color: transparentize(color(black), 0.5);
+$modal-small-width: 28em;
+$modal-loading-img-width: 50px;
+
+// Generate values for positioning the modal, based on the width;
+// @param $width Width of the modal in percentages
+@mixin modal-position($width) {
+    left: (100% - $width) / 2;
+    width: $width;
+}
+
+.Modal {
+    @include rounded;
+    top: 50%;
+    right: halve($base-spacing-unit);
+    left: halve($base-spacing-unit);
+    transform: scale(0) translateY(-100%);
+    background-color: $modal-bg;
+    box-shadow: $shadow-global;
+    transition: transform $base-animation-duration $base-animation-function $base-animation-duration;
+
+    @include breakpoint(small) {
+        @include modal-position(75%);
+        right: auto;
+    }
+
+    @include breakpoint(large) {
+        @include modal-position(56%);
+    }
+
+    @include breakpoint(xx-large) {
+        @include modal-position(44%);
+    }
+}
+
+.Modal--Active {
+    transform: scale(1) translateY(-50%);
+}
+
+.Modal--IsLoading {
+    min-height: 11em;
+
+    &::before {
+        content: url('bg-loader.gif');
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: negative($modal-loading-img-width);
+        margin-left: negative(halve($modal-loading-img-width));
+    }
+
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin: $base-spacing-unit auto;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+// Must be after .Modal--Active to overwrite transform settings
+// 1. Reset default settings
+// 2. 'Looks good'
+
+.Modal--AutoWidth, // Will be deprecated
+.Modal--Small {
+    width: auto; // [1]
+
+    @include breakpoint(small) {
+        left: 50%;
+        margin-left: negative(halve($modal-small-width));
+        width: $modal-small-width; // [2]
+    }
+}
+
+// Full screen modal
+.Modal--Full {
+    top: halve($base-spacing-unit);
+    right: halve($base-spacing-unit);
+    bottom: halve($base-spacing-unit);
+    left: halve($base-spacing-unit);
+    width: auto;
+
+    &.Modal--Active {
+        transform: scale(1);
+    }
+}
+
+.Modal__Backdrop {
+    transform: scale(1);
+    background-color: $modal-backdrop-color;
+}
+
+.Modal__Backdrop--IsClosable {
+    cursor: pointer;
+}
+
+.Modal__Header,
+.Modal__Footer {
+    border: 0 solid color(gray-light);
+    padding: halve($base-spacing-unit);
+
+    @include breakpoint(small) {
+        padding: halve($base-spacing-unit) $base-spacing-unit;
+    }
+}
+
+.Modal__Header { border-width: 0 0 1px 0; }
+.Modal__Footer { border-width: 1px 0 0 0; }
+
+// 1. Make sure the title doesn't flow underneath the close button
+.Modal__Title {
+    margin-right: triple($base-spacing-unit); // [1]
+    color: color(black);
+    font-size: font-size(h2);
+    font-weight: map-get($brand-face, weightAlt);
+}
+
+.Modal__Close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 radius(small);
+    padding: third($base-spacing-unit) halve($base-spacing-unit);
+    background-color: color(gray-lightest);
+    text-align: center;
+    line-height: 1;
+    font-size: font-size(xlarge);
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: color(gray-light);
+    }
+}
+
+// 1. Max-height will be overridden with JS if necessary after a
+//    Modernizr check
+
+.Modal__Body {
+    padding: halve($base-spacing-unit);
+    max-height: 80vh; // [1]
+
+    @include breakpoint(small) {
+        padding: halve($base-spacing-unit) $base-spacing-unit;
+    }
+}

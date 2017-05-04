@@ -1,0 +1,119 @@
+// SHAME.SCSS
+//
+// stylelint-disable selector-max-specificity, selector-no-id, selector-no-qualifying-type
+
+// We should not use this class, but use some better styles for links in
+// combination with .text-dimmed. There's a little boo-boo in that system,
+// so we have to use this for now.
+.link-inline-action {
+    text-decoration: underline;
+    color: color(gray-dark);
+    cursor: pointer;
+}
+
+// This one is needed because IE9 + IE10 has some problems keeping all items
+// inside the container when using flexbox. User agent sniffing is just a quick
+// fix for that.
+// 10em is the width of the orange tag on top of the price table panel.
+html[data-useragent*='MSIE 10.0'],
+html[data-useragent*='MSIE 9.0'] {
+    .Panel__Title--HasTag {
+        width: calc(100% - 10em);
+    }
+}
+
+// Apply styling for Matrix Item when used as a TabsNav item. The
+// `.js-tabs-nav-item-selected` is a pain everywhere, but at least for styling
+// the tabs module it makes sense to put it in the code there.
+.Matrix__Item.js-tabs-nav-item-selected {
+    border-color: color(blue);
+}
+
+// For the second step of the selector, the sidebar panel needs to stick with
+// user as they are scrolling. To prevent this panel from laying underneath part
+// of the selector, we slightly raise it
+.SelectorSticky {
+    z-index: z(default);
+}
+
+// The feedback-module uses a modal with a form to POST results to the feedback-
+// service. IE < 10 doesn't support FormData (to POST multipart form data) and
+// Modernizr checks it with the XHR2 property. Our solution is to hide the file
+// input for non-supporting browsers.
+.no-xhr2 #feedback-file-block {
+    display: none;
+}
+
+// Firefox doesn't know how to paint some basic rectangles properly based on
+// their contents. So we help him out a bit.
+html[data-useragent*='Firefox'] .SiteNav__Link {
+    @include breakpoint(sitenav) { min-width: 11em; }
+    @include breakpoint(medium)  { min-width: 12em; }
+    @include breakpoint(large)   { min-width: 13em; }
+}
+
+// Re- resetting some basic styling for user content (HTML coming from
+// the CMS's WYSIWYG-editors). No ideal, because it is setting some
+// styles that we already reset in an early stage and now re-applying.
+// (PF-1738)
+// The idea is: if an element has no class (so no Style Guide stuff is applied),
+// then apply some basic styling.
+// Other hacks documented inline
+
+// stylelint-disable selector-max-compound-selectors
+.user-content {
+    p:not([class]),
+    ol:not([class]),
+    ul:not([class]),
+    img:not([class]),
+    iframe:not([class]) {
+        margin-bottom: $base-spacing-unit;
+    }
+
+    // <div>
+    //     <strong>This element needs spacing</strong>
+    // </div>
+    div > strong:first-child:last-child {
+        display: block;
+        margin-bottom: $base-spacing-unit;
+    }
+
+    // <div>
+    //     <br>
+    //     <strong>Should reset the space taken up by the <br> above</strong>
+    // </div>
+    div > br:first-child + * {
+        display: block;
+        margin-top: negative($base-spacing-unit);
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    // 2. Tables don't have class, and the top-margin will collapse nicely
+    img:not([class]),
+    iframe:not([class]),
+    table { // [2]
+        margin-top: $base-spacing-unit;
+    }
+
+    iframe:not([class]) {
+        max-width: 100%;
+    }
+
+    ol:not([class]),
+    ul:not([class]) {
+        margin-left: $base-spacing-unit;
+    }
+
+    ol:not([class]) { list-style-type: decimal; }
+    ul:not([class]) { list-style-type: disc; }
+
+    // 3. Don't show subsequent <br>'s
+    br + br + br, // [3]
+    ul[class] + br,
+    ol[class] + br {
+        display: none;
+    }
+}

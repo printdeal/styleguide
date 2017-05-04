@@ -1,0 +1,73 @@
+// UI.UI-Object.TabsNav
+//
+// 1. Collapse borders;
+// 2. Need a high specificity to override 2a;
+
+$tabsnav-bg: color(gray-lighter);
+$tabsnav-border: color(gray-light);
+$tabsnav-text: color(gray-darker);
+$tabsnav-highlight-bg: color(orange);
+$tabsnav-highlight-text: color(white);
+$tabsnav-arrow-size: 0.625em;
+
+%tabs-nav,
+.TabsNav {
+    margin-bottom: $base-spacing-unit;
+    border-width: 0 0 1px 0;
+}
+
+%tabs-nav,
+.TabsNav,
+.TabsNav__Item {
+    border-style: solid;
+    border-color: $tabsnav-border;
+}
+
+.TabsNav__Item {
+    display: inline-block;
+    margin-right: -1px; // [1]
+    border-width: 1px 1px 0 1px;
+    padding: 0.66em 0.75em;
+    background-color: $tabsnav-bg;
+    vertical-align: bottom;
+    text-decoration: none;
+    color: $tabsnav-text;
+
+    &:hover {
+        background-color: $tabsnav-border;
+    }
+
+    &:first-child {
+        border-radius: radius(small) 0 0 0; // [2a]
+    }
+
+    &:last-child {
+        border-radius: 0 radius(small) 0 0; // [2a]
+    }
+}
+
+.TabsNav__Item--Current,
+.TabsNav__Item.js-tabs-nav-item-selected {
+    position: relative;
+    margin-bottom: -1px; // [1]
+    border-color: $tabsnav-highlight-bg;
+    border-radius: radius(small) radius(small) 0 0 !important; // stylelint-disable-line
+    padding: 0.875em 1em;
+
+    &,
+    &:hover {
+        background-color: $tabsnav-highlight-bg;
+        color: $tabsnav-highlight-text;
+    }
+
+    &::after {
+        @extend %overlay;
+        @extend %overlay-beneath;
+        content: '';
+        left: 50%;
+        margin-left: negative($tabsnav-arrow-size);
+        border-width: $tabsnav-arrow-size 0.875em 0;
+        border-style: solid;
+        border-color: $tabsnav-highlight-bg transparent transparent;
+    }
+}

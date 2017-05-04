@@ -1,0 +1,84 @@
+// Base.Objects.Tooltip
+
+.HasTooltip {
+    position: relative;
+}
+
+$tooltip-tip-width: halve($base-spacing-unit) + 1px;
+
+// 1. Will be animated
+// 2. Reset text-alignment
+// 3. Needed in case the element inherits some odd color
+.Tooltip {
+    @extend %overlay;
+    @include trim;
+    visibility: hidden;
+    opacity: 0; // [1]
+    z-index: z(default);
+    border: 1px solid color(gray-light);
+    padding: halve($base-spacing-unit);
+    background-color: color(white);
+    box-shadow: $shadow-panel;
+    text-align: left; // [2]
+    color: color(black); // [3]
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        border: $tooltip-tip-width solid transparent;
+    }
+
+    .HasTooltip:hover &,
+    .HasTooltip:active & {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity $base-animation-duration $base-animation-function;
+    }
+}
+
+.Tooltip--Top,
+.Tooltip--Bottom {
+    left: 50%;
+    transform: translateX(-50%);
+
+    &::before,
+    &::after {
+        left: 50%;
+    }
+
+    &::before {
+        margin-left: negative(halve($tooltip-tip-width));
+    }
+
+    &::after {
+        margin-left: negative(halve($tooltip-tip-width - 1px));
+        border-width: $tooltip-tip-width - 1px;
+    }
+}
+
+.Tooltip--Top {
+    bottom: 100%;
+    margin-bottom: $base-spacing-unit;
+
+    &::before,
+    &::after {
+        top: 100%;
+    }
+
+    &::before { border-top-color: color(gray-light); }
+    &::after  { border-top-color: color(white); }
+}
+
+.Tooltip--Bottom {
+    top: 100%;
+    margin-top: $base-spacing-unit;
+
+    &::before,
+    &::after {
+        bottom: 100%;
+    }
+
+    &::before { border-bottom-color: color(gray-light); }
+    &::after  { border-bottom-color: color(white); }
+}

@@ -1,0 +1,26 @@
+// Required attributes
+//
+// Some elements *must* have a certain attribute, like <img> must have an `alt`
+// attribute.
+
+// Format: 'element': 'attribute'
+$required-attrs: (
+    'img': 'alt',
+    '.Icon': 'aria-hidden',
+    'a': 'href',
+    'input': 'type'
+);
+
+%required-attr-styles {
+    @include _message('warn');
+}
+
+@each $element, $attr in $required-attrs {
+    #{$element}:not([#{$attr}]) {
+        @extend %required-attr-styles;
+
+        &::after {
+            content: 'WARN: `#{$element}` must have an attribute `#{$attr}`';
+        }
+    }
+}

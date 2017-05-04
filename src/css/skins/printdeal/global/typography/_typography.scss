@@ -1,0 +1,37 @@
+// UI.Global.Typography
+
+html {
+    line-height: $base-type-ratio;
+    color: color(gray-darker);
+    font-family: map-get($brand-face, family);
+    font-size: font-size(base);
+}
+
+// 1. Re-set font-family for the grid, because they are set to something else
+// by the complicated code in ppg/helpers/grid.sass
+.col,
+.cols {
+    font-family: map-get($brand-face, family);
+}
+
+blockquote {
+    $blockquote-font-size: font-size(blockquote);
+    margin-left: $base-spacing-unit;
+    border-left: quarter($base-spacing-unit) solid color(blue);
+    padding-left: halve($base-spacing-unit);
+    line-height: ($base-type-ratio * font-size(base)) / $blockquote-font-size;
+    font-size: $blockquote-font-size;
+    font-style: italic;
+}
+
+dd:not(:last-of-type) {
+    margin-bottom: third($base-spacing-unit);
+}
+
+.ol { list-style-type: decimal; }
+.ul { list-style-type: disc; }
+
+// Import component parts
+@import 'headings';
+@import 'link-helpers';
+@import 'text-helpers';

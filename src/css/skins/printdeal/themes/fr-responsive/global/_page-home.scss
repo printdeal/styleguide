@@ -1,0 +1,15 @@
+.Matrix__Item.HasOverlay {
+    padding-top: 4.5em;
+
+    .Overlay {
+        right: 1em;
+    }
+
+    .Balloon {
+        margin-top: 1em;
+    }
+}
+
+.Homepage__Section {
+    margin-bottom: double($base-spacing-unit);
+}

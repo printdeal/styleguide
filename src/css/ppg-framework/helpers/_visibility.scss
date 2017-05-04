@@ -1,0 +1,58 @@
+// Base.Object.Visibility
+//
+// They are primarily meant for block-level elements and the grid.
+
+// stylelint-disable declaration-no-important
+
+// Create viewport depending hiders/showers
+@each $bp-name, $bp-values in $breakpoints {
+    $breakpoint: map-get($breakpoints, $bp-name);
+
+    @if map-get($breakpoint, 'output') == true {
+        .show-for-#{$bp-name}-up {
+            display: none !important;
+
+            @include breakpoint($bp-name) {
+                display: inline-block !important;
+            }
+        }
+
+        .hide-for-#{$bp-name}-up {
+            display: none !important;
+
+            @include breakpoint($bp-name, $type: 'max-width') {
+                display: inline-block !important;
+            }
+        }
+    }
+}
+
+// Hide visually and from screen readers: h5bp.com/u
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+
+.visuallyhidden {
+    @include text-hide;
+}
+
+// Visibility classes for touch
+.show-for-touch {
+    display: none !important;
+
+    .touch &,
+    .touchevents & {
+        display: block !important;
+    }
+}
+
+.hide-for-touch {
+    display: block !important;
+
+    .touch &,
+    .touchevents & {
+        display: none !important;
+    }
+}

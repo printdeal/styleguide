@@ -1,0 +1,119 @@
+// UI.Object.Button
+
+// 1. reset default :focus style
+
+.Btn {
+    @include rounded;
+    margin-bottom: third($base-spacing-unit);
+    outline: none;
+    border-width: 1px 1px 3px;
+    border-style: solid;
+    border-color: color(orange-dark);
+    padding: 0.5em 0.66em;
+    background-color: color(orange);
+    color: color(white);
+    font-size: font-size(button);
+    transition: background-color $base-animation-duration $base-animation-function;
+
+    &:hover {
+        background: color(orange-shade);
+        color: color(white);
+    }
+
+    &:focus {
+        outline: none; // [1]
+        border-color: transparentize(color(black), 0.5);
+        color: color(white);
+    }
+}
+
+// Call to action
+
+.Btn--Cta {
+    border-color: color(blue-dark);
+    background: color(blue);
+
+    &:hover,
+    &:focus {
+        background: color(blue-shade);
+    }
+}
+
+// Alternate button
+
+.Btn--Alt {
+    border-color: color(gray-light);
+    background-color: color(gray-lightest);
+    color: color(gray-darker);
+
+    &:hover {
+        background: color(gray-lighter);
+        color: color(gray-darker);
+    }
+
+    &:focus {
+        color: color(gray-darker);
+    }
+}
+
+// Transparent (white) button
+// 1. Equalize height with <input/> and <select/>
+// 2. Override default btn style
+
+.Btn--Transparent {
+    border-width: 1px;
+    border-color: color(gray-light);
+    padding-top: 0.6em; // [1]
+    padding-bottom: 0.6em; // [1]
+    background-color: color(white);
+    color: color(gray-darker);
+
+    &:hover {
+        border-color: color(gray-medium);
+        background-color: color(white);
+        color: color(gray-darker); // [2]
+    }
+
+    &:focus {
+        color: color(gray-darker); // [2]
+    }
+}
+
+// Disabled button
+//
+// 1. Undo iOS setting to 0.4;
+
+.Btn--Disabled,
+.Btn:disabled {
+    opacity: 1; // [1]
+    border-color: color(gray-light);
+    cursor: no-drop;
+
+    &,
+    &:hover,
+    &:active {
+        background-color: color(gray-lightest);
+        color: color(gray-medium);
+    }
+}
+
+// Large button
+
+.Btn--Large {
+    padding: 0.5em;
+    font-size: font-size(lbutton);
+}
+
+// Small button
+
+.Btn--Small {
+    padding: 0.5em 1em;
+    font-size: font-size(milli);
+}
+
+// Full button
+
+.Btn--Full {
+    width: 100%;
+    text-align: center;
+}

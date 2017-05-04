@@ -1,0 +1,61 @@
+// Base.Object.Modal
+
+.Modal {
+    position: fixed;
+    top: $base-spacing-unit;
+    right: $base-spacing-unit;
+    left: $base-spacing-unit;
+    visibility: hidden;
+    z-index: z(modal);
+
+    .no-csstransforms {
+        display: none;
+    }
+}
+
+.Modal--Active {
+    visibility: visible;
+
+    .no-csstransforms {
+        display: block;
+    }
+}
+
+.Modal__Backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: z(modal-backdrop);
+    width: 100%;
+    height: 100%;
+}
+
+.Modal__Title {
+    min-height: $base-line-height;
+}
+
+// 1. Magic numbers for the Editor in on Sales Category Page
+.Modal__Body {
+    @include scrollable;
+    @include trim;
+
+    > iframe {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 90%; // [1]
+        height: calc(100vh - 90px); // [1]
+        background: color(white);
+    }
+}
+
+.Modal__Body--HasIframe {
+    height: 100%; // [1]
+    max-height: none; // [1]
+}
+
+.Modal__Close {
+    position: absolute;
+    top: 0;
+    right: 0;
+}

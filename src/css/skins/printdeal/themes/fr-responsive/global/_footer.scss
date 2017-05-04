@@ -1,0 +1,99 @@
+.PageFooter {
+    margin-top: 36px;
+}
+
+.PageFooter__Social {
+    border-top: 1px solid color(gray-light);
+    padding: $base-spacing-unit 0;
+
+    @include breakpoint(small) {
+        display: none;
+    }
+}
+
+.PageFooter__Main {
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: color(gray-light);
+    padding: $base-spacing-unit 0;
+    background-color: color(white);
+}
+
+.PageFooter__Usps {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: color(gray-light);
+    padding: halve($base-spacing-unit) 0;
+    background-color: color(gray-lightest);
+    text-align: center;
+
+    @include breakpoint(small) {
+        padding: $base-spacing-unit 0;
+        text-align: inherit;
+    }
+}
+
+.PageFooter__UspList {
+    text-align: center;
+
+    @include breakpoint(small) {
+        &:first-child {
+            text-align: left;
+        }
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+
+    // scss-lint:disable SelectorDepth
+    .Nav > li {
+        vertical-align: top;
+    }
+    // scss-lint:enable SelectorDepth
+}
+
+// 1. Trump `.Nav > li`
+.PageFooter__Referrals {
+    > li { // [1]
+        vertical-align: middle;
+    }
+
+    img {
+        width: auto;
+        height: 3em;
+    }
+}
+
+.SiteFooter {
+    background-color: color(white);
+}
+
+.SiteFooter__Logo,
+.SiteFooter__Details {
+    text-align: center;
+    color: color(gray-medium);
+}
+
+.SiteFooter__Details {
+    @include breakpoint(small) {
+        text-align: right;
+    }
+
+    li:not(:last-child) {
+        margin-right: 1em;
+    }
+}
+
+// 1. Fixed width for 'good looks'
+.SiteFooter__Logo {
+    @include svg-background('logo-printdeal');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include breakpoint(small) {
+        width: 8em; // [1]
+        background-position: left center;
+    }
+}

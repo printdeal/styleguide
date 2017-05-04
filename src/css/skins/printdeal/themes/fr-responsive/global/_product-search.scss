@@ -1,0 +1,93 @@
+.ProductSearch {
+    position: relative;
+    margin-left: third(double($base-spacing-unit));
+}
+
+// 1. Only put higher z-index when open, otherwise ProductNav and SiteNav
+//    will appear below the search
+.ProductSearch--IsOpen {
+    z-index: z(search-form); // [1]
+}
+
+// 2. `em` value for alignment with USP bar
+// 3. Fallback
+.ProductSearchResults {
+    display: none;
+    margin-right: negative(halve($base-spacing-unit));
+    margin-left: negative(halve($base-spacing-unit));
+    border-top: 1px solid color(gray-light);
+    background-color: color(gray-lightest);
+
+    @include breakpoint(medium) {
+        position: absolute;
+        top: 3em; // [2]
+        right: halve($base-spacing-unit);
+        border: solid color(gray-light);
+        border-width: 0 1px 1px 1px;
+        border-bottom-right-radius: radius(small);
+        border-bottom-left-radius: radius(small);
+        width: 80%; // [3]
+        box-shadow: $shadow-drop;
+    }
+
+    // Seperate breakpoint because scss-lint goed 100% nuts about combining it
+    // with the previous one.
+    @include breakpoint(medium) {
+        //  scss-lint:disable PropertyUnits
+        width: calc(100% - #{$product-nav-width} - #{$base-spacing-unit});
+        // scss-lint:enable PropertyUnits
+    }
+}
+
+.ProductSearchResults--IsOpen {
+    display: block;
+    z-index: z(search-results);
+}
+
+.ProductSearchResults__Content {
+    @include scrollable;
+    // scss-lint:disable all
+    max-height: 28em;
+    max-height: 60vh;
+    // scss-lint:enable all
+    background-color: color(gray-lighter);
+}
+
+.ProductSearchResults__Title {
+    padding: halve($base-spacing-unit) halve($base-spacing-unit) quarter($base-spacing-unit) halve($base-spacing-unit);
+    font-size: font-size(base);
+}
+
+.ProductSearchResults__Term {
+    background: transparent;
+    color: color(blue);
+    font-weight: 700;
+}
+
+.ProductSearchResults__Footer {
+    padding: halve($base-spacing-unit);
+    text-align: center;
+}
+
+.ProductSearchResults__FooterAction {
+    font-size: font-size(h3);
+}
+
+.ProductSearchResults__Backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: color(black);
+    background-color: rgba(color(black), 0.35);
+    cursor: pointer;
+}
+
+.ProductSearchResults__Backdrop--IsOpen {
+    @include breakpoint(medium) {
+        display: block;
+        z-index: z(search-backdrop);
+    }
+}

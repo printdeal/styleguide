@@ -1,0 +1,86 @@
+// Helper to manage `z-index`.
+// Tries to fetch the z-index mapped to `$layer` in `$z-indexes` map.
+// If found, returns it, else returns `null`.
+//
+// @see https://github.com/SassDoc/sassdoc-theme-light/blob/master/scss/utils/_functions.scss
+//
+// @requires {variable} z-indexes
+//
+// @example scss
+// z-index: z('default')
+//
+// @param {String} $layer - Layer
+//
+// @throws No z-index found for `$layer`.
+//
+// @return {Number | Null}
+@function z($layer) {
+    @if map-has-key($z-indexes, $layer) == false {
+        @warn 'No z-index found for `#{$layer}`. Please make sure it is defined in `$z-indexes` map.';
+    }
+
+    @return map-get($z-indexes, $layer);
+}
+
+// Color getter.
+//
+// @requires {variable} colors
+// @requires SassCore::map-has-key <http://sass-lang.com/documentation/Sass/Script/Functions.html#map_has_key-instance_method>
+//
+// @see https://github.com/SassDoc/sassdoc-theme-light/blob/master/scss/utils/_functions.scss
+//
+// @example scss
+// color: color('pink');
+//
+// @param {String} $color - Color to fetch
+//
+// @throws No color found for `$color`. Please make sure it is defined in `$colors` map.
+//
+// @return {Color | Null}
+@function color($color) {
+    @if map-has-key($colors, $color) == false {
+        @warn 'No color found for `#{$color}`. Please make sure it is defined in `$colors` map.';
+    }
+
+    @return map-get($colors, $color);
+}
+
+// Font-size getter
+//
+// @requires {variable} font-sizes
+//
+// @example scss
+// font-size: font-size('h1');
+//
+// @param {String} $size (base) - Size to fetch
+//
+// @throws No size found for `$size`.
+//
+// @return {Size | Null}
+@function font-size($size) {
+    @if map-has-key($font-sizes, $size) == false {
+        @warn 'No size found for `#{$size}`. Please make sure it is defined in `$font-sizes` map.';
+    }
+
+    @return map-get($font-sizes, $size);
+}
+
+// Border radius getter
+//
+// @requires {variable} radii
+//
+// @example scss
+// border-radius: radius('small');
+//
+// @param {String} $size - The radius
+//
+// @throws No size found for `$size`.
+//
+// @return {Size | Null}
+@function radius($radius) {
+    @if map-has-key($radii, $radius) == false {
+        @warn 'No size found for `#{$radius}`. Please make sure it is defined in `$radii` map.';
+    }
+
+    @return map-get($radii, $radius);
+}

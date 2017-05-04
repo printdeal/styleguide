@@ -1,0 +1,9 @@
+// Base.Generic.Typography
+//
+// 1. Overwrite Normalize
+
+sub,
+sup,
+small {
+    font-size: font-size(small); // [1]
+}

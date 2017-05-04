@@ -1,0 +1,31 @@
+// UI.UI-Object.Price
+//
+// 1. Elbert says these settings look good;
+.Price {
+    font-weight: 700;
+}
+
+.Price--IsObsolete {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: color(gray-medium);
+    font-weight: 400;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 42%; // [1]
+        left: 0;
+        transform: rotate(-15deg); // [1]
+        border-top: 0.1em solid color(orange);
+        width: 100%;
+    }
+}
+
+// <span />
+.Price__Decimal {
+    position: relative;
+    top: -0.25em;
+    font-size: font-size(smaller);
+}

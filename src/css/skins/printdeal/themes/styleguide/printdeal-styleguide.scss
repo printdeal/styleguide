@@ -1,0 +1,28 @@
+// STYLEGUIDE
+//
+// First load the sprite, so the Printdeal-theme can extend icons to use in
+// forms, like radio and checkbox icons and the IconList.
+@import 'objects/sprite';
+
+// Load all
+@import '../../printdeal';
+
+// Global components/elements/styles
+@import 'global/page';
+@import 'global/page-section';
+@import 'global/page-head/page-head';
+@import 'global/typography';
+
+// Objects
+@import 'objects/hamburger-icon';
+@import 'objects/logo';
+@import 'objects/pull-quote';
+@import 'objects/panel';
+@import 'objects/slider';
+@import 'objects/swatch';
+
+// Components
+@import 'components/examples/examples';
+
+// Shame on us
+@import 'shame';

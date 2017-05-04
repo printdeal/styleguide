@@ -1,0 +1,121 @@
+// UI.Global.SiteNav
+//
+// 1. High z-index to trump *all* other items, except modal
+// 2. Acts as a fallback for browsers that don't support transforms etc.
+// 3. Some numbers that just look nice
+// 4. Compensate for double border width
+
+$sitenav-border-width: 1px;
+$sitenav-border-color: color(gray-light);
+$sitenav-bg: color(white);
+$sitenav-bg-alt: color(gray-lightest);
+
+.SiteNav {
+    margin-bottom: negative($sitenav-border-width); // [4]
+    border-width: $sitenav-border-width 0 0 $sitenav-border-width;
+    background-color: $sitenav-bg;
+
+    &,
+    li {
+        border-style: solid;
+        border-color: $sitenav-border-color;
+    }
+
+    li {
+        margin-bottom: 0;
+        border-width: 0 0 $sitenav-border-width;
+    }
+}
+
+.SiteNav--Mobile {
+    @extend %overlay;
+    @extend %overlay-beneath;
+    @extend %overlay-cover-x;
+    @include animatable;
+    transform: scale(0) translate(70%, -110%); // [3]
+    visibility: hidden; // [2]
+    z-index: z(mobile-nav); // [1]
+    border-width: $sitenav-border-width 0 0 0;
+    box-shadow: $shadow-drop;
+    text-align: left;
+    // scss-lint:disable TransitionAll
+    transition: all 0 $base-animation-duration, opacity $base-animation-duration $base-animation-function;
+    // scss-lint:enable TransitionAll
+}
+
+.SiteNav--IsOpen {
+    transform: scale(1) translate(0, 0);
+    visibility: visible;
+    transition: transform $base-animation-duration $base-animation-function;
+}
+
+.SiteNav__Icon {
+    $sitenav-icon-offset: halve(third($base-spacing-unit));
+    display: inline-block;
+    margin: negative($sitenav-icon-offset) $sitenav-icon-offset 0 0;
+    vertical-align: middle;
+}
+
+.SiteNav__Item--HasChildren {
+    display: block;
+    position: relative;
+    margin-bottom: 0;
+    padding: halve($base-spacing-unit) $base-spacing-unit halve($base-spacing-unit) halve($base-spacing-unit);
+    white-space: nowrap;
+    cursor: pointer;
+
+    // Create a small down-facing triangle
+    &::after {
+        content: '';
+        position: absolute;
+        top: ($base-spacing-unit * 0.75);
+        right: halve($base-spacing-unit);
+        border-width: third($base-spacing-unit) quarter($base-spacing-unit);
+        border-style: solid;
+        border-color: $sitenav-border-color transparent transparent transparent;
+    }
+}
+
+// 1. Will be toggled with JS
+.SiteNav__SubNav {
+    display: none; // [1]
+    border-width: $sitenav-border-width 0 0;
+    background-color: $sitenav-bg-alt;
+
+    .no-js & {
+        // [1]
+        display: block !important; // stylelint-disable-line
+    }
+}
+
+.SiteNav-SubNav__Item {
+
+    &:first-child {
+        border-top-width: 1px;
+    }
+
+    &:last-child {
+        border-bottom-width: 0;
+    }
+
+    a {
+        display: block;
+        padding: quarter($base-spacing-unit) halve($base-spacing-unit);
+        text-decoration: none;
+
+        &::before {
+            @include sprite;
+            @include icon('ChevronRight--Blue');
+            content: '';
+            margin-right: quarter($base-spacing-unit);
+        }
+    }
+
+    .Label {
+        margin-left: quarter($base-spacing-unit);
+    }
+}
+
+.SiteNav-SubNav__Item--IsCurrent {
+    font-weight: 700;
+}

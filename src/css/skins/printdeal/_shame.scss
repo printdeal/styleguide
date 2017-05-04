@@ -1,0 +1,21 @@
+// SHAME.CSS
+
+// stylelint-disable selector-no-qualifying-type
+
+// Apply a max-height to iOS 7. This doesn't work with the vh unit:
+// @link https://gist.github.com/pburtchaell/e702f441ba9b3f76f587
+[data-useragent*='Version/7'][data-platform='iPhone'] {
+    .Modal__Body {
+        max-height: 320px;
+    }
+}
+
+// Our fancy styled <select /> uses a custom bg-img arrow. That doesn't work for
+// IE9, so we also don't need the extra right offset and background image,
+// because we will use the browser's default.
+html[data-useragent*='MSIE 9.0'] {
+    select {
+        padding-right: 0.5em;
+        background-image: none;
+    }
+}

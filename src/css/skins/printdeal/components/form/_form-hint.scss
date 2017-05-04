@@ -1,0 +1,28 @@
+// UI.Form.Hint
+//
+// 1. Make Hint stay close to the input it belongs to
+// 2. Align a one-line hint in the middle of the row
+
+.Form__Hint {
+    display: block;
+    margin-top: -0.5em; // [1]
+    margin-bottom: halve($base-spacing-unit);
+    color: color(gray-dark);
+    font-size: font-size(milli);
+
+    // In a login modal the hint gets too close to the label,
+    // so reset it here
+    label + & {
+        margin-top: 0.5em;
+    }
+}
+
+.Form__Hint--Beside {
+    @include breakpoint(medium) {
+        margin-top: halve($base-spacing-unit); // [2]
+    }
+}
+
+.Form__Hint--HasError {
+    color: color(red);
+}

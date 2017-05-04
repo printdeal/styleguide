@@ -1,0 +1,50 @@
+// UI.Form.ClickInput
+//
+// @support IE9+ Due to the :checked and :disabled pseudo-classes
+//
+// The ClickInput relies on the following markup:
+//
+// <input type='[radio|checkbox]' name='theName' id='theID'>
+// <label for='theID'> ...content... </label>
+//
+// 1. Make element accessible when it is required
+// 2. Using an absolue value instead of relative for IE >= 10
+
+[type='checkbox'],
+[type='radio'] {
+    position: absolute; // [1]
+    opacity: 0; // [1]
+    z-index: z('below'); // [1]
+
+    + label {
+        display: inline-block;
+        font-size: font-size(base);
+
+        &::before {
+            @include sprite;
+            content: '';
+            vertical-align: -0.2em;
+            font-size: font-size(input); // [2]
+        }
+    }
+
+    &:focus + label {
+        outline: 1px dotted;
+    }
+
+    &:disabled + label::before {
+        cursor: default;
+    }
+}
+
+[type='checkbox'] {
+    + label::before { @include icon('Checkbox'); }
+    &:checked + label::before  { @include icon('CheckboxChecked'); }
+    &:disabled + label::before { @include icon('CheckboxDisabled'); }
+}
+
+[type='radio'] {
+    + label::before { @include icon('Radio'); }
+    &:checked + label::before  { @include icon('RadioChecked'); }
+    &:disabled + label::before { @include icon('RadioDisabled'); }
+}

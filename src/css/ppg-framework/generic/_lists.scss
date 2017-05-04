@@ -1,0 +1,16 @@
+// Base.Generic.Lists
+
+// Some side margins for lists
+ul,
+ol {
+    margin-left: $base-spacing-unit;
+}
+
+// Remove vertical spacing in nested lists
+li {
+
+    > ol,
+    > ul {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,187 @@
+// base.object.panel
+
+$offset: negative(halve($base-spacing-unit));
+$options-breakpoint: medium;
+$panel-border-color: color(gray-light);
+
+.Panel {
+    @include trim;
+    display: block;
+    border: 1px solid $panel-border-color;
+    border-radius: radius(small);
+    padding: halve($base-spacing-unit);
+    text-decoration: none;
+}
+
+.Panel__Header {
+    @include trim;
+    margin: $offset $offset 0 $offset;
+    border-bottom: 1px solid $panel-border-color;
+    background-color: color(gray-lightest);
+
+    @include breakpoint($options-breakpoint) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .Panel--IsCollapsable &,
+    .Panel--IsCollapsed & {
+        position: relative;
+        padding-right: $base-spacing-unit;
+        cursor: pointer;
+
+        &::before {
+            @include sprite;
+            content: '';
+            position: absolute;
+            top: halve($base-spacing-unit);
+            right: halve($base-spacing-unit);
+        }
+    }
+
+    .Panel--IsCollapsable &::before {
+        @include icon('ChevronUp--Gray');
+    }
+
+    .Panel--IsCollapsed & {
+        margin-bottom: $offset;
+        border-bottom: none;
+
+        &::before {
+            @include icon('ChevronDown--Gray');
+        }
+    }
+}
+
+.Panel__Title {
+    flex: 2;
+    margin-bottom: 0;
+    padding: halve($base-spacing-unit);
+}
+
+.Panel__Options {
+    @include clearfix;
+    border-top: 1px solid $panel-border-color;
+    text-align: center;
+
+    @include breakpoint($options-breakpoint) {
+        display: flex;
+        border-top: none;
+    }
+}
+
+// 1. Reset .Btn
+.Panel__Option {
+    @include reset-button;
+    float: left;
+    margin-bottom: 0; // [1]
+    padding: 0.75em 0.125em;
+    width: (100% / 3);
+    white-space: nowrap;
+    font-size: 1em;
+
+    @include breakpoint($options-breakpoint) {
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+        width: auto;
+        white-space: nowrap;
+
+        &:first-of-type {
+            border-left: 1px solid $panel-border-color;
+        }
+    }
+
+    &:not(:first-of-type) {
+        border-left: 1px solid $panel-border-color;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $panel-border-color;
+        color: inherit;
+    }
+}
+
+.Panel__Content {
+    @include trim;
+    margin: 0 $offset $offset $offset;
+    padding: halve($base-spacing-unit) halve($base-spacing-unit) 0 halve($base-spacing-unit);
+
+    .Panel--IsCollapsed &   { display: none; }
+    .Panel--IsCollapsable & { display: block; }
+}
+
+.Panel__Content--Separate {
+    margin: $base-spacing-unit $offset 0;
+    border-top: 1px solid $panel-border-color;
+    border-bottom: 1px solid $panel-border-color;
+    padding: $base-spacing-unit;
+    background-color: color(gray-lightest);
+}
+
+// When no flexbox, mimic the Split object
+.no-flexbox {
+    @include breakpoint($options-breakpoint) {
+
+        // @extends .Split
+        .Panel__Header {
+            @include clearfix;
+            display: block;
+        }
+
+        // @extends .Split__Title
+        .Panel__Title {
+            float: left;
+            clear: left;
+            text-align: left;
+        }
+
+        .Panel__Options {
+            float: right;
+        }
+    }
+}
+
+.no-js {
+    .Panel__Content {
+        display: block;
+    }
+
+    .Panel__Header {
+        margin: $offset $offset 0 $offset;
+        border-bottom: 1px solid $panel-border-color;
+        cursor: default;
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+// Promo Panel, used for deals and promoted prices in combination with
+// Panel__Label and such
+$promo-panel-color: color(green-shade);
+
+.Panel--IsPromo {
+    border-color: $promo-panel-color;
+    color: $promo-panel-color;
+}
+
+.Panel--HasLabel {
+    position: relative;
+}
+
+.Panel__Label {
+    position: absolute;
+    top: 100%;
+    left: -1px; // compensate for .Panel border-width
+    border-radius: 0 0 3px 3px; // only bottom corners
+    padding: 0.3em 0.66em;
+    background: $panel-border-color;
+    font-size: font-size(smaller);
+
+    .Panel--IsPromo & {
+        background-color: $promo-panel-color;
+        color: color(white);
+    }
+}

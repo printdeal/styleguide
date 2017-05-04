@@ -1,0 +1,12 @@
+// Base.Object.DefList
+
+.DefList {
+    @include clearfix;
+    margin-left: 0;
+    list-style: none;
+}
+
+.DefList__Title {
+    float: left;
+    clear: left;
+}

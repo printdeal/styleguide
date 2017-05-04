@@ -1,0 +1,20 @@
+.h--branded {
+    margin-bottom: halve($base-spacing-unit);
+    padding-bottom: third($base-spacing-unit);
+    background: url('bg-title.png') no-repeat center bottom transparent;
+    background-size: contain;
+
+    @include breakpoint(medium) {
+        background-image: url('bg-title-large.png');
+    }
+}
+
+// Resetting all default blockquote styles
+.user-content-zendesk blockquote {
+    margin-left: 0;
+    border-left: none;
+    padding-left: 0;
+    line-height: $base-type-ratio;
+    font-size: font-size(base);
+    font-style: normal;
+}

@@ -1,0 +1,27 @@
+// Copied from default zendesk theme
+
+.user-nav > * {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: inherit;
+}
+
+.user-info [role='button'] {
+    margin-left: 30px;
+    border: 1px solid color(gray-lighter);
+    border-radius: radius(small);
+    padding: 4px 10px 4px 4px;
+    line-height: 1;
+    color: color(gray-darker);
+}
+
+.user-avatar {
+    margin-right: 4px;
+    max-height: 20px;
+}
+
+.user-avatar,
+.user-avatar + span {
+    display: inline-block;
+    vertical-align: middle;
+}

@@ -1,0 +1,56 @@
+[class*='language-'],
+pre {
+    color: color(black);
+}
+
+pre {
+    padding: halve($base-spacing-unit);
+    overflow: auto;
+    background-color: color(gray-lightest);
+    background-image: url('http://basehold.it/i/19/d7d7d7');
+    background-position: 0 halve($base-spacing-unit); // Because of padding
+}
+
+:not(pre) > code {
+    background-color: color(gray-lightest);
+    color: color(black);
+}
+
+:not(pre) > [class*='language-'],
+pre {
+    border: 1px solid color(gray-lighter);
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.function {
+    color: color(magenta-shade);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.builtin {
+    color: color(green-shade);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword,
+.token.variable {
+    color: color(blue-shade);
+}
+
+.token.comment {
+    color: color(gray-medium);
+}
+
+.clippy {
+    position: absolute;
+    top: halve($base-spacing-unit);
+    right: quarter($base-spacing-unit);
+}

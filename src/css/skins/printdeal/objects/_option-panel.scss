@@ -1,0 +1,20 @@
+// Object.OptionPanel
+//
+// 1. Based on 'looks good'
+
+.OptionPanel {
+    @include trim;
+    display: inline-block;
+    margin-bottom: $base-spacing-unit;
+    border: 1px solid color(gray-light);
+    padding: halve($base-spacing-unit);
+
+    &--IsValid,
+    &--IsPending {
+        border-bottom-width: 3px; // [1]
+        border-color: color(gray-medium);
+    }
+
+    &--IsValid   { border-bottom-color: color(green-shade); }
+    &--IsPending { border-bottom-color: color(orange); }
+}

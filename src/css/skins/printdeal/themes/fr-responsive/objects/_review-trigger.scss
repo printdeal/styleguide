@@ -1,0 +1,15 @@
+// The button that's on the side of the page that opens a modal where a user
+// can fill in a review for our site
+//
+// 1. That's what Atlassian used and it looked good
+.ReviewTrigger {
+    @include breakpoint(small) {
+        @include rounded-bottom;
+        position: fixed;
+        top: 40%; // [1]
+        left: 100%;
+        transform: rotate(90deg);
+        transform-origin: top left;
+        z-index: z(review);
+    }
+}

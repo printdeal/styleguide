@@ -1,0 +1,125 @@
+@mixin cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+$slider-duration: 0.33s;
+
+.Slider {
+    position: relative;
+    border: 1px solid color(gray-light);
+    border-radius: radius(small);
+    padding-bottom: 68%;
+    overflow: hidden;
+    background-color: color(white);
+
+    @include breakpoint(x-small) {
+        padding-bottom: 50%;
+    }
+
+    @include breakpoint(small) {
+        padding-bottom: 42.5%;
+    }
+}
+
+.Slide__Slides {
+    margin-left: 0;
+    list-style: none;
+}
+
+.Slider__Slide {
+    @include cover;
+    transform: translate3d(100%, 0, 0);
+    background-color: color(white);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: contain;
+    transition: transform $slider-duration;
+
+    @include breakpoint(x-small) {
+        background-size: auto 100%;
+    }
+
+    .no-csstransforms3d & {
+        display: none;
+    }
+}
+
+.Slider__Slide--IsActive {
+    transform: translate3d(0, 0, 0);
+    transition: transform $slider-duration $base-animation-function;
+
+    .no-csstransforms3d & {
+        display: block;
+    }
+}
+
+// .Slide content can be either <a> or <div>, hence the link-specific styles.
+.Slide__Content {
+    @include cover;
+    display: block;
+    padding: 8% 46% $base-spacing-unit $base-spacing-unit;
+    text-decoration: none;
+
+    &:hover {
+        color: inherit;
+    }
+}
+
+.Slide__Title {
+    text-shadow: 1px 0 color(white), -1px 0 color(white), 0 1px color(white);
+    line-height: 1.1;
+    font-size: font-size(xlarge);
+
+    @include breakpoint(small) {
+        font-size: font-size(xxlarge);
+    }
+}
+
+.Slide__Byline {
+    margin-bottom: $base-spacing-unit;
+
+    @include breakpoint(small) {
+        font-size: font-size(h2);
+    }
+}
+
+.Slider__Nav {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+
+    .no-js & {
+        display: none;
+    }
+}
+
+.Slider__NavItem {
+    display: inline-block;
+    outline: none;
+    border-radius: radius(circle);
+    width: font-size(base);
+    height: font-size(base);
+    background: color(gray-lighter);
+    text-decoration: none;
+    transition: background-color $base-animation-duration;
+
+    &:not(:last-child) {
+        margin-right: 0.2em;
+    }
+
+    &:hover {
+        background-color: color(gray-light);
+    }
+}
+
+.Slider__NavItem--IsActive {
+
+    &,
+    &:hover {
+        background: color(blue);
+    }
+}

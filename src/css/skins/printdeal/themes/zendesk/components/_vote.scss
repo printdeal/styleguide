@@ -1,0 +1,47 @@
+.article-footer {
+    margin-top: double($base-spacing-unit);
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: color(gray-light);
+    padding: $base-spacing-unit 0;
+}
+
+.article-vote,
+.article-vote-question,
+.article-vote-controls,
+.article-vote-count {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.article-vote-question,
+.article-vote-controls {
+    margin-right: $base-spacing-unit;
+}
+
+.article-vote-down {
+    margin-left: 9px;
+
+    &::before {
+        transform: rotate(180deg);
+    }
+}
+
+.article-voted::before {
+
+    &.article-vote-up {
+        @extend %icon-thumb-green !optional;
+    }
+
+    &.article-vote-down {
+        @extend %icon-thumb-alt !optional;
+    }
+}
+
+.article-vote-count {
+    color: color(gray-medium);
+}
+
+.tooltip {
+    display: none !important; // stylelint-disable-line declaration-no-important
+}

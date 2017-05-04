@@ -1,0 +1,25 @@
+[data-example]:not(hr) {
+    margin-bottom: $base-spacing-unit;
+}
+
+[data-example].row p {
+    padding: quarter($base-spacing-unit);
+    background-color: color(gray-lighter);
+}
+
+[data-example].HasOverlay {
+    margin: 2em 6em;
+    width: 18em;
+    height: 6em;
+    background-color: color(orange-light);
+}
+
+[data-example] .Overlay {
+    padding: 0.75em 1.5em;
+    background-color: color(orange);
+    color: color(white);
+}
+
+pre {
+    max-height: 30em;
+}

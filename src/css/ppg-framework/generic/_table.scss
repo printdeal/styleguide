@@ -1,0 +1,21 @@
+// PPG.Generic.Table
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption {
+    text-align: left;
+}
+
+th {
+    text-align: left;
+    font-weight: 400;
+}
+
+th,
+td {
+    padding: 0;
+}

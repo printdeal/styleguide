@@ -1,0 +1,10 @@
+// Base.Page
+//
+// 1. Force vertical scrollbars to be always visible to avoid
+//    'jumping' pages.
+// 2. Always make the page fill the entire viewport.
+
+html {
+    min-height: 100%; // [2]
+    overflow-y: scroll; // [1]
+}

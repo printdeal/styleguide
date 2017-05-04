@@ -1,0 +1,155 @@
+// Base.Object.Grid
+//
+// @link The idea of margin/padding on the grid columns comes from
+//       Harry Roberts (http://csswizardry.com/2013/02/introducing-csswizardry-grids/)
+
+$gutter-width: $base-spacing-unit;
+
+.page-wrap {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    max-width: 1024px;
+
+    @include breakpoint(medium) {
+        margin-right: 0.75em;
+        margin-left: 0.75em;
+    }
+
+    @media (min-width: (1024px + $base-spacing-unit)) {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .not-responsive & {
+        width: $base-non-responsive-site-width;
+    }
+}
+
+.row {
+    @include row;
+    margin-left: negative($gutter-width);
+}
+
+.col,
+.cols {
+    @include col;
+    padding-left: $gutter-width;
+    width: 100%;
+}
+
+// Inner grid spacing
+//
+// Spacing between columns and within the row itself.
+.row--collapsed {
+    margin-left: 0;
+
+    > .col,
+    > .cols {
+        padding-left: 0;
+    }
+}
+
+.row--padded {
+    padding: $gutter-width;
+}
+
+.row--hPadded {
+    padding-right: $gutter-width;
+    padding-left: $gutter-width;
+}
+
+.row--vPadded {
+    padding-top: $gutter-width;
+    padding-bottom: $gutter-width;
+}
+
+// Vertical alignment
+
+.row--vAlignTop {
+    align-items: flex-start;
+
+    > .col,
+    > .cols {
+        vertical-align: top;
+    }
+}
+
+.row--vAlignMiddle {
+    align-items: center;
+
+    > .col,
+    > .cols {
+        vertical-align: middle;
+    }
+}
+
+.row--vAlignBottom {
+    align-items: flex-end;
+
+    > .col,
+    > .cols {
+        vertical-align: bottom;
+    }
+}
+
+// Reversed
+//
+// Reverse the visual order of columns in a row.
+.row--rev {
+    direction: rtl;
+
+    > .col,
+    > .cols {
+        direction: ltr;
+    }
+}
+
+// Centered
+//
+// Center the columns in the grid if there's less than 12 columns in total
+.row--center {
+    justify-content: center;
+    text-align: center;
+
+    > .col,
+    > .cols {
+        text-align: left;
+    }
+}
+
+// Declare widths and offsets here for further use
+// At bottom, otherwise they get overridden by the beforementioned .col & .cols
+@mixin widths-setup($breakpoint-name: init) {
+
+    // Column widths
+
+    @for $column-index from 1 through $base-grid-columns {
+        .#{$breakpoint-name}-#{$column-index} {
+            width: percentage($column-index / $base-grid-columns);
+        }
+    }
+
+    // Offset widths
+    //
+    // For less loops: use some integer instead of $base-grid-columns;
+
+    @for $offset-index from 0 to halve($base-grid-columns) {
+        .#{$breakpoint-name}-offset-#{$offset-index} {
+            margin-left: percentage($offset-index / $base-grid-columns);
+        }
+    }
+}
+
+// Loop through all breakpoints and generate content
+@include widths-setup;
+
+@each $bp-name, $value in $breakpoints {
+    $breakpoint: map-get($breakpoints, $bp-name);
+    $breakpoint-name: $bp-name;
+
+    @if map-get($breakpoint, 'output') == true {
+        @include breakpoint($breakpoint-name) {
+            @include widths-setup($breakpoint-name);
+        }
+    }
+}

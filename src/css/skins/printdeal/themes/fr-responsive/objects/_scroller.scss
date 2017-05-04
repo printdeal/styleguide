@@ -1,0 +1,8 @@
+.Scroller {
+    position: relative;
+    max-height: 30em; // fallback value
+    max-height: 50vmin; // stylelint-disable unit-whitelist
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    overflow-y: scroll;
+}

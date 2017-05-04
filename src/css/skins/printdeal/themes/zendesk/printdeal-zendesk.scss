@@ -1,0 +1,17 @@
+// ZENDESK
+//
+// First load the sprite, so the Printdeal-theme can extend icons to use in
+// forms, like radio and checkbox icons and the IconList.
+@import 'objects/sprite';
+
+// Load all
+@import '../../printdeal';
+
+@import 'global/shame';
+@import 'global/page-foot';
+@import 'objects/banner';
+@import 'objects/pagination';
+@import 'objects/startpage-section';
+@import 'components/vote';
+@import 'components/user-nav';
+@import 'components/search-results';

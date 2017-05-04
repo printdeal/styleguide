@@ -1,0 +1,208 @@
+// 1. To make centering work on IE.
+@mixin cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%; // [1]
+}
+
+$product-nav-width: 18em;
+
+.Slider {
+    position: relative;
+    overflow: hidden;
+}
+
+// 1. Based on 'good looks'
+.Slider--IsFeatured {
+    min-height: 18em; // [1]
+
+    @include breakpoint(medium) {
+        min-height: 26em; // [1]
+    }
+
+    @include breakpoint(large-screen) {
+        min-height: 36em;
+    }
+}
+
+.Slider__Wrap {
+    @include cover;
+}
+
+.Slider__Action {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: z(slider-action);
+    padding: 0 0.5em;
+    transition: opacity $base-animation-duration $base-animation-function;
+
+    &:hover,
+    &:focus,
+    &:active {
+        opacity: 1;
+        outline: none;
+    }
+}
+
+.Slider__Action--Prev {
+    right: 100%;
+    margin-right: halve($base-spacing-unit);
+}
+
+.Slider__Action--Next {
+    left: 100%;
+    margin-left: halve($base-spacing-unit);
+}
+
+.Slide__Slides {
+    margin-left: 0;
+    list-style: none;
+}
+
+.Slider__Slide {
+    @include cover;
+    opacity: 0;
+    z-index: z(below);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    transition: opacity $base-animation-duration $base-animation-function, transform $base-animation-duration linear;
+
+    @include breakpoint(medium) {
+        background-position: center center;
+    }
+
+    .Slider--IsFeatured & {
+        background-position: 55% center;
+        background-size: cover;
+    }
+}
+
+.Slider__Slide--IsActive {
+    opacity: 1;
+    z-index: z(slider-active);
+    background-color: color(white);
+    transition: opacity $base-animation-duration $base-animation-function, transform $base-animation-duration linear;
+}
+
+.Slider__Slide--IsPreloaded {
+    opacity: 1;
+    z-index: z(slider-preload);
+}
+
+// .Slide content can be either <a> or <div>, hence the link-specific styles.
+.Slide__Content {
+    @include cover;
+    display: block;
+    padding: double($base-spacing-unit) $base-spacing-unit $base-spacing-unit $base-spacing-unit;
+    text-decoration: none;
+
+    @include breakpoint(medium) {
+        padding-left: $product-nav-width + 1.5em;
+        padding-left: calc(#{$product-nav-width} + #{$base-spacing-unit});
+    }
+
+    &:hover {
+        color: inherit;
+    }
+}
+
+.Slide__Content--Alt {
+    .Slide__Title,
+    .Slide__Byline {
+        color: color(white);
+    }
+}
+
+// 1. Width based on good looks
+.Slide__Title,
+.Slide__Byline {
+    max-width: 20em; // [1]
+}
+
+.Slide__Title {
+    margin-bottom: 1em;
+    line-height: 1.1;
+    font-size: font-size(xlarge);
+}
+
+.Slide__Byline {
+    margin-bottom: $base-spacing-unit;
+}
+
+.Slider__Nav {
+    position: absolute;
+    bottom: $base-spacing-unit;
+    left: 0;
+    z-index: z(slider-nav);
+    width: 100%;
+    text-align: center;
+
+    .Slider--IsFeatured & {
+        left: $base-spacing-unit;
+        width: auto;
+        text-align: inherit;
+
+        @include breakpoint(medium) {
+            margin-left: $product-nav-width;
+        }
+
+        @include breakpoint(slider-nav) {
+            display: none;
+        }
+    }
+
+    .no-js & {
+        display: none;
+    }
+}
+
+.Slider__NavItem {
+    display: inline-block;
+    position: relative;
+    border: 2px solid color(gray-lightest);
+    border-radius: radius(circle);
+    width: 1.5em;
+    height: 1.5em;
+    background: color(white);
+    vertical-align: middle;
+    cursor: pointer;
+    transition: background-color $base-animation-duration;
+
+    .touch & {
+        font-size: font-size(h2);
+    }
+
+    &:not(:last-child) {
+        margin-right: 0.66em;
+    }
+
+    &:hover {
+        background-color: color(gray-light);
+    }
+
+    // Make a larger, invisible tap-area to ease clicking bullets.
+    $slider-nav-item-touch-offset: -0.5em;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: $slider-nav-item-touch-offset;
+        right: $slider-nav-item-touch-offset;
+        bottom: $slider-nav-item-touch-offset;
+        left: $slider-nav-item-touch-offset;
+    }
+}
+
+.Slider__NavItem--IsActive {
+
+    &,
+    &:hover {
+        background: color(blue);
+    }
+}

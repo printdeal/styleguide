@@ -1,0 +1,84 @@
+// stylelint-disable function-url-no-scheme-relative, property-no-vendor-prefix
+body::before {
+    background-image: url('//p3.zdassets.com/hc/theme_assets/496354/200020182/bg-stripe.png');
+}
+
+%icon,
+.Icon {
+    background-image: url('//p3.zdassets.com/hc/theme_assets/496354/200020182/sprite-icons-6.svg');
+
+    .no-js {
+        background-image: url('//p3.zdassets.com/hc/theme_assets/496354/200020182/sprite-icons-6.png');
+    }
+}
+
+.breadcrumbs {
+    @extend .Breadcrumb;
+}
+
+.section-tree {
+    @extend .row;
+}
+
+.section {
+    @extend .cols;
+    @extend .medium-6;
+    margin-bottom: double($base-spacing-unit);
+}
+
+.article-list,
+.promoted-articles > ul,
+.recent-articles > ul,
+.related-articles > ul,
+.search-results-list {
+    @extend .IconList;
+    @extend .IconList--Arrow;
+}
+
+.category-list {
+    @extend .BlockList;
+    @extend .BlockList--Double;
+
+    > li {
+        padding: 0;
+    }
+
+    a {
+        display: block;
+        padding: third($base-spacing-unit) 0;
+        text-decoration: none;
+    }
+}
+
+.promoted-articles > h3,
+.recent-articles > h3,
+.related-articles > h3,
+.section > h3 {
+    @extend .h3;
+}
+
+.article-vote-up::before,
+.article-vote-down::before {
+    @include sprite;
+    @include icon('Icon--Thumb');
+    @extend .Icon--Large;
+    content: '';
+}
+
+.search-results-subheading {
+    @extend .h4;
+}
+
+.pagination ul {
+    @extend .Nav;
+    @extend .Nav--Banner;
+}
+
+.visibility-internal-icon {
+    @include sprite;
+    @include icon('Lock');
+}
+
+input[type='search'] { // stylelint-disable-line selector-no-qualifying-type
+    -webkit-appearance: none !important; // stylelint-disable-line
+}

@@ -1,0 +1,48 @@
+.Actionlist {
+    @include popup;
+
+    @include breakpoint(medium) {
+        @include popup-unset;
+        display: block; // override popup
+        text-align: right;
+    }
+
+    .Icon {
+        margin-right: 0.25em;
+    }
+
+    &.Popup--IsShown {
+        display: block;
+    }
+}
+
+.Actionlist__Item {
+    @include breakpoint(medium) {
+        display: inline-block;
+    }
+
+    &:not(:last-of-type) {
+        border-bottom: 1px solid color(gray-light);
+
+        @include breakpoint(medium) {
+            border: none;
+        }
+    }
+}
+
+.Actionlist__Link {
+    display: block;
+    padding: 9px;
+    text-decoration: none;
+
+    &:hover {
+        color: color(blue-shade);
+    }
+
+    @include breakpoint(medium) {
+        display: inline;
+        padding: 0;
+        vertical-align: baseline;
+        text-decoration: underline;
+    }
+}

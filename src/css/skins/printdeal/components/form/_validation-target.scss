@@ -1,0 +1,51 @@
+// UI.Form.ValidationTarget
+//
+// 1. Override the hover for .TextInput
+
+.ValidationTarget {
+    padding-right: $base-spacing-unit + $base-spacing-unit / 6;
+}
+
+.ValidationTargetIcon {
+    display: none;
+    margin-top: - third($base-spacing-unit);
+    margin-right: third($base-spacing-unit);
+}
+
+.ValidationTarget--Success {
+    background-color: color(green-light);
+
+    &,
+    &:hover,
+    &:focus,
+    &:focus:hover {
+        border-color: color(green-shade); // [1]
+    }
+
+    ~ .ValidationTargetIcon--Success {
+        display: block;
+    }
+
+    ~ .ValidationTargetIcon--Error {
+        display: none;
+    }
+}
+
+.ValidationTarget--Error {
+    background-color: color(red-light);
+
+    &,
+    &:hover,
+    &:focus,
+    &:focus:hover {
+        border-color: color(red-shade); // [1]
+    }
+
+    ~ .ValidationTargetIcon--Success {
+        display: none;
+    }
+
+    ~ .ValidationTargetIcon--Error {
+        display: block;
+    }
+}

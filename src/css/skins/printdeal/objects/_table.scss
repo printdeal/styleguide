@@ -1,0 +1,51 @@
+// UI.Object.Table
+//
+// 1. Stay in line with vertical rythym
+
+table,
+caption,
+tfoot,
+th,
+tr:not(:first-of-type) {
+    border-style: solid;
+    border-color: color(gray-light);
+}
+
+table {
+    border-width: 1px;
+}
+
+caption {
+    border-width: 1px 1px 0 1px;
+    padding: 0.666em; // [1]
+}
+
+th {
+    border-width: 0 0 2px 0;
+    background-color: color(gray-lightest);
+    font-weight: 700;
+}
+
+tfoot {
+    border-width: 2px 0 0 0;
+}
+
+tr:not(:first-of-type) {
+    border-width: 1px 0 0 0;
+}
+
+// 1. Needed to trump specificity of tr:not(:first-of-type)
+.Table__Row--IsMerged.Table__Row--IsMerged { // [1]
+    border-top-width: 0;
+
+    td {
+        padding-top: 0;
+    }
+}
+
+th,
+td {
+    @include trim;
+    padding: 0.666em; // [1]
+    vertical-align: baseline;
+}

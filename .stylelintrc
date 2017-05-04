@@ -1,0 +1,318 @@
+ignoreFiles:
+    - '**/_sprite.scss'
+    - '**/_normalize.scss'
+
+plugins:
+    - 'stylelint-scss'
+
+# List of all rules:
+# https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules.md
+rules:
+    indentation: 4
+    max-empty-lines: 2
+    # max-line-length: 88 # Not possible due to urls in comments
+    max-nesting-depth: 2
+    no-duplicate-selectors: true
+    no-empty-source: true
+    no-extra-semicolons: true
+    no-missing-end-of-source-newline: true
+    no-unknown-animations: true
+
+    # Color
+    color-hex-case: 'lower'
+    color-hex-length: 'long'
+    # color-named: 'never' # -- not available due to sass function usage
+    color-no-invalid-hex: true
+
+    # Font family
+    font-family-name-quotes: 'always-unless-keyword'
+
+    # Font weight
+    # font-weight-notation: 'numeric' # -- not available due to sass map usage
+
+    # Function
+    function-calc-no-unspaced-operator: true
+    function-url-no-scheme-relative: true
+    function-url-quotes: 'always'
+
+    # Number
+    number-leading-zero: 'always'
+    number-no-trailing-zeros: true
+
+    # String
+    string-no-newline: true
+    string-quotes: 'single'
+
+    # Length
+    length-zero-no-unit: true
+
+    # Unit
+    unit-no-unknown: true
+    unit-whitelist: ['px', 'em', '%', 'vw', 'vh', 'deg', 's']
+
+    # Value
+    # value-keyword-case: 'lower' # -- not available due to sass-map function as value
+    value-no-vendor-prefix: true
+
+    # Property
+    property-case: 'lower'
+    property-no-unknown: true
+    property-no-vendor-prefix: true
+
+    # Keyframe declaration
+    keyframe-declaration-no-important: true
+
+    # Declaration
+    declaration-bang-space-after: 'never'
+    declaration-bang-space-before: 'always'
+    declaration-colon-space-after: 'always'
+    declaration-colon-space-before: 'never'
+    declaration-no-important: true
+    declaration-property-unit-whitelist:
+        font-size: ['em', 'px']
+        border: ['px', 'em']
+        line-height: nil
+        width: ['em', '%']
+        transition: ['s']
+
+    # Declaration block
+    declaration-block-no-duplicate-properties: [true, {
+        ignore: ['consecutive-duplicates-with-different-values']
+    }]
+    declaration-block-no-ignored-properties: true
+    declaration-block-no-redundant-longhand-properties: true
+    declaration-block-no-shorthand-property-overrides: true
+    declaration-block-properties-order:
+        - content
+        - counter-increment
+        - counter-reset
+        - box-sizing
+        - display
+        - flex-direction
+        - flex-flow
+        - flex-wrap
+        - justify-content
+        - align-items
+        - order
+        - flex-grow
+        - flex-shrink
+        - flex-basis
+        - flex
+        - align-self
+        - position
+        - top
+        - right
+        - bottom
+        - left
+        - columns
+        - column-count
+        - column-gap
+        - column-fill
+        - column-rule
+        - column-span
+        - column-width
+        - float
+        - clear
+        - transform
+        - transform-origin
+        - transform-origin-x
+        - transform-origin-y
+        - transform-origin-z
+        - transform-style
+        - visibility
+        - opacity
+        - z-index
+        - clip
+        - margin
+        - margin-top
+        - margin-right
+        - margin-bottom
+        - margin-left
+        - outline
+        - border
+        - border-top
+        - border-right
+        - border-bottom
+        - border-left
+        - border-width
+        - border-top-width
+        - border-right-width
+        - border-bottom-width
+        - border-left-width
+        - border-style
+        - border-top-style
+        - border-right-style
+        - border-bottom-style
+        - border-left-style
+        - border-color
+        - border-top-color
+        - border-right-color
+        - border-bottom-color
+        - border-left-color
+        - border-radius
+        - border-top-left-radius
+        - border-top-right-radius
+        - border-bottom-right-radius
+        - border-bottom-left-radius
+        - padding
+        - padding-top
+        - padding-right
+        - padding-bottom
+        - padding-left
+        - width
+        - min-width
+        - max-width
+        - height
+        - min-height
+        - max-height
+        - overflow
+        - overflow-x
+        - overflow-y
+        - background
+        - background-color
+        - background-image
+        - background-repeat
+        - background-position
+        - background-size
+        - fill
+        - box-shadow
+        - appearance
+        - backface-visibility
+        - resize
+        - list-style
+        - list-style-image
+        - list-style-position
+        - list-style-type
+        - caption-side
+        - table-layout
+        - border-collapse
+        - border-spacing
+        - empty-cells
+        - src
+        - vertical-align
+        - text-align
+        - text-indent
+        - text-transform
+        - text-decoration
+        - text-rendering
+        - text-shadow
+        - text-overflow
+        - text-wrap
+        - line-height
+        - word-spacing
+        - word-break
+        - word-wrap
+        - letter-spacing
+        - white-space
+        - color
+        - font
+        - font-family
+        - font-size
+        - font-weight
+        - font-smoothing
+        - font-style
+        - quotes
+        - cursor
+        - pointer-events
+        - will-change
+        - transition
+        - transition-delay
+        - transition-duration
+        - transition-property
+        - transition-timing-function
+        - animation
+        - animation-delay
+        - animation-direction
+        - animation-duration
+        - animation-fill-mode
+        - animation-iteration-count
+        - animation-name
+        - animation-play-state
+        - animation-timing-function
+    declaration-block-semicolon-space-after: 'always-single-line'
+    declaration-block-single-line-max-declarations: 1
+    declaration-block-trailing-semicolon: 'always'
+
+    # Block
+    block-closing-brace-empty-line-before: 'never'
+    block-closing-brace-newline-after: 'always-multi-line'
+    block-closing-brace-newline-before: 'always-multi-line'
+    block-closing-brace-space-before: 'always-single-line'
+    block-no-empty: true
+    block-opening-brace-newline-after: 'always-multi-line'
+    block-opening-brace-space-after: 'always-single-line'
+
+    # Selector
+    selector-attribute-brackets-space-inside: 'never'
+    selector-attribute-operator-space-after: 'never'
+    selector-attribute-operator-space-before: 'never'
+    selector-attribute-quotes: 'always'
+    selector-combinator-space-after: 'always'
+    selector-combinator-space-before: 'always'
+    selector-descendant-combinator-no-non-space: true
+    selector-max-compound-selectors: 3
+    selector-max-specificity: ['0,4,0']
+    selector-no-id: true
+    selector-no-qualifying-type: true
+    # selector-no-universal: true # -- something for the future maybe
+    selector-no-vendor-prefix: true
+    selector-pseudo-class-case: 'lower'
+    selector-pseudo-class-no-unknown: true
+    selector-pseudo-class-parentheses-space-inside: 'never'
+    selector-pseudo-element-case: 'lower'
+    selector-pseudo-element-colon-notation: 'double'
+    selector-pseudo-element-no-unknown: true
+    selector-type-case: 'lower'
+    selector-type-no-unknown: true
+    selector-max-empty-lines: 1
+
+    # Selector list
+    selector-list-comma-newline-after: 'always'
+
+    # Rule
+    rule-non-nested-empty-line-before: ['always-multi-line', {
+        'ignore': ['after-comment']
+    }]
+
+    # Media feature
+    media-feature-colon-space-after: 'always'
+    media-feature-colon-space-before: 'never'
+    media-feature-name-case: 'lower'
+    media-feature-name-no-unknown: true
+    media-feature-name-no-vendor-prefix: true
+    media-feature-no-missing-punctuation: true
+    media-feature-parentheses-space-inside: 'never'
+
+    # Comment
+    comment-no-empty: true
+
+    #####################################
+    # Scss Linters
+    #####################################
+
+    # @-function
+    scss/at-function-pattern: '[a-z-]+'
+
+    # @-import
+    scss/at-import-no-partial-leading-underscore: true
+
+    # @-mixin
+    scss/at-mixin-argumentless-call-parentheses: 'never'
+    scss/at-mixin-pattern: '[a-z-]+'
+
+    # $-variable
+    scss/dollar-variable-colon-space-after: 'always'
+    scss/dollar-variable-colon-space-before: 'never'
+    scss/dollar-variable-no-missing-interpolation: true
+    scss/dollar-variable-pattern: '[a-z-]+'
+
+    # //-comment
+    scss/double-slash-comment-whitespace-inside: 'always'
+
+    # Operator
+    scss/operator-no-newline-after: true
+    scss/operator-no-newline-before: true
+    scss/operator-no-unspaced: true
+
+    # Selector
+    scss/selector-no-redundant-nesting-selector: true

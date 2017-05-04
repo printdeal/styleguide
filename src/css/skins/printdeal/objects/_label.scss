@@ -1,0 +1,36 @@
+// UI.Object.Label
+
+.Label {
+    @include rounded;
+    border-color: color(blue-shade);
+    padding: 0.2em 0.33em 0.25em 0.33em;
+    background-color: color(blue);
+    font-size: font-size(small);
+
+    &,
+    a &,
+    & a {
+        color: color(white);
+    }
+}
+
+// Success Label
+
+.Label--Success {
+    border-color: color(green-shade);
+    background-color: color(green);
+}
+
+// Danger Label
+
+.Label--Danger {
+    border-color: color(red-shade);
+    background-color: color(red);
+}
+
+// Neutral Label
+
+.Label--Neutral {
+    border-color: color(gray-darker);
+    background-color: color(gray-dark);
+}

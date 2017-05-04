@@ -1,0 +1,25 @@
+// Global.SiteUsps
+
+.SiteUsps {
+    margin-top: negative($base-spacing-unit);
+    border-bottom: 1px solid color(gray-light);
+    padding: 0.66em 0;
+    background: color(white);
+}
+
+// Tricky stuff: we need to make sure that the usps don't
+// end up underneath the product navigation so we have to
+// calculate how much offset we need so it appears next to
+// it.
+// Explanation: it calculates the productnav-width in pixels
+// and adds the base-spacing-unit.
+.SiteUsps__Inner--IsCropped {
+    @include breakpoint(medium) {
+        padding-left: (($product-nav-width / 1em * font-size(base)) + $base-spacing-unit);
+    }
+}
+
+.SiteUsps__Item {
+    background-color: rgba(color(white), 0.8);
+    font-size: font-size(small);
+}

@@ -1,0 +1,67 @@
+// Component.Form
+//
+// 1. Make sure borders/paddings don't get clipped across CSS-columuns
+// 2. Compensate for border-width
+
+[type='radio'] {
+    + label {
+        display: block;
+        position: relative;
+        margin-bottom: halve($base-spacing-unit);
+        border: 1px solid transparent;
+        padding: 0.66em 0.66em 0.66em 2.4em;
+        break-inside: avoid-column; // [1]
+
+        &::before {
+            margin-right: 3px;
+            margin-left: -1.25em;
+        }
+    }
+
+    &:focus + label {
+        outline: none;
+    }
+
+    + label:hover,
+    &:focus + label,
+    &:checked + label {
+        border-color: color(gray-light);
+    }
+
+    &:disabled + label {
+        color: color(gray-medium);
+        cursor: default;
+    }
+
+    // Absolute positioning for 2 reasons instead of a simple border:
+    // 1. Using a border will create a slanted edge on the border, like we use
+    //    this to our advantage when making CSS triangles
+    // 2. Using a border makes us changing border widths and bottom margins,
+    //    which makes the code more complicated than it should be.
+    @mixin radio-state($color) {
+        + label::after {
+            content: '';
+            position: absolute;
+            right: -1px; // [2]
+            bottom: -1px; // [2]
+            left: -1px; // [2]
+            height: 3px;
+            background-color: $color;
+        }
+    }
+
+    &:checked {
+        @include radio-state(color(green));
+    }
+
+    &.Input--IsInvalid:checked {
+        @include radio-state(color(red));
+    }
+}
+
+.FileInput {
+    display: block;
+    border: 2px dashed color(gray-light);
+    padding: $base-spacing-unit;
+    text-align: center;
+}

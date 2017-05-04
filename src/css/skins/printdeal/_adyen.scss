@@ -1,0 +1,126 @@
+// WHY THIS STYLESHEET IS SO FULL OF CRAP
+//
+// A small story of why we sometimes hate the job we do:
+//
+// - Need to use ID's because we can't change the Adyen markup and they pretty
+//   much only supply ID's and tags as styling hooks.
+// - SelectorFormat needs to be disabled because we have no control over any
+//   kind of selector naming.
+// - ChainedClasses and QualifyingElement are needed for specificity in DOM tree.
+// - ImportantRule needed for moar specificity.
+// - As is SelectorDepth.
+// - PlaceholderInExtend needs to be violated because we don't have placeholders
+//   for buttons.
+//
+
+// stylelint-disable declaration-no-important, selector-max-specificity, selector-no-id, selector-no-qualifying-type
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic');
+
+body {
+    padding: 0.5em;
+}
+
+body::before {
+    background: none;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+#logoheader {
+    @include svg-background('logo-printdeal-be');
+    margin-bottom: double($base-spacing-unit);
+    border-bottom: 1px solid color('gray-lighter');
+    height: 96px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 20em auto;
+}
+
+#stageheader {
+    margin-bottom: $base-spacing-unit;
+    color: color('gray-darkest');
+    font-family: map-get($brand-face, 'family');
+    font-size: font-size('h4');
+    font-weight: map-get($brand-face, 'weightAlt');
+}
+
+#orderDataWrapper,
+#footc {
+    @include clearfix;
+    margin-bottom: $base-spacing-unit;
+}
+
+#orderDataHeader,
+#footerb1div {
+    float: left;
+    clear: left;
+}
+
+#orderData,
+#nextstep {
+    float: right;
+}
+
+#displayAmount {
+    text-align: right;
+    font-size: font-size('h2');
+    font-weight: 700;
+}
+
+input.imgB.pmB {
+    display: none;
+}
+
+#paymentMethods {
+    margin-left: 0;
+    padding: 0;
+}
+
+.pmmdetails {
+    visibility: visible !important;
+    padding-left: 0;
+    height: auto !important;
+    overflow: visible !important;
+
+    > .basetable {
+        width: 100%;
+
+        td {
+            padding: 0;
+        }
+
+        .idealButton {
+            display: none;
+        }
+    }
+}
+
+#mainBack {
+    @extend .Btn;
+    @extend .Btn--Alt;
+}
+
+table,
+tr {
+    border: none !important;
+}
+
+#{$all-btn-fields} {
+    @extend .Btn;
+}
+
+.inputField[id='card.expiryMonth'],
+.inputField[id='card.expiryYear'] {
+    display: inline-block;
+    width: 47%;
+    vertical-align: middle;
+}
+
+.r {
+    text-align: right;
+}

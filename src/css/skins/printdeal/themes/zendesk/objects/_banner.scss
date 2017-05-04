@@ -1,0 +1,18 @@
+.Banner {
+    margin-bottom: double($base-spacing-unit);
+    border-width: 1px;
+    border-style: solid;
+    border-color: color(gray-lighter);
+    padding: $base-spacing-unit 0;
+    background-color: color(gray-lightest);
+}
+
+.Banner--Large {
+    padding: double($base-spacing-unit) 0;
+}
+
+.Breadcrumb {
+    @include breakpoint(small) {
+        margin-bottom: 0;
+    }
+}

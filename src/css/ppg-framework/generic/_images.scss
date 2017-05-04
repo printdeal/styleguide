@@ -1,0 +1,25 @@
+// Base.Generic.Images
+//
+// 1. Fluid images for responsive purposes
+img,
+svg,
+video {
+    max-width: 100%; // [1]
+    height: auto; // [1]
+}
+
+// 2. Make long alt texts wrap (like translation keys)
+// 3. Default img alt text settings for when images do not load
+//    (http://bveneman.nl/2013/10/16/an-imageless-web/)
+img {
+    word-break: break-all; // [2]
+    // stylelint-disable font-family-name-quotes
+    // Because stylelint wants to have quotes around }
+    font: 400 #{font-size(base)}/1.1 sans-serif; // [3]
+    // stylelint-enable font-family-name-quotes
+}
+
+// 4. Get rid of iOS video play button overlay
+video:-webkit-media-controls {
+    display: none; // [4]
+}

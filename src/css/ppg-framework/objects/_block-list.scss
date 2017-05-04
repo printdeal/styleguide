@@ -1,0 +1,12 @@
+// Base.Object.BlockList
+
+.BlockList {
+    margin-left: 0;
+    list-style: none;
+
+    > li:not(:last-child),
+    > a:not(:last-child) {
+        @include trim;
+        border-bottom: 1px solid color(base);
+    }
+}

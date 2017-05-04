@@ -1,0 +1,36 @@
+// MESSAGE
+//
+// Show a clear message on top of an element. Can be an error or a warning.
+
+$warning: #dd6600;
+$error: #ff0000;
+
+// stylelint-disable declaration-no-important
+
+@mixin _message($level: 'error') {
+    position: relative;
+    outline: 1px solid $warning;
+
+    @if ($level == 'error') {
+        outline: 1px solid $error !important;
+    }
+
+    &::after {
+        position: absolute;
+        top: auto;
+        right: auto;
+        bottom: 100%;
+        left: 0;
+        padding: 0.1em 0.2em;
+        background: #ffffff;
+        box-shadow: 0 0 0.5em rgba(#000000, 0.3);
+        letter-spacing: normal;
+        white-space: nowrap;
+        color: $warning;
+        font: 400 12px/1.2 monospace;
+
+        @if ($level == 'error') {
+            color: $error;
+        }
+    }
+}

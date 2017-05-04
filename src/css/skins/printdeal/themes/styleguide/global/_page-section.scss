@@ -1,0 +1,11 @@
+// Global.PageSection
+
+.PageSection {
+    @include trim;
+    margin-bottom: $base-spacing-unit;
+
+    @include breakpoint(small) {
+        border-bottom: 1px solid color(gray-light);
+        padding-bottom: $base-spacing-unit;
+    }
+}

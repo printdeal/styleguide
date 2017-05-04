@@ -1,0 +1,11 @@
+// UI.Form.Group
+//
+// Group form fields by relevance/subject
+//
+// 1. Reset/undo browser default fieldset settings
+
+fieldset {
+    margin-bottom: $base-spacing-unit;
+    border: none; // [1]
+    padding: 0; // [1]
+}

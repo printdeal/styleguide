@@ -1,0 +1,44 @@
+// UI.Global.LinkHelpers
+
+a {
+    color: inherit;
+
+    &:hover,
+    &:focus {
+        color: color(blue-shade);
+    }
+
+    &:focus {
+        outline: 1px dotted;
+    }
+
+    &:hover,
+    &:active {
+        outline: none;
+    }
+}
+
+p a {
+    color: color(blue);
+}
+
+// Faux link: pretend to be a link. I.e. for use inside a large `a` block.
+// Up the specificity to make it work in `.Nav a`
+.link-faux {
+    text-decoration: underline;
+    color: color(blue);
+    cursor: pointer;
+}
+
+.link-plain {
+    @include reset-button;
+    text-decoration: underline;
+    line-height: $base-type-ratio;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+        color: inherit;
+    }
+}

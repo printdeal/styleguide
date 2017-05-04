@@ -1,0 +1,28 @@
+// Base.Object.FlexEmbed
+//
+// Embed videos/google maps/etc everywhere, like Vimeo and YouTube
+// @link https://github.com/suitcss/components-flex-embed/blob/master/lib/flex-embed.css
+//
+// If more aspect ratios are required, add a Modifier, e.g.
+//
+// .FlexEmbed--3by1 { padding-bottom: percentage(1 / 3); }
+
+.FlexEmbed {
+    display: block;
+    position: relative;
+    margin-bottom: $base-spacing-unit;
+    padding-bottom: 100%;
+    overflow: hidden;
+}
+
+.FlexEmbed--2by1  { padding-bottom: percentage(1 / 2); }
+.FlexEmbed--16by9 { padding-bottom: percentage(9 / 16); }
+.FlexEmbed--4by3  { padding-bottom: percentage(3 / 4); }
+
+.FlexEmbed__Content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

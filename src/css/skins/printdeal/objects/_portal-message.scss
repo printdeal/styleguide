@@ -1,0 +1,41 @@
+// Object.PortalMessage
+//
+// Shows a block of text on top of the page for notifying user of a
+// cookie policy or some important message about changed opening hours
+// because of holidays etc.
+
+.PortalMessage {
+    border-bottom: 1px solid;
+    padding: halve($base-spacing-unit) $base-spacing-unit;
+    background-color: color(yellow-light);
+    text-align: center;
+    color: color(yellow-dark);
+
+    a {
+        color: inherit;
+    }
+}
+
+.PortalMessage--Info {
+    background-color: color(blue-light);
+    color: color(blue-dark);
+}
+
+.PortalMessage--IsClosable .PortalMessage__Content {
+    position: relative;
+    padding-right: double($base-spacing-unit);
+}
+
+.PortalMessage__Close {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    transition: opacity $base-animation-duration $base-animation-function;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}

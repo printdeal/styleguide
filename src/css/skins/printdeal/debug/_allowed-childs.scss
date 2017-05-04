@@ -1,0 +1,36 @@
+// Allowed children
+//
+// In some cases only some elements are allowed as a direct child of an element.
+// For example: in the grid we only allow .col/.cols as children from .row,
+// otherwise the layout will be wrong. The same goes for lists, for now.
+
+// stylelint-disable declaration-no-important
+
+// Format: 'parent': ('allowed-child1', 'allowed-child2')
+$allowed-childs: (
+    '.row': ('.col', '.cols'),
+    'ol': ('li'),
+    'ul': ('li'),
+    'dl': ('dt', 'dd')
+);
+
+%ok-child-styles {
+    @include _message;
+}
+
+@each $parent, $children in $allowed-childs {
+    $c: '';
+
+    @each $child in $children {
+        $c: $c + unquote(':not(#{$child})');
+    }
+
+    #{$parent} > #{$c} {
+        @extend %ok-child-styles;
+        outline: none !important;
+
+        &::after {
+            content: 'ERR: element is not allowed as a direct child of #{$parent}';
+        }
+    }
+}

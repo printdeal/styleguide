@@ -1,0 +1,17 @@
+.Panel {
+    background-color: color(white);
+}
+
+.Panel--IsResponsive {
+    border-width: 0;
+    padding: 0;
+
+    @include breakpoint(small) {
+        border-width: 1px;
+        padding: halve($base-spacing-unit);
+    }
+
+    @include breakpoint(large) {
+        padding: $base-spacing-unit;
+    }
+}

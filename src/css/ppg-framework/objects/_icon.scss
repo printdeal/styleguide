@@ -1,0 +1,8 @@
+// Base.Object.Icon
+
+// 2. If positioning of icons seems bad, you've probably done a lousy job at
+//    positioning them in the sprite ;)
+.Icon {
+    display: inline-block;
+    vertical-align: baseline; // [2]
+}

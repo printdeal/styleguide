@@ -1,0 +1,11 @@
+// Printdeal Default Theme
+//
+// First load the sprite, so the Printdeal-theme can extend icons to use in
+// forms, like radio and checkbox icons and the IconList.
+@import 'objects/sprite';
+
+// Load all
+@import '../../printdeal';
+
+// Shame on us. We sometimes do hacky stuff...
+@import 'shame';

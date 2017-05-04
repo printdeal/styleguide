@@ -1,0 +1,39 @@
+// Base.Object.Form--Collapse
+
+// Vertical collapsing form
+.Form--vCollapse {
+
+    #{$all-text-fields},
+    #{$all-btn-fields},
+    .TextInput,
+    .Btn {
+        margin-bottom: 0;
+        width: 100%;
+    }
+}
+
+// Horizontal collapsing form
+.Form--hCollapse {
+
+    #{$all-text-fields},
+    #{$all-btn-fields},
+    .TextInput,
+    .Btn {
+        margin-bottom: 0;
+    }
+
+    #{$all-text-fields},
+    .TextInput {
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    #{$all-btn-fields},
+    .Btn {
+        float: right;
+    }
+}
+
+.Form__Collapser {
+    overflow: hidden;
+}

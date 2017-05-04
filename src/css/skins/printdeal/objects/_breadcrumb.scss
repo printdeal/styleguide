@@ -1,0 +1,25 @@
+// UI.Object.Breadcrumb
+
+.Breadcrumb {
+    margin-left: 0;
+    overflow-x: auto;
+    list-style: none;
+    white-space: nowrap;
+    color: color(gray-medium);
+
+    li {
+        display: inline-block;
+
+        + li::before {
+            content: '\203A'; // [1]
+            display: inline-block;
+            margin-right: 0.33em;
+            margin-left: 0.33em;
+        }
+    }
+
+    a {
+        @include text-nobreak;
+        color: color(blue);
+    }
+}

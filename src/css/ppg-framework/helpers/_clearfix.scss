@@ -1,0 +1,18 @@
+// Generic.Clearfix
+//
+// @support IE8+
+// @link http://css-tricks.com/snippets/css/clear-fix/
+
+@mixin clearfix {
+    
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+.clearfix,
+.cf {
+    @include clearfix;
+}

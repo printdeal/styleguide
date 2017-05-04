@@ -1,0 +1,52 @@
+// UI.Object.Switch
+
+$switch-bg: color(gray-lightest);
+$switch-border: color(gray-light);
+$switch-checked-bg: color(green);
+$switch-checked-border: color(green-shade);
+$switch-checked-text: color(white);
+
+.Switch {
+    @include rounded;
+    @include clip-rounded;
+    display: inline-block;
+    background-color: $switch-bg;
+    vertical-align: middle;
+    line-height: 1;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+// <input type=radio />
+//
+// 1. The actual radio input is hidden, but triggers the toggling of options
+.Switch__Option {
+    @include text-hide; // [1]
+}
+
+// <label />
+//
+// 2. Reset default Radio styles
+.Switch__Toggle {
+    display: inline-block;
+    border: 1px solid $switch-border;
+    padding: quarter($base-spacing-unit) third($base-spacing-unit);
+    background-color: $switch-bg;
+    font-size: font-size(base);
+    cursor: pointer;
+
+    .Switch__Option + & {
+        margin: 0; // [2]
+
+        &::before {
+            content: none; // [2]
+        }
+    }
+
+    .Switch__Option:checked + &,
+    &.js-tabs-nav-item-selected {
+        border-color: $switch-checked-border;
+        background-color: $switch-checked-bg;
+        color: $switch-checked-text;
+    }
+}

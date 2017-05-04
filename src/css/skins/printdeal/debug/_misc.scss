@@ -1,0 +1,25 @@
+// MISCELLANEOUS
+//
+// Errors and warnings that don't really fit other places
+
+// stylelint-disable selector-no-qualifying-type
+
+// It's important to have proper hyperlinks in the site, because they make the
+// web the web. If links aren't created correctly, there's no web.
+// Some common mistakes:
+// - Hash:     A hash can point to an anchor within the same page. Don't abuse it
+//             by putting it in an <a> that acts as a <button>
+// - Hashbang: Made famous by Twitter, the hashbang is/was used in some One Page
+//             Apps for navigational purposes. In an Progressively Enhanced site
+//             it is considered an anit-pattern
+a {
+    &[href='#'],
+    &[href='#!'],
+    &[href^='#!'] {
+        @include _message('error');
+
+        &::after {
+            content: 'ERR: Malformed `href` attribute';
+        }
+    }
+}

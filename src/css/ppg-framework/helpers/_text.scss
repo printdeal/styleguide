@@ -1,0 +1,56 @@
+// Cut off text so it always fits on one line
+.text-truncate {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+// Let a long string of text wrap on multiple lines. Useful for URLs, emails etc.
+@mixin text-break {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.text-break {
+    @include text-break;
+}
+
+// Prevent a string from breaking. Sometimes that's useful, e.g. dates or prices
+@mixin text-nobreak {
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.text-nobreak {
+    @include text-nobreak;
+}
+
+// Text direction
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+// Hide text from screen, technique form Foundation by Zurb
+// Link: http://foundation.zurb.com/docs/components/visibility.html#show-for-screen-readers-only
+@mixin text-hide {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px; // stylelint-disable-line
+    height: 1px;
+    overflow: hidden;
+}
+
+@mixin text-unhide {
+    position: static;
+    clip: auto;
+    width: auto;
+    height: auto;
+    overflow: visible;
+}
+
+.text-hide {
+    @include text-hide;
+}

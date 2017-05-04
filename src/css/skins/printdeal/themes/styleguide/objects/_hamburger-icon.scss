@@ -1,0 +1,47 @@
+// Object.HamburgerIcon
+
+$hamburger-icon-bar-height: 2px;
+
+.HamburgerIcon {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    font-size: 18px;
+
+    &,
+    &::before,
+    &::after {
+        padding-bottom: $hamburger-icon-bar-height;
+        width: 0.875em;
+        background-color: color(base);
+        transition: transform 0.175s $base-animation-function;
+    }
+
+    &::before,
+    &::after {
+        @extend %overlay;
+        @extend %overlay-left;
+        content: '';
+    }
+
+    &::before {
+        top: negative(double($hamburger-icon-bar-height));
+    }
+
+    &::after {
+        bottom: negative(double($hamburger-icon-bar-height));
+    }
+}
+
+// 2. Magic numbers to make te positioning look good after rotating
+.HamburgerIcon--IsClosable {
+    background-color: transparent;
+
+    &::before {
+        transform: rotate(-45deg) translate(-0.125em, 0.225em); // [2]
+    }
+
+    &::after {
+        transform: rotate(45deg) translate(-0.125em, -0.225em); // [2]
+    }
+}

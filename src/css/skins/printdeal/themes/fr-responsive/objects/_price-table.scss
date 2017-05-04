@@ -1,0 +1,131 @@
+// Object.PriceTable
+
+// 1. Compensate for PriceTable__Tag
+// 2. Compensate for borders
+.PriceTablesOverlay {
+    position: absolute;
+    top: -0.5em; // [1]
+    right: -1px; // [2]
+    bottom: -1px; // [2]
+    left: -1px; // [2]
+    padding: 25% 1em 0 1em;
+    background-color: rgba(color(white), 0.8);
+    text-align: center;
+}
+
+// 1. Undo Panel margin and border-width
+// 2. Use width calculation to fit the price table properly
+.PriceTable {
+    margin: 0 -10px 9px -10px; // [1]
+    // [2]
+    width: calc(100% + 20px); // stylelint-disable-line
+    min-width: 100%;
+
+    th {
+        background: transparent;
+        text-align: center;
+    }
+
+    th:not(:last-of-type) {
+        border-right: 1px solid color(blue-shade);
+    }
+}
+
+.PriceTable__Header {
+    border: 1px solid color(blue-shade);
+    border-bottom-width: 3px;
+    background: color(blue);
+    color: color(white);
+}
+
+.PriceTable__Heading {
+    background: transparent;
+    text-align: center;
+    line-height: 1.33;
+    font-weight: 400;
+
+    &:not(:last-of-type) {
+        border-right: 1px solid color(blue-shade);
+    }
+
+    .h {
+        color: inherit;
+    }
+}
+
+// Only set a width on one column, the other
+// columns will distribute the remaining space evenly
+.PriceTable__Volume {
+    width: 25%;
+}
+
+.PriceTable__Cell {
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1;
+
+    &:not(:last-of-type) {
+        border-right: 1px solid color(gray-light);
+    }
+}
+
+.PriceTable__Cell--HasPrice {
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.PriceTable__Cell--HasDiscount {
+    position: relative;
+    border: 1px solid color(yellow-shade);
+    padding: 0.5em;
+    background: color(yellow);
+    font-size: 0.875em;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        border-width: 0.33em 0.66em 0;
+        border-style: solid;
+        border-color: color(yellow-shade) transparent transparent;
+        width: 100%;
+    }
+}
+
+.PriceTable__Price {
+    margin-bottom: 0.125em;
+    text-decoration: underline;
+}
+
+.Pricetable__Price--IsSelected,
+.PriceTable__Cell--HasPrice:hover {
+    background-color: color(orange);
+    color: color(white);
+
+    .text-dimmed {
+        color: color(white);
+    }
+}
+
+.Panel__Footer {
+    margin: 9px -9px -9px;
+    border-top: 1px solid color(gray-light);
+    padding: 9px;
+    font-size: 0.875em;
+}
+
+.PriceTable__Tag {
+    display: none;
+    margin-top: -1em;
+    margin-bottom: -1em;
+
+    @include breakpoint(small) {
+        display: inline-block;
+    }
+}

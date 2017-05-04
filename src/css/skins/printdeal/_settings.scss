@@ -1,0 +1,137 @@
+$debug: false;
+
+// Color definitions
+//
+// Overwrites PPGFramework::colors
+$colors: (
+    base:            #aaaaaa,
+
+    orange:          #ff7600,
+    orange-shade:    #f76400,
+    orange-light:    #feeddf,
+    orange-medium:   #ffddbb,
+    orange-dark:     #dd6600,
+
+    blue:            #00aaee,
+    blue-shade:      #008cc9,
+    blue-light:      #ddeff2,
+    blue-dark:       #0077a0,
+
+    green:           #80ce00,
+    green-shade:     #66ad00,
+    green-light:     #ddedcc,
+
+    yellow:          #fddb00,
+    yellow-shade:    #e5be00,
+    yellow-light:    #fcf8c3,
+    yellow-dark:     #806b00,
+
+    red:             #ff0000,
+    red-shade:       #dd0000,
+    red-light:       #ffecec,
+
+    magenta:         #e5007d,
+    magenta-shade:   #af0068,
+    magenta-light:   #f2e4ee,
+
+    white:           #ffffff,
+    gray-lightest:   #f1f1f1,
+    gray-lighter:    #ebebeb,
+    gray-light:      #d7d7d7,
+    gray-medium:     #aaaaaa,
+    gray-dark:       #888888,
+    gray-darker:     #585858,
+    gray-darkest:    #292929,
+    black:           #191919,
+
+    white-opaque:    rgba(#ffffff, 0.7)
+);
+
+// Z-indexes
+//
+// Overwrites PPGFramework::z-indexes
+// Can be overwritten per theme (because of !default statement)
+$z-indexes: (
+    chuck-norris:      2147483647,
+    loader:            6,
+    modal:             5,
+    modal-backdrop:    4,
+    mobile-nav:        3,
+    popover:           2,
+    default:           1,
+    below:             -1
+) !default;
+
+// Fonts/typefaces
+//
+// Overwrites PPGFramework::brand-face
+// Font-families are in brackets to make it available as single string
+$brand-face: (
+    family: ('Noto Sans', 'Arial', 'Helvetica', sans-serif),
+    weight: 400,
+    weightAlt: 700,
+    style: normal
+);
+$brand-face-alt: (
+    family: ('Doko', 'Arial', serif),
+    weight: 400,
+    weightAlt: 400,
+    style: normal
+);
+
+// Border radii
+//
+// Overwrites PPGFramework::radii
+$radii: (
+    small: 3px,
+    large: 10px,
+    circle: 50%,
+    none: 0
+);
+
+// Font-sizes
+$font-sizes: (
+    h1:         26px,
+    h2:         16px,
+    h3:         15px,
+    h4:         13px,
+    h5:         13px,
+    h6:         13px,
+    base:       13px,
+    milli:      12px,
+
+    button:     14px,
+    lbutton:    16px,
+    lead:       19px,
+    input:      19px,
+    blockquote: 16px,
+    balloon:    16px,
+
+    smaller:    0.75em,
+    small:      0.9em,
+    default:    1em,
+    large:      1.5em,
+    xlarge:     2em,
+    xxlarge:    3em,
+    xxxlarge:   6em,
+    jumbo:      12em
+);
+
+// Spacing and sizes
+$base-font-size: 13px;
+$base-line-height: 18px;
+$base-type-ratio: ($base-line-height / $base-font-size);
+$base-heading-size: 15px;
+$base-spacing-unit: 18px;
+
+$base-max-site-width: 79em; // 1024px in ems (13px) (not rems/16px)
+$base-animation-duration: 0.15s;
+$base-animation-function: cubic-bezier(0.25, 0.75, 0.25, 0.85);
+$base-notification-width: 36em;
+
+// Drop shadows
+$shadow-near: 0 0 0.25em transparentize(#d7d7d7, 0.1); // Small, light global shadow
+$shadow-drop: 0 0.375em 0.25em transparentize(#191919, 0.75); // straight dropdown medium dark shadow
+$shadow-global: 0 0.125em $base-spacing-unit transparentize(#191919, 0.75); // Large global shadow
+$shadow-panel: 0 0.125em 0.25em transparentize(#191919, 0.75); // Smaller variant of drop shadow above
+$shadow-notification: 3px 15px 17px -10px rgba(#000000, 0.55); // Bottom dark shadow

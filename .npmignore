@@ -1,0 +1,13 @@
+.git/
+node_modules/
+src/
+tasks/
+test/
+tmp/
+.editorconfig
+.jscsrc
+.jshintrc
+.stylelintrc
+gulpfile.js
+installer.sh
+rev-manifest.json

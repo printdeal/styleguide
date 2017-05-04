@@ -1,0 +1,31 @@
+// Base.Object.Matrix
+$matrix-breakpoint: medium !default;
+
+// 1. Reset default list style
+.Matrix {
+    @include row($valign: stretch);
+    margin-left: 0; // [1]
+    list-style: none; // [1]
+}
+
+@function matrix-width($division) {
+    @return calc(#{percentage(1 / $division)} - #{$base-spacing-unit});
+}
+
+// 2. Max value that'll still work on Android 4.1 stock browser
+.Matrix__Item {
+    @include col;
+    @include trim;
+    width: 47.5%; // [2]
+    width: matrix-width(2);
+
+    @include breakpoint($matrix-breakpoint) {
+        width: 22.5%; // [2]
+        width: matrix-width(4);
+
+        .Matrix--OneThird & {
+            width: 31.5%; // [2]
+            width: matrix-width(3);
+        }
+    }
+}

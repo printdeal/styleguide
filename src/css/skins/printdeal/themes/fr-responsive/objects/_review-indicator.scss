@@ -1,0 +1,39 @@
+$review-icon-count: 5;
+$review-aspect-ratio: 1 / $review-icon-count;
+
+.ReviewIndicator,
+.ReviewIndicator__Value {
+    background-repeat: repeat-x;
+    background-size: 1em 1em;
+}
+
+.ReviewIndicator {
+    position: relative;
+    margin-bottom: halve($base-spacing-unit);
+    padding-bottom: $review-aspect-ratio * $review-icon-count * 1em;
+    width: $review-icon-count * 1em;
+    font-size: 2em;
+}
+
+.ReviewIndicator--Kiyoh {
+    @include svg-background('icon-kiyoh-default');
+
+    .ReviewIndicator__Value {
+        @include svg-background('icon-kiyoh-filled');
+    }
+}
+
+.ReviewIndicator--TrustPilot {
+    @include svg-background('icon-trustpilot-default');
+
+    .ReviewIndicator__Value {
+        @include svg-background('icon-trustpilot-filled');
+    }
+}
+
+.ReviewIndicator__Value {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,30 @@
+// stylelint-disable function-url-no-scheme-relative
+
+.cs-hasEmployee {
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    @include breakpoint(medium) {
+        min-height: 258px;
+    }
+}
+
+.cs-employeeRight {
+    background-position: right bottom;
+}
+
+.cs-employeeLeft {
+    background-position: left bottom;
+}
+
+.cs-Karlijn {
+    @include breakpoint(medium) {
+        background-image: url('//p3.zdassets.com/hc/theme_assets/496354/200020182/gewoon_karlijn.png');
+    }
+}
+
+.cs-Frans {
+    @include breakpoint(medium) {
+        background-image: url('//p3.zdassets.com/hc/theme_assets/496354/200020182/gewoon_frans.png');
+    }
+}

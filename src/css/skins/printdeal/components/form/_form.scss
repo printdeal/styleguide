@@ -1,0 +1,23 @@
+// UI.Form
+
+[disabled],
+[readonly] {
+    color: color(gray-medium);
+    cursor: default;
+}
+
+textarea {
+    min-height: $base-spacing-unit * 3;
+}
+
+// Import the rest of this component
+@import 'form-textinput';
+@import 'form-clickinput';
+@import 'form-group';
+@import 'form-hint';
+@import 'form-input';
+@import 'form-label';
+@import 'form-legend';
+@import 'form-select';
+@import 'form-collapse';
+@import 'validation-target';

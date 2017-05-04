@@ -1,0 +1,43 @@
+// Base.Object.Split
+//
+// @link The split Object comes from InuitCSS (https://github.com/csswizardry/inuit.css/blob/master/objects/_split.scss)
+//
+// @example
+// ````
+// %dl.Split
+//   %dt.Split__title McNuggets
+//   %dd €2,99
+//   %dt.Split__title McFlurry
+//   %dd €2,35
+// ````
+//
+// 1. For use in inline elements.
+// 2. To disable clearfix and avoid ::after element's alignment as a flex item.
+.Split {
+    @include clearfix;
+    display: block; // [1]
+    margin-left: 0;
+    text-align: right;
+}
+
+.Split__Title {
+    float: left;
+    clear: left;
+    text-align: left;
+}
+
+.Split--Vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    text-align: inherit;
+
+    &::after {
+        display: none; // [2]
+    }
+}
+
+.HasSplit {
+    height: 100%;
+}

@@ -1,0 +1,31 @@
+// Base.Object.IconList
+//
+// 1. Reset default list styles.
+
+.IconList {
+    margin-bottom: $base-spacing-unit;
+    margin-left: 0; // [1]
+    list-style: none; // [1]
+}
+
+.IconList__Item,
+.IconList > li {
+    position: relative;
+    margin-bottom: 0.3em;
+    padding-left: 1.33em;
+
+    &::before {
+        @include sprite;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0.25em;
+    }
+}
+
+.IconList a,
+.IconList__Link {
+    display: inline-block;
+    text-decoration: none;
+}

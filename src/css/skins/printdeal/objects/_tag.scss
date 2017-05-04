@@ -1,0 +1,23 @@
+// Object.Tag
+
+$tag-width: 10em;
+
+.Tag {
+    position: relative;
+    border: 1px solid color(orange-shade);
+    padding: 0.5em 1em 0 1em;
+    width: $tag-width;
+    background-color: color(orange);
+    text-align: center;
+    color: color(white);
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        border-width: 0.66em halve($tag-width);
+        border-style: solid;
+        border-color: color(orange) transparent transparent transparent;
+    }
+}
