@@ -68,9 +68,7 @@ gulp.task("css:sass", function () {
 gulp.task("css:min", function () {
     return gulp.src([path.tmp + "*.css", path.src + "**/*.css"])
         .pipe(plugins.flatten())
-        .pipe(plugins.cleanCss({
-            advanced: false
-        }))
+        .pipe(plugins.cleanCss())
         .pipe(plugins.rename({ suffix: ".min" }))
         .pipe(gulp.dest(path.dist));
 });
