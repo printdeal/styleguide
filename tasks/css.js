@@ -60,7 +60,7 @@ gulp.task("css:sass", function () {
         .pipe(gulp.dest(path.tmp));
 });
 
-// All minifyCss options via
+// All cleanCss options via
 // https://github.com/jakubpawlowicz/clean-css#how-to-use-clean-css-programmatically
 //
 // advanced: false makes sure that duplicate properties like background-
@@ -68,9 +68,7 @@ gulp.task("css:sass", function () {
 gulp.task("css:min", function () {
     return gulp.src([path.tmp + "*.css", path.src + "**/*.css"])
         .pipe(plugins.flatten())
-        .pipe(plugins.minifyCss({
-            advanced: false
-        }))
+        .pipe(plugins.cleanCss())
         .pipe(plugins.rename({ suffix: ".min" }))
         .pipe(gulp.dest(path.dist));
 });
