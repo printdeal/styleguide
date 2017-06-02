@@ -16,7 +16,8 @@
 // 1. Undo Panel margin and border-width
 // 2. Use width calculation to fit the price table properly
 .PriceTable {
-    margin: 0 -10px 9px -10px; // [1]
+    margin: -9px -10px 9px -10px; // [1]
+    border-right: 0;
     // [2]
     width: calc(100% + 20px); // stylelint-disable-line
     min-width: 100%;
@@ -27,21 +28,24 @@
     }
 
     th:not(:last-of-type) {
-        border-right: 1px solid color(blue-shade);
+        border-right: 1px solid color(gray-light);
+        border-left: 1px solid color(gray-light);
     }
 }
 
 .PriceTable__Header {
-    border: 1px solid color(blue-shade);
-    border-bottom-width: 3px;
-    background: color(blue);
-    color: color(white);
+    border: 1px solid color(gray-light);
+    border-right: 0;
+    border-bottom: 3px solid color(base);
+    color: color(gray-darkest);
 }
 
 .PriceTable__Heading {
+    padding: halve($base-spacing-unit);
     background: transparent;
     text-align: center;
     line-height: 1.33;
+    font-size: 11px;
     font-weight: 400;
 
     &:not(:last-of-type) {
@@ -51,12 +55,57 @@
     .h {
         color: inherit;
     }
+
+
+    // Standard delivery label
+    &:nth-child(2) {
+        .DeliveryLabel {
+            border-color: color(gray-light);
+            background: color(gray-lightest);
+            color: color(gray-darkest);
+        }
+    }
+
+    // Next-day delivery label
+    &:nth-child(3) {
+        .DeliveryLabel {
+            border-color: color(green-shade);
+            background: color(green-shade);
+            color: color(white);
+        }
+    }
+
+    // Express delivery label
+    &:nth-child(4) {
+        .DeliveryLabel {
+            border-color: color(green-shade);
+            background: color(white);
+            color: color(green-shade);
+        }
+    }
+}
+
+.DeliveryLabel {
+    border-width: 1px;
+    border-style: solid;
+    font-size: 13px;
+}
+
+.DeliveryDay  {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.DeliveryMonth {
+    font-size: 14px;
+    font-weight: 700;
 }
 
 // Only set a width on one column, the other
 // columns will distribute the remaining space evenly
 .PriceTable__Volume {
     width: 25%;
+    vertical-align: bottom;
 }
 
 .PriceTable__Cell {
