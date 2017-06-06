@@ -35,6 +35,7 @@ $z-indexes: (
 ) !default;
 
 $tweakpoints: (
+    'blog': 44em,
     'sitenav': 47.5em,
     'productnav': 66em,
     'pagewrap': $base-max-site-width + 1.5em,
