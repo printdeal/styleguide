@@ -45,7 +45,7 @@
     background: transparent;
     text-align: center;
     line-height: 1.33;
-    font-size: 11px;
+    font-size: 0.875em;
     font-weight: 400;
 
     &:not(:last-of-type) {
@@ -60,7 +60,7 @@
 .Label--Delivery {
     border-width: 1px;
     border-style: solid;
-    font-size: 13px;
+    font-size: font-size(base);
 }
 
 .Label--DeliveryNextDay {
@@ -82,12 +82,12 @@
 }
 
 .DeliveryDay  {
-    font-size: 18px;
+    font-size: font-size(lead);
     font-weight: 700;
 }
 
 .DeliveryMonth {
-    font-size: 14px;
+    font-size: font-size(button);
     font-weight: 700;
 }
 
