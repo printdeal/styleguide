@@ -55,40 +55,30 @@
     .h {
         color: inherit;
     }
-
-
-    // Standard delivery label
-    &:nth-child(2) {
-        .DeliveryLabel {
-            border-color: color(gray-light);
-            background: color(gray-lightest);
-            color: color(gray-darkest);
-        }
-    }
-
-    // Next-day delivery label
-    &:nth-child(3) {
-        .DeliveryLabel {
-            border-color: color(green-shade);
-            background: color(green-shade);
-            color: color(white);
-        }
-    }
-
-    // Express delivery label
-    &:nth-child(4) {
-        .DeliveryLabel {
-            border-color: color(green-shade);
-            background: color(white);
-            color: color(green-shade);
-        }
-    }
 }
 
-.DeliveryLabel {
+.Label--Delivery {
     border-width: 1px;
     border-style: solid;
     font-size: 13px;
+}
+
+.Label--DeliveryNextDay {
+    border-color: color(green-shade);
+    background: color(green-shade);
+    color: color(white);
+}
+
+.Label--DeliveryExpress {
+    border-color: color(green-shade);
+    background: color(white);
+    color: color(green-shade);
+}
+
+.Label--DeliveryStandard {
+    border-color: color(gray-light);
+    background: color(gray-lightest);
+    color: color(gray-darkest);
 }
 
 .DeliveryDay  {
