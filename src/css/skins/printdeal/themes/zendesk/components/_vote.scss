@@ -28,7 +28,6 @@
 }
 
 .article-voted::before {
-
     &.article-vote-up {
         @extend %icon-thumb-green !optional;
     }
