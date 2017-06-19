@@ -122,7 +122,7 @@ rules:
     selector-combinator-space-after: 'always'
     selector-combinator-space-before: 'always'
     selector-descendant-combinator-no-non-space: true
-    selector-max-class: 2
+    # selector-max-class: 2 # Not available in gulp-stylelint yet
     selector-max-compound-selectors: 3
     selector-max-specificity: ['0,4,0']
     selector-no-id: true
