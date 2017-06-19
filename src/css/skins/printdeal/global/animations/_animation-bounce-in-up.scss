@@ -1,6 +1,5 @@
 @keyframes animation-bounce-in-up {
-
-    from {
+    0% {
         transform: translate3d(0, 3000px, 0);
         opacity: 0;
     }
@@ -18,7 +17,7 @@
         transform: translate3d(0, -5px, 0);
     }
 
-    to {
+    100% {
         transform: translate3d(0, 0, 0);
     }
 }

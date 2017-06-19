@@ -67,7 +67,6 @@
     //    They will get extended as well and generate a whole lot of unneeded
     //    CSS in the end.
     > i { // [5]
-
         @include breakpoint(medium) {
             display: none; // [4]
         }
@@ -87,7 +86,6 @@
 }
 
 .ProgressNav__Item--IsLink {
-
     .ProgressNav-Item__Text {
         text-decoration: underline;
     }
@@ -154,19 +152,18 @@
     $stripe-width: $base-spacing-unit;
     $base-color: color(gray-lighter);
     $stripe-color: color(gray-light);
-
-    // stylelint-disable indentation
     background-color: $base-color;
-    background-image: repeating-linear-gradient( // [1]
+    background-image:
+        repeating-linear-gradient( // 1
         -45deg,
         transparent,
         transparent $stripe-width,
         $stripe-color $stripe-width,
         $stripe-color double($stripe-width)
     );
-    text-shadow: 1px 1px 0 $base-color, // [2]
-                -1px -1px 0 $base-color,
-                -1px 1px 0 $base-color,
-                1px -1px 0 $base-color;
-    // stylelint-enable indentation
+    text-shadow:
+        1px 1px 0 $base-color, // [2]
+        -1px -1px 0 $base-color,
+        -1px 1px 0 $base-color,
+        1px -1px 0 $base-color;
 }

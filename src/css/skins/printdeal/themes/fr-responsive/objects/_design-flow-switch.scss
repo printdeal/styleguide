@@ -54,9 +54,11 @@
 
     &.js-tabs-nav-item-selected {
         @include rounded-top;
+
         &::before {
             background-color: color(green); // [2]
         }
+
         &::after {
             border-top-color: color(green); // [3]
         }
@@ -64,6 +66,7 @@
 
     @include breakpoint(medium, 'max-width') {
         width: 100%;
+
         &::after,
         .Btn {
             display: none;
@@ -75,9 +78,11 @@
     &:hover,
     &:focus {
         @include rounded-top; // [1]
+
         &::before {
             background-color: color(green-light);
         }
+
         &::after {
             border-top-color: color(green-light);
         }

@@ -42,11 +42,13 @@
 }
 
 // Not so pretty no-js fallback
+// stylelint-disable selector-max-class
 @include breakpoint(medium) {
     .no-js .ProductNav:hover .ProductNav__Categories {
         display: block;
     }
 }
+// stylelint-enable selector-max-class
 
 
 // 1. Undo page-wrap

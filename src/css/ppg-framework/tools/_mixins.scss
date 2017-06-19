@@ -11,11 +11,10 @@
 // @param {String} $style     - The designated font-style
 @mixin webfont($family, $filename, $weight, $style) {
     @font-face {
-        // stylelint-disable indentation
-        src: url('#{$filename}.woff2') format('woff2'),
-             url('#{$filename}.woff') format('woff'),
-             url('#{$filename}.ttf') format('truetype');
-        // stylelint-enable indentation
+        src:
+            url('#{$filename}.woff2') format('woff2'),
+            url('#{$filename}.woff') format('woff'),
+            url('#{$filename}.ttf') format('truetype');
         font-family: $family;
         font-weight: $weight;
         font-style: $style;
@@ -88,13 +87,12 @@
 }
 
 @mixin dashed-border($position: bottom) {
-    // stylelint-disable indentation
-    background-image: linear-gradient( // 1
-        to right,
-        color(gray-light) 50%,
-        color(white) 0%
-    );
-    // stylelint-enable indentation
+    background-image:
+        linear-gradient(
+            90deg,
+            color(gray-light) 50%,
+            color(white) 0%
+        );
     background-repeat: repeat-x;
     background-position: $position;
     background-size: 4px 1px;
