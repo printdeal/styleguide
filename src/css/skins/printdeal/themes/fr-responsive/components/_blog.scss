@@ -1,4 +1,5 @@
 $space: $base-spacing-unit;
+$base-width: 40em;
 
 .Blog {
     background: color(white);
@@ -16,7 +17,7 @@ $space: $base-spacing-unit;
     @include breakpoint(blog) {
         margin-right: auto;
         margin-left: auto;
-        max-width: 40em;
+        max-width: $base-width;
     }
 }
 
@@ -50,8 +51,10 @@ $space: $base-spacing-unit;
     margin: $space auto;
 
     @include breakpoint(blog) {
-        margin: $base-spacing-unit negative(double($space));
-        max-width: none;
-        max-width: 100vw;
+        $img-pull-width: 3em;
+        // Pull images out of the 'frame' by making them wider than the content
+        // and pulling it to the left+right with negative margins
+        margin: $base-spacing-unit negative($img-pull-width);
+        max-width: #{$base-width + $img-pull-width + $img-pull-width};
     }
 }
