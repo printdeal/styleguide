@@ -11,7 +11,6 @@
 
 // 1. Overlap borders
 .Brick--IsSelected {
-
     &::before {
         @include sprite;
         @include icon('CheckCircle--Green');

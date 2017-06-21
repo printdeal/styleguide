@@ -3,7 +3,6 @@
 // 1. Unset/reset inherited styles
 
 .Form--vCollapse {
-
     #{$all-text-fields},
     .TextInput {
         border-bottom-width: 0; // [1]
@@ -23,7 +22,6 @@
 // 4. Need explicit box-sizing for inputs (https://github.com/necolas/normalize.css/issues/73);
 
 .Form--hCollapse {
-
     .TextInput,
     .Btn,
     #{$all-text-fields} {

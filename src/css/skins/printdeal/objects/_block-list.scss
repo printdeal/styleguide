@@ -1,7 +1,6 @@
 // UI.Object.BlockList
 
 .BlockList {
-
     > li,
     > a {
         display: block;
@@ -44,7 +43,6 @@
 $blocklist-large-inner-spacing: $base-spacing-unit * 1.5;
 
 .BlockList--Large {
-
     > li,
     > a {
         padding-top: $blocklist-large-inner-spacing;

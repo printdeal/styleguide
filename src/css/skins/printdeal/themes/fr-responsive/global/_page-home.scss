@@ -1,3 +1,5 @@
+// stylelint-disable selector-max-class
+// This file will be removed after BRND-1
 .Matrix__Item.HasOverlay {
     padding-top: 4.5em;
 
@@ -9,6 +11,7 @@
         margin-top: 1em;
     }
 }
+// stylelint-enable selector-max-class
 
 .Homepage__Section {
     margin-bottom: double($base-spacing-unit);

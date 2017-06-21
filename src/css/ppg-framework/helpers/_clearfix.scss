@@ -4,7 +4,6 @@
 // @link http://css-tricks.com/snippets/css/clear-fix/
 
 @mixin clearfix {
-    
     &::after {
         content: '';
         display: table;
