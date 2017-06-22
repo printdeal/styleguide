@@ -1,0 +1,46 @@
+// Color definitions
+//
+// Overwrites PPGFramework::colors
+$colors: (
+    base:            #aaaaaa,
+
+    orange:          #1a9bc5,
+    orange-shade:    mix(#1a9bc5, #000, 85%),
+    orange-light:    mix(#1a9bc5, #fff, 90%),
+    orange-medium:   mix(#1a9bc5, #000, 90%),
+    orange-dark:     mix(#1a9bc5, #000, 80%),
+
+    blue:            #8bb951,
+    blue-shade:      mix(#8bb951, #000, 90%),
+    blue-light:      mix(#8bb951, #fff, 90%),
+    blue-dark:       mix(#8bb951, #000, 80%),
+
+    green:           #80ce00,
+    green-shade:     #66ad00,
+    green-light:     #ddedcc,
+
+    yellow:          #fddb00,
+    yellow-shade:    #e5be00,
+    yellow-light:    #fcf8c3,
+    yellow-dark:     #806b00,
+
+    red:             #ff0000,
+    red-shade:       #dd0000,
+    red-light:       #ffecec,
+
+    magenta:         #e5007d,
+    magenta-shade:   #af0068,
+    magenta-light:   #f2e4ee,
+
+    white:           #ffffff,
+    gray-lightest:   #f1f1f1,
+    gray-lighter:    #ebebeb,
+    gray-light:      #d7d7d7,
+    gray-medium:     #aaaaaa,
+    gray-dark:       #888888,
+    gray-darker:     #585858,
+    gray-darkest:    #292929,
+    black:           #191919,
+
+    white-opaque:    rgba(#ffffff, 0.7)
+) !default;
