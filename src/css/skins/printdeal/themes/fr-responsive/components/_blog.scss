@@ -1,0 +1,60 @@
+$space: $base-spacing-unit;
+$base-width: 40em;
+
+.Blog {
+    background: color(white);
+}
+
+.BlogPost {
+    margin-right: halve($space);
+    margin-left: halve($space);
+
+    @include breakpoint(small) {
+        margin-right: $space;
+        margin-left: $space;
+    }
+
+    @include breakpoint(blog) {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: $base-width;
+    }
+}
+
+.BlogPost__Title,
+.BlogPost__Content h1 { font-size: 2.6em; }
+.BlogPost__Content h2 { font-size: 1.66em; }
+.BlogPost__Content h3 { font-size: 1.33em; }
+.BlogPost__Content h4 { font-size: 1.16em; }
+
+.BlogPost__Title {
+    margin-bottom: double($space);
+}
+
+.BlogPost__Content h2,
+.BlogPost__Content h3,
+.BlogPost__Content h4 {
+    margin-bottom: $space;
+}
+
+.BlogPost__Content p {
+    margin-bottom: double($space);
+    line-height: 1.5;
+}
+
+.BlogPost__Content p:first-of-type {
+    font-size: 1.33em;
+}
+
+.BlogPost__Content img {
+    display: block;
+    margin: $space auto;
+
+    @include breakpoint(blog) {
+        $img-pull-width: 3em;
+        // Pull images out of the 'frame' by making them wider than the content
+        // and pulling it to the left+right with negative margins
+        margin: $base-spacing-unit negative($img-pull-width);
+        max-width: #{$base-width + $img-pull-width + $img-pull-width};
+    }
+}

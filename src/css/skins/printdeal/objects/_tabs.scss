@@ -6,7 +6,7 @@
 $tabs-border-width: 1px;
 
 .Tabs {
-
+    // stylelint-disable selector-max-class
     .TabsNav__Item.js-tabs-nav-item-selected {
         border-color: color(gray-light); // [1]
         background-color: color(white);
@@ -16,6 +16,7 @@ $tabs-border-width: 1px;
             content: none; // [1]
         }
     }
+    // stylelint-enable selector-max-class
 }
 
 .Tabs__Nav {

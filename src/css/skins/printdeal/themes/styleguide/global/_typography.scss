@@ -12,7 +12,11 @@
     font-weight: 700;
 }
 
+// stylelint-disable font-family-no-duplicate-names
+// Double font-family needed to display monospace properly in some Android
+// browsers
 code,
 pre {
     font-family: 'Source Code Pro', monospace, monospace;
 }
+// stylelint-enable font-family-no-duplicate-names

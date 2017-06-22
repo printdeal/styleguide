@@ -85,7 +85,9 @@ gulp.task("img:sprites", function () {
                 width: 400 // arbitrary width, change as needed
             }))
             .pipe(plugins.rename({ extname: ".png" }))
-            .pipe(imageminPngquant(config.settings.imageminPngquant)())
+            .pipe(plugins.imagemin([
+                imageminPngquant(config.settings.imageminPngquant)
+            ]))
             .pipe(gulp.dest(path.tmp));
     });
 
@@ -105,11 +107,15 @@ gulp.task("img:copy", function () {
         .pipe(plugins.svgmin((config.settings.svgmin)))
         .pipe(gulp.dest(path.tmp))
         .pipe(plugins.svg2png())
-        .pipe(imageminPngquant(config.settings.imageminPngquant)())
+        .pipe(plugins.imagemin([
+            imageminPngquant(config.settings.imageminPngquant)
+        ]))
         .pipe(gulp.dest(path.tmp))
         .pipe(filterSvg.restore)
         .pipe(filterPng)
-        .pipe(imageminPngquant(config.settings.imageminPngquant)())
+        .pipe(plugins.imagemin([
+            imageminPngquant(config.settings.imageminPngquant)
+        ]))
         .pipe(filterPng.restore)
         .pipe(gulp.dest(path.tmp));
 });
