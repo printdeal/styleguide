@@ -66,6 +66,10 @@
             {
               "name": "fr-responsive",
               "icons": "all"
+            },
+            {
+              "name": "festivalprint",
+              "icons": "all"
             }
           ]
         }

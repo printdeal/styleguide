@@ -1,0 +1,16 @@
+// Away with the paint stripes as a background. That only suits Printdeal.
+.h--branded {
+    border-bottom: 0.2em solid color(orange);
+    background-image: none;
+}
+
+// Bring back proper UI colors (overwritten by brand colors).
+.Feedback {
+    background-color: #fcf8c3;
+    color: #806b00;
+}
+
+.Feedback--Info {
+    background-color: #ddeff2;
+    color: #008cc9;
+}
