@@ -17,7 +17,7 @@ var runSequence = require("run-sequence");
 gulp.task("img:clean", function () {
     return del([path.dist, path.tmp]).then(function (paths) {
         if (paths.length) {
-            return gutil.log("Deleted", paths.length, "files");
+            return gutil.log("Deleted", paths.length, "folders");
         }
 
         gutil.log("Nothing to delete");
@@ -95,8 +95,8 @@ gulp.task("img:sprites", function () {
 });
 
 gulp.task("img:copy", function () {
-    var filterSvg = plugins.filter(["*.svg"], { restore: true });
-    var filterPng = plugins.filter(["*.png"], { restore: true });
+    var filterSvg = plugins.filter(["**/*.svg"], { restore: true });
+    var filterPng = plugins.filter(["**/*.png"], { restore: true });
     return gulp.src([
             path.src + "*.png",
             path.src + "*.jpg",
@@ -116,8 +116,8 @@ gulp.task("img:copy", function () {
         .pipe(plugins.imagemin([
             imageminPngquant(config.settings.imageminPngquant)
         ]))
-        .pipe(filterPng.restore)
-        .pipe(gulp.dest(path.tmp));
+        .pipe(gulp.dest(path.tmp))
+        .pipe(filterPng.restore);
 });
 
 gulp.task("img:rev", function () {
@@ -128,7 +128,7 @@ gulp.task("img:rev", function () {
         .pipe(gulp.dest(path.dist));
 });
 
-// Workaround task to release all images, except SVG's
+// Workaround task to release all images, except SVG's because SVG need to be gzipped
 gulp.task("img:release:nosvg", function () {
     return gulp.src([
         "./dist/img/*.png",
@@ -148,5 +148,12 @@ gulp.task("img:release", ["img:release:nosvg"], function () {
 });
 
 gulp.task("img", function (callback) {
-    runSequence("img:copy", "img:sprites", "img:rev", "img:release", callback);
+    runSequence(
+        "img:clean",
+        "img:copy",
+        "img:sprites",
+        "img:rev",
+        "img:release",
+        callback
+    );
 });
