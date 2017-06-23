@@ -116,8 +116,8 @@ gulp.task("img:copy", function () {
         .pipe(plugins.imagemin([
             imageminPngquant(config.settings.imageminPngquant)
         ]))
-        .pipe(gulp.dest(path.tmp))
-        .pipe(filterPng.restore);
+        .pipe(filterPng.restore)
+        .pipe(gulp.dest(path.tmp));
 });
 
 gulp.task("img:rev", function () {
