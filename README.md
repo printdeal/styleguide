@@ -1,4 +1,4 @@
-# Readme
+# Readme [![Build Status](https://travis-ci.org/printdeal/styleguide.svg?branch=master)](https://travis-ci.org/printdeal/styleguide)
 
 ## Installation
 1. Run `installer.sh`
