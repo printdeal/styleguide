@@ -1,11 +1,15 @@
 // UI.Object.Matrix
 
+// 1. Negative margins to undo the margins on Matrix__Item
 .Matrix {
     margin-right: negative(halve($base-spacing-unit));
     margin-left: negative(halve($base-spacing-unit));
 }
 
+// 2. This element will often serve as a context for things within it, so give
+//    give it a context to avoid a lot of extra styles in other elements.
 .Matrix__Item {
+    position: relative; // [2]
     margin-right: halve($base-spacing-unit);
     margin-bottom: $base-spacing-unit;
     margin-left: halve($base-spacing-unit);
@@ -14,6 +18,8 @@
     text-decoration: none;
 }
 
+// Specific hover styles for links only, as a Matrix__Item do not necessarily
+// have to be anchor tags
 a.Matrix__Item:hover { // stylelint-disable-line selector-no-qualifying-type
     border-color: color(blue);
 }
