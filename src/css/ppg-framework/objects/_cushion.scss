@@ -5,7 +5,9 @@
 //
 // Usage:
 //     <section class="Cushion"></section>
-//     <section class="Cushion"></section>
+//     <section class="Cushion Cushion--Vertical"></section>
+//     <section class="Cushion Cushion--Large"></section>
+//     <section class="Cushion Cushion--Horizontal-Tiny"></section>
 
 $cushion-spacing-sizes: (
     'Tiny': quarter($base-spacing-unit),
