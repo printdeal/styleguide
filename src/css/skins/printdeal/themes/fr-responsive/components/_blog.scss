@@ -1,10 +1,6 @@
 $space: $base-spacing-unit;
 $base-width: 40em;
 
-.Blog {
-    background: color(white);
-}
-
 .BlogPost {
     margin-right: halve($space);
     margin-left: halve($space);
@@ -59,7 +55,7 @@ $base-width: 40em;
             $img-pull-width: 3em;
             // Pull images out of the 'frame' by making them wider than the content
             // and pulling it to the left+right with negative margins
-            margin: $base-spacing-unit negative($img-pull-width);
+            margin: $space negative($img-pull-width);
             max-width: #{$base-width + $img-pull-width + $img-pull-width};
         }
     }
