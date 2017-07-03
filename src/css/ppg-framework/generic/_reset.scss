@@ -49,3 +49,8 @@ svg,
 video {
     vertical-align: middle;
 }
+
+// Browsers display iframes with borders by default, so remove it
+iframe {
+    border: none;
+}

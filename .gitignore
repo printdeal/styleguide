@@ -7,7 +7,9 @@
 rev-manifest.json
 tasks/config.json
 .idea
-src/fonts
+src/fonts/*.woff
+src/fonts/*.woff2
+src/fonts/*.ttf
 
 # Compiled source #
 ###################

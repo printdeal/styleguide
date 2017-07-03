@@ -31,30 +31,36 @@ $base-width: 40em;
     margin-bottom: double($space);
 }
 
-.BlogPost__Content h2,
-.BlogPost__Content h3,
-.BlogPost__Content h4 {
-    margin-bottom: $space;
-}
+// 1. A slightly larger font-size to make text a little more readable
+.BlogPost__Content {
+    font-size: 1.1em; // [1]
 
-.BlogPost__Content p {
-    margin-bottom: double($space);
-    line-height: 1.5;
-}
+    h2,
+    h3,
+    h4 {
+        margin-bottom: $space;
+    }
 
-.BlogPost__Content p:first-of-type {
-    font-size: 1.33em;
-}
+    p {
+        margin-bottom: double($space);
+        line-height: 1.5;
+    }
 
-.BlogPost__Content img {
-    display: block;
-    margin: $space auto;
+    p:first-of-type {
+        font-size: 1.33em;
+    }
 
-    @include breakpoint(blog) {
-        $img-pull-width: 3em;
-        // Pull images out of the 'frame' by making them wider than the content
-        // and pulling it to the left+right with negative margins
-        margin: $base-spacing-unit negative($img-pull-width);
-        max-width: #{$base-width + $img-pull-width + $img-pull-width};
+    img,
+    iframe {
+        display: block;
+        margin: $space auto;
+
+        @include breakpoint(blog) {
+            $img-pull-width: 3em;
+            // Pull images out of the 'frame' by making them wider than the content
+            // and pulling it to the left+right with negative margins
+            margin: $base-spacing-unit negative($img-pull-width);
+            max-width: #{$base-width + $img-pull-width + $img-pull-width};
+        }
     }
 }

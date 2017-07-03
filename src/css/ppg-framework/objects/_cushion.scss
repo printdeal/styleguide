@@ -1,0 +1,45 @@
+// CUSHION
+//
+// For all things padded. Good for use with background colors or background
+// images.
+//
+// Usage:
+//     <section class="Cushion"></section>
+//     <section class="Cushion"></section>
+
+$cushion-spacing-sizes: (
+    'Tiny': quarter($base-spacing-unit),
+    'Small': halve($base-spacing-unit),
+    'Large': double($base-spacing-unit),
+    'Huge': quadruple($base-spacing-unit)
+);
+
+.Cushion {
+    padding: $base-spacing-unit;
+
+    @each $name, $size in $cushion-spacing-sizes {
+        &--#{$name} {
+            padding: $size;
+        }
+    }
+}
+
+.Cushion--Vertical {
+    padding: $base-spacing-unit 0;
+
+    @each $name, $size in $cushion-spacing-sizes {
+        &-#{$name} {
+            padding: $size 0;
+        }
+    }
+}
+
+.Cushion--Horizontal {
+    padding: 0 $base-spacing-unit;
+
+    @each $name, $size in $cushion-spacing-sizes {
+        &-#{$name} {
+            padding: 0 $size;
+        }
+    }
+}
