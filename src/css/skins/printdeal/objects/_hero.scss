@@ -1,0 +1,37 @@
+// HERO
+//
+// Usage:
+//   <header class="Hero" style="background-image: url('your-image.jpg')">
+//     <div class="page-wrap">
+//       <div class="Hero__Title">Title</div>
+//       <div class="Hero__Content">Content</div>
+//     </div>
+//   </header>
+
+// 1. Fallback for when the image is loading or not found
+.Hero {
+    padding: 8em 0;
+    background-color: color(gray-medium);
+    background-position: 55% center;
+    background-size: cover;
+    color: color(gray-darkest);
+
+    @include breakpoint(medium) {
+        font-size: 1.3em;
+    }
+}
+
+.Hero__Title {
+    display: inline-block;
+    margin-bottom: 0.5em;
+    padding: 0.2em 0.3em;
+    background-color: color(white);
+    box-shadow: $shadow-panel;
+    font-family: map-get($brand-face-alt, 'family');
+    font-size: 2.4em;
+    font-weight: map-get($brand-face-alt, 'weight');
+}
+
+.Hero__Content {
+    font-size: 1.4em;
+}
