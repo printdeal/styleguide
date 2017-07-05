@@ -1,21 +1,4 @@
 $space: $base-spacing-unit;
-$base-width: 40em;
-
-.BlogPost {
-    margin-right: halve($space);
-    margin-left: halve($space);
-
-    @include breakpoint(small) {
-        margin-right: $space;
-        margin-left: $space;
-    }
-
-    @include breakpoint(blog) {
-        margin-right: auto;
-        margin-left: auto;
-        max-width: $base-width;
-    }
-}
 
 .BlogPost__Title,
 .BlogPost__Content h1 { font-size: 2.6em; }
@@ -27,9 +10,12 @@ $base-width: 40em;
     margin-bottom: double($space);
 }
 
-// 1. A slightly larger font-size to make text a little more readable
+// 1. A slightly larger font-size and line-height to make text a little more
+//    readable
+// 2. Reset max-width (default is 100% to prevent overflows)
 .BlogPost__Content {
-    font-size: 1.1em; // [1]
+    line-height: 1.6; // [1]
+    font-size: 1.16em; // [1]
 
     h2,
     h3,
@@ -51,12 +37,13 @@ $base-width: 40em;
         display: block;
         margin: $space auto;
 
-        @include breakpoint(blog) {
-            $img-pull-width: 3em;
+        @include breakpoint(medium) {
+            $img-pull-width: 10%;
             // Pull images out of the 'frame' by making them wider than the content
             // and pulling it to the left+right with negative margins
             margin: $space negative($img-pull-width);
-            max-width: #{$base-width + $img-pull-width + $img-pull-width};
+            width: #{100% + $img-pull-width + $img-pull-width};
+            max-width: none; // [2]
         }
     }
 }
