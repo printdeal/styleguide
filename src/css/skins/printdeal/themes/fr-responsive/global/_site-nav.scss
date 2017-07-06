@@ -38,7 +38,6 @@
 .SiteNav__ListItem {
     display: inline-block;
     position: relative;
-    margin-left: -0.26em; // undo inline-block whitespace
     vertical-align: middle; // [2]
     text-align: left;
     white-space: normal; // [1b]
@@ -97,11 +96,12 @@
     }
 }
 
-// 1. Clip long user names
+// 1. Arbitrary width, but it's about the maximum amount of content that can fit
+//    into that element, so be careful when you need to change it!
 // 2. At least take up one line to let SiteNav items align
 .SiteNav__Subtitle {
     display: none;
-    max-width: 9em; // [1]
+    max-width: 10em; // [1]
     min-height: $base-line-height; // [2]
     font-size: font-size(small);
 
