@@ -1,0 +1,58 @@
+// Social Button
+//
+// Used for indicating that something can be shared on a social platform.
+//
+// Usage:
+// <a class="SocialBtn SocialBtn--Facebook" href="...">
+//   <div class="SocialBtn__Icon">
+//     <svg class="" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" ...>
+//       <path d="..."/>
+//     </svg>
+//   </div>
+//   <span class="SocialBtn__Label">Share on Facebook</span>
+// </a>
+
+.SocialBtn {
+    display: block;
+    padding: 0.6em 1em;
+    background: color(base);
+    text-decoration: none;
+
+    &,
+    &:hover,
+    &:focus {
+        color: white;
+    }
+}
+
+$platforms: (
+    Facebook: #3b5998,
+    Twitter: #1da1f2,
+    Pinterest: #bd081c,
+    Linkedin: #0077b5,
+    Whatsapp: #25d366,
+    Email: #585858,
+    Googleplus: #dd4b39
+);
+
+@each $platform, $color in $platforms {
+    .SocialBtn--#{$platform} {
+        background-color: #{$color};
+    }
+}
+
+.SocialBtn__Icon {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+
+    svg {
+        fill: white;
+        vertical-align: -0.3em;
+    }
+}
+
+.SocialBtn__Label {
+    display: inline-block;
+    margin-left: 0.5em;
+}

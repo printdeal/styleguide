@@ -7,28 +7,30 @@ $product-nav-width: 18em;
 $z-indexes: (
     chuck-norris:       2147483647,
 
-    loader:             13,
-    modal:              12,
-    modal-backdrop:     11,
+    loader:             82,
+    modal:              81,
+    modal-backdrop:     80,
 
-    review:             10,
+    review:             70,
 
-    sitenav-item-small: 9,
-    site-subnav-small:  8,
+    sticky-share:       60,
 
-    search-form:        7,
-    search-results:     6,
-    search-backdrop:    5,
+    sitenav-item-small: 51,
+    site-subnav-small:  50,
 
-    sitenav-item-large: 4,
-    site-subnav-large:  3,
+    search-form:        42,
+    search-results:     41,
+    search-backdrop:    40,
 
-    productnav:         3,
+    sitenav-item-large: 31,
+    site-subnav-large:  30,
 
-    slider-nav:         2,
-    slider-action:      2,
-    slider-active:      2,
-    slider-preload:     1,
+    productnav:         20,
+
+    slider-nav:         13,
+    slider-action:      12,
+    slider-active:      11,
+    slider-preload:     10,
 
     default:            1,
     below:              -1

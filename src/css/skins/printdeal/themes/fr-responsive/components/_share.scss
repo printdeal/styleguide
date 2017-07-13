@@ -1,0 +1,68 @@
+// Social Sharing
+//
+// Display a bar with social sharing options and share count.
+// Optionally becomes sticky on scroll (js needed).
+//
+// Usage:
+// <div class="Share">
+//     <div class="Share__Counter">
+//         <div class="Share__Count">64</div> Shares
+//     </div>
+//     <ul class="Share__List">
+//         <li>
+//             <a class="SocialBtn SocialBtn--Facebook" href="..."> ... </a>
+//         </li>
+//         <li>...</li>
+//         <li>...</li>
+//     </ul>
+// </div>
+
+.Share {
+    display: flex;
+    align-items: flex-start;
+}
+
+.Share--IsSticky {
+    justify-content: flex-end;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: z(sticky-share);
+    margin: 0;
+    padding: 1.5em 0.5em;
+    background: color(white);
+    box-shadow: 0 -0.125em 0.25em rgba(color(black), 0.25);
+
+    @include breakpoint(small) {
+        top: 0;
+        bottom: auto; // reset
+        box-shadow: 0 0.125em 0.25em rgba(color(black), 0.25);
+    }
+}
+
+.Share__List {
+    height: 2.6em;
+    overflow: hidden;
+
+    > li {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: 0.3em;
+        }
+    }
+}
+
+.Share__Counter {
+    margin-right: 1em;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.875em;
+}
+
+.Share__Count {
+    line-height: 1;
+    font-size: 1.6em;
+    font-weight: 700;
+}
