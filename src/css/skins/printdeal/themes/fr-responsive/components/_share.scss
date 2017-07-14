@@ -41,9 +41,11 @@
     }
 }
 
+// 1. Fixed height combined with hidden overflow to make the items that wrap
+//    on a new line 'disappear'
 .Share__List {
-    height: 2.6em;
-    overflow: hidden;
+    height: 2.5em; // [1]
+    overflow: hidden; // [1]
 
     > li {
         display: inline-block;
