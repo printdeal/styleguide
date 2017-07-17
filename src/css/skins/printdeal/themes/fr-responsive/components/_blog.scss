@@ -19,10 +19,15 @@ $space: $base-spacing-unit;
 
     h2,
     h3,
-    h4 {
+    h4,
+    ol,
+    ul,
+    blockquote {
         margin-bottom: $space;
     }
 
+    ol,
+    ul,
     p {
         margin-bottom: double($space);
         line-height: 1.5;
@@ -31,6 +36,14 @@ $space: $base-spacing-unit;
     p:first-of-type {
         font-size: 1.33em;
     }
+
+    ol,
+    ul {
+        margin-left: $base-spacing-unit;
+    }
+
+    ol { list-style-type: decimal; }
+    ul { list-style-type: circle; }
 
     img,
     iframe {
