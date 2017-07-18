@@ -2428,13 +2428,16 @@ var Core = (function (Core) {
             $buttons.removeClass(_cssClasses.selectedBtn);
             $button.addClass(_cssClasses.selectedBtn);
 
+            // To prevent scrolling we remove id attr from selected tab, change page hash and restore id
+            if ($tabsContainer.parents(_cssClasses.container).length === 0) {
+                $tab.removeAttr('id');
+                window.location.hash = hrefAttr;
+                $tab.attr("id", hrefAttr.substr(1));
+            }
+
             // Dispatch custom event
             $button.trigger("tab:switch", $tab);
-
-            // To prevent scrolling we remove id attr from selected tab, change page hash and restore id
-            $tab.removeAttr('id');
-            window.location.hash = hrefAttr;
-            $tab.attr("id", hrefAttr.substr(1));
+            $button.trigger("tab:open", $tab);
         },
 
         /**
@@ -2444,6 +2447,7 @@ var Core = (function (Core) {
             $(_cssClasses.container).each(function () {
                 var $tabContainer = $(this),
                     $tabs = $tabContainer.find(_cssClasses.tab),
+                    $tab,
                     $buttons = $tabContainer.find(_cssClasses.button),
                     $nodes,
                     $selectedNode,
@@ -2457,17 +2461,16 @@ var Core = (function (Core) {
                 // otherwise - from tabs
                 $nodes = numButtons > 0 ? $buttons : $tabs;
                 selectedClass = numButtons > 0 ? _cssClasses.selectedBtn
-                        : _cssClasses.selectedTab;
+                    : _cssClasses.selectedTab;
                 idStoringAttr = numButtons > 0 ? "href" : "id";
 
-                if (hash.length) {
+                $selectedNode = $nodes.filter("." + selectedClass);
+                if (hash.length && $tabContainer.parents(_cssClasses.container).length === 0) {
                     if (idStoringAttr === "id") {
                         $selectedNode = $(hash);
                     } else {
-                        $selectedNode = $nodes.filter("[href='" + hash +"']")
+                        $selectedNode = $nodes.filter("[href='" + hash +"']");
                     }
-                } else {
-                    $selectedNode = $nodes.filter("." + selectedClass);
                 }
 
                 // If there is no selected tab - set first one as selected
@@ -2491,11 +2494,15 @@ var Core = (function (Core) {
                     selectedTabId = "#" + selectedTabId;
                 }
 
+                $tab = $(selectedTabId);
+
                 // Apply styling
                 $tabs.addClass(_cssClasses.hidden);
-                $(selectedTabId).removeClass(_cssClasses.hidden);
+                $tab.removeClass(_cssClasses.hidden);
                 $nodes.removeClass(_cssClasses.selectedBtn);
                 $selectedNode.addClass(_cssClasses.selectedBtn);
+
+                $selectedNode.trigger("tab:open", $tab);
             });
         },
 
