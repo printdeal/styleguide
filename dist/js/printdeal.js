@@ -2415,7 +2415,8 @@ var Core = (function (Core) {
                 $tabsContainer = $button.closest(_cssClasses.container),
                 $tabs = $tabsContainer.find(_cssClasses.tab),
                 $buttons = $tabsContainer.find(_cssClasses.button),
-                $tab = $tabs.filter($button.attr("href"));
+                hrefAttr = $button.attr("href"),
+                $tab = $tabs.filter(hrefAttr);
 
             if (!$tab.length || $button.hasClass(_cssClasses.selectedBtn)) {
                 return; // Tab not found || tab selected already
@@ -2429,6 +2430,11 @@ var Core = (function (Core) {
 
             // Dispatch custom event
             $button.trigger("tab:switch", $tab);
+
+            // To prevent scrolling we remove id attr from selected tab, change page hash and restore id
+            $tab.removeAttr('id');
+            window.location.hash = hrefAttr;
+            $tab.attr("id", hrefAttr.substr(1));
         },
 
         /**
@@ -2444,7 +2450,8 @@ var Core = (function (Core) {
                     selectedClass,
                     selectedTabId,
                     idStoringAttr,
-                    numButtons = $buttons.length;
+                    numButtons = $buttons.length,
+                    hash = window.location.hash;
 
                 // If there are nav buttons - take data from them,
                 // otherwise - from tabs
@@ -2453,7 +2460,15 @@ var Core = (function (Core) {
                         : _cssClasses.selectedTab;
                 idStoringAttr = numButtons > 0 ? "href" : "id";
 
-                $selectedNode = $nodes.filter("." + selectedClass);
+                if (hash.length) {
+                    if (idStoringAttr === "id") {
+                        $selectedNode = $(hash);
+                    } else {
+                        $selectedNode = $nodes.filter("[href='" + hash +"']")
+                    }
+                } else {
+                    $selectedNode = $nodes.filter("." + selectedClass);
+                }
 
                 // If there is no selected tab - set first one as selected
                 // Else if there is more than 1 selected tab - remove extra ones
@@ -2479,6 +2494,8 @@ var Core = (function (Core) {
                 // Apply styling
                 $tabs.addClass(_cssClasses.hidden);
                 $(selectedTabId).removeClass(_cssClasses.hidden);
+                $nodes.removeClass(_cssClasses.selectedBtn);
+                $selectedNode.addClass(_cssClasses.selectedBtn);
             });
         },
 
