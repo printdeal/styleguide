@@ -2447,9 +2447,13 @@ var Core = (function (Core) {
         _initialize = function () {
             $(_cssClasses.container).each(function () {
                 var $tabContainer = $(this),
-                    $tabs = $tabContainer.find(_cssClasses.tab),
+                    $tabs = $tabContainer
+                        .find(_cssClasses.tab)
+                        .filter(_isCurrentTabNote),
                     $tab,
-                    $buttons = $tabContainer.find(_cssClasses.button),
+                    $buttons = $tabContainer
+                        .find(_cssClasses.button)
+                        .filter(_isCurrentTabNote),
                     $nodes,
                     $selectedNode,
                     selectedClass,
@@ -2460,7 +2464,6 @@ var Core = (function (Core) {
 
                 // If there are nav buttons - take data from them,
                 // otherwise - from tabs
-                // todo: remove .js-tab of child .js-tabs
                 $nodes = numButtons > 0 ? $buttons : $tabs;
                 selectedClass = numButtons > 0 ? _cssClasses.selectedBtn
                         : _cssClasses.selectedTab;
@@ -2508,6 +2511,13 @@ var Core = (function (Core) {
                     .addClass(_cssClasses.selectedBtn)
                     .trigger("tab:open", $tab);
             });
+        },
+
+        /**
+         * @returns {boolean}
+         */
+        _isCurrentTabNote = function() {
+            return $(this).parents(_cssClasses.container).length === 1;
         },
 
         /**
