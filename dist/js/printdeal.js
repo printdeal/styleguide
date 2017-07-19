@@ -2415,7 +2415,8 @@ var Core = (function (Core) {
                 $tabsContainer = $button.closest(_cssClasses.container),
                 $tabs = $tabsContainer.find(_cssClasses.tab),
                 $buttons = $tabsContainer.find(_cssClasses.button),
-                $tab = $tabs.filter($button.attr("href"));
+                hrefAttr = $button.attr("href"),
+                $tab = $tabs.filter(hrefAttr);
 
             if (!$tab.length || $button.hasClass(_cssClasses.selectedBtn)) {
                 return; // Tab not found || tab selected already
@@ -2427,8 +2428,17 @@ var Core = (function (Core) {
             $buttons.removeClass(_cssClasses.selectedBtn);
             $button.addClass(_cssClasses.selectedBtn);
 
+            // To prevent scrolling we remove id attr from selected tab,
+            // change page hash and restore id
+            if ($tabsContainer.parents(_cssClasses.container).length === 0) {
+                $tab.removeAttr("id");
+                window.location.hash = hrefAttr;
+                $tab.attr("id", hrefAttr.substr(1));
+            }
+
             // Dispatch custom event
             $button.trigger("tab:switch", $tab);
+            $button.trigger("tab:open", $tab);
         },
 
         /**
@@ -2437,14 +2447,20 @@ var Core = (function (Core) {
         _initialize = function () {
             $(_cssClasses.container).each(function () {
                 var $tabContainer = $(this),
-                    $tabs = $tabContainer.find(_cssClasses.tab),
-                    $buttons = $tabContainer.find(_cssClasses.button),
+                    $tabs = $tabContainer
+                        .find(_cssClasses.tab)
+                        .filter(_isCurrentTabNote),
+                    $tab,
+                    $buttons = $tabContainer
+                        .find(_cssClasses.button)
+                        .filter(_isCurrentTabNote),
                     $nodes,
                     $selectedNode,
                     selectedClass,
                     selectedTabId,
                     idStoringAttr,
-                    numButtons = $buttons.length;
+                    numButtons = $buttons.length,
+                    hash = window.location.hash;
 
                 // If there are nav buttons - take data from them,
                 // otherwise - from tabs
@@ -2454,6 +2470,15 @@ var Core = (function (Core) {
                 idStoringAttr = numButtons > 0 ? "href" : "id";
 
                 $selectedNode = $nodes.filter("." + selectedClass);
+                if (hash.length &&
+                    $tabContainer.parents(_cssClasses.container).length === 0
+                ) {
+                    if (idStoringAttr === "id") {
+                        $selectedNode = $(hash);
+                    } else {
+                        $selectedNode = $nodes.filter("[href='" + hash +"']");
+                    }
+                }
 
                 // If there is no selected tab - set first one as selected
                 // Else if there is more than 1 selected tab - remove extra ones
@@ -2476,10 +2501,23 @@ var Core = (function (Core) {
                     selectedTabId = "#" + selectedTabId;
                 }
 
+                $tab = $(selectedTabId);
+
                 // Apply styling
                 $tabs.addClass(_cssClasses.hidden);
-                $(selectedTabId).removeClass(_cssClasses.hidden);
+                $tab.removeClass(_cssClasses.hidden);
+                $nodes.removeClass(_cssClasses.selectedBtn);
+                $selectedNode
+                    .addClass(_cssClasses.selectedBtn)
+                    .trigger("tab:open", $tab);
             });
+        },
+
+        /**
+         * @returns {boolean}
+         */
+        _isCurrentTabNote = function() {
+            return $(this).parents(_cssClasses.container).length === 1;
         },
 
         /**
