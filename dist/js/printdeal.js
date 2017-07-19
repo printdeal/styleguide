@@ -2428,9 +2428,10 @@ var Core = (function (Core) {
             $buttons.removeClass(_cssClasses.selectedBtn);
             $button.addClass(_cssClasses.selectedBtn);
 
-            // To prevent scrolling we remove id attr from selected tab, change page hash and restore id
+            // To prevent scrolling we remove id attr from selected tab,
+            // change page hash and restore id
             if ($tabsContainer.parents(_cssClasses.container).length === 0) {
-                $tab.removeAttr('id');
+                $tab.removeAttr("id");
                 window.location.hash = hrefAttr;
                 $tab.attr("id", hrefAttr.substr(1));
             }
@@ -2459,13 +2460,16 @@ var Core = (function (Core) {
 
                 // If there are nav buttons - take data from them,
                 // otherwise - from tabs
+                // todo: remove .js-tab of child .js-tabs
                 $nodes = numButtons > 0 ? $buttons : $tabs;
                 selectedClass = numButtons > 0 ? _cssClasses.selectedBtn
-                    : _cssClasses.selectedTab;
+                        : _cssClasses.selectedTab;
                 idStoringAttr = numButtons > 0 ? "href" : "id";
 
                 $selectedNode = $nodes.filter("." + selectedClass);
-                if (hash.length && $tabContainer.parents(_cssClasses.container).length === 0) {
+                if (hash.length &&
+                    $tabContainer.parents(_cssClasses.container).length === 0
+                ) {
                     if (idStoringAttr === "id") {
                         $selectedNode = $(hash);
                     } else {
@@ -2500,9 +2504,9 @@ var Core = (function (Core) {
                 $tabs.addClass(_cssClasses.hidden);
                 $tab.removeClass(_cssClasses.hidden);
                 $nodes.removeClass(_cssClasses.selectedBtn);
-                $selectedNode.addClass(_cssClasses.selectedBtn);
-
-                $selectedNode.trigger("tab:open", $tab);
+                $selectedNode
+                    .addClass(_cssClasses.selectedBtn)
+                    .trigger("tab:open", $tab);
             });
         },
 
