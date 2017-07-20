@@ -43,10 +43,10 @@ $space: $base-spacing-unit;
     }
 
     ol { list-style-type: decimal; }
-    ul { list-style-type: circle; }
+    ul { list-style-type: disc; }
 
     img,
-    iframe {
+    .Blog__Video {
         display: block;
         margin: $space auto;
 
