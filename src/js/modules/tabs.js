@@ -54,13 +54,9 @@ var Core = (function (Core) {
         _initialize = function () {
             $(_cssClasses.container).each(function () {
                 var $tabContainer = $(this),
-                    $tabs = $tabContainer
-                        .find(_cssClasses.tab)
-                        .filter(_isCurrentTabNote),
+                    $tabs = $tabContainer.find(_cssClasses.tab),
                     $tab,
-                    $buttons = $tabContainer
-                        .find(_cssClasses.button)
-                        .filter(_isCurrentTabNote),
+                    $buttons = $tabContainer.find(_cssClasses.button),
                     $nodes,
                     $selectedNode,
                     selectedClass,
@@ -72,8 +68,9 @@ var Core = (function (Core) {
                 // If there are nav buttons - take data from them,
                 // otherwise - from tabs
                 $nodes = numButtons > 0 ? $buttons : $tabs;
+                $nodes.filter(_isCurrentTabNote);
                 selectedClass = numButtons > 0 ? _cssClasses.selectedBtn
-                        : _cssClasses.selectedTab;
+                    : _cssClasses.selectedTab;
                 idStoringAttr = numButtons > 0 ? "href" : "id";
 
                 $selectedNode = $nodes.filter("." + selectedClass);
