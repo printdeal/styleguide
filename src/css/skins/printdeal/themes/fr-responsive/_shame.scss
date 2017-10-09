@@ -117,3 +117,12 @@ html[data-useragent*='Firefox'] .SiteNav__Link {
         display: none;
     }
 }
+
+.product-content {
+    // Lists that appear in product content should be styled as checklists
+    ul,
+    ol {
+        @extend .IconList;
+        @extend .IconList--Check;
+    }
+}
