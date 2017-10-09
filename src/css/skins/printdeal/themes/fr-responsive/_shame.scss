@@ -120,9 +120,12 @@ html[data-useragent*='Firefox'] .SiteNav__Link {
 
 .product-content {
     // Lists that appear in product content should be styled as checklists
-    ul,
-    ol {
+    // 1. Reset default list-styling from .user-content
+    ul:not([class]),
+    ol:not([class]) {
         @extend .IconList;
         @extend .IconList--Check;
+        margin-left: 0; // [1]
+        list-style: none; // [1]
     }
 }
