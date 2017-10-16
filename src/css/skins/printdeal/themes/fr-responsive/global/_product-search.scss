@@ -13,13 +13,16 @@
     z-index: z(search-form); // [1]
 }
 
+// 1. Let the item take up as much space as possible
 // 2. `em` value for alignment with USP bar
 // 3. Fallback
 .ProductSearchResults {
     display: none;
+    flex: 1 0 auto; // [1]
     margin-right: negative(halve($base-spacing-unit));
     margin-left: negative(halve($base-spacing-unit));
     border-top: 1px solid color(gray-light);
+    width: 100%; // [1]
     background-color: color(gray-lightest);
 
     @include breakpoint(medium) {
