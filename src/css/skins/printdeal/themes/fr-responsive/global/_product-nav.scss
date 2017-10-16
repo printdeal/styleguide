@@ -10,11 +10,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
 }
 
 .ProductNav__Toggler {
+    margin-right: halve($base-spacing-unit);
     margin-left: negative(halve($base-spacing-unit));
     border-width: 0 1px;
     border-style: solid;
@@ -25,6 +26,7 @@
     cursor: pointer;
 
     @include breakpoint(medium) {
+        margin-right: 0;
         margin-left: 0;
         padding-left: 0.5em;
         width: $product-nav-width;
@@ -56,11 +58,14 @@
 // stylelint-enable selector-max-class
 
 
-// 1. Undo page-wrap
+// 1. Make sure the search bar still aligns next to the toggler by pushing the
+//    categories to the next line
+// 2. Undo page-wrap
 .ProductNav__Categories {
     display: none;
+    order: 1; // [1]
     position: relative;
-    margin: 0 -0.66em -0.66em -0.66em; // [1]
+    margin: 0 -0.66em -0.66em -0.66em; // [2]
     border-width: 1px 0;
     border-style: solid;
     border-color: color(gray-light);

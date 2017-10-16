@@ -4,7 +4,7 @@
 .ProductSearch {
     flex: 1 0 auto; // [1]
     position: relative; // [2]
-    margin-left: third(double($base-spacing-unit));
+    margin-top: third($base-spacing-unit);
 }
 
 // 1. Only put higher z-index when open, otherwise ProductNav and SiteNav
@@ -13,28 +13,40 @@
     z-index: z(search-form); // [1]
 }
 
+.ProductSearch__Form {
+    position: relative;
+    z-index: z(search-form);
+}
+
 // 1. Let the item take up as much space as possible
-// 2. `em` value for alignment with USP bar
+// 2. Drag the element to the left so it'll fit underneath the product toggler
 // 3. Fallback
+// 4. Reset mobile styles
 .ProductSearchResults {
     display: none;
     flex: 1 0 auto; // [1]
+    margin-top: third($base-spacing-unit);
     margin-right: negative(halve($base-spacing-unit));
-    margin-left: negative(halve($base-spacing-unit));
+    margin-left: calc(negative($product-nav-toggler-width) + negative(halve($base-spacing-unit))); // [2]
     border-top: 1px solid color(gray-light);
-    width: 100%; // [1]
+    padding-right: halve($base-spacing-unit);
+    padding-left: halve($base-spacing-unit);
+    width: 100%; // [1,3]
+    width: calc(100% + $product-nav-toggler-width + $base-spacing-unit);
     background-color: color(gray-lightest);
 
     @include breakpoint(medium) {
         position: absolute;
-        top: 3em; // [2]
-        right: halve($base-spacing-unit);
+        top: 100%;
+        right: 0;
+        left: 0;
         border: solid color(gray-light);
         border-width: 0 1px 1px 1px;
         border-bottom-right-radius: radius(small);
         border-bottom-left-radius: radius(small);
-        width: 80%; // [3]
-        width: calc(100% - #{$product-nav-width} - #{$base-spacing-unit});
+        padding-right: 0; // [4]
+        padding-left: 0; // [4]
+        width: 100%; // [4]
         box-shadow: $shadow-drop;
     }
 }
