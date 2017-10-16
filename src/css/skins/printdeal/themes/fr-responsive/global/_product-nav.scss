@@ -26,6 +26,7 @@
     cursor: pointer;
 
     @include breakpoint(medium) {
+        margin-right: 0;
         margin-left: 0;
         padding-left: 0.5em;
         width: $product-nav-width;
