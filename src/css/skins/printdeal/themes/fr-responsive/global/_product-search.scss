@@ -27,12 +27,12 @@
     flex: 1 0 auto; // [1]
     margin-top: third($base-spacing-unit);
     margin-right: negative(halve($base-spacing-unit));
-    margin-left: calc(negative($product-nav-toggler-width) + negative(halve($base-spacing-unit))); // [2]
+    margin-left: calc(#{negative($product-nav-toggler-width)} + #{negative(halve($base-spacing-unit))}); // [2]
     border-top: 1px solid color(gray-light);
     padding-right: halve($base-spacing-unit);
     padding-left: halve($base-spacing-unit);
     width: 100%; // [1,3]
-    width: calc(100% + $product-nav-toggler-width + $base-spacing-unit);
+    width: calc(100% + #{$product-nav-toggler-width} + #{$base-spacing-unit});
     background-color: color(gray-lightest);
 
     @include breakpoint(medium) {

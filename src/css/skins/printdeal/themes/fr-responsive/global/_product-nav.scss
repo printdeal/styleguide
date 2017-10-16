@@ -69,6 +69,8 @@
     border-width: 1px 0;
     border-style: solid;
     border-color: color(gray-light);
+    width: 100%;
+    width: calc(100% + 0.66em + 0.66em); // [2]
     background: color(white);
 
     @include breakpoint(medium) {
