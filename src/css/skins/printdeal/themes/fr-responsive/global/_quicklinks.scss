@@ -19,7 +19,7 @@
 
     @include breakpoint(medium) {
         display: flex;
-        margin: 0 halve($base-spacing-unit);
+        margin-right: halve($base-spacing-unit);
     }
 }
 
