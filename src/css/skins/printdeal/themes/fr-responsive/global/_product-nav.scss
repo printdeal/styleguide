@@ -7,15 +7,19 @@
 }
 
 .ProductNav__Inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
 }
 
 .ProductNav__Toggler {
-    margin-left: -9px;
+    margin-left: negative(halve($base-spacing-unit));
     border-width: 0 1px;
     border-style: solid;
     border-color: color(gray-light);
     padding: 1em 0.66em 1em 1.22em;
+    width: $product-nav-toggler-width;
     font-weight: 700;
     cursor: pointer;
 

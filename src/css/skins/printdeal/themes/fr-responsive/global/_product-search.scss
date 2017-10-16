@@ -1,5 +1,9 @@
+// 1. When inside a display:flex container => let this element become as large
+//    as possible
+// 2. Provide a context for the search dropdown
 .ProductSearch {
-    position: relative;
+    flex: 1 0 auto; // [1]
+    position: relative; // [2]
     margin-left: third(double($base-spacing-unit));
 }
 
@@ -27,15 +31,8 @@
         border-bottom-right-radius: radius(small);
         border-bottom-left-radius: radius(small);
         width: 80%; // [3]
-        box-shadow: $shadow-drop;
-    }
-
-    // Seperate breakpoint because scss-lint goed 100% nuts about combining it
-    // with the previous one.
-    @include breakpoint(medium) {
-        //  scss-lint:disable PropertyUnits
         width: calc(100% - #{$product-nav-width} - #{$base-spacing-unit});
-        // scss-lint:enable PropertyUnits
+        box-shadow: $shadow-drop;
     }
 }
 
@@ -44,12 +41,11 @@
     z-index: z(search-results);
 }
 
+// 1. Fallback value for browsers that don't support `vh` units
 .ProductSearchResults__Content {
     @include scrollable;
-    // scss-lint:disable all
-    max-height: 28em;
+    max-height: 28em; // [1]
     max-height: 60vh;
-    // scss-lint:enable all
     background-color: color(gray-lighter);
 }
 
