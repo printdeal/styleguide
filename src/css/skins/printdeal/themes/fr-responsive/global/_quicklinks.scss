@@ -1,0 +1,30 @@
+// Quick Links
+//
+// Display a set of links
+//
+// Usage:
+// <ol class="Quicklinks">
+//     <li>
+//         <a class="Quicklink text-nobreak" href="...">
+//             <i class="Icon Icon--Truck Icon--Before"></i>
+//             <span>Kerstkaarten</span>
+//         </a>
+//     </li>
+//     ...etc...
+// </ol>
+
+.Quicklinks {
+    display: none;
+    justify-content: space-around;
+
+    @include breakpoint(medium) {
+        display: flex;
+        margin: 0 halve($base-spacing-unit);
+    }
+}
+
+.Quicklink {
+    display: block;
+    padding: 1em 0.75em;
+    text-decoration: none;
+}
