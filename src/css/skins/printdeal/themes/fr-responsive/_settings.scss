@@ -8,22 +8,23 @@ $product-nav-toggler-width: 4em;
 $z-indexes: (
     chuck-norris:       2147483647,
 
-    loader:             72,
-    modal:              71,
-    modal-backdrop:     70,
+    loader:             82,
+    modal:              81,
+    modal-backdrop:     80,
 
-    review:             60,
+    review:             70,
 
-    sticky-share:       50,
+    sticky-share:       60,
 
-    sitenav-item-small: 43,
-    site-subnav-small:  42,
-    sitenav-item-large: 41,
-    site-subnav-large:  40,
+    sitenav-item-small: 51,
+    site-subnav-small:  50,
 
-    search-form:        32,
-    search-results:     31,
-    search-backdrop:    30,
+    search-form:        42,
+    search-results:     41,
+    search-backdrop:    40,
+
+    sitenav-item-large: 31,
+    site-subnav-large:  30,
 
     productnav:         20,
 
