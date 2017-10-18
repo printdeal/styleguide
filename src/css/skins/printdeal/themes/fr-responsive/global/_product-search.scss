@@ -15,7 +15,10 @@
 
 .ProductSearch__Form {
     position: relative;
-    z-index: z(search-form);
+
+    .ProductSearch--IsOpen & {
+        z-index: z(search-form); // [1]
+    }
 }
 
 // 1. Let the item take up as much space as possible
