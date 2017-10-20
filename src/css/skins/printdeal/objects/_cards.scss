@@ -1,0 +1,35 @@
+// Cards
+//
+// Display a Card-collection
+//
+// Support:
+//   IE 11+
+//
+// Usage:
+// <nav class="Cards">
+//   {% for card in cards %}
+//     {% include card.html with {...} %}
+//   {% endfor %}
+// </nav>
+
+$card-inner-spacing: halve($base-spacing-unit);
+$card-width: 18em;
+
+// stylelint-disable order/properties-order, declaration-block-no-duplicate-properties, comment-empty-line-before
+.Cards {
+    display: flex;
+    flex-wrap: wrap;
+    /* autoprefixer: off */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(#{$card-width}, 1fr));
+    /* autoprefixer: on */
+    margin-right: negative($card-inner-spacing);
+    margin-left: negative($card-inner-spacing);
+
+    > .Card {
+        flex: 1 1 $card-width;
+        margin-right: $card-inner-spacing;
+        margin-bottom: double($card-inner-spacing);
+        margin-left: $card-inner-spacing;
+    }
+}
