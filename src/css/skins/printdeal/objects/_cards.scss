@@ -29,7 +29,7 @@ $card-width: 20em;
     > .Card {
         flex: 1 1 $card-width;
         margin-right: $card-inner-spacing;
-        margin-bottom: doule($card-inner-spacing);
+        margin-bottom: double($card-inner-spacing);
         margin-left: $card-inner-spacing;
     }
 }
