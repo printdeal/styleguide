@@ -31,25 +31,29 @@ $card-inner-spacing: halve($base-spacing-unit);
         margin-left: $card-inner-spacing;
     }
 
-    > *:not(:last-child) {
+    > :not(:last-child) {
         margin-bottom: $card-inner-spacing;
     }
 }
 
+// 1. Show image before/on top of other elements
+// 2. Undo padding of .Card
+// 3. Keep aspect ratio of image intact
 .Card__Cover {
-    order: -1; // Show image before/on top of other elements
-    margin-top: negative($card-inner-spacing); // undo padding
+    order: -1; // [1]
+    margin-top: negative($card-inner-spacing); // [2]
     margin-bottom: double($card-inner-spacing);
     width: 100%;
-    height: auto; // Keep aspect ratio of image intact
+    height: auto; // [3]
 }
 
 .Card__Description {
     color: color(gray-dark);
 }
 
+// 1. Makes it align to the bottom unlike the other elements (https://wpbeaches.com/aligning-last-item-bottom-container-flexbox/)
 .Card__Cta {
-    margin-top: auto; // makes it align to the bottom unlike the other elements
+    margin-top: auto; // [1]
     text-align: right;
     color: color(blue);
 

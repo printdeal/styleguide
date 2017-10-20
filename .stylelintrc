@@ -61,7 +61,7 @@ rules:
     # Unit
     unit-case: 'lower'
     unit-no-unknown: true
-    unit-whitelist: ['px', 'em', '%', 'vw', 'vh', 'deg', 's']
+    unit-whitelist: ['px', 'em', '%', 'vw', 'vh', 'deg', 's', 'fr']
 
     # Value
     # value-keyword-case: 'lower' # -- not available due to sass-map function as value
