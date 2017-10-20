@@ -1,0 +1,64 @@
+// Card
+//
+// Support:
+//  IE 11+
+//
+// Usage:
+// <a class="Card" href="...">
+//   <div class="Card__Title h h4">...</div>
+//   <p class="Card__Description">...</p>
+//   <img class="Card__Cover" src="..." alt="" width="350" height="150">
+//   <div class="Card__Cta">...</div>
+// </a>
+
+$card-inner-spacing: halve($base-spacing-unit);
+
+.Card {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid color(gray-light);
+    padding: $card-inner-spacing 0;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        border-color: inherit;
+        color: color(blue);
+    }
+
+    > :not(.Card__Cover) {
+        margin-right: $card-inner-spacing;
+        margin-left: $card-inner-spacing;
+    }
+
+    > *:not(:last-child) {
+        margin-bottom: $card-inner-spacing;
+    }
+}
+
+.Card__Cover {
+    order: -1; // Show image before/on top of other elements
+    margin-top: negative($card-inner-spacing); // undo padding
+    margin-bottom: double($card-inner-spacing);
+    width: 100%;
+    height: auto; // Keep aspect ratio of image intact
+}
+
+.Card__Description {
+    color: color(gray-dark);
+}
+
+.Card__Cta {
+    margin-top: auto; // makes it align to the bottom unlike the other elements
+    text-align: right;
+    color: color(blue);
+
+    .Icon {
+        vertical-align: -0.2em;
+        transition: transform $base-animation-duration $base-animation-function;
+    }
+
+    .Card:hover & .Icon {
+        transform: translateX(halve($card-inner-spacing));
+    }
+}
