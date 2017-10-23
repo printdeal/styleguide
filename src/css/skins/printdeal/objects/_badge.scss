@@ -19,11 +19,16 @@
 
     // Badges will mostly be used inside Matrix. Therefore give it some
     // specific styling for that object only.
+    .HasBadge &,
     .Matrix__Item & {
         position: absolute;
         top: $base-spacing-unit;
         left: $base-spacing-unit;
     }
+}
+
+.HasBadge {
+    position: relative;
 }
 
 // Types of Badges:
