@@ -1,12 +1,19 @@
-// UI.UI-Object.Alert
+// Alert
+//
+// Usage:
+// <div class="Alert [modifier]">
+//   <div class="Alert__Icon">
+//     <i class="Icon"></i>
+//   </div>
+//   <div class="Alert__Body">...</div>
+// </div>
 
-$alert-inner-spacing: halve($base-spacing-unit);
+$alert-inner-spacing: quarter($base-spacing-unit);
 
 .Alert {
     @extend %flag;
-    @include rounded;
-    @include clip-rounded;
-    background-color: color(gray-lighter);
+    background-color: color(yellow);
+    color: color(gray-darkest);
 }
 
 .Alert__Icon,
@@ -16,13 +23,21 @@ $alert-inner-spacing: halve($base-spacing-unit);
 
 .Alert__Icon {
     @extend %flag-img;
-    @include rounded-left;
-    padding: halve($alert-inner-spacing) $alert-inner-spacing;
+    padding: $alert-inner-spacing;
     background-color: color(yellow-shade);
 }
 
 .Alert__Body {
     @extend %flag-body;
     @include trim;
-    padding: $alert-inner-spacing;
+    padding: $alert-inner-spacing double($alert-inner-spacing);
+}
+
+.Alert--Info {
+    background-color: color(blue-shade);
+    color: color(white);
+
+    .Alert__Icon {
+        background-color: color(blue-dark);
+    }
 }
