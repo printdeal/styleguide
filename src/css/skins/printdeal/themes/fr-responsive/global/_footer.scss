@@ -97,3 +97,24 @@
         background-position: left center;
     }
 }
+
+.PageFooter__Clang {
+    border-top: 1px solid color(gray-light);
+    padding: ($base-spacing-unit * 1.5) 0;
+    background-color: color(gray-lightest);
+    text-align: center;
+}
+
+.PageFooter__ClangList {
+    text-align: center;
+
+    @include breakpoint(small) {
+        &:first-child {
+            text-align: left;
+        }
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+}
