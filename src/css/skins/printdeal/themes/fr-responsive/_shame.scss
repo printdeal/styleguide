@@ -58,7 +58,10 @@ html[data-useragent*='Firefox'] .SiteNav__Link {
 // are disabled. JS picks up the clicks, so we need to create some affordability
 // so users will recognise that they are clickable.
 .js-radio-brick[type='radio']:disabled + label {
-    cursor: pointer;
+    &,
+    &::before {
+        cursor: pointer;
+    }
 }
 
 // Re- resetting some basic styling for user content (HTML coming from
