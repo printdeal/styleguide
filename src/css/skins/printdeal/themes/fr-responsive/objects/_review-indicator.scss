@@ -15,6 +15,11 @@ $review-aspect-ratio: 1 / $review-icon-count;
     font-size: 2em;
 }
 
+.ReviewIndicator--Horizontal {
+    margin-top: 4px;
+    font-size: 1.4em;
+}
+
 .ReviewIndicator--Kiyoh {
     @include svg-background('icon-kiyoh-default');
 
