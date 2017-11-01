@@ -14,6 +14,7 @@
 
 $card-inner-spacing: halve($base-spacing-unit);
 $card-width: 18em;
+$card-fallback-width: 13em;
 
 // stylelint-disable order/properties-order, declaration-block-no-duplicate-properties, comment-empty-line-before
 .Cards {
@@ -27,7 +28,7 @@ $card-width: 18em;
     margin-left: negative($card-inner-spacing);
 
     > .Card {
-        flex: 1 1 $card-width;
+        flex: 1 1 $card-fallback-width;
         margin-right: $card-inner-spacing;
         margin-bottom: double($card-inner-spacing);
         margin-left: $card-inner-spacing;
