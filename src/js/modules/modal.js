@@ -470,7 +470,8 @@ var Core = (function (Core, $, randomString) {
             _elements.$backdrop.remove();
             _elements.$body.empty();
             $(".Modal__Footer").remove();
-            _$modal.removeClass().remove().trigger("modal:close");
+            _$modal.removeClass().remove();
+            _$document.trigger("modal:close");
 
             if (_trigger) {
                 _trigger.focus();
