@@ -494,6 +494,16 @@ var Core = (function (Core, $, randomString) {
         },
 
         /**
+         * Is modal active?
+         *
+         * @returns {boolean}
+         * @public
+         */
+        isActive = function () {
+            return $(".Modal--Active").length > 0;
+        },
+
+        /**
          * Setup this module
          *
          * @return {void}
@@ -518,6 +528,7 @@ var Core = (function (Core, $, randomString) {
         close: close,
         getBody: getBody,
         setTitle: setTitle,
-        setBody: setBody
+        setBody: setBody,
+        isActive: isActive
     });
 }(Core || {}, window.jQuery, window.randomString));
