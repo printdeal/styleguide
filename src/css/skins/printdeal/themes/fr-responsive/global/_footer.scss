@@ -124,3 +124,19 @@
         }
     }
 }
+
+.PageFooter__CustomerService {
+    border-top: 1px solid color(gray-light);
+    padding-top: $base-spacing-unit;
+    background-color: color(white);
+    text-align: left;
+
+    @include breakpoint(large) {
+        padding-top: 0;
+    }
+}
+
+.PageFooter__CustomerServiceList {
+    margin-top: $base-spacing-unit;
+    margin-bottom: $base-spacing-unit;
+}
