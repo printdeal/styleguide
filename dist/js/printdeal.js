@@ -2308,7 +2308,8 @@ var Core = (function (Core, $, randomString) {
             _elements.$backdrop.remove();
             _elements.$body.empty();
             $(".Modal__Footer").remove();
-            _$modal.removeClass().remove().trigger("modal:close");
+            _$modal.removeClass().remove();
+            _$document.trigger("modal:close");
 
             if (_trigger) {
                 _trigger.focus();
@@ -2328,6 +2329,16 @@ var Core = (function (Core, $, randomString) {
                 .html(body);
             _appendFooter();
             return this;
+        },
+
+        /**
+         * Is modal active?
+         *
+         * @returns {boolean}
+         * @public
+         */
+        isActive = function () {
+            return $(".Modal--Active").length > 0;
         },
 
         /**
@@ -2355,7 +2366,8 @@ var Core = (function (Core, $, randomString) {
         close: close,
         getBody: getBody,
         setTitle: setTitle,
-        setBody: setBody
+        setBody: setBody,
+        isActive: isActive
     });
 }(Core || {}, window.jQuery, window.randomString));
 
