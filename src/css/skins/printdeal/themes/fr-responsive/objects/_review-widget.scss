@@ -1,3 +1,16 @@
 .ReviewWidget {
-    text-decoration: none;
+    .Nav {
+        li {
+            padding-right: 0;
+            padding-left: 0.4em;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    img {
+        max-width: none;
+    }
 }
