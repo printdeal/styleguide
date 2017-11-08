@@ -74,6 +74,7 @@ gulp.task("img:sprites", function () {
         var scssPath = "./src/css/skins/" + theme.skin.name + "/themes/" + theme.name + "/objects"; // jshint ignore:line
 
         return gulp.src(path.src + "icons/" + theme.icons + "/**/*.svg")
+            .pipe(plugins.sort())
             .pipe(plugins.svgSprite(getConfig(theme)))
             .pipe(plugins.flatten())
             .pipe(filterSass)
@@ -103,6 +104,7 @@ gulp.task("img:copy", function () {
             path.src + "*.gif",
             path.src + "*.svg"
         ])
+        .pipe(plugins.sort())
         .pipe(filterSvg)
         .pipe(plugins.svgmin((config.settings.svgmin)))
         .pipe(gulp.dest(path.tmp))
@@ -122,6 +124,7 @@ gulp.task("img:copy", function () {
 
 gulp.task("img:rev", function () {
     return gulp.src(path.tmp + "*")
+        .pipe(plugins.sort())
         .pipe(plugins.rev())
         .pipe(gulp.dest(path.dist))
         .pipe(plugins.rev.manifest())
