@@ -24,6 +24,7 @@ gulp.task("fonts:rev", function () {
             path.src + "**/*.woff",
             path.src + "**/*.woff2"
         ])
+        .pipe(plugins.sort())
         .pipe(gulp.dest(path.tmp))
         .pipe(plugins.rev())
         .pipe(gulp.dest(path.dist))
