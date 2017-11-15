@@ -10,14 +10,6 @@
 //   <img class="Card__Cover" src="..." alt="" width="350" height="150">
 //   <div class="Card__Cta">...</div>
 // </a>
-//
-// Or: Card with image centered:
-// <a class="Card" href="...">
-//   <div class="Card__Title h h4">...</div>
-//   <p class="Card__Description">...</p>
-//   <div><img class="Card__Center" src="..." alt="" width="150" height="143"></div>
-//   <div class="Card__Cta">...</div>
-// </a>
 
 $card-inner-spacing: halve($base-spacing-unit);
 
@@ -73,12 +65,4 @@ $card-inner-spacing: halve($base-spacing-unit);
     .Card:hover & .Icon {
         transform: translateX(halve($card-inner-spacing));
     }
-}
-
-// 1. Show image at the center of the card
-// 2. Show image before/on top of other elements
-.Card__Center {
-    display: block; // [1]
-    order: -1; // [2]
-    margin: 0 auto;
 }
