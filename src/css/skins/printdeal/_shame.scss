@@ -1,6 +1,7 @@
 // SHAME.CSS
 
 // stylelint-disable selector-no-qualifying-type
+// stylelint-disable max-nesting-depth
 
 // Apply a max-height to iOS 7. This doesn't work with the vh unit:
 // @link https://gist.github.com/pburtchaell/e702f441ba9b3f76f587
@@ -17,5 +18,27 @@ html[data-useragent*='MSIE 9.0'] {
     select {
         padding-right: 0.5em;
         background-image: none;
+    }
+}
+
+// Apparantly edge doesn't like decimal fractions and causes matrix items to 
+// wrap around at some widths. So especially for edge we'll deduct 0.01 
+// percentage points from part of the calculation to prevent this from 
+// happening without causing any difference in appearance.
+html[data-useragent*='Edge'] {
+    @function matrix-width-minus-one-microcent($division) {
+        @return calc(#{percentage(1 / $division) - 0.01} - #{$base-spacing-unit});
+    }
+
+    .Matrix__Item {
+        width: matrix-width-minus-one-microcent(2);
+
+        @include breakpoint($matrix-breakpoint) {
+            width: matrix-width-minus-one-microcent(4);
+
+            .Matrix--OneThird & {
+                width: matrix-width-minus-one-microcent(3);
+            }
+        }
     }
 }
