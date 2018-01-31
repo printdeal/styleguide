@@ -16,9 +16,9 @@
 // Text used as intro for sections
 .text-lead {
     line-height: 1.2;
-    color: color(gray-darkest);
-    font-family: map-get($brand-face-alt, family);
-    font-size: font-size(lead);
-    font-weight: map-get($brand-face-alt, weightAlt);
-    font-style: map-get($brand-face-alt, style);
+    color: color(gray-darker);
+    font-family: map-get($brand-face, family);
+    font-size: font-size(h3);
+    font-weight: map-get($brand-face, weight);
+    font-style: map-get($brand-face, style);
 }
