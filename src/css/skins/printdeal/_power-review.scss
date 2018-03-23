@@ -1,0 +1,171 @@
+/*
+ * Double the specificity (`.p-w-r.p-w-r`) because
+ * PowerReviews doesn't to override some styles in some cases
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic');
+@import "settings";
+
+$base-bottom-border: 1px solid color('gray-light');
+
+.p-w-r.p-w-r {
+  font-family: 'Noto Sans';
+  font-size: font-size('default');
+}
+
+.p-w-r.p-w-r .pr-review-snapshot-header-intro,
+.p-w-r.p-w-r .pr-snippet-write-review-link,
+.p-w-r.p-w-r .pr-snippet .pr-snippet-stars-png .pr-snippet-rating-decimal,
+.p-w-r.p-w-r .pr-rd-flag-review-container {
+  display: none;
+}
+
+.p-w-r.p-w-r .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-stars-reco-reco,
+.p-w-r.p-w-r .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-read-and-write {
+  margin-top: 0;
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-review-snapshot-block {
+  float: none;
+  border: none;
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-histogram-label {
+  padding-left: 0;
+  font-size: font-size('default');
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-histogram-stars {
+  height:  $base-line-height * 1.33;
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-bar {
+  height: $base-line-height;
+  border: $base-bottom-border;
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-barValue {
+  height: 16px;
+  background-color: color('green');
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-histogram-count {
+  font-weight: map-get($brand-face, weight);
+}
+
+.p-w-r.p-w-r .pr-review-display .pr-rd-main-header {
+  background: transparent;
+  padding: $base-heading-size 0;
+  border-bottom: $base-bottom-border;
+}
+
+.p-w-r.p-w-r .pr-review-display .pr-review,
+.p-w-r.p-w-r .pr-review-display.pr-rd-display-tablet .pr-review,
+.p-w-r.p-w-r .pr-review-display.pr-rd-display-desktop .pr-review {
+  border-bottom: $base-bottom-border;
+}
+
+.p-w-r.p-w-r .pr-review-display .pr-rd-sort-group label {
+  margin-top: $base-spacing-unit / 2;
+}
+
+.p-w-r.p-w-r .pr-review-display .pr-rd-footer {
+  padding-bottom: 0;
+}
+
+.p-w-r.p-w-r .pr-helpful-btn {
+  border-bottom-width: 1px;
+}
+
+.p-w-r.p-w-r .pr-btn-fileinput,
+.p-w-r.p-w-r .pr-btn-add-tag a,
+.p-w-r.p-w-r .input-group-btn > .pr-btn,
+.p-w-r.p-w-r .pr-accessible-btn {
+  @include rounded;
+  margin-bottom: third($base-spacing-unit);
+  outline: none;
+  border-width: 1px 1px 3px;
+  border-style: solid;
+  border-color: color(orange-dark);
+  padding: 0.5em 0.66em;
+  background-color: color(orange);
+  color: color(white);
+  font-size: font-size(button);
+  transition: background-color $base-animation-duration $base-animation-function;
+
+  &:hover {
+    background: color(orange-shade);
+    color: color(white);
+  }
+
+  &:focus {
+    outline: none; // [1]
+    border-color: transparentize(color(black), 0.5);
+    color: color(white);
+  }
+}
+
+.p-w-r.p-w-r .pr-btn-fileinput:hover,
+.p-w-r.p-w-r .pr-btn-add-tag a:hover,
+.p-w-r.p-w-r .input-group-btn > .pr-btn:hover,
+.p-w-r.p-w-r foo:hover,
+.p-w-r.p-w-r .pr-btn-fileinput:focus,
+.p-w-r.p-w-r .pr-btn-add-tag a:focus,
+.p-w-r.p-w-r .input-group-btn > .pr-btn:focus,
+.p-w-r.p-w-r foo:focus {
+  background: #ebebeb;
+  color: #585858;
+}
+
+.p-w-r.p-w-r .pr-accessible-btn,
+.p-w-r.p-w-r .pr-accessible-btn:active {
+  background-color: #ff7600;
+  color: #fff;
+  border-color: #d60;
+  border-width: 1px 1px 3px;
+}
+
+.p-w-r.p-w-r .pr-accessible-btn:hover {
+  background: #f76400;
+  color: #fff;
+  border-color: #d60;
+}
+
+.p-w-r.p-w-r .pr-accessible-btn:focus {
+  outline: 0;
+  border: solid rgba(25,25,25,.5);
+  color: #fff;
+  border-width: 1px 1px 3px;
+  background-color: #f76400;
+  box-shadow: none;
+}
+
+.p-w-r.p-w-r .input-group-btn .pr-btn {
+  border-bottom-width: 1px;
+}
+
+.p-w-r.p-w-r .pr-accessibly-hidden-file-input + label span {
+  color: #585858;
+}
+
+.p-w-r.p-w-r input[type="text"],
+.p-w-r.p-w-r textarea.form-control {
+  border-radius: 3px;
+  display: inline-block;
+  outline: 0;
+  border: 1px solid #d7d7d7;
+  padding: 0.45em 0.5em 0.5em 0.5em !important;
+  width: 100%;
+  height: 2.5em;
+  background-color: #fff;
+  vertical-align: top;
+  line-height: 1.2;
+  font-size: 1em;
+  height: auto !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.p-w-r.p-w-r .pr-logo-container {
+  display: none;
+}
