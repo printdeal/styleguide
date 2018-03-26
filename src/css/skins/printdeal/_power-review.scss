@@ -152,6 +152,18 @@ $base-bottom-border: 1px solid color('gray-light');
     @include svg-background('icon-kiyoh-default');
 }
 
+.p-w-r.p-w-r .pr-star-v4-25-filled {
+    @include svg-background('icon-kiyoh-25-filled');
+}
+
+.p-w-r.p-w-r .pr-star-v4-50-filled {
+    @include svg-background('icon-kiyoh-50-filled');
+}
+
+.p-w-r.p-w-r .pr-star-v4-75-filled {
+    @include svg-background('icon-kiyoh-75-filled');
+}
+
 .p-w-r.p-w-r .pr-star-v4-100-filled {
     @include svg-background('icon-kiyoh-filled');
 }
