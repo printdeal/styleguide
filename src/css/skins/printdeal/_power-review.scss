@@ -43,9 +43,11 @@ $base-bottom-border: 1px solid color('gray-light');
 }
 
 .p-w-r.p-w-r .pr-btn-review {
+    border-color: color(orange-dark);
     background-color: color(orange);
     color: color(white);
     font-size: font-size(button);
+    font-weight: map-get($brand-face, weight);
     transition: background-color $base-animation-duration $base-animation-function;
 
     &:hover {
