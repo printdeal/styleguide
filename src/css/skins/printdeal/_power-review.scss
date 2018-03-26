@@ -35,10 +35,6 @@ $base-bottom-border: 1px solid color('gray-light');
     }
 }
 
-.p-w-r.p-w-r .pr-btn-fileinput:hover,
-.p-w-r.p-w-r .pr-btn-add-tag a:hover,
-.p-w-r.p-w-r .input-group-btn > .pr-btn:hover,
-.p-w-r.p-w-r foo:hover,
 .p-w-r.p-w-r .pr-btn-fileinput:focus,
 .p-w-r.p-w-r .pr-btn-add-tag a:focus,
 .p-w-r.p-w-r .input-group-btn > .pr-btn:focus,
@@ -66,7 +62,7 @@ $base-bottom-border: 1px solid color('gray-light');
     }
 
     &:focus {
-        outline: none; // [1]
+        outline: none;
         border-color: transparentize(color(black), 0.5);
         color: color(white);
     }
