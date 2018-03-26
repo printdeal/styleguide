@@ -18,7 +18,7 @@ $base-bottom-border: 1px solid color('gray-light');
 
 .p-w-r.p-w-r .pr-btn-fileinput,
 .p-w-r.p-w-r .pr-btn-add-tag a,
-.p-w-r.p-w-r .input-group-btn > .pr-btn,
+.p-w-r.p-w-r .pr-btn,
 .p-w-r.p-w-r .pr-accessible-btn {
     @include rounded;
     margin-bottom: third($base-spacing-unit);
@@ -43,19 +43,13 @@ $base-bottom-border: 1px solid color('gray-light');
 }
 
 .p-w-r.p-w-r .pr-btn-review {
-    @include rounded;
-    margin-bottom: third($base-spacing-unit);
-    outline: none;
-    border-width: 1px 1px 3px;
-    border-style: solid;
-    border-color: color(orange-dark);
-    padding: 0.5em 0.66em;
     background-color: color(orange);
     color: color(white);
     font-size: font-size(button);
     transition: background-color $base-animation-duration $base-animation-function;
 
     &:hover {
+        border-color: color(orange-dark);
         background: color(orange-shade);
         color: color(white);
     }
