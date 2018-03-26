@@ -1,0 +1,170 @@
+/*
+* Double the specificity (`.p-w-r.p-w-r`) because
+* PowerReviews doesn't to override some styles in some cases
+*/
+
+// stylelint-disable selector-max-compound-selectors, selector-max-specificity, selector-type-no-unknown, selector-no-qualifying-type, declaration-no-important
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic');
+
+$base-bottom-border: 1px solid color('gray-light');
+
+.p-w-r.p-w-r {
+    font-family: 'Noto Sans';
+    font-size: font-size('default');
+}
+
+.p-w-r.p-w-r .pr-review-snapshot-header-intro,
+.p-w-r.p-w-r .pr-snippet-write-review-link,
+.p-w-r.p-w-r .pr-snippet .pr-snippet-stars-png .pr-snippet-rating-decimal,
+.p-w-r.p-w-r .pr-rd-flag-review-container {
+    display: none;
+}
+
+.p-w-r.p-w-r .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-stars-reco-reco,
+.p-w-r.p-w-r .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-read-and-write {
+    margin-top: 0;
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-review-snapshot-block {
+    float: none;
+    border: none;
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-histogram-label {
+    padding-left: 0;
+    font-size: font-size('default');
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-histogram-stars {
+    height: third(quadruple($base-line-height));
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-bar {
+    border: $base-bottom-border;
+    height: $base-line-height;
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-barValue {
+    height: $base-line-height;
+    background-color: color(green);
+}
+
+.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-histogram-count {
+    font-weight: map-get($brand-face, weight);
+}
+
+.p-w-r.p-w-r .pr-review-display .pr-rd-main-header {
+    border-bottom: $base-bottom-border;
+    padding: $base-heading-size 0;
+    background: transparent;
+}
+
+.p-w-r.p-w-r .pr-review-display .pr-review,
+.p-w-r.p-w-r .pr-review-display.pr-rd-display-tablet .pr-review,
+.p-w-r.p-w-r .pr-review-display.pr-rd-display-desktop .pr-review {
+    border-bottom: $base-bottom-border;
+}
+
+.p-w-r.p-w-r .pr-review-display .pr-rd-sort-group label {
+    margin-top: halve($base-spacing-unit);
+}
+
+.p-w-r.p-w-r .pr-review-display .pr-rd-footer {
+    padding-bottom: 0;
+}
+
+.p-w-r.p-w-r .pr-helpful-btn {
+    border-bottom-width: 1px;
+}
+
+.p-w-r.p-w-r .pr-btn-fileinput,
+.p-w-r.p-w-r .pr-btn-add-tag a,
+.p-w-r.p-w-r .input-group-btn > .pr-btn,
+.p-w-r.p-w-r .pr-accessible-btn {
+    @include rounded;
+    margin-bottom: third($base-spacing-unit);
+    outline: none;
+    border-width: 1px 1px 3px;
+    border-style: solid;
+    border-color: color(orange-dark);
+    padding: 0.5em 0.66em;
+    background-color: color(orange);
+    color: color(white);
+    font-size: font-size(button);
+    transition: background-color $base-animation-duration $base-animation-function;
+
+    &:hover {
+        background: color(orange-shade);
+        color: color(white);
+    }
+
+    &:focus {
+        outline: none; // [1]
+        border-color: transparentize(color(black), 0.5);
+        color: color(white);
+    }
+}
+
+.p-w-r.p-w-r .pr-btn-fileinput:hover,
+.p-w-r.p-w-r .pr-btn-add-tag a:hover,
+.p-w-r.p-w-r .input-group-btn > .pr-btn:hover,
+.p-w-r.p-w-r foo:hover,
+.p-w-r.p-w-r .pr-btn-fileinput:focus,
+.p-w-r.p-w-r .pr-btn-add-tag a:focus,
+.p-w-r.p-w-r .input-group-btn > .pr-btn:focus,
+.p-w-r.p-w-r foo:focus {
+    background: color(gray-lighter);
+    color: color(gray-darker);
+}
+
+.p-w-r.p-w-r .pr-accessible-btn,
+.p-w-r.p-w-r .pr-accessible-btn:active {
+    border-width: 1px 1px 3px;
+    border-color: color(orange-dark);
+    background-color: color(orange);
+    color: color(white);
+}
+
+.p-w-r.p-w-r .pr-accessible-btn:hover {
+    border-color: color(orange-dark);
+    background: color(orange-shade);
+    color: color(white);
+}
+
+.p-w-r.p-w-r .pr-accessible-btn:focus {
+    outline: 0;
+    border: solid rgba(25, 25, 25, 0.5);
+    border-width: 1px 1px 3px;
+    background-color: color(orange-shade);
+    box-shadow: none;
+    color: color(white);
+}
+
+.p-w-r.p-w-r .input-group-btn .pr-btn {
+    border-bottom-width: 1px;
+}
+
+.p-w-r.p-w-r .pr-accessibly-hidden-file-input + label span {
+    color: color(gray-darker);
+}
+
+.p-w-r.p-w-r input[type='text'],
+.p-w-r.p-w-r textarea.form-control {
+    display: inline-block;
+    outline: 0;
+    border: $base-bottom-border;
+    border-radius: radius(small);
+    padding: 0.45em 0.5em 0.5em 0.5em !important;
+    width: 100%;
+    height: auto !important;
+    background-color: color(white);
+    box-shadow: none;
+    vertical-align: top;
+    line-height: 1.2;
+    font-size: 1em;
+}
+
+.p-w-r.p-w-r .pr-logo-container {
+    display: none;
+}
