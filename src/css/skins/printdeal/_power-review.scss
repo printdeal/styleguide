@@ -16,6 +16,30 @@ $base-bottom-border: 1px solid color('gray-light');
     font-size: font-size('default');
 }
 
+.p-w-r.p-w-r .pr-btn-fileinput,
+.p-w-r.p-w-r .pr-btn-add-tag a,
+.p-w-r.p-w-r .input-group-btn > .pr-btn,
+.p-w-r.p-w-r .pr-accessible-btn {
+    @include rounded;
+    margin-bottom: third($base-spacing-unit);
+    outline: none;
+    border-width: 1px 1px 3px;
+    border-style: solid;
+    border-color: color(gray-light);
+    padding: 0.5em 0.66em;
+    background-color: color(gray-lightest);
+    color: color(gray-darker);
+
+    &:hover {
+        background: color(gray-lighter);
+        color: color(gray-darker);
+    }
+
+    &:focus {
+        color: color(gray-darker);
+    }
+}
+
 .p-w-r.p-w-r .pr-btn-review {
     @include rounded;
     margin-bottom: third($base-spacing-unit);
@@ -38,30 +62,6 @@ $base-bottom-border: 1px solid color('gray-light');
         outline: none;
         border-color: transparentize(color(black), 0.5);
         color: color(white);
-    }
-}
-
-.p-w-r.p-w-r .pr-btn-fileinput,
-.p-w-r.p-w-r .pr-btn-add-tag a,
-.p-w-r.p-w-r .input-group-btn > .pr-btn,
-.p-w-r.p-w-r .pr-accessible-btn {
-    @include rounded;
-    margin-bottom: third($base-spacing-unit);
-    outline: none;
-    border-width: 1px 1px 3px;
-    border-style: solid;
-    border-color: color(gray-light);
-    padding: 0.5em 0.66em;
-    background-color: color(gray-lightest);
-    color: color(gray-darker);
-
-    &:hover {
-        background: color(gray-lighter);
-        color: color(gray-darker);
-    }
-
-    &:focus {
-        color: color(gray-darker);
     }
 }
 
