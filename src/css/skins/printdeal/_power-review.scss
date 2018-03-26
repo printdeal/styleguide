@@ -148,10 +148,10 @@ $base-bottom-border: 1px solid color('gray-light');
     border-bottom-width: 1px;
 }
 
-.p-w-r.p-w-r .pr-star-v4 .pr-star-v4-0-filled {
+.p-w-r.p-w-r .pr-star-v4-0-filled {
     @include svg-background('icon-kiyoh-default');
 }
 
-.p-w-r.p-w-r .pr-star-v4 .pr-star-v4-100-filled {
+.p-w-r.p-w-r .pr-star-v4-100-filled {
     @include svg-background('icon-kiyoh-filled');
 }
