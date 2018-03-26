@@ -142,7 +142,7 @@ $base-bottom-border: 1px solid color('gray-light');
 }
 
 .p-w-r.p-w-r .input-group-btn .pr-btn {
-    border-bottom-width: 1px;
+    @extend .Btn !optional;
 }
 
 .p-w-r.p-w-r .pr-accessibly-hidden-file-input + label span {
