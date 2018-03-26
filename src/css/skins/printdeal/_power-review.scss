@@ -1,7 +1,7 @@
 /*
-* Double the specificity (`.p-w-r.p-w-r`) because
-* PowerReviews doesn't to override some styles in some cases
-*/
+ * Double the specificity (`.p-w-r.p-w-r`) because
+ * PowerReviews doesn't to override some styles in some cases
+ */
 
 // stylelint-disable selector-max-compound-selectors, selector-max-specificity, selector-type-no-unknown, selector-no-qualifying-type, declaration-no-important
 
@@ -9,9 +9,91 @@
 
 $base-bottom-border: 1px solid color('gray-light');
 
-.p-w-r.p-w-r {
+.p-w-r.p-w-r,
+.p-w-r.p-w-r .thank-you-page .pr-attribute,
+.p-w-r.p-w-r span {
     font-family: 'Noto Sans';
     font-size: font-size('default');
+}
+
+.p-w-r.p-w-r .pr-btn-fileinput,
+.p-w-r.p-w-r .pr-btn-add-tag a,
+.p-w-r.p-w-r .input-group-btn > .pr-btn,
+.p-w-r.p-w-r .pr-accessible-btn {
+    outline: 0;
+    border: solid color(gray-light);
+    border-width: 1px 1px 3px;
+    border-radius: radius(small);
+    padding: 0.5em 0.66em;
+    height: 2.3em;
+    background-color: color(gray-lightest);
+    color: color(gray-darker);
+    font-size: font-size('default');
+    font-weight: map-get($brand-face, weight);
+    transition: background-color 0.15s cubic-bezier(0.25, 0.75, 0.25, 0.85);
+}
+
+.p-w-r.p-w-r .pr-btn-fileinput:hover,
+.p-w-r.p-w-r .pr-btn-add-tag a:hover,
+.p-w-r.p-w-r .input-group-btn > .pr-btn:hover,
+.p-w-r.p-w-r foo:hover,
+.p-w-r.p-w-r .pr-btn-fileinput:focus,
+.p-w-r.p-w-r .pr-btn-add-tag a:focus,
+.p-w-r.p-w-r .input-group-btn > .pr-btn:focus,
+.p-w-r.p-w-r foo:focus {
+    background: color(gray-lighter);
+    color: color(gray-darker);
+}
+
+.p-w-r.p-w-r .pr-accessible-btn,
+.p-w-r.p-w-r .pr-accessible-btn:active {
+    border-width: 1px 1px 3px;
+    border-color: color(orange-dark);
+    background-color: color(orange);
+    color: color(white);
+}
+
+.p-w-r.p-w-r .pr-accessible-btn:hover {
+    border-color: color(orange-dark);
+    background: color(orange-shade);
+    color: color(white);
+}
+
+.p-w-r.p-w-r .pr-accessible-btn:focus {
+    outline: 0;
+    border: solid rgba(25, 25, 25, 0.5);
+    border-width: 1px 1px 3px;
+    background-color: color(orange-shade);
+    box-shadow: none;
+    color: color(white);
+}
+
+.p-w-r.p-w-r .input-group-btn .pr-btn {
+    border-bottom-width: 1px;
+}
+
+.p-w-r.p-w-r .pr-accessibly-hidden-file-input + label span {
+    color: color(gray-darker);
+}
+
+.p-w-r.p-w-r input[type='text'],
+.p-w-r.p-w-r textarea.form-control {
+    display: inline-block;
+    outline: 0;
+    border: 1px solid #d7d7d7;
+    border-radius: radius(small);
+    padding: 0.45em 0.5em 0.5em 0.5em !important;
+    width: 100%;
+    height: auto !important;
+    background-color: color(white);
+    box-shadow: none;
+    vertical-align: top;
+    line-height: 1.2;
+    font-size: 1em;
+}
+
+.p-w-r.p-w-r .pr-logo-container {
+    display: none;
 }
 
 .p-w-r.p-w-r .pr-review-snapshot-header-intro,
@@ -76,95 +158,4 @@ $base-bottom-border: 1px solid color('gray-light');
 
 .p-w-r.p-w-r .pr-helpful-btn {
     border-bottom-width: 1px;
-}
-
-.p-w-r.p-w-r .pr-btn-fileinput,
-.p-w-r.p-w-r .pr-btn-add-tag a,
-.p-w-r.p-w-r .input-group-btn > .pr-btn,
-.p-w-r.p-w-r .pr-accessible-btn {
-    @include rounded;
-    margin-bottom: third($base-spacing-unit);
-    outline: none;
-    border-width: 1px 1px 3px;
-    border-style: solid;
-    border-color: color(orange-dark);
-    padding: 0.5em 0.66em;
-    background-color: color(orange);
-    color: color(white);
-    font-size: font-size(button);
-    transition: background-color $base-animation-duration $base-animation-function;
-
-    &:hover {
-        background: color(orange-shade);
-        color: color(white);
-    }
-
-    &:focus {
-        outline: none; // [1]
-        border-color: transparentize(color(black), 0.5);
-        color: color(white);
-    }
-}
-
-.p-w-r.p-w-r .pr-btn-fileinput:hover,
-.p-w-r.p-w-r .pr-btn-add-tag a:hover,
-.p-w-r.p-w-r .input-group-btn > .pr-btn:hover,
-.p-w-r.p-w-r foo:hover,
-.p-w-r.p-w-r .pr-btn-fileinput:focus,
-.p-w-r.p-w-r .pr-btn-add-tag a:focus,
-.p-w-r.p-w-r .input-group-btn > .pr-btn:focus,
-.p-w-r.p-w-r foo:focus {
-    background: color(gray-lighter);
-    color: color(gray-darker);
-}
-
-.p-w-r.p-w-r .pr-accessible-btn,
-.p-w-r.p-w-r .pr-accessible-btn:active {
-    border-width: 1px 1px 3px;
-    border-color: color(orange-dark);
-    background-color: color(orange);
-    color: color(white);
-}
-
-.p-w-r.p-w-r .pr-accessible-btn:hover {
-    border-color: color(orange-dark);
-    background: color(orange-shade);
-    color: color(white);
-}
-
-.p-w-r.p-w-r .pr-accessible-btn:focus {
-    outline: 0;
-    border: solid rgba(25, 25, 25, 0.5);
-    border-width: 1px 1px 3px;
-    background-color: color(orange-shade);
-    box-shadow: none;
-    color: color(white);
-}
-
-.p-w-r.p-w-r .input-group-btn .pr-btn {
-    @extend .Btn !optional;
-}
-
-.p-w-r.p-w-r .pr-accessibly-hidden-file-input + label span {
-    color: color(gray-darker);
-}
-
-.p-w-r.p-w-r input[type='text'],
-.p-w-r.p-w-r textarea.form-control {
-    display: inline-block;
-    outline: 0;
-    border: $base-bottom-border;
-    border-radius: radius(small);
-    padding: 0.45em 0.5em 0.5em 0.5em !important;
-    width: 100%;
-    height: auto !important;
-    background-color: color(white);
-    box-shadow: none;
-    vertical-align: top;
-    line-height: 1.2;
-    font-size: 1em;
-}
-
-.p-w-r.p-w-r .pr-logo-container {
-    display: none;
 }
