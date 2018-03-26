@@ -17,6 +17,7 @@ $base-bottom-border: 1px solid color('gray-light');
 }
 
 .p-w-r.p-w-r .pr-btn-review {
+    @extend .pr-accessible-btn !optional;
     @include rounded;
     margin-bottom: third($base-spacing-unit);
     outline: none;
@@ -45,7 +46,6 @@ $base-bottom-border: 1px solid color('gray-light');
 .p-w-r.p-w-r .pr-btn-add-tag a,
 .p-w-r.p-w-r .input-group-btn > .pr-btn,
 .p-w-r.p-w-r .pr-accessible-btn {
-    @extend .pr-btn-review !optional;
     border-color: color(gray-light);
     background-color: color(gray-lightest);
     color: color(gray-darker);
