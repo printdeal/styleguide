@@ -20,16 +20,19 @@ $base-bottom-border: 1px solid color('gray-light');
 .p-w-r.p-w-r .pr-btn-add-tag a,
 .p-w-r.p-w-r .input-group-btn > .pr-btn,
 .p-w-r.p-w-r .pr-accessible-btn {
-    outline: 0;
-    border: solid color(gray-light);
-    border-width: 1px 1px 3px;
-    border-radius: radius(small);
-    padding: 0.5em 0.66em;
+    @extend .pr-btn-review !optional;
+    border-color: color(gray-light);
     background-color: color(gray-lightest);
     color: color(gray-darker);
-    font-size: font-size(button);
-    font-weight: map-get($brand-face, weight);
-    transition: background-color 0.15s cubic-bezier(0.25, 0.75, 0.25, 0.85);
+
+    &:hover {
+        background: color(gray-lighter);
+        color: color(gray-darker);
+    }
+
+    &:focus {
+        color: color(gray-darker);
+    }
 }
 
 .p-w-r.p-w-r .pr-btn-fileinput:hover,
@@ -44,7 +47,7 @@ $base-bottom-border: 1px solid color('gray-light');
     color: color(gray-darker);
 }
 
-.p-w-r.p-w-r .pr-accessible-btn {
+.p-w-r.p-w-r .pr-btn-review {
     @include rounded;
     margin-bottom: third($base-spacing-unit);
     outline: none;
