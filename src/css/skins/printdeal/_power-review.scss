@@ -36,6 +36,8 @@ $base-bottom-border: 1px solid color('gray-light');
     }
 
     &:focus {
+        outline: none;
+        border-color: transparentize(color(black), 0.5);
         color: color(gray-darker);
     }
 }
