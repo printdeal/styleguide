@@ -25,7 +25,6 @@ $base-bottom-border: 1px solid color('gray-light');
     border-width: 1px 1px 3px;
     border-radius: radius(small);
     padding: 0.5em 0.66em;
-    height: 2.3em;
     background-color: color(gray-lightest);
     color: color(gray-darker);
     font-size: font-size('default');
@@ -45,31 +44,29 @@ $base-bottom-border: 1px solid color('gray-light');
     color: color(gray-darker);
 }
 
-.p-w-r.p-w-r .pr-accessible-btn,
-.p-w-r.p-w-r .pr-accessible-btn:active {
+.p-w-r.p-w-r .pr-accessible-btn {
+    @include rounded;
+    margin-bottom: third($base-spacing-unit);
+    outline: none;
     border-width: 1px 1px 3px;
+    border-style: solid;
     border-color: color(orange-dark);
+    padding: 0.5em 0.66em;
     background-color: color(orange);
     color: color(white);
-}
+    font-size: font-size(button);
+    transition: background-color $base-animation-duration $base-animation-function;
 
-.p-w-r.p-w-r .pr-accessible-btn:hover {
-    border-color: color(orange-dark);
-    background: color(orange-shade);
-    color: color(white);
-}
+    &:hover {
+        background: color(orange-shade);
+        color: color(white);
+    }
 
-.p-w-r.p-w-r .pr-accessible-btn:focus {
-    outline: 0;
-    border: solid rgba(25, 25, 25, 0.5);
-    border-width: 1px 1px 3px;
-    background-color: color(orange-shade);
-    box-shadow: none;
-    color: color(white);
-}
-
-.p-w-r.p-w-r .input-group-btn .pr-btn {
-    border-bottom-width: 1px;
+    &:focus {
+        outline: none; // [1]
+        border-color: transparentize(color(black), 0.5);
+        color: color(white);
+    }
 }
 
 .p-w-r.p-w-r .pr-accessibly-hidden-file-input + label span {
