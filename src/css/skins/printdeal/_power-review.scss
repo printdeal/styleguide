@@ -8,6 +8,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic');
 
 $base-bottom-border: 1px solid color('gray-light');
+$loader-img-width: 50px;
 
 .p-w-r.p-w-r {
     &,
@@ -64,6 +65,8 @@ $base-bottom-border: 1px solid color('gray-light');
         &:focus {
             outline: none;
             border-color: transparentize(color(black), 0.5);
+            background-color: color(orange);
+            box-shadow: none;
             color: color(white);
         }
     }
@@ -171,5 +174,36 @@ $base-bottom-border: 1px solid color('gray-light');
 
     .pr-star-v4-100-filled {
         @include svg-background('icon-kiyoh-filled');
+    }
+
+    .pr-loading-indicator {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: z(loader);
+        width: 100%;
+        height: 100%;
+        background-color: rgba(color(white), 0.8);
+
+        &::before {
+            content: url('bg-loader.gif');
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: negative($loader-img-width);
+            margin-left: negative(halve($loader-img-width));
+        }
+
+        &::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin: $base-spacing-unit auto;
+            padding: 0 20%;
+            width: 100%;
+            text-align: center;
+        }
     }
 }
