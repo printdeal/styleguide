@@ -9,161 +9,163 @@
 
 $base-bottom-border: 1px solid color('gray-light');
 
-.p-w-r.p-w-r,
-.p-w-r.p-w-r .thank-you-page .pr-attribute,
-.p-w-r.p-w-r span {
-    font-family: 'Noto Sans';
-    font-size: font-size('default');
-}
+.p-w-r.p-w-r {
+    &,
+    .thank-you-page .pr-attribute,
+    span {
+        font-family: 'Noto Sans';
+        font-size: font-size('default');
+    }
 
-.p-w-r.p-w-r .pr-btn-fileinput,
-.p-w-r.p-w-r .pr-btn-add-tag a,
-.p-w-r.p-w-r .pr-btn-review,
-.p-w-r.p-w-r .pr-accessible-btn {
-    @include rounded;
-    margin-bottom: third($base-spacing-unit);
-    outline: none;
-    border-width: 1px 1px 3px;
-    border-style: solid;
-    border-color: color(gray-light);
-    padding: 0.5em 0.66em;
-    background-color: color(gray-lightest);
-    color: color(gray-darker);
+    .pr-btn-fileinput,
+    .pr-btn-add-tag a,
+    .pr-btn-review,
+    .pr-accessible-btn {
+        @include rounded;
+        margin-bottom: third($base-spacing-unit);
+        outline: none;
+        border-width: 1px 1px 3px;
+        border-style: solid;
+        border-color: color(gray-light);
+        padding: 0.5em 0.66em;
+        background-color: color(gray-lightest);
+        color: color(gray-darker);
 
-    &:hover {
+        &:hover {
+            background: color(gray-lighter);
+            color: color(gray-darker);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: transparentize(color(black), 0.5);
+            color: color(gray-darker);
+        }
+    }
+
+    .pr-btn-review {
+        border-color: color(orange-dark);
+        background-color: color(orange);
+        color: color(white);
+        font-size: font-size(button);
+        font-weight: map-get($brand-face, weight);
+        transition: background-color $base-animation-duration $base-animation-function;
+
+        &:hover {
+            border-color: color(orange-dark);
+            background: color(orange-shade);
+            color: color(white);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: transparentize(color(black), 0.5);
+            color: color(white);
+        }
+    }
+
+    .pr-btn-fileinput:focus,
+    .pr-btn-add-tag a:focus,
+    .input-group-btn > .pr-btn:focus,
+    foo:focus {
         background: color(gray-lighter);
         color: color(gray-darker);
     }
 
-    &:focus {
-        outline: none;
-        border-color: transparentize(color(black), 0.5);
+    .pr-accessibly-hidden-file-input + label span {
         color: color(gray-darker);
     }
-}
 
-.p-w-r.p-w-r .pr-btn-review {
-    border-color: color(orange-dark);
-    background-color: color(orange);
-    color: color(white);
-    font-size: font-size(button);
-    font-weight: map-get($brand-face, weight);
-    transition: background-color $base-animation-duration $base-animation-function;
-
-    &:hover {
-        border-color: color(orange-dark);
-        background: color(orange-shade);
-        color: color(white);
+    input[type='text'],
+    textarea.form-control {
+        @extend %form-input !optional;
     }
 
-    &:focus {
-        outline: none;
-        border-color: transparentize(color(black), 0.5);
-        color: color(white);
+    .pr-logo-container {
+        display: none;
     }
-}
 
-.p-w-r.p-w-r .pr-btn-fileinput:focus,
-.p-w-r.p-w-r .pr-btn-add-tag a:focus,
-.p-w-r.p-w-r .input-group-btn > .pr-btn:focus,
-.p-w-r.p-w-r foo:focus {
-    background: color(gray-lighter);
-    color: color(gray-darker);
-}
+    .pr-review-snapshot-header-intro,
+    .pr-snippet-write-review-link,
+    .pr-snippet .pr-snippet-stars-png .pr-snippet-rating-decimal,
+    .pr-rd-flag-review-container {
+        display: none;
+    }
 
-.p-w-r.p-w-r .pr-accessibly-hidden-file-input + label span {
-    color: color(gray-darker);
-}
+    .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-stars-reco-reco,
+    .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-read-and-write {
+        margin-top: 0;
+    }
 
-.p-w-r.p-w-r input[type='text'],
-.p-w-r.p-w-r textarea.form-control {
-    @extend %form-input !optional;
-}
+    .pr-review-snapshot .pr-review-snapshot-block {
+        float: none;
+        border: none;
+    }
 
-.p-w-r.p-w-r .pr-logo-container {
-    display: none;
-}
+    .pr-review-snapshot .pr-ratings-histogram .pr-histogram-label {
+        padding-left: 0;
+        font-size: font-size('default');
+    }
 
-.p-w-r.p-w-r .pr-review-snapshot-header-intro,
-.p-w-r.p-w-r .pr-snippet-write-review-link,
-.p-w-r.p-w-r .pr-snippet .pr-snippet-stars-png .pr-snippet-rating-decimal,
-.p-w-r.p-w-r .pr-rd-flag-review-container {
-    display: none;
-}
+    .pr-review-snapshot .pr-ratings-histogram .pr-histogram-stars {
+        height: third(quadruple($base-line-height));
+    }
 
-.p-w-r.p-w-r .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-stars-reco-reco,
-.p-w-r.p-w-r .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-read-and-write {
-    margin-top: 0;
-}
+    .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-bar {
+        border: $base-bottom-border;
+        height: $base-line-height;
+    }
 
-.p-w-r.p-w-r .pr-review-snapshot .pr-review-snapshot-block {
-    float: none;
-    border: none;
-}
+    .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-barValue {
+        height: $base-line-height;
+        background-color: color(green);
+    }
 
-.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-histogram-label {
-    padding-left: 0;
-    font-size: font-size('default');
-}
+    .pr-review-snapshot .pr-ratings-histogram .pr-histogram-count {
+        font-weight: map-get($brand-face, weight);
+    }
 
-.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-histogram-stars {
-    height: third(quadruple($base-line-height));
-}
+    .pr-review-display .pr-rd-main-header {
+        border-bottom: $base-bottom-border;
+        padding: $base-heading-size 0;
+        background: transparent;
+    }
 
-.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-bar {
-    border: $base-bottom-border;
-    height: $base-line-height;
-}
+    .pr-review-display .pr-review,
+    .pr-review-display.pr-rd-display-tablet .pr-review,
+    .pr-review-display.pr-rd-display-desktop .pr-review {
+        border-bottom: $base-bottom-border;
+    }
 
-.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-barValue {
-    height: $base-line-height;
-    background-color: color(green);
-}
+    .pr-review-display .pr-rd-sort-group label {
+        margin-top: halve($base-spacing-unit);
+    }
 
-.p-w-r.p-w-r .pr-review-snapshot .pr-ratings-histogram .pr-histogram-count {
-    font-weight: map-get($brand-face, weight);
-}
+    .pr-review-display .pr-rd-footer {
+        padding-bottom: 0;
+    }
 
-.p-w-r.p-w-r .pr-review-display .pr-rd-main-header {
-    border-bottom: $base-bottom-border;
-    padding: $base-heading-size 0;
-    background: transparent;
-}
+    .pr-helpful-btn {
+        border-bottom-width: 1px;
+    }
 
-.p-w-r.p-w-r .pr-review-display .pr-review,
-.p-w-r.p-w-r .pr-review-display.pr-rd-display-tablet .pr-review,
-.p-w-r.p-w-r .pr-review-display.pr-rd-display-desktop .pr-review {
-    border-bottom: $base-bottom-border;
-}
+    .pr-star-v4-0-filled {
+        @include svg-background('icon-kiyoh-default');
+    }
 
-.p-w-r.p-w-r .pr-review-display .pr-rd-sort-group label {
-    margin-top: halve($base-spacing-unit);
-}
+    .pr-star-v4-25-filled {
+        @include svg-background('icon-kiyoh-25-filled');
+    }
 
-.p-w-r.p-w-r .pr-review-display .pr-rd-footer {
-    padding-bottom: 0;
-}
+    .pr-star-v4-50-filled {
+        @include svg-background('icon-kiyoh-50-filled');
+    }
 
-.p-w-r.p-w-r .pr-helpful-btn {
-    border-bottom-width: 1px;
-}
+    .pr-star-v4-75-filled {
+        @include svg-background('icon-kiyoh-75-filled');
+    }
 
-.p-w-r.p-w-r .pr-star-v4-0-filled {
-    @include svg-background('icon-kiyoh-default');
-}
-
-.p-w-r.p-w-r .pr-star-v4-25-filled {
-    @include svg-background('icon-kiyoh-25-filled');
-}
-
-.p-w-r.p-w-r .pr-star-v4-50-filled {
-    @include svg-background('icon-kiyoh-50-filled');
-}
-
-.p-w-r.p-w-r .pr-star-v4-75-filled {
-    @include svg-background('icon-kiyoh-75-filled');
-}
-
-.p-w-r.p-w-r .pr-star-v4-100-filled {
-    @include svg-background('icon-kiyoh-filled');
+    .pr-star-v4-100-filled {
+        @include svg-background('icon-kiyoh-filled');
+    }
 }
