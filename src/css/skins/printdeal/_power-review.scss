@@ -68,9 +68,14 @@ $loader-img-width: 50px;
             border-style: solid;
             border-color: transparentize(color(black), 0.5);
             background-color: color(orange);
-            box-shadow: none;
             color: color(white);
         }
+    }
+
+    .pr-btn-add-tag > a:focus,
+    .pr-btn:focus {
+        box-shadow: none;
+        text-decoration: none;
     }
 
     .pr-btn-fileinput:focus,
