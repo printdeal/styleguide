@@ -44,7 +44,13 @@ $base-bottom-border: 1px solid color('gray-light');
     }
 
     .pr-btn-review {
+        @include rounded;
+        margin-bottom: third($base-spacing-unit);
+        outline: none;
+        border-width: 1px 1px 3px;
+        border-style: solid;
         border-color: color(orange-dark);
+        padding: 0.5em 0.66em;
         background-color: color(orange);
         color: color(white);
         font-size: font-size(button);
