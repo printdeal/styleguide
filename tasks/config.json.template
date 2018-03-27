@@ -70,6 +70,10 @@
             {
               "name": "festivalprint",
               "icons": "all"
+            },
+            {
+              "name": "power-review",
+              "icons": "none"
             }
           ]
         }

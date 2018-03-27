@@ -1,0 +1,185 @@
+/*
+ * Double the specificity (`.p-w-r.p-w-r`) because
+ * PowerReviews doesn't to override some styles in some cases
+ */
+
+// stylelint-disable selector-max-compound-selectors, selector-max-specificity, selector-type-no-unknown, selector-no-qualifying-type, declaration-no-important
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic');
+
+$base-bottom-border: 1px solid color('gray-light');
+$loader-img-width: 50px;
+
+.p-w-r.p-w-r {
+    &,
+    .thank-you-page .pr-attribute,
+    span {
+        font-family: 'Noto Sans';
+        font-size: font-size('default');
+    }
+
+    .pr-btn-fileinput,
+    .pr-btn-add-tag a {
+        @include rounded;
+        margin-bottom: third($base-spacing-unit);
+        outline: none;
+        border-width: 1px 1px 3px;
+        border-style: solid;
+        border-color: color(gray-light);
+        padding: 0.5em 0.66em;
+        background-color: color(gray-lightest);
+        color: color(gray-darker);
+
+        &:hover {
+            background: color(gray-lighter);
+            color: color(gray-darker);
+        }
+
+        &:focus {
+            outline: none;
+            border-color: transparentize(color(black), 0.5);
+            color: color(gray-darker);
+        }
+    }
+
+    .pr-btn-review {
+        @include rounded;
+        margin-bottom: third($base-spacing-unit);
+        outline: none;
+        border-width: 1px 1px 3px;
+        border-style: solid;
+        border-color: color(orange-dark);
+        padding: 0.5em 0.66em;
+        background-color: color(orange);
+        color: color(white);
+        font-size: font-size(button);
+        font-weight: map-get($brand-face, weight);
+        transition: background-color $base-animation-duration $base-animation-function;
+
+        &:hover {
+            border-color: color(orange-dark);
+            background: color(orange-shade);
+            color: color(white);
+        }
+
+        &:focus {
+            outline: none;
+            border-width: 1px 1px 3px;
+            border-style: solid;
+            border-color: transparentize(color(black), 0.5);
+            background-color: color(orange);
+            color: color(white);
+        }
+    }
+
+    .pr-btn-add-tag > a:focus,
+    .pr-btn:focus {
+        box-shadow: none;
+        text-decoration: none;
+    }
+
+    .pr-btn-fileinput:focus,
+    .pr-btn-add-tag a:focus,
+    .input-group-btn > .pr-btn:focus,
+    foo:focus {
+        background: color(gray-lighter);
+        color: color(gray-darker);
+    }
+
+    .pr-accessibly-hidden-file-input + label span {
+        color: color(gray-darker);
+    }
+
+    input[type='text'],
+    textarea.form-control {
+        @extend %form-input !optional;
+    }
+
+    .pr-logo-container {
+        display: none;
+    }
+
+    .pr-review-snapshot-header-intro,
+    .pr-snippet-write-review-link,
+    .pr-snippet .pr-snippet-stars-png .pr-snippet-rating-decimal,
+    .pr-rd-flag-review-container {
+        display: none;
+    }
+
+    .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-stars-reco-reco,
+    .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-read-and-write {
+        margin-top: 0;
+    }
+
+    .pr-review-snapshot .pr-review-snapshot-block {
+        float: none;
+        border: none;
+    }
+
+    .pr-review-snapshot .pr-ratings-histogram .pr-histogram-label {
+        padding-left: 0;
+        font-size: font-size('default');
+    }
+
+    .pr-review-snapshot .pr-ratings-histogram .pr-histogram-stars {
+        height: third(quadruple($base-line-height));
+    }
+
+    .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-bar {
+        border: $base-bottom-border;
+        height: $base-line-height;
+    }
+
+    .pr-review-snapshot .pr-ratings-histogram .pr-ratings-histogram-barValue {
+        height: $base-line-height;
+        background-color: color(green);
+    }
+
+    .pr-review-snapshot .pr-ratings-histogram .pr-histogram-count {
+        font-weight: map-get($brand-face, weight);
+    }
+
+    .pr-review-display .pr-rd-main-header {
+        border-bottom: $base-bottom-border;
+        padding: $base-heading-size 0;
+        background: transparent;
+    }
+
+    .pr-review-display .pr-review,
+    .pr-review-display.pr-rd-display-tablet .pr-review,
+    .pr-review-display.pr-rd-display-desktop .pr-review {
+        border-bottom: $base-bottom-border;
+    }
+
+    .pr-review-display .pr-rd-sort-group label {
+        margin-top: halve($base-spacing-unit);
+    }
+
+    .pr-review-display .pr-rd-footer {
+        padding-bottom: 0;
+    }
+
+    .pr-helpful-btn {
+        border-bottom-width: 1px;
+    }
+
+    .pr-star-v4-0-filled {
+        @include svg-background('icon-kiyoh-default');
+    }
+
+    .pr-star-v4-25-filled {
+        @include svg-background('icon-kiyoh-25-filled');
+    }
+
+    .pr-star-v4-50-filled {
+        @include svg-background('icon-kiyoh-50-filled');
+    }
+
+    .pr-star-v4-75-filled {
+        @include svg-background('icon-kiyoh-75-filled');
+    }
+
+    .pr-star-v4-100-filled {
+        @include svg-background('icon-kiyoh-filled');
+    }
+}
