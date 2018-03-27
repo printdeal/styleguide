@@ -18,8 +18,7 @@ $base-bottom-border: 1px solid color('gray-light');
     }
 
     .pr-btn-fileinput,
-    .pr-btn-add-tag a,
-    .pr-btn-review {
+    .pr-btn-add-tag a {
         @include rounded;
         margin-bottom: third($base-spacing-unit);
         outline: none;
