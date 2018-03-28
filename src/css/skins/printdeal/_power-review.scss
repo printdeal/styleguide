@@ -37,6 +37,8 @@ $loader-img-width: 50px;
 
         &:focus {
             outline: none;
+            border-width: 1px 1px 3px;
+            border-style: solid;
             border-color: transparentize(color(black), 0.5);
             color: color(gray-darker);
         }
@@ -57,8 +59,10 @@ $loader-img-width: 50px;
         transition: background-color $base-animation-duration $base-animation-function;
 
         &:hover {
+            border-width: 1px 1px 3px;
+            border-style: solid;
             border-color: color(orange-dark);
-            background: color(orange-shade);
+            background: color(orange-shade) !important;
             color: color(white);
         }
 
@@ -66,8 +70,8 @@ $loader-img-width: 50px;
             outline: none;
             border-width: 1px 1px 3px;
             border-style: solid;
-            border-color: color(orange-dark);
-            background: color(orange-shade);
+            border-color: transparentize(color(black), 0.5);
+            background: color(orange);
             color: color(white);
         }
     }
