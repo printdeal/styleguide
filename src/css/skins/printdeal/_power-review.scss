@@ -56,18 +56,18 @@ $loader-img-width: 50px;
         font-weight: map-get($brand-face, weight);
         transition: background-color $base-animation-duration $base-animation-function;
 
-        &:hover {
-            border-color: color(orange-dark);
-            background: color(orange-shade);
-            color: color(white);
-        }
-
         &:focus {
             outline: none;
             border-width: 1px 1px 3px;
             border-style: solid;
             border-color: transparentize(color(black), 0.5);
             background: color(orange);
+            color: color(white);
+        }
+
+        &:hover {
+            border-color: color(orange-dark);
+            background: color(orange-shade);
             color: color(white);
         }
     }
