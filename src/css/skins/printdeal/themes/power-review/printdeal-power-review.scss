@@ -2,7 +2,6 @@
 //
 // Child theme of Printdeal, so let's import it here
 
-@import 'objects/sprite';
 @import '../../settings';
 
 // Import default settings
@@ -15,24 +14,8 @@
 @import '../../../../ppg-framework/tools/mixins';
 @import '../../../../ppg-framework/tools/grid-like';
 
-// Base styles: unclassed HTML elements etc.
-@import '../../../../ppg-framework/generic/normalize';
-@import '../../../../ppg-framework/generic/reset';
-@import '../../../../ppg-framework/generic/box-sizing';
-@import '../../../../ppg-framework/generic/page';
-@import '../../../../ppg-framework/generic/forms';
-@import '../../../../ppg-framework/generic/images';
-@import '../../../../ppg-framework/generic/lists';
-@import '../../../../ppg-framework/generic/table';
-
 // Helpers
-@import '../../../../ppg-framework/helpers/clearfix';
-@import '../../../../ppg-framework/helpers/display';
-@import '../../../../ppg-framework/helpers/grid';
-@import '../../../../ppg-framework/helpers/reset-button';
 @import '../../../../ppg-framework/helpers/rounded';
-@import '../../../../ppg-framework/helpers/text';
-@import '../../../../ppg-framework/helpers/visibility';
-@import '../../../../ppg-framework/helpers/scrollable';
 
+// Additional classes for Power Reviews
 @import '../../power-review';
