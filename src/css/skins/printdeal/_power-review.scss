@@ -37,6 +37,8 @@ $loader-img-width: 50px;
 
         &:focus {
             outline: none;
+            border-width: 1px 1px 3px;
+            border-style: solid;
             border-color: transparentize(color(black), 0.5);
             color: color(gray-darker);
         }
