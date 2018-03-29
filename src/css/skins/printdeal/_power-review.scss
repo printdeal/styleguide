@@ -167,23 +167,28 @@ $loader-img-width: 50px;
         border-bottom-width: 1px;
     }
 
-    .pr-star-v4-0-filled {
-        @include svg-background('icon-kiyoh-default');
-    }
+    .pr-star-v4 {
+        margin-right: 0;
+        margin-left: 0;
 
-    .pr-star-v4-25-filled {
-        @include svg-background('icon-kiyoh-25-filled');
-    }
+        .pr-star-v4-0-filled {
+            @include svg-background('icon-kiyoh-default');
+        }
 
-    .pr-star-v4-50-filled {
-        @include svg-background('icon-kiyoh-50-filled');
-    }
+        .pr-star-v4-25-filled {
+            @include svg-background('icon-kiyoh-25-filled');
+        }
 
-    .pr-star-v4-75-filled {
-        @include svg-background('icon-kiyoh-75-filled');
-    }
+        .pr-star-v4-50-filled {
+            @include svg-background('icon-kiyoh-50-filled');
+        }
 
-    .pr-star-v4-100-filled {
-        @include svg-background('icon-kiyoh-filled');
+        .pr-star-v4-75-filled {
+            @include svg-background('icon-kiyoh-75-filled');
+        }
+
+        .pr-star-v4-100-filled {
+            @include svg-background('icon-kiyoh-filled');
+        }
     }
 }
