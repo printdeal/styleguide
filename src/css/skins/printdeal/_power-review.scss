@@ -168,8 +168,8 @@ $loader-img-width: 50px;
     }
 
     .pr-star-v4 {
-        margin-right: 0;
-        margin-left: 0;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
 
         &.pr-star-v4-0-filled {
             @include svg-background('icon-kiyoh-default');
