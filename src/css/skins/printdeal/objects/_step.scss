@@ -1,0 +1,40 @@
+$step-indicator-size: $base-spacing-unit - 2px;
+$step-indicator-before-size: $step-indicator-size - 6px;
+$step-indicator-done-icone-position: halve($step-indicator-size) - 11px;
+
+.Step {
+    margin-bottom: halve($base-spacing-unit);
+}
+
+.Step__Indicator {
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    border: 1px solid color(gray-light);
+    border-radius: radius(circle);
+    width: $step-indicator-size;
+    height: $step-indicator-size;
+    background-color: color(white);
+    text-align: center;
+}
+
+.Step__Indicator--Active {
+    border-color: color(blue);
+
+    &::after {
+        content: '';
+        display: block;
+        margin: 2px;
+        border-radius: radius(circle);
+        width: $step-indicator-before-size;
+        height: $step-indicator-before-size;
+        background-color: color(blue);
+    }
+}
+
+.Step__Indicator--Done {
+    > i {
+        position: relative;
+        top: $step-indicator-done-icone-position;
+    }
+}
