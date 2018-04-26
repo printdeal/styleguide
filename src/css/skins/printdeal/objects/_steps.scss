@@ -1,0 +1,16 @@
+$steps-indicator-before-width: 2px;
+
+.Steps {
+    position: relative;
+    margin: $base-spacing-unit 0;
+
+    &::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: halve($base-spacing-unit) - 2px;
+        width: $steps-indicator-before-width;
+        height: 85%;
+        background-color: color(gray-lighter);
+    }
+}
