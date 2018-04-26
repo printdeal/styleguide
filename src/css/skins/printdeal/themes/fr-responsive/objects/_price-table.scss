@@ -168,3 +168,10 @@
         display: inline-block;
     }
 }
+
+.PriceTable__CustomerDiscount {
+    margin-bottom: 0.125em;
+    background-color: color(orange);
+    text-decoration: underline;
+    color: color(white);
+}
