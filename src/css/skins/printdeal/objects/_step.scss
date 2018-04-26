@@ -1,6 +1,6 @@
 $step-indicator-size: $base-spacing-unit - 2px;
-$step-indicator-before-size: $step-indicator-size - 6px;
-$step-indicator-done-icone-position: halve($step-indicator-size) - 11px;
+$step-indicator-after-size: $step-indicator-size - 6px;
+$step-indicator-done-icon-position: halve($step-indicator-size) - 11px;
 
 .Step {
     margin-bottom: halve($base-spacing-unit);
@@ -26,8 +26,8 @@ $step-indicator-done-icone-position: halve($step-indicator-size) - 11px;
         display: block;
         margin: 2px;
         border-radius: radius(circle);
-        width: $step-indicator-before-size;
-        height: $step-indicator-before-size;
+        width: $step-indicator-after-size;
+        height: $step-indicator-after-size;
         background-color: color(blue);
     }
 }
@@ -35,6 +35,6 @@ $step-indicator-done-icone-position: halve($step-indicator-size) - 11px;
 .Step__Indicator--Done {
     > i {
         position: relative;
-        top: $step-indicator-done-icone-position;
+        top: $step-indicator-done-icon-position;
     }
 }
