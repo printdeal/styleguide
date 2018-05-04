@@ -1,7 +1,7 @@
 {
   "name": "printdeal-styleguide",
   "description": "Printdeal Styleguide",
-  "version": "1.16.0",
+  "version": "1.16.1",
   "license": "MIT",
   "engines": {
     "node": ">=6.0 <8.0"
