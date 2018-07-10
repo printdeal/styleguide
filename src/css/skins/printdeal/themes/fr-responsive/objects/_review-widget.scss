@@ -7,10 +7,14 @@
     }
 
     a {
-        text-decoration: none;
+        text-decoration: underline;
     }
 
     img {
         max-width: none;
+    }
+
+    .h1 {
+        line-height: 1;
     }
 }
