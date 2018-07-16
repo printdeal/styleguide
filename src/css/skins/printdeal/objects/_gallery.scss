@@ -64,7 +64,7 @@
     @include rounded;
     opacity: 0.5;
     margin-bottom: halve($base-spacing-unit);
-    border: 1px solid color(gray-light);
+    border: 1px solid color(gray-darker);
     width: 4em;
     overflow: hidden;
 }
