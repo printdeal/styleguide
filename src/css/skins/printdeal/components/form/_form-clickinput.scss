@@ -35,6 +35,31 @@
     &:disabled + label::before {
         cursor: default;
     }
+
+    &.Checkbox--Alt {
+        + label {
+            border: 1px solid transparent;
+            padding: 9px 9px 9px 36px;
+            position: relative;
+            &:hover {
+                border-color: color(gray-light);
+            }
+            ::before {
+                position: absolute;
+                top: 9px;
+                left: 28px;
+            }
+        }
+        :checked + label::after {
+            content: '';
+            position: absolute;
+            right: -1px;
+            bottom: -1px;
+            left: -1px;
+            height: 3px;
+            background-color: color(green);
+        }
+    }
 }
 
 [type='checkbox'] {
