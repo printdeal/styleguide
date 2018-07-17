@@ -1,10 +1,11 @@
 // UI.Global.TextHelpers
 
 // Text colors
-.text-orange { color: color(orange); }
-.text-green  { color: color(green); }
-.text-red    { color: color(red); }
-.text-blue   { color: color(blue); }
+.text-orange        { color: color(orange); }
+.text-green         { color: color(green); }
+.text-green-shade   { color: color(green-shade); }
+.text-red           { color: color(red); }
+.text-blue          { color: color(blue); }
 
 .text-dimmed {
     &,
