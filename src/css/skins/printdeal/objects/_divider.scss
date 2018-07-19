@@ -45,3 +45,16 @@ hr {
         border-color: color(white) transparent transparent;
     }
 }
+
+.Divider--Alt {
+    height: 3px;
+    background: color(green);
+
+    &::before {
+        border-top-color: color(green);
+    }
+
+    &::after {
+        display: none;
+    }
+}
