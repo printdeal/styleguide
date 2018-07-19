@@ -47,14 +47,14 @@
             border-color: color(gray-light);
         }
 
-        ::before {
+        &::before {
             position: absolute;
             top: 9px;
             left: 28px;
         }
     }
 
-    :checked + label::after {
+    &:checked + label::after {
         content: '';
         position: absolute;
         right: -1px;
