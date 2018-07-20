@@ -49,7 +49,7 @@
         }
 
         &::before {
-            margin-right: 6px;
+            margin-right: third($base-spacing-unit);
             margin-left: -1.25em;
         }
     }
