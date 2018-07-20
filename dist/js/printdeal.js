@@ -1,4 +1,4 @@
-/*! Printdeal */
+/*! Printdeal* /
 ;(function (window, Math) {
     "use strict";
 
