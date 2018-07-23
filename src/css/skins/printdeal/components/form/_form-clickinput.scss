@@ -37,6 +37,38 @@
     }
 }
 
+.Checkbox--Alt {
+    + label {
+        position: relative;
+        margin-bottom: 2px;
+        border: 1px solid transparent;
+        padding: 0.66em 0.66em 0.66em 2.4em;
+
+        &:hover {
+            border-color: color(gray-light);
+        }
+
+        &::before {
+            margin-right: third($base-spacing-unit);
+            margin-left: -1.25em;
+        }
+    }
+
+    &:checked + label {
+        border-color: color(gray-light);
+    }
+
+    &:checked + label::after {
+        content: '';
+        position: absolute;
+        right: -1px;
+        bottom: -3px;
+        left: -1px;
+        height: 3px;
+        background-color: color(green);
+    }
+}
+
 [type='checkbox'] {
     + label::before { @include icon('Checkbox'); }
     &:checked + label::before  { @include icon('CheckboxChecked'); }
