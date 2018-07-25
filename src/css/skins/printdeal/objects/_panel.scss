@@ -164,7 +164,6 @@ $promo-panel-color: color(green-shade);
 
 .Panel--IsPromo {
     border-color: $promo-panel-color;
-    color: $promo-panel-color;
 }
 
 .Panel--HasLabel {
@@ -181,7 +180,7 @@ $promo-panel-color: color(green-shade);
     font-size: font-size(smaller);
 
     .Panel--IsPromo & {
-        background-color: $promo-panel-color;
-        color: color(white);
+        border: inherit;
+        background-color: transparent;
     }
 }
