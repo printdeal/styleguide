@@ -216,6 +216,10 @@ $loader-img-width: 50px;
         display: none;
     }
 
+    .pr-no-reviews {
+        display: none;
+    }
+
     @media all and (min-width: 1024px) {
         .pr-review-snapshot.pr-snapshot-mobile .pr-review-snapshot-block {
             float: left;
