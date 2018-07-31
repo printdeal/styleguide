@@ -28,4 +28,14 @@ $matrix-breakpoint: medium !default;
             width: matrix-width(3);
         }
     }
+
+    .PullDown {
+        position: absolute;
+        bottom: halve($base-spacing-unit);
+        left: 7px;
+    }
+
+    .MoreInfo {
+        padding-bottom: 33px;
+    }
 }
