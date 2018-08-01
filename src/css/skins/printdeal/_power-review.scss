@@ -220,6 +220,10 @@ $loader-img-width: 50px;
         display: none;
     }
 
+    .pr-review-snippet-container {
+        margin-bottom: $base-spacing-unit;
+    }
+
     @media all and (min-width: 1024px) {
         .pr-review-snapshot.pr-snapshot-mobile .pr-review-snapshot-block {
             float: left;
