@@ -32,8 +32,17 @@
     }
 }
 
+.ProductNav__Toggler--IsOpen .Rotate90--ParentHover {
+    transform: rotate(90deg);
+}
+
+.ProductNav__Toggler--IsOpen .Rotate180--ParentHover {
+    transform: rotate(180deg);
+}
+
 .ProductNav__Toggler--IsOpen {
     background-color: color(white);
+    cursor: default;
 }
 
 .ProductNav__TogglerText {
