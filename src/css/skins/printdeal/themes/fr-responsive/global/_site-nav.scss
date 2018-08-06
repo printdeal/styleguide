@@ -66,6 +66,16 @@
     }
 }
 
+.SiteNav__Link--HasOneLine {
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+    @include breakpoint(sitenav) {
+        padding-top: 21px;
+        padding-bottom: 21px;
+    }
+}
+
 .SiteNav__Link--HasNoIcon {
     @include breakpoint(sitenav) { padding-left: 1em; }
     @include breakpoint(large)   { padding-left: 1.5em; }
