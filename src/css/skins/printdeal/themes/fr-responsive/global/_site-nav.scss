@@ -41,6 +41,14 @@
     vertical-align: middle; // [2]
     text-align: left;
     white-space: normal; // [1b]
+
+    &:hover .Rotate90--ParentHover {
+        transform: rotate(90deg);
+    }
+
+    &:hover .Rotate180--ParentHover {
+        transform: rotate(180deg);
+    }
 }
 
 .SiteNav__Link {
