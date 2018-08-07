@@ -51,3 +51,13 @@
         border-color: color(blue);
     }
 }
+
+.FeedbackMessage__Close {
+    opacity: 0.5;
+    transition: opacity $base-animation-duration $base-animation-function;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}
