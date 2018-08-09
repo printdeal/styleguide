@@ -1,10 +1,9 @@
 // Global.SiteUsps
 
 .SiteUsps {
-    margin-top: negative($base-spacing-unit);
     border-bottom: 1px solid color(gray-light);
     padding: 0.66em 0;
-    background: color(white);
+    background: color(gray-lightest);
 }
 
 // Tricky stuff: we need to make sure that the usps don't
@@ -20,6 +19,5 @@
 }
 
 .SiteUsps__Item {
-    background-color: rgba(color(white), 0.8);
     font-size: font-size(small);
 }
