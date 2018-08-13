@@ -17,6 +17,14 @@
             }
         }
 
+        .show-for-#{$bp-name}-up-alt {
+            display: none !important;
+
+            @include breakpoint($bp-name) {
+                display: block !important;
+            }
+        }
+
         .hide-for-#{$bp-name}-up {
             display: none !important;
 
