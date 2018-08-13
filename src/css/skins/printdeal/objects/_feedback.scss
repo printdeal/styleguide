@@ -52,7 +52,16 @@
     }
 }
 
+.FeedbackMessage--IsClosable .FeedbackMessage__Content {
+    position: relative;
+    padding-right: double($base-spacing-unit);
+}
+
 .FeedbackMessage__Close {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
     opacity: 0.5;
     transition: opacity $base-animation-duration $base-animation-function;
 
