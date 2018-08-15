@@ -1,0 +1,10 @@
+.PullUpBannerText {
+    @include breakpoint(medium) {
+        position: relative;
+        top: -7em;
+        margin-right: 3em;
+        margin-left: 3em;
+        border: 0;
+        text-align: center;
+    }
+}
