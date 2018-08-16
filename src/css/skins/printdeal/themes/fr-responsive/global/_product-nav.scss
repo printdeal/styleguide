@@ -1,34 +1,13 @@
 .ProductNav {
+    display: none;
     margin-bottom: 18px;
     border-width: 1px 0;
     border-style: solid;
     border-color: color(gray-light);
-    background-color: color(gray-lighter);
-}
-
-.ProductNav__Inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    position: relative;
-}
-
-.ProductNav__Toggler {
-    margin-right: halve($base-spacing-unit);
-    margin-left: negative(halve($base-spacing-unit));
-    border-width: 0 1px;
-    border-style: solid;
-    border-color: color(gray-light);
-    padding: 1em 0.66em 1em 1.22em;
-    width: $product-nav-toggler-width;
-    font-weight: 700;
-    cursor: pointer;
+    background-color: color(white);
 
     @include breakpoint(medium) {
-        margin-left: 0;
-        padding-left: 0.5em;
-        width: $product-nav-width;
+        width: 61em;
     }
 }
 
@@ -65,75 +44,13 @@
 }
 // stylelint-enable selector-max-class
 
-
-// 1. Make sure the search bar still aligns next to the toggler by pushing the
-//    categories to the next line
-// 2. Undo page-wrap
-.ProductNav__Categories {
-    display: none;
-    order: 1; // [1]
-    position: relative;
-    margin: 0 -0.66em -0.66em -0.66em; // [2]
-    border-width: 1px 0;
-    border-style: solid;
-    border-color: color(gray-light);
-    width: 100%;
-    width: calc(100% + 0.66em + 0.66em); // [2]
-    background: color(white);
-
-    @include breakpoint(medium) {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: z(productnav);
-        margin: 0;
-        border-width: 1px;
-        padding: 1em 0;
-        width: $product-nav-width;
-    }
-}
-
-.ProductNav__Categories--IsOpen {
-    display: block;
-}
-
-.ProductNav__Categories--HasSubNav { // added with js
-
-    .ProductNav__Category {
-        border-right: 1px solid color(gray-light);
-        width: 4em;
-
-        @include breakpoint(medium) {
-            border-right: none;
-            width: auto;
-        }
-    }
-
-    .ProductNav__CategoryTitle {
-        display: none;
-
-        @include breakpoint(medium) {
-            display: inline;
-        }
-    }
-
-    .ProductNav__MProductsContainer {
-        z-index: 0;
-    }
-}
-
-.ProductNavCategory__Icon {
-    margin: 0 0.2em;
-    line-height: 1;
-}
-
 @mixin product-nav-icon($highlight: false) {
-    .ProductNavCategory__Icon--IsHoverable {
-        display: if($highlight, block, none);
+    .CategoryNav__Icon--IsHoverable {
+        display: if($highlight, inline-block, none);
     }
 
-    .ProductNavCategory__Icon--IsDefault {
-        display: if($highlight, none, block);
+    .CategoryNav__Icon--IsDefault {
+        display: if($highlight, none, inline-block);
     }
 }
 
@@ -151,7 +68,6 @@
 }
 
 .ProductNav__CategoriesListItem {
-
     @include breakpoint(medium) {
         margin-right: -1px;
         border-width: 1px 1px 1px 0.25em;
@@ -269,7 +185,7 @@ $productnav-padding: 1.5em;
 //    see https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill
 //    and https://css-tricks.com/almanac/properties/c/column-fill/
 // 2. Fallback for calc()
-.ProductNav__ProductContainer {
+.ProductNav__Box {
     columns: 4 7em;
     column-gap: 1em;
     column-fill: auto; // [1]

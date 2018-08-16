@@ -13,6 +13,7 @@ $product-nav-width: 18em;
 .Slider {
     position: relative;
     overflow: hidden;
+    z-index: 10;
 }
 
 // 1. Based on 'good looks'
