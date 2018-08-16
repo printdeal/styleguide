@@ -33,6 +33,16 @@ $z-indexes: (
     slider-active:      11,
     slider-preload:     10,
 
+    siteheader:         5,
+
+    // z-indexes within siteheader
+    contentnav_open:    6,
+    customernav:        5,
+    contentnav:         3,
+    servicenav:         2,
+    productsearch:      2,
+    // end z-indexes within siteheader
+
     default:            1,
     below:              -1
 ) !default;

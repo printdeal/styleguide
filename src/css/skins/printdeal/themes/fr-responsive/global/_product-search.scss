@@ -1,10 +1,22 @@
-// 1. When inside a display:flex container => let this element become as large
-//    as possible
-// 2. Provide a context for the search dropdown
 .ProductSearch {
-    flex: 1 0 auto; // [1]
-    position: relative; // [2]
-    margin-top: third($base-spacing-unit);
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0.3em;
+    left: 0;
+    z-index: z(productsearch);
+
+    @include breakpoint(medium, 'max-width') {
+        padding-left: 8em;
+    }
+
+    @include breakpoint(medium) {
+        top: halve($base-spacing-unit);
+        right: 21em;
+        bottom: auto;
+        left: auto;
+        width: 34em;
+    }
 }
 
 // 1. Only put higher z-index when open, otherwise ProductNav and SiteNav
@@ -59,6 +71,13 @@
 .ProductSearchResults--IsOpen {
     display: block;
     z-index: z(search-results);
+
+    @include breakpoint(medium, 'max-width') {
+        position: fixed;
+        top: 75px;
+        right: 0;
+        left: 0;
+    }
 }
 
 // 1. Fallback value for browsers that don't support `vh` units

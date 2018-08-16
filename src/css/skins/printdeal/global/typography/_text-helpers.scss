@@ -23,3 +23,21 @@
     font-weight: map-get($brand-face, weight);
     font-style: map-get($brand-face, style);
 }
+
+.text-capitalize {
+    text-transform: uppercase;
+}
+
+.text-undecorated {
+    text-decoration: none;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.text-bold-medium-down {
+    @include breakpoint(medium, 'max-width') {
+        font-weight: 700;
+    }
+}
