@@ -27,14 +27,6 @@ $review-aspect-ratio: 1 / $review-icon-count;
     }
 }
 
-.ReviewIndicator--TrustPilot {
-    @include svg-background('icon-trustpilot-default');
-
-    .ReviewIndicator__Value {
-        @include svg-background('icon-trustpilot-filled');
-    }
-}
-
 .ReviewIndicator__Value {
     position: absolute;
     top: 0;
