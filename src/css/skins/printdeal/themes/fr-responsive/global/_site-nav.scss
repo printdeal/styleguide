@@ -63,51 +63,21 @@
             position: static;
         }
 
-        .SiteSubNav,
-        .SubNav {
-            display: none;
-            position: absolute;
-        }
-
-        .SiteSubNav {
-            width: 100%;
-        }
-
-        .SubNav--Down {
-            top: 100%;
-            left: 0;
-        }
-
-        .SubNav--DownRight {
-            top: 100%;
-            right: 0;
-        }
-
-        .SubNav--Right {
-            top: 0;
-            left: 100%;
-        }
-
         > .SiteNav__Link {
             border: 1px solid transparent;
         }
 
+        .IsOpen > .SiteNav__Link,
         &:hover > .SiteNav__Link {
-            border-color: color(gray-light);
+            border-color: color(gray-light) color(gray-light) white;
         }
 
+        &.IsOpen > .SiteSubNav,
         &:hover > .SiteSubNav,
         &:hover > .SubNav {
             display: block;
+            visibility: visible;
         }
-    }
-}
-
-.SiteSubNav {
-    @include breakpoint(medium) {
-        border: 1px solid color(gray-light);
-        min-width: 18em;
-        background: color(white);
     }
 }
 
@@ -116,10 +86,45 @@
 
     @include breakpoint(medium) {
         position: absolute;
-        border-width: 1px;
-        border-style: solid;
-        border-color: color(gray-light);
+        border: 1px solid color(gray-light);
         background: color(white);
+    }
+}
+
+// 1. Use visibility for using transitions between categories
+// 2. Used as delay mechanism to prevent accidental cross-hovering on menu items
+@include breakpoint(medium) {
+    .SiteSubNav,
+    .SubNav {
+        display: none;
+        position: absolute;
+        visibility: hidden; // [1]
+        transition: visibility 0.1s 0.15s; // [2]
+    }
+
+    .SiteSubNav {
+        border: 1px solid color(gray-light);
+        min-width: 18em;
+        background: color(white);
+    }
+
+    .SubNav--Down {
+        top: 100%;
+        left: 0;
+        z-index: 1;
+        margin-top: -1px;
+    }
+
+    .SubNav--DownRight {
+        top: 100%;
+        right: 0;
+        z-index: 1;
+        margin-top: -1px;
+    }
+
+    .SubNav--Right {
+        top: 0;
+        left: 100%;
     }
 }
 
@@ -128,17 +133,19 @@
 }
 
 .SubNav--Pad {
-    padding: 1em;
+    padding: $base-spacing-unit;
 }
 
 .SubNav--Pad--medium--up {
     @include breakpoint(medium) {
-        padding: 1em;
+        padding: $base-spacing-unit;
     }
 }
 
 .SiteNav__Link {
     display: block;
+    position: relative;
+    z-index: 2;
 }
 
 @include breakpoint(medium) {
@@ -229,13 +236,13 @@
 @include breakpoint(medium) {
     .CategoryNav {
         position: absolute;
-        bottom: 0;
+        bottom: -1px;
         left: 0;
         width: 16em;
     }
 
     .CategoryNav__Toggle {
-        line-height: 3.1;
+        line-height: 3.15;
         font-size: font-size('h3');
     }
 }
@@ -250,25 +257,27 @@
     display: block;
 
     @include breakpoint(medium) {
-        border-width: 0 1px 0 3px;
+        position: relative;
+        margin-right: -1px;
+        border-width: 1px 1px 1px 3px;
         border-style: solid;
         border-color: transparent;
         padding: third($base-spacing-unit) halve($base-spacing-unit);
-
-        &:hover {
-            border-left-color: color(blue);
-        }
     }
+}
+
+.CategoryNav__Item:hover .CategoryNav__Link {
+    border-color: color(gray-light) color(white) color(gray-light) color(blue);
 }
 
 .ServiceNav {
     @include breakpoint(medium) {
         position: absolute;
         right: 30%;
-        bottom: 0;
+        bottom: -1px;
 
         .SiteNav__Link {
-            line-height: 3.6;
+            line-height: 3.65;
         }
     }
 }
@@ -286,6 +295,10 @@
     z-index: z(customernav);
     width: 17em;
     text-align: right;
+
+    @include breakpoint(medium) {
+        top: -1px;
+    }
 }
 
 .AccountNav {
@@ -294,7 +307,7 @@
 
 .AccountNav__Link {
     padding: 0 1em;
-    line-height: 3;
+    line-height: 2.95;
 
     @include breakpoint(medium) {
         line-height: 4;
@@ -314,6 +327,7 @@
     }
 
     @include breakpoint(medium) {
+        padding-left: quarter($base-spacing-unit);
         line-height: 4;
 
         .Btn {
