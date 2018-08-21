@@ -12,9 +12,9 @@
 // it.
 // Explanation: it calculates the productnav-width in pixels
 // and adds the base-spacing-unit.
-.SiteUsps__Inner--IsCropped {
-    @include breakpoint(medium) {
-        padding-left: (($product-nav-width / 1em * font-size(base)) + $base-spacing-unit);
+@include breakpoint(medium) {
+    .SiteUsps__LanguageSpacer {
+        padding-right: 9em;
     }
 }
 

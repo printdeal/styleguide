@@ -7,7 +7,8 @@
         width: 6em;
 
         // stylelint-disable max-nesting-depth
-        .Expand__ContentNav & {
+        .Expand__ContentNav,
+        &:hover {
             z-index: z(contentnav_open);
 
             &::before {
@@ -21,26 +22,28 @@
                 z-index: z(below);
                 background-color: $modal-backdrop-color;
             }
-        }
 
-        .SiteNav__Item + .SiteNav__Item {
-            margin-top: $base-spacing-unit;
+            // #TODO : Remove when we don't need this anymore for testing purposes.
+            .ContentNav__Close {
+                display: block;
+            }
         }
     }
 }
 
 .ContentNav__Toggle--on--small {
-    line-height: 2.65;
+    line-height: 2.7;
     font-size: font-size('h2');
 }
 
 .ContentNav__Close {
     display: none;
-    position: absolute;
-    top: 0.25em;
-    right: 0.25em;
-    width: 3em;
-    height: 3em;
+    position: fixed;
+    top: $base-spacing-unit;
+    left: 12em;
+    z-index: 2;
+    width: 1em;
+    height: 1em;
     vertical-align: center;
     text-align: center;
     color: color(gray-light);
@@ -60,7 +63,9 @@
         background-color: color(white);
         line-height: 2.5;
 
-        .Expand__ContentNav & {
+        // #TODO : Remove hover-version when we don't need it anymore for testing purposes.
+        .Expand__ContentNav &,
+        .ContentNav:hover & {
             display: block;
             position: fixed;
             top: 0;
@@ -70,121 +75,94 @@
             overflow-y: scroll;
         }
 
+        .SiteNav__Item + .SiteNav__Item {
+            margin-top: $base-spacing-unit;
+        }
+
         .IconList__Item::before {
-            margin-top: 0.4em;
+            margin-top: 0.75em;
         }
     }
 }
 
-@include breakpoint(medium) {
-    .CategoryNav {
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 16em;
-    }
-
-    .CategoryNav:hover .Rotate180--ParentHover {
-        transform: rotate(180deg);
-    }
-
-    .CategoryNav__Toggle {
-        line-height: 3.15;
-        font-size: font-size('h3');
-    }
+.LanguageNav__Item {
+    display: inline-block;
 }
 
-.CategoryNav__List {
-    @include breakpoint(medium) {
-        padding: 1em 0;
-    }
+.LanguageNav__Link {
+    display: inline-block;
+    padding-right: third($base-spacing-unit);
+    padding-left: third($base-spacing-unit);
 }
 
-.CategoryNav__Link {
-    display: block;
-
-    @include breakpoint(medium) {
-        position: relative;
-        margin-right: -1px;
-        border-width: 1px 1px 1px 3px;
+@include breakpoint(medium, 'max-width') {
+    .LanguageNav__Link {
+        margin-right: halve($base-spacing-unit);
+        border-width: 1px 1px 3px;
         border-style: solid;
         border-color: transparent;
-        padding: third($base-spacing-unit) halve($base-spacing-unit);
     }
-}
 
-.CategoryNav__Item:hover .CategoryNav__Link {
-    border-color: color(gray-light) color(white) color(gray-light) color(blue);
+    .LanguageNav__ActiveLink {
+        border-color: color(gray-light) color(gray-light) color(green);
+    }
 }
 
 @include breakpoint(medium) {
-    .CategoryNav__Item:hover .CategoryNav__Icon--IsDefault,
-    .CategoryNav__Item .CategoryNav__Icon--IsHoverable {
-        display: none;
-    }
-
-    .CategoryNav__Item .CategoryNav__Icon--IsDefault,
-    .CategoryNav__Item:hover .CategoryNav__Icon--IsHoverable {
-        display: inline-block;
-    }
-}
-
-// 1. Let the navigation extend beyond the height of the dropdown
-// 2. Let the navigation be of unlimited height to cater for long lists
-.ProductNav {
-    display: none;
-    bottom: negative(triple($base-spacing-unit)); // [1]
-    z-index: z(below);
-    margin-top: -1px;
-    border-width: 1px  solid color(gray-light);
-    padding-right: 12em;
-    background-color: color(white);
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: 11em auto;
-
-    @include breakpoint(medium) {
-        width: 48em;
-    }
-
-    @include breakpoint(productnav) {
-        padding-right: 13em;
-        width: 61em;
-        background-size: 15em auto;
-    }
-
-    .no-csscolumns & {
-        bottom: auto; // [2]
-        width: 36em;
-    }
-}
-
-// 1. Use 'auto' instead default 'balance',
-//    see https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill
-//    and https://css-tricks.com/almanac/properties/c/column-fill/
-// 2. Fallback for calc()
-.ProductNav__Box {
-    columns: 4 7em;
-    column-gap: 1em;
-    column-fill: auto; // [1]
-    margin-right: 9em;
-    height: 90%; // [2]
-    height: calc(100% - #{double($base-spacing-unit)});
-}
-
-.ServiceNav {
-    @include breakpoint(medium) {
+    .LanguageNav {
         position: absolute;
-        right: 30%;
+        top: -1.9em;
+        right: 0;
+    }
+
+    .ServiceNav {
+        position: absolute;
+        right: 17em;
         bottom: -1px;
 
         .SiteNav__Link {
             line-height: 3.65;
         }
     }
+
+    .TestNav {
+        position: absolute;
+        top: 0;
+        right: 17em;
+    }
+
+    .TestNav__Link {
+        line-height: 4;
+    }
+
+    .QuickLink-1 {
+        position: absolute;
+        bottom: 0;
+        left: 20em;
+    }
+
+    .QuickLink-2 {
+        position: absolute;
+        bottom: 0;
+        left: 29em;
+    }
 }
 
-.DesignNav,
-.PartnerNav {
-    display: none;
+@keyframes animation-slide-mobile-menu-from-left {
+    0% {
+        left: -18em;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+.Animation--MobileMenu {
+    @include breakpoint(medium, 'max-width') {
+        animation-duration: 0.2s;
+        animation-fill-mode: both;
+        animation-name: animation-slide-mobile-menu-from-left;
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
 }
