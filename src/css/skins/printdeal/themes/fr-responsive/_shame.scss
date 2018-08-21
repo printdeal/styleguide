@@ -44,14 +44,6 @@ html[data-useragent*='MSIE 9.0'] {
     display: none;
 }
 
-// Firefox doesn't know how to paint some basic rectangles properly based on
-// their contents. So we help him out a bit.
-html[data-useragent*='Firefox'] .SiteNav__Link {
-    @include breakpoint(sitenav) { min-width: 11em; }
-    @include breakpoint(medium)  { min-width: 12em; }
-    @include breakpoint(large)   { min-width: 13em; }
-}
-
 // Override the default cursor behaviour in the Selector, to make it appear as
 // a clickable object.
 // Reason: the radio buttons *are* clickable in the selector, even though they

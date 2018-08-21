@@ -1,6 +1,7 @@
 .SiteHeader {
     position: relative;
     z-index: 12;
+    margin-bottom: negative($base-spacing-unit);
     border-bottom: 1px solid  color(gray-light);
     background-color: color(white);
 
@@ -8,7 +9,8 @@
         content: '';
         display: block;
         height: 3px;
-        background: url('bg-stripe-tricolore.png');
+        background-color: color(gray-light);
+        background-image: url('bg-stripe-tricolore.png');
     }
 
     &::after {
@@ -67,7 +69,7 @@
             border: 1px solid transparent;
         }
 
-        .IsOpen > .SiteNav__Link,
+        &.IsOpen > .SiteNav__Link,
         &:hover > .SiteNav__Link {
             border-color: color(gray-light) color(gray-light) white;
         }
@@ -136,211 +138,34 @@
     padding: $base-spacing-unit;
 }
 
-.SubNav--Pad--medium--up {
-    @include breakpoint(medium) {
+@include breakpoint(medium) {
+    .SubNav--Pad--medium--up {
         padding: $base-spacing-unit;
     }
 }
 
+.SiteNav__Item {
+    display: block;
+}
+
 .SiteNav__Link {
+    box-sizing: border-box;
     display: block;
     position: relative;
     z-index: 2;
 }
 
+.HasSubNav:hover .Rotate90--ParentHover {
+    transform: rotate(90deg);
+}
+
+.HasSubNav:hover .Rotate180--ParentHover {
+    transform: rotate(180deg);
+}
+
 @include breakpoint(medium) {
     .SiteNav__Link--pad--medium--up {
-        padding-right: halve($base-spacing-unit);
-        padding-left: halve($base-spacing-unit);
+        padding-right: $base-spacing-unit;
+        padding-left: $base-spacing-unit;
     }
-}
-
-.ContentNav {
-    @include breakpoint(medium, 'max-width') {
-        position: absolute;
-        top: 3.25em;
-        left: 0;
-        z-index: z(contentnav);
-        width: 6em;
-
-        // stylelint-disable max-nesting-depth
-        .Expand__ContentNav & {
-            z-index: z(contentnav_open);
-
-            &::before {
-                content: '';
-                display: block;
-                position: fixed;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                z-index: z(below);
-                background-color: $modal-backdrop-color;
-            }
-        }
-
-        .SiteNav__Item + .SiteNav__Item {
-            margin-top: $base-spacing-unit;
-        }
-    }
-}
-
-.ContentNav__Toggle--on--small {
-    line-height: 2.65;
-    font-size: font-size('h2');
-}
-
-.ContentNav__Close {
-    display: none;
-    position: absolute;
-    top: 0.25em;
-    right: 0.25em;
-    width: 3em;
-    height: 3em;
-    vertical-align: center;
-    text-align: center;
-    color: color(gray-light);
-
-    @include breakpoint(medium, 'max-width') {
-        .Expand__ContentNav & {
-            display: block;
-        }
-    }
-}
-
-.ContentNav__List {
-    @include breakpoint(medium, 'max-width') {
-        display: none;
-        padding: 1em;
-        width: 18em;
-        background-color: color(white);
-        line-height: 2.5;
-
-        .Expand__ContentNav & {
-            display: block;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            border-right: 1px solid color(gray-light);
-            overflow-y: scroll;
-        }
-
-        .IconList__Item::before {
-            margin-top: 0.4em;
-        }
-    }
-}
-
-@include breakpoint(medium) {
-    .CategoryNav {
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 16em;
-    }
-
-    .CategoryNav__Toggle {
-        line-height: 3.15;
-        font-size: font-size('h3');
-    }
-}
-
-.CategoryNav__List {
-    @include breakpoint(medium) {
-        padding: 1em 0;
-    }
-}
-
-.CategoryNav__Link {
-    display: block;
-
-    @include breakpoint(medium) {
-        position: relative;
-        margin-right: -1px;
-        border-width: 1px 1px 1px 3px;
-        border-style: solid;
-        border-color: transparent;
-        padding: third($base-spacing-unit) halve($base-spacing-unit);
-    }
-}
-
-.CategoryNav__Item:hover .CategoryNav__Link {
-    border-color: color(gray-light) color(white) color(gray-light) color(blue);
-}
-
-.ServiceNav {
-    @include breakpoint(medium) {
-        position: absolute;
-        right: 30%;
-        bottom: -1px;
-
-        .SiteNav__Link {
-            line-height: 3.65;
-        }
-    }
-}
-
-.DesignNav,
-.PartnerNav {
-    display: none;
-}
-
-.CustomerNav {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: z(customernav);
-    width: 17em;
-    text-align: right;
-
-    @include breakpoint(medium) {
-        top: -1px;
-    }
-}
-
-.AccountNav {
-    display: inline-block;
-}
-
-.AccountNav__Link {
-    padding: 0 1em;
-    line-height: 2.95;
-
-    @include breakpoint(medium) {
-        line-height: 4;
-    }
-}
-
-.CartNav {
-    display: inline-block;
-}
-
-.CartNav__Link {
-    text-align: right;
-
-    @include breakpoint(medium, 'max-width') {
-        padding-top: 4px;
-        padding-right: quarter($base-spacing-unit);
-    }
-
-    @include breakpoint(medium) {
-        padding-left: quarter($base-spacing-unit);
-        line-height: 4;
-
-        .Btn {
-            margin-top: 11px;
-            margin-right: quarter($base-spacing-unit);
-        }
-    }
-}
-
-.CartNav__CartStatus {
-    position: absolute;
-    top: -0.5em;
-    right: -0.5em;
-    padding: 0.1em 0.2em;
-    font-size: 0.75em;
 }

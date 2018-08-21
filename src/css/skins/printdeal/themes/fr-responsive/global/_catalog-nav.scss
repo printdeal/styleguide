@@ -1,0 +1,93 @@
+@include breakpoint(medium) {
+    .CategoryNav {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 16em;
+    }
+
+    .CategoryNav:hover .Rotate180--ParentHover {
+        transform: rotate(180deg);
+    }
+
+    .CategoryNav__Toggle {
+        line-height: 3.3;
+        font-size: font-size('h3');
+    }
+}
+
+.CategoryNav__List {
+    @include breakpoint(medium) {
+        padding: 1em 0;
+    }
+}
+
+.CategoryNav__Link {
+    display: block;
+
+    @include breakpoint(medium) {
+        position: relative;
+        margin-right: -1px;
+        border-width: 1px 1px 1px 3px;
+        border-style: solid;
+        border-color: transparent;
+        padding: third($base-spacing-unit) halve($base-spacing-unit);
+    }
+}
+
+.CategoryNav__Item:hover .CategoryNav__Link {
+    border-color: color(gray-light) color(white) color(gray-light) color(blue);
+}
+
+.CategoryNav__Item:hover .CategoryNav__Icon--IsDefault,
+.CategoryNav__Item .CategoryNav__Icon--IsHoverable {
+    display: none;
+}
+
+.CategoryNav__Item .CategoryNav__Icon--IsDefault,
+.CategoryNav__Item:hover .CategoryNav__Icon--IsHoverable {
+    display: inline-block;
+}
+
+// 1. Let the navigation extend beyond the height of the dropdown
+// 2. Let the navigation be of unlimited height to cater for long lists
+.ProductNav {
+    display: none;
+    bottom: negative(triple($base-spacing-unit)); // [1]
+    z-index: z(below);
+    margin-top: -1px;
+    border-width: 1px  solid color(gray-light);
+    padding-right: 12em;
+    background-color: color(white);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 11em auto;
+
+    @include breakpoint(medium) {
+        width: 48em;
+    }
+
+    @include breakpoint(productnav) {
+        padding-right: 13em;
+        width: 61em;
+        background-size: 15em auto;
+    }
+
+    .no-csscolumns & {
+        bottom: auto; // [2]
+        width: 36em;
+    }
+}
+
+// 1. Use 'auto' instead default 'balance',
+//    see https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill
+//    and https://css-tricks.com/almanac/properties/c/column-fill/
+// 2. Fallback for calc()
+.ProductNav__Box {
+    columns: 4 7em;
+    column-gap: 1em;
+    column-fill: auto; // [1]
+    margin-right: 9em;
+    height: 90%; // [2]
+    height: calc(100% - #{double($base-spacing-unit)});
+}

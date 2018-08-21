@@ -28,22 +28,3 @@
     animation-name: animation-bounce-in-up;
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-
-@keyframes animation-slide-mobile-menu-from-left {
-    0% {
-        left: -18em;
-    }
-
-    100% {
-        left: 0;
-    }
-}
-
-.Animation--MobileMenuLeft {
-    @include breakpoint(medium) {
-        animation-duration: 1s;
-        animation-fill-mode: both;
-        animation-name: animation-slide-mobile-menu-from-left;
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-}

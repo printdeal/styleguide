@@ -12,9 +12,21 @@
 
     @include breakpoint(medium) {
         top: halve($base-spacing-unit);
-        right: 21em;
+        right: 24.5em;
         bottom: auto;
         left: auto;
+        width: 22em;
+    }
+
+    @include breakpoint(large) {
+        width: 28em;
+    }
+
+    @include breakpoint(x-large) {
+        width: 32em;
+    }
+
+    @include breakpoint(xx-large) {
         width: 34em;
     }
 }
@@ -34,36 +46,28 @@
 }
 
 // 1. Let the item take up as much space as possible
-// 2. Drag the element to the left so it'll fit underneath the product toggler
-// 3. Fallback
-// 4. Reset mobile styles
+// 2. Reset mobile styles
 .ProductSearchResults {
     display: none;
     flex: 1 0 auto; // [1]
-    margin-top: third($base-spacing-unit);
-    margin-right: negative(halve($base-spacing-unit));
-    margin-left: calc(#{negative($product-nav-toggler-width)} + #{negative(halve($base-spacing-unit))}); // [2]
     border-top: 1px solid color(gray-light);
     padding-right: halve($base-spacing-unit);
     padding-left: halve($base-spacing-unit);
-    width: 100%; // [1,3]
-    width: calc(100% + #{$product-nav-toggler-width} + #{$base-spacing-unit});
-    background-color: color(gray-lightest);
+    background-color: color(gray-lighter);
 
     @include breakpoint(medium) {
         position: absolute;
         top: 100%;
         right: 0;
         left: 0;
-        margin-top: 0;
-        margin-left: 0;
+        // margin-top: 0;
+        // margin-left: 0;
         border: solid color(gray-light);
         border-width: 0 1px 1px 1px;
         border-bottom-right-radius: radius(small);
         border-bottom-left-radius: radius(small);
-        padding-right: 0; // [4]
-        padding-left: 0; // [4]
-        width: 100%; // [4]
+        padding-right: 0; // [2]
+        padding-left: 0; // [2]
         box-shadow: $shadow-drop;
     }
 }
@@ -73,19 +77,21 @@
     z-index: z(search-results);
 
     @include breakpoint(medium, 'max-width') {
-        position: fixed;
-        top: 75px;
-        right: 0;
-        left: 0;
+        position: absolute;
+        top: 100%;
+        right: negative(halve($base-spacing-unit));
+        left: negative(halve($base-spacing-unit));
+        margin-top: quarter($base-spacing-unit);
+        border-bottom: 1px solid color(gray-light);
+        width: auto;
     }
 }
 
-// 1. Fallback value for browsers that don't support `vh` units
+// 1. Fallback value for browsers that don't support `max-vh` units
 .ProductSearchResults__Content {
     @include scrollable;
     max-height: 28em; // [1]
     max-height: 60vh;
-    background-color: color(gray-lighter);
 }
 
 .ProductSearchResults__Title {
@@ -121,8 +127,6 @@
 }
 
 .ProductSearchResults__Backdrop--IsOpen {
-    @include breakpoint(medium) {
-        display: block;
-        z-index: z(search-backdrop);
-    }
+    display: block;
+    z-index: z(search-backdrop);
 }
