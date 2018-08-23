@@ -1,3 +1,8 @@
+.CategoryNav__Toggle:hover {
+    color: inherit;
+    cursor: default;
+}
+
 @include breakpoint(medium) {
     .CategoryNav {
         position: absolute;
@@ -11,14 +16,14 @@
     }
 
     .CategoryNav__Toggle {
-        line-height: 3.3;
+        line-height: 3.15;
         font-size: font-size('h3');
     }
 }
 
 .CategoryNav__List {
     @include breakpoint(medium) {
-        padding: 1em 0;
+        padding: halve($base-spacing-unit) 0;
     }
 }
 
@@ -31,7 +36,7 @@
         border-width: 1px 1px 1px 3px;
         border-style: solid;
         border-color: transparent;
-        padding: third($base-spacing-unit) halve($base-spacing-unit);
+        padding: 3px halve($base-spacing-unit);
     }
 }
 
@@ -52,24 +57,20 @@
 // 1. Let the navigation extend beyond the height of the dropdown
 // 2. Let the navigation be of unlimited height to cater for long lists
 .ProductNav {
-    display: none;
-    bottom: negative(triple($base-spacing-unit)); // [1]
-    z-index: z(below);
-    margin-top: -1px;
-    border-width: 1px  solid color(gray-light);
-    padding-right: 12em;
-    background-color: color(white);
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: 11em auto;
-
     @include breakpoint(medium) {
+        bottom: -54px;
+        z-index: z(below);
+        margin-top: -1px;
+        padding-right: 12em;
         width: 48em;
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: 11em auto;
     }
 
     @include breakpoint(productnav) {
-        padding-right: 13em;
-        width: 61em;
+        padding-right: 16em;
+        width: 60.8em;
         background-size: 15em auto;
     }
 
@@ -84,10 +85,10 @@
 //    and https://css-tricks.com/almanac/properties/c/column-fill/
 // 2. Fallback for calc()
 .ProductNav__Box {
-    columns: 4 7em;
+    display: block;
+    columns: 3 9em;
     column-gap: 1em;
     column-fill: auto; // [1]
-    margin-right: 9em;
     height: 90%; // [2]
     height: calc(100% - #{double($base-spacing-unit)});
 }

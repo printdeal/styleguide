@@ -1,71 +1,47 @@
-.ContentNav {
-    @include breakpoint(medium, 'max-width') {
+@include breakpoint(medium, 'max-width') {
+    .ContentNav {
         position: absolute;
         top: 3.25em;
         left: 0;
         z-index: z(contentnav);
         width: 6em;
+    }
 
-        // stylelint-disable max-nesting-depth
-        .Expand__ContentNav,
-        &:hover {
+    // stylelint-disable max-nesting-depth
+    .Expand__ContentNav {
+        .ContentNav {
             z-index: z(contentnav_open);
-
-            &::before {
-                content: '';
-                display: block;
-                position: fixed;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                z-index: z(below);
-                background-color: $modal-backdrop-color;
-            }
-
-            // #TODO : Remove when we don't need this anymore for testing purposes.
-            .ContentNav__Close {
-                display: block;
-            }
         }
-    }
-}
 
-.ContentNav__Toggle--on--small {
-    line-height: 2.7;
-    font-size: font-size('h2');
-}
-
-.ContentNav__Close {
-    display: none;
-    position: fixed;
-    top: $base-spacing-unit;
-    left: 12em;
-    z-index: 2;
-    width: 1em;
-    height: 1em;
-    vertical-align: center;
-    text-align: center;
-    color: color(gray-light);
-
-    @include breakpoint(medium, 'max-width') {
-        .Expand__ContentNav & {
+        .MobileMenu__Backdrop {
             display: block;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: z(below);
+            background-color: $modal-backdrop-color;
         }
     }
-}
 
-.ContentNav__List {
-    @include breakpoint(medium, 'max-width') {
+    .ContentNav__Toggle--on--small {
+        line-height: 2.7;
+        font-size: font-size('h2');
+    }
+
+    .ContentNav__Close {
+        display: block;
+    }
+
+    .ContentNav__List {
         display: none;
         padding: 1em;
         width: 18em;
         background-color: color(white);
         line-height: 2.5;
 
-        // #TODO : Remove hover-version when we don't need it anymore for testing purposes.
-        .Expand__ContentNav &,
-        .ContentNav:hover & {
+        .Expand__ContentNav & {
             display: block;
             position: fixed;
             top: 0;
@@ -117,7 +93,7 @@
 
     .ServiceNav {
         position: absolute;
-        right: 17em;
+        right: 19.5em;
         bottom: -1px;
 
         .SiteNav__Link {
@@ -135,16 +111,37 @@
         line-height: 4;
     }
 
-    .QuickLink-1 {
+    .QuickLink--1 {
         position: absolute;
         bottom: 0;
-        left: 20em;
+        left: 18em;
     }
 
-    .QuickLink-2 {
+    .QuickLink--2 {
         position: absolute;
         bottom: 0;
-        left: 29em;
+        left: 30em;
+    }
+
+    .QuickLink__Link {
+        display: inline-block;
+        padding-right: $base-spacing-unit;
+        padding-left: $base-spacing-unit;
+        line-height: 3.65;
+    }
+
+    .TeamNav {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 3.6em;
+        line-height: 3.3;
+    }
+
+    .TeamNav__Image {
+        margin-right: $base-spacing-unit;
+        width: auto;
+        height: 100%;
     }
 }
 

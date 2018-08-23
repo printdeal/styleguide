@@ -2,7 +2,7 @@
     display: block;
     position: absolute;
     right: 0;
-    bottom: 0.3em;
+    bottom: 0.35em;
     left: 0;
     z-index: z(productsearch);
 
@@ -39,6 +39,7 @@
 
 .ProductSearch__Form {
     position: relative;
+    box-shadow: $shadow-panel;
 
     .ProductSearch--IsOpen & {
         z-index: z(search-form); // [1]

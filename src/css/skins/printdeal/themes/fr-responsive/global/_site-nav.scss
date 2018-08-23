@@ -1,7 +1,7 @@
 .SiteHeader {
     position: relative;
     z-index: 12;
-    margin-bottom: negative($base-spacing-unit);
+    margin-bottom: $base-spacing-unit;
     border-bottom: 1px solid  color(gray-light);
     background-color: color(white);
 
