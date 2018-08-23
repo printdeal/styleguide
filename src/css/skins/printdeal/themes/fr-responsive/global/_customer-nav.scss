@@ -21,7 +21,7 @@
     line-height: 3.3;
 
     @include breakpoint(medium) {
-        line-height: 4;
+        line-height: 3.93;
     }
 }
 
@@ -39,7 +39,7 @@
 
     @include breakpoint(medium) {
         padding-left: third($base-spacing-unit);
-        line-height: 3.94;
+        line-height: 3.93;
 
         &:hover {
             background-color: color(white);
