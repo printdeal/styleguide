@@ -134,7 +134,9 @@
         position: absolute;
         right: 0;
         bottom: 0;
+        max-width: 19em;
         height: 3.6em;
+        overflow: hidden;
         line-height: 3.3;
     }
 
