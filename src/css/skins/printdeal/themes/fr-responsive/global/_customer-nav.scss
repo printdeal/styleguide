@@ -41,7 +41,7 @@
         padding-left: third($base-spacing-unit);
         line-height: 3.93;
 
-        &:hover {
+        .HasSubNav & &:hover {
             background-color: color(white);
         }
     }
