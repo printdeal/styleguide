@@ -26,7 +26,7 @@
 }
 
 .Icon--AmExpr {
-    background-position: 72.22222222222223% 55.55555555555556%;
+    background-position: 72.22222222222223% 50%;
 }
 
 .Icon--ArrowRight {
@@ -734,11 +734,11 @@
 }
 
 .Icon--FileTransferDone--White {
-    background-position: 72.22222222222223% 50%;
+    background-position: 0 0;
 }
 
 .Icon--FileZip {
-    background-position: 0 0;
+    background-position: 72.22222222222223% 55.55555555555556%;
 }
 
 .Icon--FlagFR {
@@ -1381,86 +1381,74 @@
     background-position: 100% 83.33333333333333%;
 }
 
-.Icon--TrustPilot {
-    background-position: 88.0763407808414% 99.09620589989449%;
-}
-
-.Icon--TrustPilotStar--Gray {
-    background-position: 99.99074159800018% 94.44444444444444%;
-}
-
-.Icon--TrustPilotStar--Green {
-    background-position: 0 100%;
-}
-
 .Icon--Twitter {
-    background-position: 5.546296296296297% 100%;
-}
-
-.Icon--Twitter--Blue {
-    background-position: 11.101851851851851% 100%;
-}
-
-.Icon--Twitter--White {
-    background-position: 16.65740740740741% 100%;
-}
-
-.Icon--Upload {
-    background-position: 22.212962962962962% 100%;
-}
-
-.Icon--Upload--Gray {
-    background-position: 27.76851851851852% 100%;
-}
-
-.Icon--Upload--Orange {
-    background-position: 33.324074074074076% 100%;
-}
-
-.Icon--Upload--White {
-    background-position: 38.879629629629626% 100%;
-}
-
-.Icon--Vimeo {
-    background-position: 44.43518518518518% 100%;
-}
-
-.Icon--Visa {
-    background-position: 49.99074074074074% 100%;
-}
-
-.Icon--Whatsapp--Gray {
-    background-position: 55.5462962962963% 100%;
-}
-
-.Icon--Whatsapp--Green {
-    background-position: 61.10185185185186% 100%;
-}
-
-.Icon--WooshCart {
-    background-position: 66.65740740740742% 100%;
-}
-
-.Icon--Youtube {
-    background-position: 72.21296296296298% 100%;
-}
-
-.Icon--ZoomIn {
-    background-position: 77.76851851851852% 100%;
-}
-
-.Icon--ZoomOut {
     background-position: 100% 88.88888888888889%;
 }
 
+.Icon--Twitter--Blue {
+    background-position: 100% 94.44444444444444%;
+}
+
+.Icon--Twitter--White {
+    background-position: 0 100%;
+}
+
+.Icon--Upload {
+    background-position: 5.555555555555555% 100%;
+}
+
+.Icon--Upload--Gray {
+    background-position: 11.11111111111111% 100%;
+}
+
+.Icon--Upload--Orange {
+    background-position: 16.666666666666668% 100%;
+}
+
+.Icon--Upload--White {
+    background-position: 22.22222222222222% 100%;
+}
+
+.Icon--Vimeo {
+    background-position: 27.77777777777778% 100%;
+}
+
+.Icon--Visa {
+    background-position: 33.333333333333336% 100%;
+}
+
+.Icon--Whatsapp--Gray {
+    background-position: 38.888888888888886% 100%;
+}
+
+.Icon--Whatsapp--Green {
+    background-position: 44.44444444444444% 100%;
+}
+
+.Icon--WooshCart {
+    background-position: 50% 100%;
+}
+
+.Icon--Youtube {
+    background-position: 55.55555555555556% 100%;
+}
+
+.Icon--ZoomIn {
+    background-position: 61.111111111111114% 100%;
+}
+
+.Icon--ZoomOut {
+    background-position: 66.66666666666667% 100%;
+}
+
 .Icon--ZoomPan {
-    background-position: 83.32407407407408% 100%;
+    background-position: 72.22222222222223% 100%;
 }
 
 
 $icon-map: (
         Adyen: 5.555555555555555% 0,
-        AmExpr: 72.22222222222223% 55.55555555555556%,
+        AmExpr: 72.22222222222223% 50%,
         ArrowRight: 0 5.555555555555555%,
         ArrowRight--Gray: 5.555555555555555% 5.555555555555555%,
         ArrowRight--White: 11.11111111111111% 0,
@@ -1637,8 +1625,8 @@ $icon-map: (
         FilePhotoshop: 72.22222222222223% 33.333333333333336%,
         FileTransferDone: 72.22222222222223% 38.888888888888886%,
         FileTransferDone--Orange: 72.22222222222223% 44.44444444444444%,
-        FileTransferDone--White: 72.22222222222223% 50%,
-        FileZip: 0 0,
+        FileTransferDone--White: 0 0,
+        FileZip: 72.22222222222223% 55.55555555555556%,
         FlagFR: 72.22222222222223% 61.111111111111114%,
         FlagNL: 72.22222222222223% 66.66666666666667%,
         GooglePlus: 0 72.22222222222223%,
@@ -1799,25 +1787,22 @@ $icon-map: (
         Trucks--Gray: 100% 72.22222222222223%,
         Trucks--Orange: 100% 77.77777777777777%,
         Trucks--White: 100% 83.33333333333333%,
-        TrustPilot: 88.0763407808414% 99.09620589989449%,
-        TrustPilotStar--Gray: 99.99074159800018% 94.44444444444444%,
-        TrustPilotStar--Green: 0 100%,
-        Twitter: 5.546296296296297% 100%,
-        Twitter--Blue: 11.101851851851851% 100%,
-        Twitter--White: 16.65740740740741% 100%,
-        Upload: 22.212962962962962% 100%,
-        Upload--Gray: 27.76851851851852% 100%,
-        Upload--Orange: 33.324074074074076% 100%,
-        Upload--White: 38.879629629629626% 100%,
-        Vimeo: 44.43518518518518% 100%,
-        Visa: 49.99074074074074% 100%,
-        Whatsapp--Gray: 55.5462962962963% 100%,
-        Whatsapp--Green: 61.10185185185186% 100%,
-        WooshCart: 66.65740740740742% 100%,
-        Youtube: 72.21296296296298% 100%,
-        ZoomIn: 77.76851851851852% 100%,
-        ZoomOut: 100% 88.88888888888889%,
-        ZoomPan: 83.32407407407408% 100%,
+        Twitter: 100% 88.88888888888889%,
+        Twitter--Blue: 100% 94.44444444444444%,
+        Twitter--White: 0 100%,
+        Upload: 5.555555555555555% 100%,
+        Upload--Gray: 11.11111111111111% 100%,
+        Upload--Orange: 16.666666666666668% 100%,
+        Upload--White: 22.22222222222222% 100%,
+        Vimeo: 27.77777777777778% 100%,
+        Visa: 33.333333333333336% 100%,
+        Whatsapp--Gray: 38.888888888888886% 100%,
+        Whatsapp--Green: 44.44444444444444% 100%,
+        WooshCart: 50% 100%,
+        Youtube: 55.55555555555556% 100%,
+        ZoomIn: 61.111111111111114% 100%,
+        ZoomOut: 66.66666666666667% 100%,
+        ZoomPan: 72.22222222222223% 100%,
 );
 
 @mixin icon($name) {
