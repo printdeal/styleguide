@@ -11,7 +11,7 @@
     "url": "https://github.com/printdeal/styleguide.git"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test && gromit dist/css/printdeal-fr-responsive.min.css"
   },
   "devDependencies": {
     "del": "^3.0.0",
