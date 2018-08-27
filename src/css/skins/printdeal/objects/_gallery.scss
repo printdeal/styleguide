@@ -6,11 +6,11 @@
     display: inline-block;
     position: relative;
     padding-right: 5em; // [1]
-    width: 23em;
+    width: 34em;
     max-width: 100%;
 
     @include breakpoint(small) {
-        width: 27em;
+        width: 37em;
     }
 }
 
@@ -65,7 +65,7 @@
     opacity: 0.5;
     margin-bottom: halve($base-spacing-unit);
     border: 1px solid color(gray-darker);
-    width: 4em;
+    width: 6em;
     overflow: hidden;
 }
 
