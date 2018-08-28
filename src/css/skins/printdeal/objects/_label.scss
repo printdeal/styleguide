@@ -34,3 +34,9 @@
     border-color: color(gray-darker);
     background-color: color(gray-dark);
 }
+
+.Label--Small {
+    padding: 0.1em 0.2em;
+    line-height: 1;
+    font-size: font-size(smaller);
+}

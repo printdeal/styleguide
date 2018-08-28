@@ -8,7 +8,7 @@
         position: absolute;
         bottom: -1px;
         left: 0;
-        width: 16em;
+        width: 18em;
     }
 
     .CategoryNav:hover .Rotate180--ParentHover {
@@ -16,6 +16,8 @@
     }
 
     .CategoryNav__Toggle {
+        padding-right: $base-spacing-unit;
+        padding-left: 22px;
         line-height: 3.15;
         font-size: font-size('h3');
     }
@@ -42,6 +44,10 @@
 
 .CategoryNav__Item:hover .CategoryNav__Link {
     border-color: color(gray-light) color(white) color(gray-light) color(blue);
+}
+
+.CategoryNav__Icon {
+    margin: 0 0.4em 0 0.2em;
 }
 
 .CategoryNav__Item:hover .CategoryNav__Icon--IsDefault,

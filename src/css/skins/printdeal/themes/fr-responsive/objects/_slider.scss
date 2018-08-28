@@ -12,7 +12,7 @@ $product-nav-width: 18em;
 
 .Slider {
     position: relative;
-    z-index: 10;
+    z-index: z(slider);
     overflow: hidden;
 }
 

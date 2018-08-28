@@ -1,6 +1,6 @@
 .SiteHeader {
     position: relative;
-    z-index: 12;
+    z-index: z(siteheader);
     margin-bottom: $base-spacing-unit;
     border-bottom: 1px solid  color(gray-light);
     background-color: color(white);
@@ -37,7 +37,7 @@
     overflow: visible;
 
     @include breakpoint(medium) {
-        height: 7.6em;
+        height: 7.8em;
     }
 }
 
@@ -48,8 +48,8 @@
     height: 3em;
 
     @include breakpoint(medium) {
-        top: 0;
-        height: 3.8em;
+        top: 0.3em;
+        height: 3.5em;
     }
 
     img {
@@ -113,14 +113,14 @@
     .SubNav--Down {
         top: 100%;
         left: 0;
-        z-index: 1;
+        z-index: z(default);
         margin-top: -1px;
     }
 
     .SubNav--DownRight {
         top: 100%;
         right: 0;
-        z-index: 1;
+        z-index: z(default);
         margin-top: -1px;
     }
 
@@ -152,7 +152,7 @@
     box-sizing: border-box;
     display: block;
     position: relative;
-    z-index: 2;
+    z-index: z(above);
 }
 
 .HasSubNav:hover .Rotate90--ParentHover {
