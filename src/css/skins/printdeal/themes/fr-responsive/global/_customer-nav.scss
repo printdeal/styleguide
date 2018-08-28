@@ -18,11 +18,21 @@
 
 .AccountNav__Link {
     padding: 0 halve($base-spacing-unit);
+}
+
+.AccountNav__Icon,
+.AccountNav__Text {
     line-height: 3.3;
 
     @include breakpoint(medium) {
-        line-height: 3.93;
+        line-height: 4.18;
     }
+}
+
+.AccountNav__OrderStatus {
+    position: absolute;
+    top: -0.4em;
+    right: 0.15em;
 }
 
 .CartNav {
@@ -39,7 +49,7 @@
 
     @include breakpoint(medium) {
         padding-left: third($base-spacing-unit);
-        line-height: 3.93;
+        line-height: 4.18;
 
         .HasSubNav & &:hover {
             background-color: color(white);
@@ -64,10 +74,12 @@
 
 .CartNav__CartStatus {
     position: absolute;
-    top: -0.5em;
+    top: -0.4em;
     right: -0.5em;
-    padding: 0.1em 0.2em;
-    font-size: 0.75em;
+
+    @include breakpoint(medium) {
+        top: -0.5em;
+    }
 }
 
 .CartNav__Box {

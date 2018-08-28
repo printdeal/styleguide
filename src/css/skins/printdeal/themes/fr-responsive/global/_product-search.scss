@@ -11,7 +11,7 @@
     }
 
     @include breakpoint(medium) {
-        top: halve($base-spacing-unit);
+        top: 10px;
         right: 24.5em;
         bottom: auto;
         left: auto;

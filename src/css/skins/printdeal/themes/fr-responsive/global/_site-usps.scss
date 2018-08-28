@@ -6,12 +6,6 @@
     background: color(gray-lightest);
 }
 
-// Tricky stuff: we need to make sure that the usps don't
-// end up underneath the product navigation so we have to
-// calculate how much offset we need so it appears next to
-// it.
-// Explanation: it calculates the productnav-width in pixels
-// and adds the base-spacing-unit.
 @include breakpoint(medium) {
     .SiteUsps__LanguageSpacer {
         padding-right: 9em;
