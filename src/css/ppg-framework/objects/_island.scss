@@ -26,3 +26,7 @@
 .Island--Half {
     margin-bottom: halve($base-spacing-unit);
 }
+
+.Island--Double {
+    margin-bottom: double($base-spacing-unit);
+}
