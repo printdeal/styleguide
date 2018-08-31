@@ -6,6 +6,13 @@
 .text-green-shade   { color: color(green-shade); }
 .text-red           { color: color(red); }
 .text-blue          { color: color(blue); }
+.text-black         { color: color(black); }
+
+.text-black-medium-down {
+    @include breakpoint(medium, 'max-width') {
+        color: color(black);
+    }
+}
 
 .text-dimmed {
     &,

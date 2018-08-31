@@ -18,37 +18,37 @@
         display: block;
         position: absolute;
         right: 0;
-        bottom: 3.3em;
+        bottom: 3.93em;
         left: 0;
         z-index: z(default);
-        border-bottom: 1px dashed color(gray-light);
         width: 100%;
-        height: 0;
+        height: 1px;
+        @include dashed-border;
 
         @include breakpoint(medium) {
-            bottom: 3.6em;
+            bottom: 4.54em;
         }
     }
 }
 
 .nav-wrap {
     position: relative;
-    height: 6.6em;
+    height: 8.46em;
     overflow: visible;
 
     @include breakpoint(medium) {
-        height: 7.8em;
+        height: 10.54em;
     }
 }
 
 .SiteLogo {
     display: inline-block;
     position: relative;
-    top: 0.1em;
+    top: 0.6em;
     height: 3em;
 
     @include breakpoint(medium) {
-        top: 0.3em;
+        top: 1.1em;
         height: 3.5em;
     }
 

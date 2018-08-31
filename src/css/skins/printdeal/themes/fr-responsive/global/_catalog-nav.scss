@@ -18,14 +18,14 @@
     .CategoryNav__Toggle {
         padding-right: $base-spacing-unit;
         padding-left: 22px;
-        line-height: 3.15;
+        line-height: 3.95;
         font-size: font-size('h3');
     }
 }
 
-.CategoryNav__List {
-    @include breakpoint(medium) {
-        padding: halve($base-spacing-unit) 0;
+@include breakpoint(medium) {
+    .CategoryNav__List {
+        padding: quarter($base-spacing-unit) 0;
     }
 }
 

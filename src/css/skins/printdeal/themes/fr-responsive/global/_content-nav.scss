@@ -1,7 +1,7 @@
 @include breakpoint(medium, 'max-width') {
     .ContentNav {
         position: absolute;
-        top: 3.25em;
+        top: 4.85em;
         left: 0;
         z-index: z(contentnav);
         width: 6em;
@@ -39,7 +39,9 @@
         padding: 1em;
         width: 18em;
         background-color: color(white);
-        line-height: 2.5;
+        line-height: 2.7;
+        // #TODO CHECK LINE HEIGHT ON MOBILE
+        // #TODO CHECK SLIDE TO LEFT ON MOBILE COLLAPSE
 
         .Expand__ContentNav & {
             display: block;
@@ -67,8 +69,13 @@
 
 .LanguageNav__Link {
     display: inline-block;
-    padding-right: third($base-spacing-unit);
-    padding-left: third($base-spacing-unit);
+    padding-right: halve($base-spacing-unit);
+    padding-left: halve($base-spacing-unit);
+    color: color(gray-dark);
+}
+
+.LanguageNav__ActiveLink {
+    color: color(gray-darker);
 }
 
 @include breakpoint(medium, 'max-width') {
@@ -81,6 +88,10 @@
 
     .LanguageNav__ActiveLink {
         border-color: color(gray-light) color(gray-light) color(green);
+    }
+
+    .IconList > .ServiceNav__Link {
+        margin-bottom: 0;
     }
 }
 
@@ -97,7 +108,7 @@
         bottom: -1px;
 
         .SiteNav__Link {
-            line-height: 3.65;
+            line-height: 4.6;
         }
     }
 
@@ -127,7 +138,7 @@
         display: inline-block;
         padding-right: $base-spacing-unit;
         padding-left: $base-spacing-unit;
-        line-height: 3.65;
+        line-height: 4.6;
     }
 
     .TeamNav {
@@ -135,9 +146,8 @@
         right: 0;
         bottom: 0;
         max-width: 19em;
-        height: 3.6em;
+        height: 4.6em;
         overflow: hidden;
-        line-height: 3.3;
     }
 
     .TeamNav__Image {

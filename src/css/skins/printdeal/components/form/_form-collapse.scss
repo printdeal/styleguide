@@ -46,6 +46,16 @@
         border-bottom-left-radius: 0; // [1]
         padding: 0 0.66em; // [2a]
     }
+
+    @include breakpoint(medium) {
+        .TextInput--Large {
+            height: 44px;
+        }
+
+        .ProductSearchBtn--Large {
+            height: 44px;
+        }
+    }
 }
 
 // 5. Make the button appear as if it's transparent

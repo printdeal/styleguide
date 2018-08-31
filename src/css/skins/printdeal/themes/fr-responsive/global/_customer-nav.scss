@@ -1,14 +1,15 @@
 .CustomerNav {
     display: inline-block;
     position: absolute;
-    top: 0;
+    top: third($base-spacing-unit);
     right: 0;
     z-index: z(customernav);
-    width: 17em;
+    width: 15em;
     text-align: right;
 
     @include breakpoint(medium) {
         top: -1px;
+        width: 18em;
     }
 }
 
@@ -17,7 +18,7 @@
 }
 
 .AccountNav__Link {
-    padding: 0 halve($base-spacing-unit);
+    padding: 0 $base-spacing-unit;
 }
 
 .AccountNav__Icon,
@@ -25,13 +26,13 @@
     line-height: 3.3;
 
     @include breakpoint(medium) {
-        line-height: 4.18;
+        line-height: 5.95;
     }
 }
 
 .AccountNav__OrderStatus {
     position: absolute;
-    top: -0.4em;
+    top: -0.5em;
     right: 0.15em;
 }
 
@@ -49,7 +50,7 @@
 
     @include breakpoint(medium) {
         padding-left: third($base-spacing-unit);
-        line-height: 4.18;
+        line-height: 5.95;
 
         .HasSubNav & &:hover {
             background-color: color(white);
@@ -64,10 +65,10 @@
 }
 
 .CartNav__Btn {
-    margin-top: 7px;
+    margin-top: 10px;
 
     @include breakpoint(medium) {
-        margin-top: 12px;
+        margin-top: 27px;
         margin-right: quarter($base-spacing-unit);
     }
 }
