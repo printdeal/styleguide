@@ -1,0 +1,16 @@
+@include breakpoint(medium) {
+    .TeamNav {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        max-width: 19em;
+        height: 4.6em;
+        overflow: hidden;
+    }
+
+    .TeamNav__Image {
+        margin-right: $base-spacing-unit;
+        width: auto;
+        height: 100%;
+    }
+}

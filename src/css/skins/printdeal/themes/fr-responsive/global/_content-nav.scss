@@ -1,0 +1,66 @@
+@include breakpoint(medium, 'max-width') {
+    .ContentNav {
+        position: absolute;
+        top: 4.85em;
+        left: 0;
+        z-index: z(contentnav);
+        width: 6em;
+    }
+
+    // stylelint-disable max-nesting-depth
+    .Expand__ContentNav {
+        .ContentNav {
+            z-index: z(contentnav_open);
+        }
+
+        .MobileMenu__Backdrop {
+            display: block;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: z(below);
+            background-color: $modal-backdrop-color;
+        }
+    }
+
+    .ContentNav__Toggle--on--small {
+        line-height: 2.7;
+        font-size: font-size('h2');
+    }
+
+    .ContentNav__Close {
+        display: block;
+        margin-top: 2px;
+    }
+
+    .ContentNav__List {
+        box-sizing: border-box;
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -18em;
+        border-right: 1px solid color(gray-light);
+        padding: 1em;
+        width: 18em;
+        overflow-y: scroll;
+        background-color: color(white);
+        line-height: 2.7;
+        transition: all 0.2s ease-in-out;
+
+        .Expand__ContentNav & {
+            left: 0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .SiteNav__Item + .SiteNav__Item {
+            margin-top: $base-spacing-unit;
+        }
+
+        .IconList__Item::before {
+            margin-top: 0.75em;
+        }
+    }
+}

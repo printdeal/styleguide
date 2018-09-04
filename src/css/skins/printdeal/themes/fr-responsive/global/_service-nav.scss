@@ -1,0 +1,17 @@
+@include breakpoint(medium, 'max-width') {
+    .IconList > .ServiceNav__Link {
+        margin-bottom: 0;
+    }
+}
+
+@include breakpoint(medium) {
+    .ServiceNav {
+        position: absolute;
+        right: 19.5em;
+        bottom: -1px;
+
+        .SiteNav__Link {
+            line-height: 4.6;
+        }
+    }
+}

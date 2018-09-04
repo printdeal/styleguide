@@ -1,0 +1,14 @@
+.CustomerNav {
+    display: inline-block;
+    position: absolute;
+    top: third($base-spacing-unit);
+    right: 0;
+    z-index: z(customernav);
+    width: 15em;
+    text-align: right;
+
+    @include breakpoint(medium) {
+        top: -1px;
+        width: 18.1em;
+    }
+}

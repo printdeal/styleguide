@@ -1,200 +1,171 @@
 .SiteHeader {
+    position: relative;
+    z-index: z(siteheader);
+    margin-bottom: $base-spacing-unit;
+    border-bottom: 1px solid  color(gray-light);
     background-color: color(white);
 
     &::before {
         content: '';
         display: block;
         height: 3px;
-        background: url('bg-stripe-tricolore.png');
+        background-color: color(gray-light);
+        background-image: url('bg-stripe-tricolore.png');
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 3.93em;
+        left: 0;
+        z-index: z(default);
+        width: 100%;
+        height: 1px;
+        @include dashed-border;
+
+        @include breakpoint(medium) {
+            bottom: 59px;
+        }
+    }
+}
+
+.nav-wrap {
+    position: relative;
+    height: 8.46em;
+    overflow: visible;
+
+    @include breakpoint(medium) {
+        height: 10.54em;
     }
 }
 
 .SiteLogo {
-    display: block;
-    width: 9em;
-
-    @include breakpoint(small) {
-        width: 12em;
-    }
-
-    @include breakpoint(medium) {
-        width: 17em;
-    }
-}
-
-.SiteNav {
-    text-align: right;
-}
-
-// 1a. Prevent items from wrapping on new line
-// 1b. Undo step A
-// 2. Fix vertical align issues, like for other inline-block elements (img, video)
-.SiteNav__List {
-    margin: 0;
-    list-style: none;
-    white-space: nowrap; // [1a]
-}
-
-.SiteNav__ListItem {
     display: inline-block;
     position: relative;
-    vertical-align: middle; // [2]
-    text-align: left;
-    white-space: normal; // [1b]
+    top: 0.6em;
+    height: 3em;
 
-    &:hover .Rotate90--ParentHover {
-        transform: rotate(90deg);
+    @include breakpoint(medium) {
+        top: 1.1em;
+        height: 3.5em;
     }
 
-    &:hover .Rotate180--ParentHover {
-        transform: rotate(180deg);
+    img {
+        max-height: 100%;
     }
+}
+
+.HasSubNav {
+    @include breakpoint(medium) {
+        position: relative;
+
+        &.CategoryNav__Item {
+            position: static;
+        }
+
+        > .SiteNav__Link {
+            border: 1px solid transparent;
+        }
+
+        &.IsOpen > .SiteNav__Link,
+        &:hover > .SiteNav__Link {
+            border-color: color(gray-light) color(gray-light) white;
+        }
+
+        &.IsOpen > .SiteSubNav,
+        &:hover > .SiteSubNav,
+        &:hover > .SubNav {
+            display: block;
+            visibility: visible;
+        }
+    }
+}
+
+.SubNav {
+    display: none;
+
+    @include breakpoint(medium) {
+        position: absolute;
+        border: 1px solid color(gray-light);
+        background: color(white);
+    }
+}
+
+// 1. Use visibility for using transitions between categories
+// 2. Used as delay mechanism to prevent accidental cross-hovering on menu items
+@include breakpoint(medium) {
+    .SiteSubNav,
+    .SubNav {
+        display: none;
+        position: absolute;
+        visibility: hidden; // [1]
+        transition: visibility 0.1s 0.15s; // [2]
+    }
+
+    .SiteSubNav {
+        border: 1px solid color(gray-light);
+        min-width: 18em;
+        background: color(white);
+    }
+
+    .SubNav--Down {
+        top: 100%;
+        left: 0;
+        z-index: z(default);
+        margin-top: -1px;
+    }
+
+    .SubNav--DownRight {
+        top: 100%;
+        right: 0;
+        z-index: z(default);
+        margin-top: -1px;
+    }
+
+    .SubNav--Right {
+        top: 0;
+        left: 100%;
+    }
+}
+
+.IsOpen--on--small {
+    display: block;
+}
+
+.SubNav--Pad {
+    padding: $base-spacing-unit;
+}
+
+@include breakpoint(medium) {
+    .SubNav--Pad--medium--up {
+        padding: $base-spacing-unit;
+    }
+}
+
+.SiteNav__Item {
+    display: block;
 }
 
 .SiteNav__Link {
-    display: inline-block;
-    position: relative;
-    z-index: z(sitenav-item-small);
-    border-left: 1px solid color(gray-light);
-    padding: 1em 0.33em 1em 0.75em;
-    vertical-align: top;
-    text-align: left;
-    text-decoration: none;
-
-    @include breakpoint(sitenav) { padding: 1em 0.25em 1em 0; }
-    @include breakpoint(large)   { padding: 1.5em 0.5em; }
-
-    @include breakpoint(medium) {
-        z-index: z(sitenav-item-large);
-        padding: 1em 0.33em;
-    }
-
-    .SiteNav__ListItem:last-child & {
-        border-right: 1px solid color(gray-light);
-    }
-}
-
-.SiteNav__Link--HasOneLine {
-    padding-top: 11px;
-    padding-bottom: 11px;
-
-    @include breakpoint(sitenav) {
-        padding-top: 21px;
-        padding-bottom: 21px;
-    }
-}
-
-.SiteNav__Link--HasNoIcon {
-    @include breakpoint(sitenav) { padding-left: 1em; }
-    @include breakpoint(large)   { padding-left: 1.5em; }
-}
-
-.SiteNav__CartStatus {
-    margin-top: -2.75em;
-    margin-right: -0.75em;
-    font-size: font-size(smaller);
-}
-
-// Make it look like that the subnav is attached to the main nav
-.SiteNav__ListItem--HasSubNav:hover .SiteNav__Link::after,
-.SiteNav__Link--IsActive::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: -1px;
-    left: 0;
-    border-top: 1px solid color(white);
-}
-
-.SiteNav__Title {
-    display: none;
-
-    @include breakpoint(sitenav) {
-        display: block;
-    }
-}
-
-// 1. Arbitrary width, but it's about the maximum amount of content that can fit
-//    into that element, so be careful when you need to change it!
-// 2. At least take up one line to let SiteNav items align
-.SiteNav__Subtitle {
-    display: none;
-    max-width: 10em; // [1]
-    min-height: $base-line-height; // [2]
-    font-size: font-size(small);
-
-    @include breakpoint(sitenav) {
-        display: block;
-    }
-}
-
-.SiteNav__ToggleIcon {
-    display: none;
-
-    @include breakpoint(sitenav) {
-        display: block;
-    }
-}
-
-.SiteNav__LangAbbr {
-    font-size: font-size(button);
-
-    @include breakpoint(sitenav) {
-        display: none;
-    }
-}
-
-.SiteNav__Icon {
-    font-size: font-size(large);
-
-    @include breakpoint(sitenav) {
-        font-size: 1.25em;
-    }
-
-    @include breakpoint(medium) {
-        font-size: font-size(large);
-    }
-}
-
-.SiteSubNav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: z(site-subnav-small);
-    border: 1px solid color(gray-light);
-    padding: 1em;
-    min-width: 18em;
-    background: color(white);
-
-    @include breakpoint(medium) {
-        z-index: z(site-subnav-large);
-    }
-
-    @include breakpoint(sitenav) {
-        .SiteNav__ListItem:hover & {
-            display: block;
-        }
-    }
-
-    // Custom size for shopping cart popup
-    .SiteNav__ListItem:last-child & {
-        right: 0;
-        left: auto;
-        width: 28em;
-    }
-}
-
-
-.SiteMobileNav {
-    display: none;
-    margin-bottom: -1px;
-}
-
-.SiteMobileNav--IsOpen {
+    box-sizing: border-box;
     display: block;
+    position: relative;
+    z-index: z(above);
+}
 
-    @include breakpoint(sitenav) {
-        display: none;
+.HasSubNav:hover .Rotate90--ParentHover {
+    transform: rotate(90deg);
+}
+
+.HasSubNav:hover .Rotate180--ParentHover {
+    transform: rotate(180deg);
+}
+
+@include breakpoint(medium) {
+    .SiteNav__Link--pad--medium--up {
+        padding-right: $base-spacing-unit;
+        padding-left: $base-spacing-unit;
     }
 }
