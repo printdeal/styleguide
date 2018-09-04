@@ -9,7 +9,7 @@
 
     @include breakpoint(medium) {
         top: -1px;
-        width: 18em;
+        width: 18.1em;
     }
 }
 
@@ -19,6 +19,10 @@
 
 .AccountNav__Link {
     padding: 0 $base-spacing-unit;
+
+    @include breakpoint(medium) {
+        height: 79px;
+    }
 }
 
 .AccountNav__Icon,
@@ -26,7 +30,7 @@
     line-height: 3.3;
 
     @include breakpoint(medium) {
-        line-height: 5.95;
+        line-height: 5.93;
     }
 }
 
@@ -50,7 +54,8 @@
 
     @include breakpoint(medium) {
         padding-left: third($base-spacing-unit);
-        line-height: 5.95;
+        height: 79px;
+        line-height: 5.93;
 
         .HasSubNav & &:hover {
             background-color: color(white);

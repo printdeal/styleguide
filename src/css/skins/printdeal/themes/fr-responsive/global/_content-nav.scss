@@ -32,25 +32,27 @@
 
     .ContentNav__Close {
         display: block;
+        margin-top: 2px;
     }
 
     .ContentNav__List {
-        display: none;
+        box-sizing: border-box;
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -18em;
+        border-right: 1px solid color(gray-light);
         padding: 1em;
         width: 18em;
+        overflow-y: scroll;
         background-color: color(white);
         line-height: 2.7;
-        // #TODO CHECK LINE HEIGHT ON MOBILE
-        // #TODO CHECK SLIDE TO LEFT ON MOBILE COLLAPSE
+        transition: all 0.2s ease-in-out;
 
         .Expand__ContentNav & {
-            display: block;
-            position: fixed;
-            top: 0;
-            bottom: 0;
             left: 0;
-            border-right: 1px solid color(gray-light);
-            overflow-y: scroll;
+            transition: all 0.2s ease-in-out;
         }
 
         .SiteNav__Item + .SiteNav__Item {
@@ -115,7 +117,7 @@
     .TestNav {
         position: absolute;
         top: 0;
-        right: 17em;
+        right: 18.25em;
     }
 
     .TestNav__Link {
@@ -154,24 +156,5 @@
         margin-right: $base-spacing-unit;
         width: auto;
         height: 100%;
-    }
-}
-
-@keyframes animation-slide-mobile-menu-from-left {
-    0% {
-        left: -18em;
-    }
-
-    100% {
-        left: 0;
-    }
-}
-
-.Animation--MobileMenu {
-    @include breakpoint(medium, 'max-width') {
-        animation-duration: 0.2s;
-        animation-fill-mode: both;
-        animation-name: animation-slide-mobile-menu-from-left;
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
 }
