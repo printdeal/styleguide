@@ -1,0 +1,51 @@
+.CartNav {
+    display: inline-block;
+}
+
+.CartNav__Link {
+    text-align: right;
+    line-height: 3.3;
+
+    @include breakpoint(medium, 'max-width') {
+        padding-right: quarter($base-spacing-unit);
+    }
+
+    @include breakpoint(medium) {
+        padding-left: third($base-spacing-unit);
+        height: 79px;
+        line-height: 5.93;
+
+        .HasSubNav & &:hover {
+            background-color: color(white);
+        }
+    }
+}
+
+@include breakpoint(medium, 'max-width') {
+    .CartNav__Box {
+        display: none;
+    }
+}
+
+.CartNav__Btn {
+    margin-top: 10px;
+
+    @include breakpoint(medium) {
+        margin-top: 27px;
+        margin-right: quarter($base-spacing-unit);
+    }
+}
+
+.CartNav__CartStatus {
+    position: absolute;
+    top: -0.4em;
+    right: -0.5em;
+
+    @include breakpoint(medium) {
+        top: -0.5em;
+    }
+}
+
+.CartNav__Box {
+    width: 28em;
+}

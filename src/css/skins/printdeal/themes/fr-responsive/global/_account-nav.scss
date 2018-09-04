@@ -1,0 +1,26 @@
+.AccountNav {
+    display: inline-block;
+}
+
+.AccountNav__Link {
+    padding: 0 $base-spacing-unit;
+
+    @include breakpoint(medium) {
+        height: 79px;
+    }
+}
+
+.AccountNav__Icon,
+.AccountNav__Text {
+    line-height: 3.3;
+
+    @include breakpoint(medium) {
+        line-height: 5.93;
+    }
+}
+
+.AccountNav__OrderStatus {
+    position: absolute;
+    top: -0.5em;
+    right: 0.15em;
+}
