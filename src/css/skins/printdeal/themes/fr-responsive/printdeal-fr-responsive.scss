@@ -23,10 +23,20 @@
 @import 'global/page-home';
 @import 'global/site-nav';
 @import 'global/site-usps';
+@import 'global/content-nav';
+@import 'global/category-nav';
 @import 'global/product-nav';
+@import 'global/service-nav';
+@import 'global/language-nav';
+@import 'global/test-nav';
+@import 'global/quicklink-nav';
+@import 'global/team-nav';
+@import 'global/customer-nav';
+@import 'global/account-nav';
+@import 'global/cart-nav';
 @import 'global/product-search';
-@import 'global/quicklinks';
 @import 'global/footer';
+@import 'global/spacing';
 
 @import 'components/blog';
 @import 'components/co-browser';

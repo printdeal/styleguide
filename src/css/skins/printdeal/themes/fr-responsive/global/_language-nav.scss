@@ -1,0 +1,35 @@
+.LanguageNav__Item {
+    display: inline-block;
+}
+
+.LanguageNav__Link {
+    display: inline-block;
+    padding-right: halve($base-spacing-unit);
+    padding-left: halve($base-spacing-unit);
+    color: color(gray-dark);
+}
+
+.LanguageNav__ActiveLink {
+    color: color(gray-darker);
+}
+
+@include breakpoint(medium, 'max-width') {
+    .LanguageNav__Link {
+        margin-right: halve($base-spacing-unit);
+        border-width: 1px 1px 3px;
+        border-style: solid;
+        border-color: transparent;
+    }
+
+    .LanguageNav__ActiveLink {
+        border-color: color(gray-light) color(gray-light) color(green);
+    }
+}
+
+@include breakpoint(medium) {
+    .LanguageNav {
+        position: absolute;
+        top: -1.9em;
+        right: 0;
+    }
+}

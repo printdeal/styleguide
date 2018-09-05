@@ -1,0 +1,62 @@
+.CategoryNav__Toggle:hover {
+    color: inherit;
+    cursor: default;
+}
+
+@include breakpoint(medium) {
+    .CategoryNav {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 18em;
+    }
+
+    .CategoryNav:hover .Rotate180--ParentHover {
+        transform: rotate(180deg);
+    }
+
+    .CategoryNav__Toggle {
+        padding-right: $base-spacing-unit;
+        padding-left: 22px;
+        line-height: 3.95;
+        font-size: font-size('h3');
+    }
+}
+
+@include breakpoint(medium) {
+    .CategoryNav__List {
+        padding: quarter($base-spacing-unit) 0;
+    }
+}
+
+.CategoryNav__Link {
+    display: block;
+
+    @include breakpoint(medium) {
+        position: relative;
+        margin-right: -1px;
+        border-width: 1px 1px 1px 3px;
+        border-style: solid;
+        border-color: transparent;
+        padding: 3px halve($base-spacing-unit) 3px 15px;
+    }
+}
+
+.CategoryNav__Item:hover .CategoryNav__Link {
+    border-color: color(gray-light) color(white) color(gray-light) color(blue);
+}
+
+.CategoryNav__Icon {
+    margin: 0 0.4em 0 0.2em;
+}
+
+.CategoryNav__Item:hover .CategoryNav__Icon--IsDefault,
+.CategoryNav__Item .CategoryNav__Icon--IsHoverable {
+    display: none;
+}
+
+.CategoryNav__Item .CategoryNav__Icon--IsDefault,
+.CategoryNav__Item:hover .CategoryNav__Icon--IsHoverable {
+    display: inline-block;
+}
+

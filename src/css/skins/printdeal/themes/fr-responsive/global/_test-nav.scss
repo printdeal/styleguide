@@ -1,0 +1,11 @@
+@include breakpoint(medium) {
+    .TestNav {
+        position: absolute;
+        top: 0;
+        right: 18.25em;
+    }
+
+    .TestNav__Link {
+        line-height: 4;
+    }
+}

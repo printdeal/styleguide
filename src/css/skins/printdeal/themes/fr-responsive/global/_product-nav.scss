@@ -1,267 +1,26 @@
+// 1. Let the navigation extend beyond the height of the dropdown
+// 2. Let the navigation be of unlimited height to cater for long lists
 .ProductNav {
-    margin-bottom: 18px;
-    border-width: 1px 0;
-    border-style: solid;
-    border-color: color(gray-light);
-    background-color: color(gray-lighter);
-}
-
-.ProductNav__Inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    position: relative;
-}
-
-.ProductNav__Toggler {
-    margin-right: halve($base-spacing-unit);
-    margin-left: negative(halve($base-spacing-unit));
-    border-width: 0 1px;
-    border-style: solid;
-    border-color: color(gray-light);
-    padding: 1em 0.66em 1em 1.22em;
-    width: $product-nav-toggler-width;
-    font-weight: 700;
-    cursor: pointer;
-
     @include breakpoint(medium) {
-        margin-left: 0;
-        padding-left: 0.5em;
-        width: $product-nav-width;
-    }
-}
-
-.ProductNav__Toggler--IsOpen .Rotate90--ParentHover {
-    transform: rotate(90deg);
-}
-
-.ProductNav__Toggler--IsOpen .Rotate180--ParentHover {
-    transform: rotate(180deg);
-}
-
-.ProductNav__Toggler--IsOpen {
-    background-color: color(white);
-    cursor: default;
-}
-
-.ProductNav__TogglerText {
-    display: none;
-
-    @include breakpoint(medium) {
-        display: inline-block;
-        padding-left: 0.5em;
-        color: color(gray-darkest);
-        font-size: font-size(h3);
-    }
-}
-
-// Not so pretty no-js fallback
-// stylelint-disable selector-max-class
-@include breakpoint(medium) {
-    .no-js .ProductNav:hover .ProductNav__Categories {
-        display: block;
-    }
-}
-// stylelint-enable selector-max-class
-
-
-// 1. Make sure the search bar still aligns next to the toggler by pushing the
-//    categories to the next line
-// 2. Undo page-wrap
-.ProductNav__Categories {
-    display: none;
-    order: 1; // [1]
-    position: relative;
-    margin: 0 -0.66em -0.66em -0.66em; // [2]
-    border-width: 1px 0;
-    border-style: solid;
-    border-color: color(gray-light);
-    width: 100%;
-    width: calc(100% + 0.66em + 0.66em); // [2]
-    background: color(white);
-
-    @include breakpoint(medium) {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: z(productnav);
-        margin: 0;
-        border-width: 1px;
-        padding: 1em 0;
-        width: $product-nav-width;
-    }
-}
-
-.ProductNav__Categories--IsOpen {
-    display: block;
-}
-
-.ProductNav__Categories--HasSubNav { // added with js
-
-    .ProductNav__Category {
-        border-right: 1px solid color(gray-light);
-        width: 4em;
-
-        @include breakpoint(medium) {
-            border-right: none;
-            width: auto;
-        }
-    }
-
-    .ProductNav__CategoryTitle {
-        display: none;
-
-        @include breakpoint(medium) {
-            display: inline;
-        }
-    }
-
-    .ProductNav__MProductsContainer {
-        z-index: 0;
-    }
-}
-
-.ProductNavCategory__Icon {
-    margin: 0 0.2em;
-    line-height: 1;
-}
-
-@mixin product-nav-icon($highlight: false) {
-    .ProductNavCategory__Icon--IsHoverable {
-        display: if($highlight, block, none);
-    }
-
-    .ProductNavCategory__Icon--IsDefault {
-        display: if($highlight, none, block);
-    }
-}
-
-@include product-nav-icon($highlight: false);
-
-@include breakpoint(medium) {
-    .ProductNav__CategoriesListItem:hover {
-        @include product-nav-icon($highlight: true);
-    }
-}
-
-.ProductNav__CategoriesList {
-    margin: 0;
-    list-style: none;
-}
-
-.ProductNav__CategoriesListItem {
-
-    @include breakpoint(medium) {
-        margin-right: -1px;
-        border-width: 1px 1px 1px 0.25em;
-        border-style: solid;
-        border-color: transparent;
-
-        &:hover {
-            border-color: color(gray-light) color(white) color(gray-light) color(blue);
-
-            .ProductNav__Products { // stylelint-disable-line
-                display: block;
-                visibility: visible;
-            }
-        }
-    }
-}
-
-.ProductNav__Category {
-    position: relative;
-    visibility: visible;
-    border-bottom: 1px solid color(gray-light);
-    padding: 0.75em;
-    text-decoration: none;
-
-    @include breakpoint(medium) {
-        margin: 0;
-        border-bottom: none;
-        padding: 0.25em 1em;
-        background: color(white);
-
-        .ProductNav__CategoriesListItem:hover &,
-        .ProductNav__CategoriesListItem:focus & {
-            color: color(blue);
-        }
-
-        &:hover {
-            // stylelint-disable max-nesting-depth
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                right: -1px;
-                z-index: z(default);
-                width: 25%;
-                height: 100%;
-            }
-
-            &::before {
-                top: -1.25em;
-            }
-
-            &::after {
-                bottom: -1.25em;
-            }
-        }
-    }
-
-    &:hover,
-    &:focus {
-        color: inherit;
-    }
-}
-
-// 1. Let the navigation extend beyound the height of the dropdown
-// 2. Use visibility for using transitions between categories
-// 3. Used as delay mechanism to prevent accidental cross-hovering on menu items
-// 4. Let the navigation be of unlimited height to cater for long lists
-
-$productnav-padding: 1.5em;
-
-.ProductNav__Products {
-    display: none;
-
-    @include breakpoint(medium) {
-        display: block;
-        position: absolute;
-        top: 0;
-        bottom: negative(triple($base-spacing-unit)); // [1]
-        left: 100%;
-        visibility: hidden; // [2]
+        bottom: -54px;
         z-index: z(below);
-        border-width: 0 1px 1px 1px;
-        border-style: solid;
-        border-color: color(gray-light);
-        padding: $productnav-padding 2em;
+        margin-top: -1px;
+        padding-right: 12em;
         width: 48em;
-        background-color: color(white);
         background-repeat: no-repeat;
-        background-position: right bottom;
+        background-position: right top;
         background-size: 11em auto;
-        transition: visibility 0.1s 0.15s; // [3]
-
-        .no-csscolumns & {
-            bottom: auto; // [4]
-            width: 36em;
-        }
     }
 
     @include breakpoint(productnav) {
-        width: 61em;
+        padding-right: 16em;
+        width: 60.8em;
         background-size: 15em auto;
     }
-}
 
-// Leave some room for product images on the side
-.ProductNav__Title {
-    margin-right: 9em;
-
-    @include breakpoint(medium) {
-        margin-right: 12em;
+    .no-csscolumns & {
+        bottom: auto; // [2]
+        width: 36em;
     }
 }
 
@@ -269,56 +28,11 @@ $productnav-padding: 1.5em;
 //    see https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill
 //    and https://css-tricks.com/almanac/properties/c/column-fill/
 // 2. Fallback for calc()
-.ProductNav__ProductContainer {
-    columns: 4 7em;
+.ProductNav__Box {
+    display: block;
+    columns: 3 9em;
     column-gap: 1em;
     column-fill: auto; // [1]
     height: 90%; // [2]
-    height: calc(100% - #{double($productnav-padding)});
-}
-
-.ProductNav__Products--ShowsChild {
-    background-position: right top;
-}
-
-// Mobile
-.ProductNav__MProductsContainer {
-    @include scrollable;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 4em;
-    z-index: z(below);
-    margin-left: -1px;
-    overflow-x: hidden;
-
-    @include breakpoint(medium) {
-        display: none;
-    }
-}
-
-.ProductNav__MProducts {
-    display: none;
-    padding: 1em;
-}
-
-.ProductNav__MProducts--IsOpen {
-    @include product-nav-icon($highlight: true);
-    display: block;
-    outline: none;
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: -1px;
-        bottom: 0;
-        z-index: z(default);
-        border-right: 1px solid color(white);
-    }
-}
-
-.ProductNav__MProduct {
-    padding: 0.15em 0;
+    height: calc(100% - #{double($base-spacing-unit)});
 }

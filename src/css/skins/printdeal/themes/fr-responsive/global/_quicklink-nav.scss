@@ -1,0 +1,20 @@
+@include breakpoint(medium) {
+    .QuickLink--1 {
+        position: absolute;
+        bottom: 0;
+        left: 18.5em;
+    }
+
+    .QuickLink--2 {
+        position: absolute;
+        bottom: 0;
+        left: 30.5em;
+    }
+
+    .QuickLink__Link {
+        display: inline-block;
+        padding-right: $base-spacing-unit;
+        padding-left: $base-spacing-unit;
+        line-height: 4.6;
+    }
+}
