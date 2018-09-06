@@ -9,7 +9,7 @@
 
     @include breakpoint(medium) {
         top: -1px;
-        width: 18.1em;
+        width: 21em;
     }
 
     @include breakpoint(medium, 'max-width') {
