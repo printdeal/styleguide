@@ -34,17 +34,6 @@
         }
     }
 
-    .IsOpen .MobileMenu__Backdrop {
-        display: block;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: z(customernav_backdrop);
-        background-color: $modal-backdrop-color;
-    }
-
     @include breakpoint(medium, 'max-width') {
         .SiteSubNav {
             box-sizing: border-box;
