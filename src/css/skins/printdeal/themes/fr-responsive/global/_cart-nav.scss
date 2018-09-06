@@ -28,22 +28,18 @@
 }
 
 .CartNav__Btn {
-    margin-top: 10px;
+    margin-top: 7px;
 
     @include breakpoint(medium) {
-        margin-top: 27px;
+        margin-top: 24px;
         margin-right: quarter($base-spacing-unit);
     }
 }
 
 .CartNav__CartStatus {
     position: absolute;
-    top: -0.4em;
+    top: -0.16em;
     right: -0.5em;
-
-    @include breakpoint(medium) {
-        top: -0.5em;
-    }
 }
 
 .CartNav__Box {

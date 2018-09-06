@@ -3,14 +3,20 @@
         position: absolute;
         right: 0;
         bottom: 0;
-        max-width: 19em;
+        width: 21.5em;
         height: 4.6em;
         overflow: hidden;
+        line-height: 4.6;
     }
 
     .TeamNav__Image {
         margin-right: $base-spacing-unit;
         width: auto;
         height: 100%;
+    }
+
+    .TeamNav__Text {
+        position: relative;
+        top: 2px;
     }
 }

@@ -29,6 +29,12 @@
             bottom: 59px;
         }
     }
+
+    @include breakpoint(medium, 'max-width') {
+        .IconList__Item::before {
+            margin-top: 0.75em;
+        }
+    }
 }
 
 .nav-wrap {

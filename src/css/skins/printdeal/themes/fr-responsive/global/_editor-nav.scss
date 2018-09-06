@@ -1,0 +1,26 @@
+.EditorHeader {
+    padding-bottom: 0;
+
+    &::after {
+        display: none;
+    }
+
+    .SiteLogo {
+        display: block;
+        top: -1.7em;
+        width: auto;
+        height: 47px;
+    }
+}
+
+.SiteNav__ListItem {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    text-align: left;
+    white-space: normal;
+}
+
+.SiteNav__Subtitle {
+    font-size: font-size(small);
+}

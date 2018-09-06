@@ -37,6 +37,8 @@ $z-indexes: (
     siteheader:         12,
 
     // z-indexes within siteheader
+    customernav_open:   4,
+    customernav_backdrop: 3,
     contentnav_open:    6,
     customernav:        5,
     contentnav:         3,

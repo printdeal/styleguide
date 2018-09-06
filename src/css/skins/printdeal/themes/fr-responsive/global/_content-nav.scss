@@ -13,7 +13,7 @@
             z-index: z(contentnav_open);
         }
 
-        .MobileMenu__Backdrop {
+        .ContentNav .MobileMenu__Backdrop {
             display: block;
             position: fixed;
             top: 0;
@@ -57,10 +57,6 @@
 
         .SiteNav__Item + .SiteNav__Item {
             margin-top: $base-spacing-unit;
-        }
-
-        .IconList__Item::before {
-            margin-top: 0.75em;
         }
     }
 }
