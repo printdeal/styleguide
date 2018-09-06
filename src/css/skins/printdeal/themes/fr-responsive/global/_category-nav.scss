@@ -39,6 +39,16 @@
         border-style: solid;
         border-color: transparent;
         padding: 3px halve($base-spacing-unit) 3px 15px;
+
+        &:hover::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -10%;
+            right: 0;
+            bottom: -10%;
+            width: 5em;
+        }
     }
 }
 

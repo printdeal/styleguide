@@ -12,19 +12,14 @@
 
     @include breakpoint(medium) {
         top: 15px;
-        right: 25em;
+        right: auto;
         bottom: auto;
-        left: auto;
-        width: 22em;
+        left: 19.6em;
+        width: 26.5em;
     }
 
     @include breakpoint(large) {
-        right: 27em;
-        width: 28em;
-    }
-
-    @include breakpoint(x-large) {
-        width: 32em;
+        width: 39.5em;
     }
 }
 
@@ -87,7 +82,7 @@
 .ProductSearchResults__Content {
     @include scrollable;
     max-height: 28em; // [1]
-    max-height: 60vh;
+    max-height: 62vh;
 }
 
 .ProductSearchResults__Title {
