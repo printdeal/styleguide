@@ -9,7 +9,29 @@
 
     @include breakpoint(medium) {
         top: -1px;
-        width: 18.1em;
+        width: 21em;
+    }
+
+    @include breakpoint(medium, 'max-width') {
+        .SiteSubNav {
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: -18em;
+            z-index: z(customernav_open);
+            border-right: 1px solid color(gray-light);
+            padding: 1em;
+            width: 18em;
+            overflow-y: scroll;
+            background-color: color(white);
+            line-height: 2.7;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .IsOpen > .SiteSubNav {
+            left: 0;
+        }
     }
 
     @include breakpoint(medium, 'max-width') {
