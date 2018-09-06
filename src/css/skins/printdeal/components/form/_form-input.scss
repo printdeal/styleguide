@@ -12,9 +12,25 @@
 .Input--Inline {
     display: table;
     margin-bottom: halve($base-spacing-unit);
-    border: 1px solid color(gray-light);
-    border-radius: radius(small);
     width: 100%;
+
+    .Input__Field {
+        border: 1px solid color(gray-light);
+        border-radius: radius(small);
+        padding: 6.5px;
+
+        &:not(:first-child) {
+            border-left: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:not(:last-child) {
+            border-right: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
 }
 
 .Input--HasError {
@@ -46,8 +62,14 @@
 }
 
 .Input__Prefix {
-    border-right: 1px solid color(gray-light);
+    border: 1px solid color(gray-light);
+    border-top-left-radius: radius(small);
+    border-bottom-left-radius: radius(small);
     min-width: 4em;
 }
 
-.Input__Postfix { border-left: 1px solid color(gray-light); }
+.Input__Postfix {
+    border: 1px solid color(gray-light);
+    border-top-right-radius: radius(small);
+    border-bottom-right-radius: radius(small);
+}
