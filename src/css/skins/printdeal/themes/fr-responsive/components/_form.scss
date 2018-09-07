@@ -62,9 +62,9 @@
 .FileInput {
     display: block;
     border: 2px dashed color(gray-light);
+    border-radius: 3px;
     padding: $base-spacing-unit;
     text-align: center;
-    border-radius: 3px;
 }
 
 .RadioLabelIcon {
