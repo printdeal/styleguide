@@ -82,7 +82,7 @@
 .ProductSearchResults__Content {
     @include scrollable;
     max-height: 28em; // [1]
-    max-height: 62vh;
+    max-height: 65vh;
 }
 
 .ProductSearchResults__Title {

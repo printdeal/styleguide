@@ -71,17 +71,15 @@
             position: static;
         }
 
-        > .SiteNav__Link {
+        > .SiteNav__ItemWrap > .SiteNav__Link {
             border: 1px solid transparent;
         }
 
-        &.IsOpen > .SiteNav__Link,
-        &:hover > .SiteNav__Link {
+        &.IsOpen > .SiteNav__ItemWrap > .SiteNav__Link {
             border-color: color(gray-light) color(gray-light) white;
         }
 
-        &.IsOpen > .SiteSubNav,
-        &:hover > .SiteSubNav,
+        &.IsOpen .SiteSubNav,
         &:hover > .SubNav {
             display: block;
             visibility: visible;
@@ -161,11 +159,11 @@
     z-index: z(above);
 }
 
-.HasSubNav:hover .Rotate90--ParentHover {
+.HasSubNav.IsOpen .Rotate90--ParentHover {
     transform: rotate(90deg);
 }
 
-.HasSubNav:hover .Rotate180--ParentHover {
+.HasSubNav.IsOpen .Rotate180--ParentHover {
     transform: rotate(180deg);
 }
 
