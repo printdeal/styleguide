@@ -11,7 +11,7 @@
         width: 18em;
     }
 
-    .CategoryNav:hover .Rotate180--ParentHover {
+    .CategoryNav.IsOpen .Rotate180--ParentHover {
         transform: rotate(180deg);
     }
 
