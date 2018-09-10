@@ -133,3 +133,11 @@ html[data-useragent*='MSIE 9.0'] {
         list-style: none; // [1]
     }
 }
+
+// Fix chrome screaming over passive event handlers.
+.js-toggle-subnav,
+.js-close-subnav,
+.js-toggle-mobilenav,
+.js-close-mobilenav {
+    touch-action: none;
+}
