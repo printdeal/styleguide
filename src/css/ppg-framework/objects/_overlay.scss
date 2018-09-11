@@ -48,6 +48,10 @@
     transform: translateY(-50%);
 }
 
+.Overlay--Button--Size {
+    font-size: font-size(button);
+}
+
 .Overlay--Center { @extend %overlay-center; }
 .Overlay--CenterX { @extend %overlay-center-x; }
 .Overlay--CenterY { @extend %overlay-center-y; }
