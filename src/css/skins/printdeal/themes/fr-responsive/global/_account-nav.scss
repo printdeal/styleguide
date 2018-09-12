@@ -4,6 +4,7 @@
 
 .AccountNav__Link {
     padding: 0 $base-spacing-unit;
+    font-size: font-size(button);
 
     @include breakpoint(medium) {
         height: 79px;
