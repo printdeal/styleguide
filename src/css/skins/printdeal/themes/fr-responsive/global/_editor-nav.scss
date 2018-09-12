@@ -1,5 +1,7 @@
 .EditorHeader {
-    padding-bottom: 0;
+    &.SiteHeader {
+        padding-bottom: 0;
+    }
 
     &::after {
         display: none;
@@ -7,8 +9,8 @@
 
     .SiteLogo {
         display: block;
-        top: -1.7em;
-        width: auto;
+        top: 0;
+        width: 14em;
         height: 47px;
     }
 }
