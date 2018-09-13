@@ -67,10 +67,6 @@
     @include breakpoint(medium) {
         position: relative;
 
-        &.CategoryNav__Item {
-            position: static;
-        }
-
         > .SiteNav__ItemWrap > .SiteNav__Link {
             border: 1px solid transparent;
         }

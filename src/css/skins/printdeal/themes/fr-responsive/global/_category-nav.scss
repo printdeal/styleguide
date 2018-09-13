@@ -27,6 +27,11 @@
     .CategoryNav__List {
         padding: quarter($base-spacing-unit) 0;
     }
+
+    .HasSubNav.CategoryNav__Item {
+        position: static;
+        z-index: z(default);
+    }
 }
 
 .CategoryNav__Link {
@@ -39,21 +44,28 @@
         border-style: solid;
         border-color: transparent;
         padding: 3px halve($base-spacing-unit) 3px 15px;
-
-        &:hover::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: -10%;
-            right: 0;
-            bottom: -10%;
-            width: 5em;
-        }
     }
 }
 
-.CategoryNav__Item:hover .CategoryNav__Link {
-    border-color: color(gray-light) color(white) color(gray-light) color(blue);
+.CategoryNav__Item:hover {
+    z-index: z(above);
+
+    .CategoryNav__Link {
+        border-color: color(gray-light) color(white) color(gray-light) color(blue);
+    }
+
+    @include breakpoint(medium) {
+        .CategoryNav__Link::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -50%;
+            right: -1px;
+            bottom: -50%;
+            z-index: z(above);
+            width: 3em;
+        }
+    }
 }
 
 .CategoryNav__Icon {
