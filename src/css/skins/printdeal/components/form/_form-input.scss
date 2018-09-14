@@ -10,14 +10,13 @@
 ///
 
 .Input--Inline {
-    display: table;
+    display: inline-flex;
     margin-bottom: halve($base-spacing-unit);
     width: 100%;
 
     .Input__Field {
         border: 1px solid color(gray-light);
         border-radius: radius(small);
-        padding: 6.5px;
 
         &:not(:first-child) {
             border-left: 0;
@@ -44,7 +43,7 @@
 .Input__Field,
 .Input__Postfix,
 .Input__Prefix {
-    display: table-cell;
+    display: inline-block;
     border: none;
     vertical-align: middle;
 }
@@ -55,8 +54,7 @@
 
 .Input__Postfix,
 .Input__Prefix {
-    padding-right: 0.5em;
-    padding-left: 0.5em;
+    padding: 6px 0.5em;
     background-color: color(gray-lighter);
     text-align: center;
 }
