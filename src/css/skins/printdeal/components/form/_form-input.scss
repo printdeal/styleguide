@@ -10,26 +10,13 @@
 ///
 
 .Input--Inline {
-    display: inline-flex;
+    display: flex;
     margin-bottom: halve($base-spacing-unit);
+    border: 1px solid color(gray-light);
+    border-radius: radius(small);
     width: 100%;
-
-    .Input__Field {
-        border: 1px solid color(gray-light);
-        border-radius: radius(small);
-
-        &:not(:first-child) {
-            border-left: 0;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-
-        &:not(:last-child) {
-            border-right: 0;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-    }
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .Input--HasError {
@@ -60,14 +47,6 @@
 }
 
 .Input__Prefix {
-    border: 1px solid color(gray-light);
-    border-top-left-radius: radius(small);
-    border-bottom-left-radius: radius(small);
-    min-width: 4em;
-}
-
-.Input__Postfix {
-    border: 1px solid color(gray-light);
-    border-top-right-radius: radius(small);
-    border-bottom-right-radius: radius(small);
+    flex-basis: 7em;
+    border-right: 1px solid color(gray-light);
 }
