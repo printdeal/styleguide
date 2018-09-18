@@ -1,5 +1,12 @@
 .AccountNav {
     display: inline-block;
+
+    // show-for-medium-up cannot be used to hide this sitesubnav because doing causes a hover-delay on desktop
+    @include breakpoint(medium, 'max-width') {
+        .SiteSubNav {
+            display: none;
+        }
+    }
 }
 
 .AccountNav__Link {
