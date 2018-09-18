@@ -47,6 +47,10 @@
 }
 
 .Input__Prefix {
-    flex-basis: 7em;
+    flex-basis: 5em;
     border-right: 1px solid color(gray-light);
+}
+
+.Input__Postfix {
+    border-left: 1px solid color(gray-light);
 }
