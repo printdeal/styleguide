@@ -99,17 +99,6 @@ $loader-img-width: 50px;
         @extend %form-input !optional;
     }
 
-    .pr-logo-container {
-        display: none;
-    }
-
-    .pr-review-snapshot-header-intro,
-    .pr-snippet-write-review-link,
-    .pr-snippet .pr-snippet-stars-png .pr-snippet-rating-decimal,
-    .pr-rd-flag-review-container {
-        display: none;
-    }
-
     .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-stars-reco-reco,
     .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-read-and-write {
         margin-top: 0;
@@ -192,34 +181,6 @@ $loader-img-width: 50px;
         }
     }
 
-    .pr-review-snippet-container .pr-snippet-stars-reco-inline .pr-snippet-stars-reco-reco {
-        display: none;
-    }
-
-    .pr-review-snapshot .pr-review-snapshot-msq-container {
-        display: none;
-    }
-
-    #pr-image-display {
-        display: none;
-    }
-
-    .pr-bestuses-form-group {
-        display: none;
-    }
-
-    #war-ty-best-uses {
-        display: none;
-    }
-
-    .pr-media_videourl-form-group {
-        display: none;
-    }
-
-    .pr-no-reviews {
-        display: none;
-    }
-
     .pr-review-snippet-container {
         margin-bottom: $base-spacing-unit;
     }
@@ -230,6 +191,21 @@ $loader-img-width: 50px;
             margin-right: 1%;
             width: 32%;
         }
+    }
+
+    .pr-review-snapshot-header-intro,
+    .pr-snippet-write-review-link,
+    .pr-snippet .pr-snippet-stars-png .pr-snippet-rating-decimal,
+    .pr-rd-flag-review-container,
+    .pr-logo-container,
+    .pr-review-snippet-container .pr-snippet-stars-reco-inline .pr-snippet-stars-reco-reco,
+    .pr-review-snapshot .pr-review-snapshot-msq-container,
+    #pr-image-display,
+    .pr-bestuses-form-group,
+    #war-ty-best-uses,
+    .pr-media_videourl-form-group,
+    .pr-no-reviews {
+        display: none;
     }
 }
 
