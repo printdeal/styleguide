@@ -7,9 +7,8 @@
 @include breakpoint(medium) {
     .ServiceNav {
         position: absolute;
-        right: 20em;
+        right: 21.25em;
         bottom: -1px;
-        margin-right: halve($base-spacing-unit);
 
         .SiteNav__Link {
             line-height: 4.6;
