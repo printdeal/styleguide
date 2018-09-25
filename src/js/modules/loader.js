@@ -1,31 +1,32 @@
 var Core = (function (Core, settings) {
     "use strict";
 
-    var $element;
+    var domElement;
     var config = settings && settings.modules && settings.modules.loader;
     var loadingText = config && config.text || "Loading";
 
     var show = function (text) {
-        $element
-            .attr("data-text", (text || loadingText))
-            .addClass("Loader--IsActive");
+        domElement.setAttribute("data-text", (text || loadingText));
+        domElement.classList.add('Loader--IsActive');
     };
 
     var hide = function () {
-        $element.removeClass("Loader--IsActive");
+        domElement.classList.remove('Loader--IsActive');
     };
 
     var setup = function () {
-        var $loader = $("#Loader");
+        var $loader = document.getElementById('Loader');
 
-        if ($loader.length) {
-            $element = $loader;
+        if ($loader) {
+            domElement = $loader;
         } else {
-            $element = $("<div>")
-                .addClass("Loader")
-                .attr("id", "Loader")
-                .attr("data-text", loadingText)
-                .appendTo("body");
+            var newLoaderElement = document.createElement('div');
+            newLoaderElement.classList.add('Loader');
+            newLoaderElement.setAttribute('id', 'Loader');
+            newLoaderElement.setAttribute('data-text', loadingText);
+            document.body.appendChild(newLoaderElement);
+
+            domElement = newLoaderElement;
         }
     };
 
