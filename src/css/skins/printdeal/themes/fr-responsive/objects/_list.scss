@@ -1,0 +1,23 @@
+.List--Inline {
+    li {
+        display: inline;
+    }
+}
+
+.List--Comma {
+    li + li {
+        &::before {
+            content: ',';
+            margin-right: 0.75em;
+            margin-left: -0.25em;
+        }
+    }
+}
+
+.List--Comma--FirstIsColon {
+    li:first-child + li {
+        &::before {
+            content: ': ';
+        }
+    }
+}

@@ -7,6 +7,7 @@
 .text-red           { color: color(red); }
 .text-blue          { color: color(blue); }
 .text-black         { color: color(black); }
+.text-gray-darkest  { color: color(gray-darkest); }
 
 .text-black-medium-down {
     @include breakpoint(medium, 'max-width') {

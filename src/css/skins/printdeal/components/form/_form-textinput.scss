@@ -48,10 +48,6 @@ $input-placeholder-color: color(gray-medium);
     }
 }
 
-.TextInput--Large {
-    height: 44px;
-}
-
 // 1. Remove the 'erase/clear' cross in IE >= 10
 ::-ms-clear {
     display: none; // [1]

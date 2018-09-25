@@ -5,21 +5,29 @@
     bottom: 0.68em;
     left: 0;
     z-index: z(productsearch);
+    transition: all $base-animation-duration $base-animation-function;
 
     @include breakpoint(medium, 'max-width') {
         padding-left: 7.5em;
     }
 
     @include breakpoint(medium) {
-        top: 15px;
+        top: 12px;
         right: auto;
         bottom: auto;
         left: 19.6em;
         width: 26.5em;
+        box-shadow: $shadow-panel;
     }
 
     @include breakpoint(large) {
         width: 37em;
+    }
+
+    // We must state these separately to override the medium-up styling.
+    &.ProductSearch--IsOpen {
+        left: 0;
+        width: 100%;
     }
 }
 
@@ -27,14 +35,16 @@
 //    will appear below the search
 .ProductSearch--IsOpen {
     z-index: z(search-form); // [1]
+    padding-left: 0;
 }
 
 .ProductSearch__Form {
     position: relative;
-    box-shadow: $shadow-panel;
 
     .ProductSearch--IsOpen & {
         z-index: z(search-form); // [1]
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
     }
 }
 
@@ -46,7 +56,7 @@
     border-top: 1px solid color(gray-light);
     padding-right: halve($base-spacing-unit);
     padding-left: halve($base-spacing-unit);
-    background-color: color(gray-lighter);
+    background-color: color(white);
 
     @include breakpoint(medium) {
         position: absolute;
@@ -85,6 +95,10 @@
     max-height: 65vh;
 }
 
+.ProductSearchResults__Wrap {
+    padding: 27px $base-spacing-unit;
+}
+
 .ProductSearchResults__Title {
     padding: halve($base-spacing-unit) halve($base-spacing-unit) quarter($base-spacing-unit) halve($base-spacing-unit);
     font-size: font-size(base);
@@ -112,8 +126,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: color(black);
-    background-color: rgba(color(black), 0.35);
+    background-color: rgba(color(white), 0.9);
     cursor: pointer;
 }
 
@@ -125,4 +138,42 @@
 .ProductSearchIcon--up {
     position: relative;
     top: -2px;
+}
+
+.Form--Inline .ProductSearchBtn--Large {
+    margin: 3px;
+    height: 38px;
+
+    @include breakpoint(medium) {
+        margin: 5px;
+        height: 40px;
+    }
+
+    .ProductSearch--IsOpen & {
+        border-width: 1px 1px 3px;
+        border-style: solid;
+        border-color: color(orange-dark);
+        background-color: color(orange);
+        color: color(white);
+    }
+}
+
+.ProductSearch__IconClose {
+    display: none;
+    position: fixed;
+    top: $base-spacing-unit;
+    right: $base-spacing-unit;
+
+    .ProductSearch--IsOpen & {
+        display: block;
+    }
+}
+
+.Form--hCollapse .ProductSearch__TextInput {
+    height: 44px;
+
+    @include breakpoint(medium) {
+        padding-left: $base-spacing-unit;
+        height: 50px;
+    }
 }
