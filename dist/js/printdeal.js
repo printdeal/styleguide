@@ -1872,8 +1872,11 @@ var LoaderModule = { // jshint ignore:line
 };
 
 if(typeof module === "object" && module.exports){
-    module.exports = LoaderModule;
+    module.exports = {
+        LoaderModule: LoaderModule
+    };
 }
+
 
 var Core = (function (Core, settings, Loader) {
     "use strict";
