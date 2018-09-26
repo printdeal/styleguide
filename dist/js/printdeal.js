@@ -1836,43 +1836,61 @@ var Core = (function (Core) {
     });
 }(Core || {}));
 
-var Core = (function (Core, settings) {
+"use strict";
+
+var domElement;
+
+var show = function (text) {
+    domElement.setAttribute("data-text", (text));
+    domElement.classList.add("Loader--IsActive");
+};
+
+var hide = function () {
+    domElement.classList.remove("Loader--IsActive");
+};
+
+var setup = function (loadingText) {
+    var $loader = document.getElementById("Loader");
+
+    if ($loader) {
+        domElement = $loader;
+    } else {
+        var newLoaderElement = document.createElement("div");
+        newLoaderElement.classList.add("Loader");
+        newLoaderElement.setAttribute("id", "Loader");
+        newLoaderElement.setAttribute("data-text", loadingText);
+        document.body.appendChild(newLoaderElement);
+
+        domElement = newLoaderElement;
+    }
+};
+
+var LoaderModule = {
+    show: show,
+    hide: hide,
+    setup: setup
+};
+
+if(typeof module === "object" && module.exports){
+    module.exports = {
+        LoaderModule: LoaderModule
+    };
+}
+
+
+var Core = (function (Core, settings, Loader) {
     "use strict";
 
-    var $element;
     var config = settings && settings.modules && settings.modules.loader;
     var loadingText = config && config.text || "Loading";
 
-    var show = function (text) {
-        $element
-            .attr("data-text", (text || loadingText))
-            .addClass("Loader--IsActive");
-    };
-
-    var hide = function () {
-        $element.removeClass("Loader--IsActive");
-    };
-
-    var setup = function () {
-        var $loader = $("#Loader");
-
-        if ($loader.length) {
-            $element = $loader;
-        } else {
-            $element = $("<div>")
-                .addClass("Loader")
-                .attr("id", "Loader")
-                .attr("data-text", loadingText)
-                .appendTo("body");
-        }
-    };
 
     return Core.register("Loader", {
-        setup: setup,
-        show: show,
-        hide: hide
+        setup: function () {Loader.setup(loadingText);},
+        show: function () {Loader.show(loadingText);},
+        hide: Loader.hide
     });
-}(Core || {}, window.settings));
+}(Core || {}, window.settings, LoaderModule || {})); // jshint ignore:line
 
 /**
  * @namespace Modal
