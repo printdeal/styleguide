@@ -32,3 +32,7 @@ var LoaderModule = { // jshint ignore:line
     hide: hide,
     setup: setup
 };
+
+if(typeof module === "object" && module.exports){
+    module.exports = LoaderModule;
+}
