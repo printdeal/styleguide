@@ -1865,13 +1865,13 @@ var setup = function (loadingText) {
     }
 };
 
-exports.loaderModule = {
+module.exports = {
     show: show,
     hide: hide,
     setup: setup
 };
 
-var Loader = require("./loader-base-module").loaderModule;
+var LoaderModule = require("./loader-base-module").loaderModule;
 
 var Core = (function (Core, settings, Loader) {
     "use strict";
@@ -1885,7 +1885,7 @@ var Core = (function (Core, settings, Loader) {
         show: function () {Loader.show(loadingText);},
         hide: Loader.hide
     });
-}(Core || {}, window.settings, Loader));
+}(Core || {}, window.settings, LoaderModule));
 
 /**
  * @namespace Modal

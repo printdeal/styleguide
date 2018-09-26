@@ -27,7 +27,7 @@ var setup = function (loadingText) {
     }
 };
 
-exports.loaderModule = {
+module.exports = {
     show: show,
     hide: hide,
     setup: setup
