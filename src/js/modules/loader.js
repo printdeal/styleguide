@@ -1,5 +1,3 @@
-"use strict";
-
 var domElement;
 
 var show = function (text) {
