@@ -58,15 +58,15 @@
     }
 
     @media all and (min-width: 1024px) {
-        .Postfix,
-        .Prefix {
+        .DesignsCounter .Postfix,
+        .DesignsCounter .Prefix {
             display: table-cell;
         }
     }
 
     @media all and (max-width: 1024px) {
-        .Postfix,
-        .Prefix {
+        .DesignsCounter .Postfix,
+        .DesignsCounter .Prefix {
             display: none;
         }
     }
