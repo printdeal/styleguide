@@ -27,7 +27,7 @@ var setup = function (loadingText) {
     }
 };
 
-module.exports = {
+var LoaderModule = { // jshint ignore:line
     show: show,
     hide: hide,
     setup: setup

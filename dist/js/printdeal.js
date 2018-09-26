@@ -1865,13 +1865,11 @@ var setup = function (loadingText) {
     }
 };
 
-module.exports = {
+var LoaderModule = { // jshint ignore:line
     show: show,
     hide: hide,
     setup: setup
 };
-
-var LoaderModule = require("./loader-base-module").loaderModule;
 
 var Core = (function (Core, settings, Loader) {
     "use strict";
@@ -1885,7 +1883,7 @@ var Core = (function (Core, settings, Loader) {
         show: function () {Loader.show(loadingText);},
         hide: Loader.hide
     });
-}(Core || {}, window.settings, LoaderModule));
+}(Core || {}, window.settings, LoaderModule || {}));
 
 /**
  * @namespace Modal
