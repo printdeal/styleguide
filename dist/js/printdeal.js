@@ -1836,8 +1836,6 @@ var Core = (function (Core) {
     });
 }(Core || {}));
 
-"use strict";
-
 var domElement;
 
 var show = function (text) {
@@ -1871,15 +1869,7 @@ var LoaderModule = {
     setup: setup
 };
 
-if(typeof module === "object" && module.exports){
-    module.exports = {
-        LoaderModule: LoaderModule
-    };
-}
-
-
 var Core = (function (Core, settings, Loader) {
-    "use strict";
 
     var config = settings && settings.modules && settings.modules.loader;
     var loadingText = config && config.text || "Loading";
@@ -1890,7 +1880,13 @@ var Core = (function (Core, settings, Loader) {
         show: function () {Loader.show(loadingText);},
         hide: Loader.hide
     });
-}(Core || {}, window.settings, LoaderModule || {})); // jshint ignore:line
+}(Core || {}, window.settings, LoaderModule));
+
+if(typeof module === "object" && module.exports){
+    module.exports = {
+        LoaderModule: LoaderModule
+    };
+}
 
 /**
  * @namespace Modal
