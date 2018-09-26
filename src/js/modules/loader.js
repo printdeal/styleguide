@@ -1,37 +1,13 @@
-var Core = (function (Core, settings) {
+var Core = (function (Core, settings, Loader) {
     "use strict";
 
-    var $element;
     var config = settings && settings.modules && settings.modules.loader;
     var loadingText = config && config.text || "Loading";
 
-    var show = function (text) {
-        $element
-            .attr("data-text", (text || loadingText))
-            .addClass("Loader--IsActive");
-    };
-
-    var hide = function () {
-        $element.removeClass("Loader--IsActive");
-    };
-
-    var setup = function () {
-        var $loader = $("#Loader");
-
-        if ($loader.length) {
-            $element = $loader;
-        } else {
-            $element = $("<div>")
-                .addClass("Loader")
-                .attr("id", "Loader")
-                .attr("data-text", loadingText)
-                .appendTo("body");
-        }
-    };
 
     return Core.register("Loader", {
-        setup: setup,
-        show: show,
-        hide: hide
+        setup: function () {Loader.setup(loadingText);},
+        show: function () {Loader.show(loadingText);},
+        hide: Loader.hide
     });
-}(Core || {}, window.settings));
+}(Core || {}, window.settings, LoaderModule || {})); // jshint ignore:line
