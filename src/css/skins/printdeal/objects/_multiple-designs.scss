@@ -1,0 +1,73 @@
+// UI.Object.MultipleDesigns
+
+.MultipleDesigns {
+    .DesignsCounter {
+        display: flex;
+        margin-bottom: halve($base-spacing-unit);
+        border: 1px solid color(gray-light);
+        border-radius: radius(small);
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+
+        .Field,
+        .Postfix,
+        .Prefix {
+            display: inline-block;
+            border: none;
+            vertical-align: middle;
+        }
+
+        .Field {
+            margin: 0;
+            text-align: center;
+        }
+
+        .Postfix,
+        .Prefix {
+            border-radius: 0;
+            padding: 6px 0.5em;
+            width: 30%;
+            min-width: 30%;
+            background-color: color(gray-lightest);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .Prefix {
+            flex-basis: 5em;
+            border-right: 1px solid color(gray-light);
+        }
+
+        .Postfix {
+            border-left: 1px solid color(gray-light);
+        }
+
+        .Field::-webkit-inner-spin-button,
+        .Field::-webkit-outer-spin-button {
+            margin: 0;
+        }
+    }
+
+    .DesignsCounter--HasError {
+        border-color: color(red);
+    }
+
+    .DesignsCounter--HasSuccess {
+        border-color: color(green);
+    }
+
+    @media all and (min-width: 1024px) {
+        .DesignsCounter .Postfix,
+        .DesignsCounter .Prefix {
+            display: table-cell;
+        }
+    }
+
+    @media all and (max-width: 1024px) {
+        .DesignsCounter .Postfix,
+        .DesignsCounter .Prefix {
+            display: none;
+        }
+    }
+}
