@@ -201,6 +201,10 @@
 .Form--hCollapse .ProductSearch__TextInput {
     height: 44px;
 
+    &:focus {
+        color: color(gray-darkest);
+    }
+
     @include breakpoint(medium) {
         padding-left: $base-spacing-unit;
         height: 50px;
