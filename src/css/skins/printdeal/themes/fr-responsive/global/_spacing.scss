@@ -5,3 +5,29 @@
 .mb--1 {
     margin-bottom: $base-spacing-unit;
 }
+
+.mb--1plus {
+    margin-bottom: oneandhalve($base-spacing-unit);
+}
+
+.pv--1plus {
+    padding-top: oneandhalve($base-spacing-unit);
+    padding-bottom: oneandhalve($base-spacing-unit);
+}
+
+.ph--1plus {
+    padding-right: oneandhalve($base-spacing-unit);
+    padding-left: oneandhalve($base-spacing-unit);
+}
+
+.pvh--1plus {
+    padding: oneandhalve($base-spacing-unit);
+}
+
+.pull--right {
+    float: right;
+}
+
+.pull--left {
+    float: left;
+}

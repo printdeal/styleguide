@@ -8,8 +8,8 @@
     li + li {
         &::before {
             content: ',';
-            margin-right: 0.75em;
-            margin-left: -0.25em;
+            margin-right: 0.4em;
+            margin-left: -0.22em;
         }
     }
 }
@@ -17,7 +17,7 @@
 .List--Comma--FirstIsColon {
     li:first-child + li {
         &::before {
-            content: ': ';
+            content: ':';
         }
     }
 }

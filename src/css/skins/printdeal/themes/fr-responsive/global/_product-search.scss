@@ -91,9 +91,22 @@
 
 .ProductSearchResultsList__Item {
     display: block;
+    position: relative;
     border-top: 1px solid color(white);
     border-bottom: 1px solid color(white);
     border-left: 3px solid color(white);
+    text-decoration: none;
+
+    .Media {
+        padding: 15px oneandhalve($base-spacing-unit) 15px 24px;
+    }
+
+    .ProductSearchResult--Animate--Icon {
+        display: inline-block;
+        opacity: 0;
+        margin-top: third($base-spacing-unit);
+        transition: opacity $base-animation-duration $base-animation-function;
+    }
 
     &:hover,
     &:active {
@@ -101,49 +114,18 @@
         border-top: 1px solid color(gray-light);
         border-bottom: 1px solid color(gray-light);
         border-left: 3px solid color(blue);
+
+        .ProductSearchResult--Animate--Icon {
+            opacity: 1;
+        }
     }
 }
-
-.ProductSearchResultsList__Item .Media {
-    padding: 15px;
-}
-
-a.ProductSearchResultsList__Item::after {
-    display: inline-block;
-    background-image: url('https://printdealcdn.s3.amazonaws.com/img/sprite-printdeal-fr-responsive-e4bbc08aea.svg');
-    background-size: 19em 19em;
-    width: 1em;
-    padding-bottom: 1em;
-    background-position: 5.55556% 50%;
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0.5em;
-    margin-top: -0.5em;
-    font-size: 1.5em;
-    -webkit-transition: -webkit-transform 0.15s cubic-bezier(0.25, 0.75, 0.25, 0.85);
-    transition: -webkit-transform 0.15s cubic-bezier(0.25, 0.75, 0.25, 0.85);
-    transition: transform 0.15s cubic-bezier(0.25, 0.75, 0.25, 0.85);
-    transition: transform 0.15s cubic-bezier(0.25, 0.75, 0.25, 0.85), -webkit-transform 0.15s cubic-bezier(0.25, 0.75, 0.25, 0.85); }
-.no-svg a.ProductSearchResultsList__Item::after {
-    background-image: url('https://printdealcdn.s3.amazonaws.com/img/sprite-printdeal-fr-responsive-2d71e3836d.png'); }
-a.ProductSearchResultsList__Item:hover::after, a.ProductSearchResultsList__Item:focus::after {
-    -webkit-transform: translateX(0.25em);
-    transform: translateX(0.25em); }
-a.ProductSearchResultsList__Item:hover, a.ProductSearchResultsList__Item:focus {
-    outline: none;
-    background-color: #ddeff2;
-    color: inherit; }
 
 // 1. Fallback value for browsers that don't support `max-vh` units
 .ProductSearchResults__Content {
     @include scrollable;
     max-height: 28em; // [1]
     max-height: 65vh;
-}
-
-.ProductSearchResults__Wrap {
-    padding: 27px 0;
 }
 
 .ProductSearchResults__Title {
@@ -157,9 +139,9 @@ a.ProductSearchResultsList__Item:hover, a.ProductSearchResultsList__Item:focus {
     font-weight: 700;
 }
 
-.ProductSearchResults__Footer {
-    padding: halve($base-spacing-unit);
-    text-align: center;
+.ProductSearchResults__Amount {
+    font-size: font-size(base);
+    font-weight: 400;
 }
 
 .ProductSearchResults__FooterAction {
