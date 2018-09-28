@@ -96,6 +96,7 @@
     border-bottom: 1px solid color(white);
     border-left: 3px solid color(white);
     text-decoration: none;
+    transition: border $base-animation-duration;
 
     .Media {
         padding: 15px oneandhalve($base-spacing-unit) 15px 24px;
