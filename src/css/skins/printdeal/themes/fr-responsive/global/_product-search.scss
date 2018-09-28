@@ -1,23 +1,21 @@
 .ProductSearch {
     display: block;
     position: absolute;
+    top: 5.15em;
     right: 0;
-    bottom: 0.68em;
     left: 0;
     z-index: z(productsearch);
     transition: all $base-animation-duration $base-animation-function;
 
     @include breakpoint(medium, 'max-width') {
-        padding-left: 7.5em;
+        left: 7.5em;
     }
 
     @include breakpoint(medium) {
         top: 12px;
         right: auto;
-        bottom: auto;
         left: 19.6em;
         width: 26.5em;
-        box-shadow: $shadow-panel;
     }
 
     @include breakpoint(large) {
@@ -31,11 +29,19 @@
     }
 }
 
+.ProductSearch__Wrap {
+    position: relative;
+    z-index: z(search-results);
+    border-bottom-right-radius: radius(small);
+    border-bottom-left-radius: radius(small);
+    background-color: color(white);
+    box-shadow: $shadow-panel;
+}
+
 // 1. Only put higher z-index when open, otherwise ProductNav and SiteNav
 //    will appear below the search
 .ProductSearch--IsOpen {
     z-index: z(search-form); // [1]
-    padding-left: 0;
 }
 
 .ProductSearch__Form {
@@ -50,75 +56,65 @@
 }
 
 // 1. Let the item take up as much space as possible
-// 2. Reset mobile styles
 .ProductSearchResults {
     display: none;
     flex: 1 0 auto; // [1]
-    border-top: 1px solid color(gray-light);
-    padding-right: halve($base-spacing-unit);
-    padding-left: halve($base-spacing-unit);
-    background-color: color(white);
-
-    @include breakpoint(medium) {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
-        border: solid color(gray-light);
-        border-width: 0 1px 1px 1px;
-        border-bottom-right-radius: radius(small);
-        border-bottom-left-radius: radius(small);
-        padding-right: 0; // [2]
-        padding-left: 0; // [2]
-        box-shadow: $shadow-drop;
-    }
+    border: solid color(gray-light);
+    border-width: 0 1px 1px 1px;
 }
 
 .ProductSearchResults--IsOpen {
     display: block;
-    z-index: z(search-results);
+}
 
-    @include breakpoint(medium, 'max-width') {
-        position: absolute;
-        top: 100%;
-        right: negative(halve($base-spacing-unit));
-        left: negative(halve($base-spacing-unit));
-        margin-top: quarter($base-spacing-unit);
-        border-bottom: 1px solid color(gray-light);
-        width: auto;
-    }
+.ProductSearch__Suggestions {
+    border-bottom: 1px solid color(gray-light);
 }
 
 .ProductSearchResultsList__Item {
     display: block;
     position: relative;
-    border-top: 1px solid color(white);
-    border-bottom: 1px solid color(white);
-    border-left: 3px solid color(white);
+    border: solid transparent;
+    border-width: 1px 0 1px 3px;
     text-decoration: none;
-    transition: border $base-animation-duration;
+    transition: border-color $base-animation-duration;
 
     .Media {
-        padding: 15px oneandhalve($base-spacing-unit) 15px 24px;
+        padding: halve($base-spacing-unit) halve($base-spacing-unit) halve($base-spacing-unit) 9px;
+
+        @include breakpoint(medium) {
+            padding: 15px oneandhalve($base-spacing-unit) 15px 24px;
+        }
+    }
+
+    .Media__Img {
+        border: 1px solid color(gray-lighter);
+
+        @include breakpoint(medium) {
+            margin-right: $base-spacing-unit;
+        }
     }
 
     .ProductSearchResult--Animate--Icon {
         display: inline-block;
         opacity: 0;
-        margin-top: third($base-spacing-unit);
+        margin-top: 12px;
         transition: opacity $base-animation-duration $base-animation-function;
     }
 
     &:hover,
     &:active {
         outline: none;
-        border-top: 1px solid color(gray-light);
-        border-bottom: 1px solid color(gray-light);
-        border-left: 3px solid color(blue);
+        border-color: color(gray-light) transparent color(gray-light) color(blue);
 
         .ProductSearchResult--Animate--Icon {
             opacity: 1;
         }
+    }
+
+    // Cannot declare this in _background.scss cuz we want to limit the scope
+    .BG--NoImage {
+        background-color: color(gray-lightest);
     }
 }
 
@@ -141,6 +137,7 @@
 }
 
 .ProductSearchResults__Amount {
+    line-height: 1.6;
     font-size: font-size(base);
     font-weight: 400;
 }
@@ -165,27 +162,33 @@
     z-index: z(search-backdrop);
 }
 
-.ProductSearchIcon--up {
-    position: relative;
-    top: -2px;
-}
-
 .Form--Inline .ProductSearchBtn--Large {
-    margin: 3px;
-    height: 38px;
+    margin: 5px 0 5px 5px;
+    border-width: 1px 1px 3px;
+    border-style: solid;
+    border-color: transparent;
+    border-top-left-radius: radius(small);
+    border-bottom-left-radius: radius(small);
+    height: 40px;
+    transition: height $base-animation-duration $base-animation-function, margin $base-animation-duration $base-animation-function;
 
-    @include breakpoint(medium) {
-        margin: 5px;
-        height: 40px;
+    @include breakpoint(medium, 'max-width') {
+        margin: 3px 0 3px 3px;
+        height: 26px;
     }
 
     .ProductSearch--IsOpen & {
-        border-width: 1px 1px 3px;
-        border-style: solid;
+        margin: 5px;
         border-color: color(orange-dark);
+        height: 40px;
         background-color: color(orange);
         color: color(white);
     }
+}
+
+.ProductSearchIcon--up {
+    position: relative;
+    top: -2px;
 }
 
 .ProductSearch__IconClose {
@@ -207,6 +210,12 @@
         color: color(gray-darkest);
     }
 
+    @include breakpoint(medium, 'max-width') {
+        .ProductSearch--IsOpen & {
+            height: 50px;
+        }
+    }
+
     @include breakpoint(medium) {
         padding-right: oneandhalve($base-spacing-unit);
         padding-left: oneandhalve($base-spacing-unit);
@@ -216,12 +225,7 @@
 
 .ProductSearchResult__Loader {
     position: absolute;
-    top: 10px;
-    right: 60px;
+    top: 15px;
+    right: 70px;
     opacity: 0.5;
-
-    @include breakpoint(medium) {
-        top: 15px;
-        right: 70px;
-    }
 }
