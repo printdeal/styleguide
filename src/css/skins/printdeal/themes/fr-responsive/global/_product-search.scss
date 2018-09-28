@@ -200,14 +200,28 @@
 }
 
 .Form--hCollapse .ProductSearch__TextInput {
-    height: 44px;
+    padding-right: $base-spacing-unit;
+    padding-left: $base-spacing-unit;
 
     &:focus {
         color: color(gray-darkest);
     }
 
     @include breakpoint(medium) {
-        padding-left: $base-spacing-unit;
+        padding-right: oneandhalve($base-spacing-unit);
+        padding-left: oneandhalve($base-spacing-unit);
         height: 50px;
+    }
+}
+
+.ProductSearchResult__Loader {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    opacity: 0.5;
+
+    @include breakpoint(medium) {
+        top: 15px;
+        right: 70px;
     }
 }
