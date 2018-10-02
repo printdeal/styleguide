@@ -20,6 +20,7 @@
 
         .Field {
             margin: 0;
+            width: 40%;
             text-align: center;
         }
 
@@ -33,8 +34,8 @@
         .Prefix {
             border-radius: 0;
             padding: 6px 0.5em;
-            width: 30%;
             min-width: 30%;
+            max-width: 30%;
             background-color: color(gray-lightest);
             text-align: center;
             cursor: pointer;
@@ -52,6 +53,10 @@
         .Field::-webkit-inner-spin-button,
         .Field::-webkit-outer-spin-button {
             margin: 0;
+        }
+
+        .Icon {
+            vertical-align: middle;
         }
     }
 
@@ -74,6 +79,10 @@
         .DesignsCounter .Postfix,
         .DesignsCounter .Prefix {
             display: none;
+        }
+
+        .DesignsCounter .Field {
+            width: 100%;
         }
     }
 }
