@@ -79,16 +79,22 @@
     text-decoration: none;
     transition: border-color $base-animation-duration;
 
-    .Media {
-        padding: halve($base-spacing-unit) halve($base-spacing-unit) halve($base-spacing-unit) 9px;
+    .Media,
+    .Flag {
+        padding: halve($base-spacing-unit);
 
         @include breakpoint(medium) {
             padding: 15px oneandhalve($base-spacing-unit) 15px 24px;
         }
     }
 
-    .Media__Img {
-        border: 1px solid color(gray-lighter);
+    .Media__Img,
+    .Flag__Img {
+        padding-right: $base-spacing-unit;
+
+        img {
+            border: 1px solid color(gray-lighter);
+        }
 
         @include breakpoint(medium) {
             margin-right: $base-spacing-unit;
@@ -98,23 +104,35 @@
     .ProductSearchResult--Animate--Icon {
         display: inline-block;
         opacity: 0;
-        margin-top: 12px;
         transition: opacity $base-animation-duration $base-animation-function;
+
+        &.pull--right {
+            position: absolute;
+            top: calc(50% - 13px);
+            right: 0;
+            float: none;
+            margin-top: 0;
+        }
     }
 
     &:hover,
     &:active {
         outline: none;
-        border-color: color(gray-light) transparent color(gray-light) color(blue);
+        border-left-color: color(blue);
 
         .ProductSearchResult--Animate--Icon {
             opacity: 1;
         }
     }
+}
 
-    // Cannot declare this in _background.scss cuz we want to limit the scope
-    .BG--NoImage {
-        background-color: color(gray-lightest);
+.SiteHeader {
+    .ProductSearchResultsList__Item {
+        &:hover,
+        &:active {
+            border-top-color: color(gray-light);
+            border-bottom-color: color(gray-light);
+        }
     }
 }
 
@@ -228,4 +246,17 @@
     top: 15px;
     right: 70px;
     opacity: 0.5;
+}
+
+.ProductSearchResultsOverview {
+    .Search__Header {
+        display: table;
+        border-bottom: 1px solid color(gray-light);
+        padding-bottom: halve($base-spacing-unit);
+        width: 100%;
+    }
+
+    a {
+        border-bottom-color: color(gray-light);
+    }
 }

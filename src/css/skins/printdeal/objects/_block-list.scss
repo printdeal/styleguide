@@ -49,3 +49,11 @@ $blocklist-large-inner-spacing: $base-spacing-unit * 1.5;
         padding-bottom: $blocklist-large-inner-spacing;
     }
 }
+
+.BlockList--Medium {
+    > li,
+    > a {
+        padding-top: $base-spacing-unit;
+        padding-bottom: $base-spacing-unit;
+    }
+}
