@@ -101,6 +101,10 @@
         }
     }
 
+    .Flag__Body {
+        padding-right: oneandhalve($base-spacing-unit);
+    }
+
     .ProductSearchResult--Animate--Icon {
         display: inline-block;
         opacity: 0;
