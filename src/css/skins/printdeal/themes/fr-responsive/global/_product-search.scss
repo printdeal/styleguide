@@ -164,6 +164,21 @@
     font-weight: 400;
 }
 
+.ProductSearchResults__Amount__OnPage {
+    display: block;
+    margin-top: quarter($base-spacing-unit);
+
+    @include breakpoint(medium, 'max-width') {
+        clear: both;
+    }
+
+    @include breakpoint(medium) {
+        display: inline-block;
+        float: right;
+        margin-top: 0;
+    }
+}
+
 .ProductSearchResults__FooterAction {
     font-size: font-size(h3);
 }
