@@ -1,0 +1,88 @@
+// UI.Object.MultipleDesigns
+
+.MultipleDesigns {
+    .DesignsCounter {
+        display: flex;
+        margin-bottom: halve($base-spacing-unit);
+        border: 1px solid color(gray-light);
+        border-radius: radius(small);
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+
+        .Field,
+        .Postfix,
+        .Prefix {
+            display: inline-block;
+            border: none;
+            vertical-align: middle;
+        }
+
+        .Field {
+            margin: 0;
+            width: 40%;
+            text-align: center;
+        }
+
+        .Field--HasError {
+            border: 1px solid color(red-shade);
+            border-radius: 0;
+            background-color: color(red-light);
+        }
+
+        .Postfix,
+        .Prefix {
+            border-radius: 0;
+            padding: 6px 0.5em;
+            min-width: 30%;
+            max-width: 30%;
+            background-color: color(gray-lightest);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .Prefix {
+            flex-basis: 5em;
+            border-right: 1px solid color(gray-light);
+        }
+
+        .Postfix {
+            border-left: 1px solid color(gray-light);
+        }
+
+        .Field::-webkit-inner-spin-button,
+        .Field::-webkit-outer-spin-button {
+            margin: 0;
+        }
+
+        .Icon {
+            vertical-align: middle;
+        }
+    }
+
+    .DesignsCounter--HasError {
+        border-color: color(red);
+    }
+
+    .DesignsCounter--HasSuccess {
+        border-color: color(green);
+    }
+
+    @media all and (min-width: 1024px) {
+        .DesignsCounter .Postfix,
+        .DesignsCounter .Prefix {
+            display: table-cell;
+        }
+    }
+
+    @media all and (max-width: 1024px) {
+        .DesignsCounter .Postfix,
+        .DesignsCounter .Prefix {
+            display: none;
+        }
+
+        .DesignsCounter .Field {
+            width: 100%;
+        }
+    }
+}
