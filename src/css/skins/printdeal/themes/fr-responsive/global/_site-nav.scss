@@ -4,6 +4,7 @@
     margin-bottom: $base-spacing-unit;
     border-bottom: 1px solid  color(gray-light);
     background-color: color(white);
+    box-shadow: $shadow-panel;
 
     &::before {
         content: '';
