@@ -1,3 +1,7 @@
 .is-scrollable {
     @include scrollable;
 }
+
+.is-not-scrollable {
+    overflow: hidden;
+}

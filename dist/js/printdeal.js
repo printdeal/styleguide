@@ -1901,6 +1901,7 @@ var Core = (function (Core, $, randomString) {
 
     var _$document = $(document),
 
+        _$html = $("html"),
         _$body = $("body"),
 
         /**
@@ -2190,6 +2191,8 @@ var Core = (function (Core, $, randomString) {
                 _elements.$title.empty();
             }
 
+            _$html.add(_$body).addClass("is-not-scrollable");
+
             _$body.append(
                 _elements.$backdrop,
                 _$modal
@@ -2366,6 +2369,7 @@ var Core = (function (Core, $, randomString) {
             $(".Modal__Footer").remove();
             _$modal.removeClass().remove();
             _$document.trigger("modal:close");
+            _$html.add(_$body).removeClass("is-not-scrollable");
 
             if (_trigger) {
                 _trigger.focus();
