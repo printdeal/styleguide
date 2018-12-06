@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg id="List" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g>
+		<path d="M11.8,3.7c0,0.1-0.1,0.2-0.2,0.2H3.1C3,3.9,3,3.8,3,3.7v-1
+			C3,2.6,3,2.5,3.1,2.5h8.5c0.1,0,0.2,0.1,0.2,0.2V3.7z"/>
+		<circle  cx="1" cy="3.1" r="0.8"/>
+		<path d="M9.1,6.8c0,0.1-0.1,0.2-0.2,0.2H3.1C3,6.9,3,6.9,3,6.8v-1
+			C3,5.7,3,5.6,3.1,5.6H9c0.1,0,0.2,0.1,0.2,0.2V6.8z"/>
+		<circle cx="1" cy="6.3" r="0.8"/>
+		<path d="M9.8,9.8c0,0.1-0.1,0.2-0.2,0.2H3.1C3,10,3,9.9,3,9.8v-1
+			C3,8.7,3,8.7,3.1,8.7h6.6c0.1,0,0.2,0.1,0.2,0.2V9.8z"/>
+		<circle cx="1" cy="9.4" r="0.8"/>
+	</g>
+</svg>
