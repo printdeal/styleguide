@@ -124,4 +124,25 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
         @include sprite;
         @include icon('Check--Green');
     }
+
+    // stylelint-disable selector-no-vendor-prefix
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: color(gray-medium) !important;
+    }
+
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: color(gray-medium) !important;
+    }
+
+    :-ms-input-placeholder { /* IE 10+ */
+        color: color(gray-medium) !important;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+        color: color(gray-medium) !important;
+    }
+
+    ::placeholder {
+        color: color(gray-medium) !important;
+    }
 }
