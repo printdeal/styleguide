@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg id="CrossCircle" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<path d="M5.977,1.137c-2.696,0-4.883,2.186-4.883,4.883c0,2.697,2.186,4.881,4.883,4.881
-	c2.697,0,4.883-2.186,4.883-4.881C10.86,3.323,8.675,1.137,5.977,1.137z M8.141,7.269L7.375,8.035l-1.248-1.25l-1.25,1.25
-	L4.11,7.269L5.36,6.02L4.11,4.77l0.766-0.765l1.249,1.248l1.249-1.248L8.141,4.77L6.892,6.02L8.141,7.269z"/>
-</svg>

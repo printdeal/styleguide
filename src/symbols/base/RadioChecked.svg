@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg id="RadioChecked" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g>
-		<circle fill="#AAAAAA" cx="6" cy="6" r="4.9"/>
-		<circle fill="#FFFFFF" cx="6" cy="6" r="4.4"/>
-		<circle fill="#00AAEE" cx="6" cy="6" r="2.7"/>
-	</g>
-</svg>
