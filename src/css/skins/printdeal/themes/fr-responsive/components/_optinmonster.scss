@@ -23,6 +23,13 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
         }
     }
 
+    @media (max-width: 719px) {
+        .Campaign__innerWrapper {
+            margin-right: 15px;
+            margin-left: 15px;
+        }
+    }
+
     .Campaign__content {
         padding: 0 !important;
     }
