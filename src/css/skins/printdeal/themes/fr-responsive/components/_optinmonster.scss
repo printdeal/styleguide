@@ -5,15 +5,15 @@
 div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
     span {
         line-height: 1.3846 !important;
-        font-family: 'Noto Sans', 'Arial', 'Helvetica', sans-serif !important;
+        font-family: map-get($brand-face, family) !important;
     }
 
     input[type='text'],
     input[type='email'] {
         border-color: color(gray-lighter) !important;
         padding: 0.45em 0.5em !important;
-        font-family: 'Noto Sans', 'Arial', 'Helvetica', sans-serif !important;
-        font-size: 13px !important;
+        font-family: map-get($brand-face, family) !important;
+        font-size: font-size(base) !important;
     }
 
     @media (max-width: 719px) {
@@ -53,8 +53,8 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
 
     .omaha-TextElement--content {
         color: color(black) !important;
-        font-family: 'Noto Sans', 'Arial', 'Helvetica', sans-serif !important;
-        font-size: 16px !important;
+        font-family: map-get($brand-face, family) !important;
+        font-size: font-size(h2) !important;
         font-weight: 700 !important;
     }
 
@@ -62,7 +62,7 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
     // stylelint-disable  selector-max-specificity
     .Row + .Row .omaha-TextElement--content {
         color: color(gray-darker) !important;
-        font-size: 13px !important;
+        font-size: font-size(base) !important;
         font-weight: 400 !important;
     }
 
@@ -105,7 +105,7 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
         padding: 0.5em 0.66em !important;
         width: auto !important;
         background-color: color(orange) !important;
-        font-size: 14px !important;
+        font-size: font-size(button) !important;
     }
 
     .omaha-field-submit:hover,
@@ -151,5 +151,13 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
 
     ::placeholder {
         color: color(gray-medium) !important;
+    }
+
+    .omaha-error {
+        border-color: color(red-shade);
+        background-color: color(red-light);
+        color: color(red-shade);
+        font-family: map-get($brand-face, family) !important;
+        font-size: font-size(base) !important;
     }
 }
