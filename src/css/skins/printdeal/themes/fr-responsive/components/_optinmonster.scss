@@ -2,7 +2,8 @@
 // Should OptinMonster ever be removed, this entire stylesheet can also be removed.
 
 // stylelint-disable declaration-no-important
-div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
+// stylelint-disable selector-no-qualifying-type
+div[id^='om-'] {
     span {
         line-height: 1.3846 !important;
         font-family: map-get($brand-face, family) !important;
@@ -43,7 +44,7 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
         font-size: 12px !important;
     }
 
-    .omaha-TextElement--wrapper {
+    div[class*='-TextElement--wrapper'] {
         padding: 0 !important;
     }
 
@@ -51,7 +52,7 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
         min-height: 1px !important;
     }
 
-    .omaha-TextElement--content {
+    div[class*='-TextElement--content'] {
         color: color(black) !important;
         font-family: map-get($brand-face, family) !important;
         font-size: font-size(h2) !important;
@@ -60,13 +61,13 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
 
     // stylelint-disable selector-max-compound-selectors
     // stylelint-disable  selector-max-specificity
-    .Row + .Row .omaha-TextElement--content {
+    .Row + .Row div[class*='-TextElement--content'] {
         color: color(gray-darker) !important;
         font-size: font-size(base) !important;
         font-weight: 400 !important;
     }
 
-    .omaha-ImageElement--wrapper {
+    div[class*='-ImageElement--wrapper'] {
         display: none !important;
 
         @media (min-width: 720px) {
@@ -76,11 +77,11 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
         }
     }
 
-    .omaha-ImageElement--content img {
+    div[class*='-ImageElement--content'] img {
         width: auto !important;
     }
 
-    .omaha-CloseButton {
+    button[class*='-CloseButton'] {
         top: 1px !important;
         right: 1px !important;
         border-radius: 0 !important;
@@ -94,11 +95,11 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
         }
     }
 
-    .omaha-FieldsElement--wrapper {
+    div[class*='-FieldsElement--wrapper'] {
         padding: 0 !important;
     }
 
-    .omaha-field-submit {
+    button[class*='-field-submit'] {
         display: inline-block !important;
         margin: 0 !important;
         border-bottom-width: 3px !important;
@@ -108,8 +109,8 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
         font-size: font-size(button) !important;
     }
 
-    .omaha-field-submit:hover,
-    .omaha-field-submit:focus {
+    button[class*='-field-submit']:hover,
+    button[class*='-field-submit']:focus {
         border-bottom-width: 3px !important;
         background-color: color(orange-shade) !important;
     }
@@ -153,7 +154,7 @@ div[id^='om-'] { // stylelint-disable selector-no-qualifying-type
         color: color(gray-medium) !important;
     }
 
-    .omaha-error {
+    div[class*='-error'] {
         border-color: color(red-shade);
         background-color: color(red-light);
         color: color(red-shade);
